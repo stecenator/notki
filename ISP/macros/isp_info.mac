@@ -1,0 +1,12 @@
+# Informacje o systemie
+q system
+# Klienci
+select node_name,DOMAIN_NAME, CLIENT_VERSION || '.' || CLIENT_RELEASE || '.' || CLIENT_LEVEL || '.' || CLIENT_SUBLEVEL as ver,APPLICATION_VERSION || '.' || APPLICATION_RELEASE || '.' || APPLICATION_LEVEL || '.' || APPLICATION_SUBLEVEL as app ,PLATFORM_NAME, CLIENT_OS_LEVEL,TCP_NAME,TCP_ADDRESS, days(current date) - days(LASTACC_TIME) as LAST_ACC from nodes order by LAST_ACC desc, NODE_NAME asc
+# Polityki backupu
+select DOMAIN_NAME,CLASS_NAME,VEREXISTS,VERDELETED,RETEXTRA,RETONLY,DESTINATION from bu_copygroups  where set_name='ACTIVE'
+# Polityki archiwizacji
+select DOMAIN_NAME,CLASS_NAME,RETVER,DESTINATION from ar_copygroups where set_name='ACTIVE'
+# Harmonogramy klienckie
+q sched f=d
+# Klasy urządzeń 
+elect DEVCLASS_NAME,ACCESS_STRATEGY,DEVTYPE,FORMAT,CAPACITY /1024 as GIB, MOUNTLIMIT, DIRECTORY from devclasses
