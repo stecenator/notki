@@ -8,7 +8,7 @@ Sprawdź [oficjalne wymagania](https://www.ibm.com/support/pages/overview-ibm-sp
 
 ### SELinux
 
-`Disabled` albo `Permissive`. Podobno, po utworzeniu insancji można właczyć na `Enforcing`.
+`Disabled` albo `Permissive`. Po utworzeniu insancji można właczyć na `Enforcing`.
 
 ### Pakiety
 
@@ -94,7 +94,7 @@ fsize = -1
 
 ## Parametry FC i fscsi 
 
-Dla taśm, AIX wymaga innych ustawiań niż dla dysków, dlatego trzeba dać dedykowane kontrolery (v)fc:
+Dla taśm, AIX wymaga innych ustawiań niż dla dysków, dlatego trzeba dać dedykowane kontrolery (v)fc:
 
 
 
