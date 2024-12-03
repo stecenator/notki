@@ -23,17 +23,15 @@
 1. Policzenie scratchy w wszystkich bibliotekach:
 
   ```sql
-  select library_name, 
-    count(volume_name) as scr 
+  select cast(library_name as char(15)) Libr, status, count(volume_name) as tape 
   from libvolumes 
-  where status='Scratch' 
-  group by library_name
+  group by library_name, status
   ```
 
   Wersja jednolinijkowa:
   
   ```sql
-  select library_name, count(volume_name) as scr from libvolumes where status='Scratch' group by library_name
+  select cast(library_name as char(15)) Libr, status, count(volume_name) as tape from libvolumes group by library_name, status
   ```
    
 
