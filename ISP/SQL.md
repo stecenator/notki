@@ -20,7 +20,7 @@
 	select cast(volume_name as char(12)) VN, cast(stgpool_name as char(15)) PN, cast(access as char(10)) acc, status  from volumes where volume_name in ( select volume_name from libvolumes where library_name='TS4500KON' and volume_name like '%L5' and status='Private') and status='EMPTY'
 	```
 
-1. Policzenie scratchy w wszystkich bibliotekach:
+1. Policzenie taśm w rożnych statusach we wszystkich bibliotekach:
 
 	```sql
 	select cast(library_name as char(15)) Libr, status, count(volume_name) as tape 
@@ -34,6 +34,11 @@
 	select cast(library_name as char(15)) Libr, status, count(volume_name) as tape from libvolumes group by library_name, status
 	```
    
+   Definicja skryptu **`tape_stats`**:
+
+   ```
+   def scr tape_stats "select cast(library_name as char(15)) Libr, status, count(volume_name) as tape from libvolumes group by library_name, status"
+   ```
 
 1. Scieżki OFFLINE (trochę ładniej niż `q path`:
 
