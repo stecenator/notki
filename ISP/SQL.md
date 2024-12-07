@@ -39,6 +39,13 @@
    ```
    def scr tape_stats "select cast(library_name as char(15)) Libr, status, count(volume_name) as tape from libvolumes group by library_name, status"
    ```
+1. *`vol_stats`* - Statystyki voluminów w pulach
+
+	Zlicza wolimuny w stanach `Filing`, `Full<50` (jako `Recl`), `Full` i `Pending`
+
+	```sql
+	select 
+	```
 
 1. Scieżki OFFLINE (trochę ładniej niż `q path`:
 
@@ -60,7 +67,7 @@
 		desc="Lista sciezek OFFLINE"
 	```
 
-1. **Nieaktualne. Lepiej użyć `perform libaction`**Generator makra masowego podnoszenia ścieżek:
+1. **Nieaktualne. Lepiej użyć `perform libaction`** Generator makra masowego podnoszenia ścieżek:
 
 	```sql
 	select 'upd path ' as upd, cast(SOURCE_NAME as char(15)) as  ,cast(DESTINATION_NAME as char(12)) as dest, 'srct=server destt=drive' as types, concat('libr=',cast(LIBRARY_name as char(20))) as libr, 'onlin=yes' as onl  from paths where online='NO' and destination_type='DRIVE'
@@ -100,6 +107,33 @@
 	from volumes 
 	where days(current date) - days(LAST_READ_DATE) > 90 
 	order by LAST_WRITE_DATE
+	```
+
+1. Statystyki woluminów w pulach z rozbiciem na reclaimowalne i nie:
+
+	```sql
+	select STGPOOL_NAME, 
+		cast(case -
+			when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' -
+			when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' -
+			else STATUS -
+			END as char(10)) as stat, -
+		count(volume_name) as vols -
+	from volumes -
+	group by STGPOOL_NAME, 
+		case -
+			when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' -
+			when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' -
+			else STATUS END - 
+	order by stgpool_name, stat
+	```
+
+	Definicja jako skrypt **`vol_stats`** (można kopiować i wklejać w całości bo są `-` na końcach linii):
+
+	```
+	define script vol_stats -
+	"select STGPOOL_NAME, cast(case when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' else STATUS END as char(10)) as stat, count(volume_name) as vols from volumes group by STGPOOL_NAME, case when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' else STATUS END order by stgpool_name, stat" -
+	desc="Statusy tasm w pulach"
 	```
 
 ## Klasy urządzeń
