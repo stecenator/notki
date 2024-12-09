@@ -39,12 +39,57 @@
    ```
    def scr tape_stats "select cast(library_name as char(15)) Libr, status, count(volume_name) as tape from libvolumes group by library_name, status"
    ```
-1. *`vol_stats`* - Statystyki voluminów w pulach
+
+1. Statystyki woluminów w pulach z rozbiciem na reclaimowalne. **`vol_stats`** i nie:
 
 	Zlicza wolimuny w stanach `Filing`, `Full<50` (jako `Recl`), `Full` i `Pending`
 
 	```sql
-	select 
+	select STGPOOL_NAME, 
+		cast(case -
+			when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' -
+			when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' -
+			else STATUS -
+			END as char(10)) as stat, -
+		count(volume_name) as vols -
+	from volumes -
+	group by STGPOOL_NAME, 
+		case -
+			when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' -
+			when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' -
+			else STATUS END - 
+	order by stgpool_name, stat
+	```
+
+	Definicja jako skrypt **`vol_stats`** (można kopiować i wklejać w całości bo są `-` na końcach linii):
+
+	```
+	define script vol_stats -
+	"select STGPOOL_NAME, cast(case when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' else STATUS END as char(10)) as stat, count(volume_name) as vols from volumes group by STGPOOL_NAME, case when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' else STATUS END order by stgpool_name, stat" -
+	desc="Statusy tasm w pulach"
+	```
+
+1. Statystyki pul. Teki trochę ładniejsze `q stg` ;-)
+
+
+	```sql
+	select cast(stgpool_name as char(20)) as STG, -
+		PCT_UTILIZED, -
+		RECLAIM, -
+		RECLAIMPROCESS, -
+		MIGPROCESS, -
+		lpad((NUMSCRATCHUSED || '/' || MAXSCRATCH),10,' ') as Scr,  -
+		dec(dec(NUMSCRATCHUSED,6,2)/dec(MAXSCRATCH,6,2)*100, 5,1) as ScrPct  -
+	from stgpools -
+	where maxscratch>0 -
+	order by ScrPct
+	```
+
+	Definicja skryptu **`stg_stats`**:
+
+	```
+	define script stg_stats "select cast(stgpool_name as char(20)) as STG, PCT_UTILIZED, RECLAIM, RECLAIMPROCESS, MIGPROCESS, lpad((NUMSCRATCHUSED || '/' || MAXSCRATCH),10,' ') as Scr, dec(dec(NUMSCRATCHUSED,6,2)/dec(MAXSCRATCH,6,2)*100, 5,1) as ScrPct from stgpools where maxscratch>0 order by ScrPct" -
+	desc="Statystyki pul"
 	```
 
 1. Scieżki OFFLINE (trochę ładniej niż `q path`:
@@ -100,7 +145,7 @@
 	desc="Makro do podnoszeni sciezek"
 	```
 
-1. Taśmy o ostatnim odczycie starszym niż 90 dni:
+1. Taśmy o ostatnim odczycie starszym niż 90 dni:
 
 	```sql
 	select VOLUME_NAME, LAST_WRITE_DATE 
@@ -109,32 +154,6 @@
 	order by LAST_WRITE_DATE
 	```
 
-1. Statystyki woluminów w pulach z rozbiciem na reclaimowalne i nie:
-
-	```sql
-	select STGPOOL_NAME, 
-		cast(case -
-			when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' -
-			when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' -
-			else STATUS -
-			END as char(10)) as stat, -
-		count(volume_name) as vols -
-	from volumes -
-	group by STGPOOL_NAME, 
-		case -
-			when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' -
-			when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' -
-			else STATUS END - 
-	order by stgpool_name, stat
-	```
-
-	Definicja jako skrypt **`vol_stats`** (można kopiować i wklejać w całości bo są `-` na końcach linii):
-
-	```
-	define script vol_stats -
-	"select STGPOOL_NAME, cast(case when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' else STATUS END as char(10)) as stat, count(volume_name) as vols from volumes group by STGPOOL_NAME, case when Status='FULL' and PCT_UTILIZED>=50 then 'FULL' when Status='FULL' and PCT_UTILIZED<49 then 'RECLAIM' else STATUS END order by stgpool_name, stat" -
-	desc="Statusy tasm w pulach"
-	```
 
 ## Klasy urządzeń
 
