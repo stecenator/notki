@@ -19,12 +19,86 @@
 	```sql
 	select cast(volume_name as char(12)) VN, cast(stgpool_name as char(15)) PN, cast(access as char(10)) acc, status  from volumes where volume_name in ( select volume_name from libvolumes where library_name='TS4500KON' and volume_name like '%L5' and status='Private') and status='EMPTY'
 	```
+1. **Nieaktualne. Lepiej użyć `perform libaction`** Generator makra masowego podnoszenia ścieżek:
+
+	```sql
+	select 'upd path ' as upd, cast(SOURCE_NAME as char(15)) as  ,cast(DESTINATION_NAME as char(12)) as dest, 'srct=server destt=drive' as types, concat('libr=',cast(LIBRARY_name as char(20))) as libr, 'onlin=yes' as onl  from paths where online='NO' and destination_type='DRIVE'
+	```
+
+	Przykładowy output:
+
+	```tsm
+	Protect: WAW5-TSM-SRV01>run PADLINA_PATH_UP
+	UPD            AS                   DEST              TYPES                        LIBR                           ONL       
+	----------     ----------------     -------------     ------------------------     --------------------------     ----------
+	upd path       WAW5-TSM-SRV01       WAW5-PTDRV13      srct=server destt=drive      libr=WAW5-TSM01-LIB            onlin=yes 
+	upd path       WAW5-TSM-SRV01       WAW5-PTDRV14      srct=server destt=drive      libr=WAW5-TSM01-LIB            onlin=yes 
+	upd path       WAW5-TSM-SRV01       WAW5-PTDRV15      srct=server destt=drive      libr=WAW5-TSM01-LIB            onlin=yes 
+	upd path       WAW5-TSM-SRV01       WAW5-PTDRV16      srct=server destt=drive      libr=WAW5-TSM01-LIB            onlin=yes
+	```
+
+ 	Definicja skryptu:
+
+	```
+	def scr paths_up -
+	"select 'upd path ' as upd, -
+		cast(SOURCE_NAME as char(15)) as src, -
+		cast(DESTINATION_NAME as char(12)) as dest, -
+		'srct=server destt=drive' as types, -
+		concat('libr=',cast(LIBRARY_name as char(20))) as libr, -
+		'onlin=yes' as onl -
+	from paths -
+	where online='NO' and destination_type='DRIVE'" -
+	desc="Makro do podnoszeni sciezek"
+	```
+
+1. Scieżki OFFLINE (trochę ładniej niż `q path`:
+
+	```sql
+	select cast(SOURCE_NAME as char(15)) src, -
+	 cast(DESTINATION_NAME as char(15)) dst, - 
+	 cast(p.LIBRARY_NAME as char(15)) libr, - 
+	 cast(DEVICE as char(40)) as dev, - 
+	 cast(drive_serial as char(15)) as serial, -
+	 WWN -
+	from paths p, drives d -
+	where p.online<>'YES' and d.drive_name=p.destination_name
+	```
+
+	Definicja skryptu w SP:
+
+	```
+	def scr offline_paths "select cast(SOURCE_NAME as char(15)) src, cast(DESTINATION_NAME as char(15)) dst, cast(p.LIBRARY_NAME as char(15)) libr, cast(DEVICE as char(20)) as dev,  cast(drive_serial as char(15)) as serial, WWN from paths p, drives d where p.online <> 'YES' and d.drive_name = p.destination_name" -
+		desc="Lista sciezek OFFLINE"
+	```
+
+## Klasy urządzeń
+
+1. DevClass (raczej sekwencyjne)
+
+	```sql
+	select DEVCLASS_NAME,ACCESS_STRATEGY,DEVTYPE,FORMAT,CAPACITY /1024 as GIB, MOUNTLIMIT, cast(DIRECTORY as char(50)) dir from devclasses
+	```
+
+## Statystyki i zbieranie użytecznych danych (storage)
+
+Tu są skrypty, które przydają się w porannej kawie i ogólnej ocenie stanu zdrowia TSMa od strony pamięci: bilioteki, woluminy, pule
+
+1. Taśmy o ostatnim odczycie starszym niż 90 dni:
+
+	```sql
+	select VOLUME_NAME, LAST_WRITE_DATE 
+	from volumes 
+	where days(current date) - days(LAST_READ_DATE) > 90 
+	order by LAST_WRITE_DATE
+	```
+
 
 1. Policzenie taśm w rożnych statusach we wszystkich bibliotekach:
 
 	```sql
-	select cast(library_name as char(15)) Libr, status, count(volume_name) as tape 
-	from libvolumes 
+	select cast(library_name as char(15)) Libr, status, count(volume_name) as tape -
+	from libvolumes -
 	group by library_name, status
 	```
 
@@ -92,77 +166,6 @@
 	desc="Statystyki pul"
 	```
 
-1. Scieżki OFFLINE (trochę ładniej niż `q path`:
-
-	```sql
-	select cast(SOURCE_NAME as char(15)) src, -
-	 cast(DESTINATION_NAME as char(15)) dst, - 
-	 cast(p.LIBRARY_NAME as char(15)) libr, - 
-	 cast(DEVICE as char(20)) as dev, - 
-	 cast(drive_serial as char(15)) as serial, -
-	 WWN -
-	from paths p, drives d -
-	where p.online <> 'YES' and d.drive_name = p.destination_name
-	```
-
-	Definicja skryptu w SP:
-
-	```
-	def scr offline_paths "select cast(SOURCE_NAME as char(15)) src, cast(DESTINATION_NAME as char(15)) dst, cast(p.LIBRARY_NAME as char(15)) libr, cast(DEVICE as char(20)) as dev,  cast(drive_serial as char(15)) as serial, WWN from paths p, drives d where p.online <> 'YES' and d.drive_name = p.destination_name" -
-		desc="Lista sciezek OFFLINE"
-	```
-
-1. **Nieaktualne. Lepiej użyć `perform libaction`** Generator makra masowego podnoszenia ścieżek:
-
-	```sql
-	select 'upd path ' as upd, cast(SOURCE_NAME as char(15)) as  ,cast(DESTINATION_NAME as char(12)) as dest, 'srct=server destt=drive' as types, concat('libr=',cast(LIBRARY_name as char(20))) as libr, 'onlin=yes' as onl  from paths where online='NO' and destination_type='DRIVE'
-	```
-
-	Przykładowy output:
-
-	```tsm
-	Protect: WAW5-TSM-SRV01>run PADLINA_PATH_UP
-	UPD            AS                   DEST              TYPES                        LIBR                           ONL       
-	----------     ----------------     -------------     ------------------------     --------------------------     ----------
-	upd path       WAW5-TSM-SRV01       WAW5-PTDRV13      srct=server destt=drive      libr=WAW5-TSM01-LIB            onlin=yes 
-	upd path       WAW5-TSM-SRV01       WAW5-PTDRV14      srct=server destt=drive      libr=WAW5-TSM01-LIB            onlin=yes 
-	upd path       WAW5-TSM-SRV01       WAW5-PTDRV15      srct=server destt=drive      libr=WAW5-TSM01-LIB            onlin=yes 
-	upd path       WAW5-TSM-SRV01       WAW5-PTDRV16      srct=server destt=drive      libr=WAW5-TSM01-LIB            onlin=yes
-	```
-
- 	Definicja skryptu:
-
-	```
-	def scr paths_up -
-	"select 'upd path ' as upd, -
-		cast(SOURCE_NAME as char(15)) as src, -
-		cast(DESTINATION_NAME as char(12)) as dest, -
-		'srct=server destt=drive' as types, -
-		concat('libr=',cast(LIBRARY_name as char(20))) as libr, -
-		'onlin=yes' as onl -
-	from paths -
-	where online='NO' and destination_type='DRIVE'" -
-	desc="Makro do podnoszeni sciezek"
-	```
-
-1. Taśmy o ostatnim odczycie starszym niż 90 dni:
-
-	```sql
-	select VOLUME_NAME, LAST_WRITE_DATE 
-	from volumes 
-	where days(current date) - days(LAST_READ_DATE) > 90 
-	order by LAST_WRITE_DATE
-	```
-
-
-## Klasy urządzeń
-
-1. DevClass (raczej sekwencyjne)
-
-	```sql
-	select DEVCLASS_NAME,ACCESS_STRATEGY,DEVTYPE,FORMAT,CAPACITY /1024 as GIB, MOUNTLIMIT, DIRECTORY from devclasses
-	```
-
 ## Pliki, filespace i zawartość wolumenów
 
 1. Filespace na taśmie:
@@ -173,24 +176,28 @@
 
 ## Nody i filespace
 
-1. Ogólny raport o klinetach. Wersje, IP, sortowany według ostatniego dostępu (najstarsi na górze):
+1. Ogólny raport o klinetach. Wersje, IP, sortowany według ostatniego dostępu (najstarsi, czyli trupy z szafy, na górze):
 
 	```sql
-	select node_name,DOMAIN_NAME, 
-	 CLIENT_VERSION || '.' || CLIENT_RELEASE || '.' || CLIENT_LEVEL || '.' || CLIENT_SUBLEVEL as ver,
-	 APPLICATION_VERSION || '.' || APPLICATION_RELEASE || '.' || APPLICATION_LEVEL || '.' || APPLICATION_SUBLEVEL as app,
-	 PLATFORM_NAME, 
-	 CLIENT_OS_LEVEL,
-	 TCP_NAME,TCP_ADDRESS, 
-	 days(current date) - days(LASTACC_TIME) as LAST_ACC 
-	from nodes 
+	select cast(node_name as char(15)) Node,cast(DOMAIN_NAME as char(20)) Domain, -
+	 cast(CLIENT_VERSION || '.' || CLIENT_RELEASE || '.' || CLIENT_LEVEL || '.' || CLIENT_SUBLEVEL as char(12)) as ver, -
+	 cast(APPLICATION_VERSION || '.' || APPLICATION_RELEASE || '.' || APPLICATION_LEVEL || '.' || APPLICATION_SUBLEVEL as char(15)) as app, -
+	 PLATFORM_NAME, -
+	 cast(CLIENT_OS_LEVEL as char(15)) as os_ver, -
+	 cast(TCP_NAME as char(25)) as hostname, -
+	 cast(TCP_ADDRESS as char(16)) as ip, -
+	 days(current date) - days(LASTACC_TIME) as LAST_ACC -
+	from nodes -
 	order by LAST_ACC desc, NODE_NAME asc
 	```
 
-	Do kopiowania:
+	Definicja skryptu:
   
-	```sql
-	select node_name,DOMAIN_NAME, CLIENT_VERSION || '.' || CLIENT_RELEASE || '.' || CLIENT_LEVEL || '.' || CLIENT_SUBLEVEL as ver,APPLICATION_VERSION || '.' || APPLICATION_RELEASE || '.' || APPLICATION_LEVEL || '.' || APPLICATION_SUBLEVEL as app ,PLATFORM_NAME, CLIENT_OS_LEVEL,TCP_NAME,TCP_ADDRESS, days(current date) - days(LASTACC_TIME) as LAST_ACC from nodes order by LAST_ACC desc, NODE_NAME asc
+	```
+	define script node_stats -
+	"select cast(node_name as char(15)) Node,cast(DOMAIN_NAME as char(20)) Domain, cast(CLIENT_VERSION || '.' || CLIENT_RELEASE || '.' || CLIENT_LEVEL || '.' || CLIENT_SUBLEVEL as char(12)) as ver, cast(APPLICATION_VERSION || '.' || APPLICATION_RELEASE || '.' || APPLICATION_LEVEL || '.' || APPLICATION_SUBLEVEL as char(15)) as app, PLATFORM_NAME, cast(CLIENT_OS_LEVEL as char(15)) as os_ver, cast(TCP_NAME as char(25)) as hostname, cast(TCP_ADDRESS as char(16)) as ip, days(current date) - days(LASTACC_TIME) as LAST_ACC from nodes order by LAST_ACC desc, NODE_NAME asc" -
+	desc="Trupy w szafie"
+
 	```
 
 1. Węzły, które się nie kontaktowały od 30 dni:
@@ -208,7 +215,7 @@
 	select cast(node_name as char(25)) NN, cast(domain_name as char(12)) DN, (days(current date) - days(LASTACC_TIME))  days_ina from nodes where  (days(current date) - days(LASTACC_TIME))>30 order by domain_name,  days_ina
 	```
 
-1. Filespacee z zakończonym backupem wcześniej niż 30 fdni temu:
+1. Filespacee z zakończonym backupem wcześniej niż 30 fdni temu:
 
 	Ładne:
 
@@ -230,9 +237,9 @@
 1. MB backupu z dzisiaj:
 
 	```sql
-	select cast(entity as char(20)) kto , sum(seconds_between(end_time, start_time))as sekundy, sum(bytes)/1024/1024 MiB 
-	from summary 
-	where activity='BACKUP' and  date(current date) = date(start_time)
+	select cast(entity as char(20)) kto , sum(seconds_between(end_time, start_time))as sekundy, sum(bytes)/1024/1024 MiB -
+	from summary -
+	where activity='BACKUP' and  date(current date) = date(start_time) -
 	group by entity
 	```
 
@@ -242,10 +249,35 @@
 	select cast(entity as char(20)) kto , sum(seconds_between(end_time, start_time))as sekundy, sum(bytes)/1024/1024 MiB from summary where activity='BACKUP' and  date(current date) = date(start_time)group by entity
 	```
 
+1. Dzienny workload z ostatnich 30 dni (bo tyle ma tabela `summary_extended`)
+
+	```sql
+	select cast(activity as char(15)) as co, dec(dec(sum(bytes), 30,0)/1099511627776, 10, 2) as TiBs, date(start_time) as day from summary_extended  group by date(start_time), activity order by day, co
+	```
+
+	**Uwaga:** - to jest do poprawki. Warto by posumować BACKUP + ARCHIVE + HSM oraz ruchy wewnętrzne.
+
 1. Ile MB zajmują nody, które nie kontaktowały się z serwerem dłużej niź 30 dni:
 
 	```sql
 	select a.node_name, sum(LOGICAL_MB) from occupancy a  where a.node_name in ( select node_name from  nodes where  (days(current date) - days(LASTACC_TIME))>30 ) group by a.node_name
+	```
+
+1. Auditoccupancy by domain:
+
+	```sql
+	select n.domain_name, -
+		sum(o.total_mb) tot_mb -
+	from nodes n , auditocc o -
+	where n.node_name=o.node_name -
+	group by n.domain_name -
+	order by n.domain_name
+	```
+
+	Skrypt `dom_auditocc`:
+
+	```
+	select n.domain_name, sum(o.total_mb) tot_mb from nodes n , auditocc o where n.node_name=o.node_name group by n.domain_name by n.domain_name
 	```
 
 1. Wszystkie nody, które skończyły harmonogramy z niezerowym rezultatem w ciągu ostatnich 24h:
@@ -266,14 +298,28 @@
 
 1. Polityki backupu wraz z destination:
 
+	**Uwaga:** Niektóre kolumny są castowane na krótsze `char'y`, żeby ładnie wyglądały, więc coś możę być ucięte!
+	
 	```sql
-	select DOMAIN_NAME, CLASS_NAME, VEREXISTS, VERDELETED, RETEXTRA, RETONLY, DESTINATION from bu_copygroups  where set_name='ACTIVE'
+	select cast(DOMAIN_NAME as char(20)) Dom, -
+  		cast(set_name as char(20)) Set, -
+  		cast(CLASS_NAME as char(20)) Mgmt, - 
+  		VEREXISTS VerE, VERDELETED VerD, RETEXTRA RetE, RETONLY RetO, -
+  		cast(DESTINATION as char(20)) as Dest - 
+  	from bu_copygroups -
+  	order by DOMAIN_NAME, SET_NAME, CLASS_NAME
 	```
 
 1. Polityki archiwizacji wraz z destination:
 
+	**Uwaga:** Niektóre kolumny są castowane na krótsze `char'y`, żeby ładnie wyglądały, więc coś możę być ucięte!
+
 	```sql
-	select DOMAIN_NAME,CLASS_NAME,RETVER,DESTINATION from ar_copygroups
+	select cast(DOMAIN_NAME as char(20)) Dom, -
+  		cast(CLASS_NAME as char(20)) Mgmt, -
+  		RETVER RetV, -
+  		cast(DESTINATION as char(20)) as Dest -  
+	from ar_copygroups order by DOMAIN_NAME, SET_NAME, CLASS_NAME
 	```
 
 1. Kopiowanie polityk archiwalnych. 
