@@ -249,13 +249,14 @@ Tu są skrypty, które przydają się w porannej kawie i ogólnej ocenie stanu z
 	select cast(entity as char(20)) kto , sum(seconds_between(end_time, start_time))as sekundy, sum(bytes)/1024/1024 MiB from summary where activity='BACKUP' and  date(current date) = date(start_time)group by entity
 	```
 
-1. Dzienny workload z ostatnich 30 dni (bo tyle ma tabela `summary_extended`)
+1. Dzienny workload w MiB z ostatnich 30 dni (bo tyle ma tabela `summary_extended`)
 
 	```sql
-	select cast(activity as char(15)) as co, dec(dec(sum(bytes), 30,0)/1099511627776, 10, 2) as TiBs, date(start_time) as day from summary_extended  group by date(start_time), activity order by day, co
+	select cast(entity as char(20)) kto, cast(activity as char(15)) as co, dec(dec(sum(bytes), 30,0)/1048576, 10, 2) as MiBs, date(start_time) as day from summary_extended where activity in ('BACKUP', 'ARCHIVE') group by entity, date(start_time), activity having sum(bytes)>0 order by day, MiBs desc
 	```
 
-	**Uwaga:** - to jest do poprawki. Warto by posumować BACKUP + ARCHIVE + HSM oraz ruchy wewnętrzne.
+	**Uwaga:** - to jest do poprawki. Warto by posumować BACKUP + ARCHIVE + HSM. 
+	**Pomysł:** - można zrobić podobną qrę na ruchy wewnętrzne.
 
 1. Ile MB zajmują nody, które nie kontaktowały się z serwerem dłużej niź 30 dni:
 
