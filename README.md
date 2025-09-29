@@ -7,3 +7,4 @@ Rożne mądrości do zachowania na później.
 - Oracle
 - Power
 - [KVM/Qemu/LibVirt](virt/README.md)
+- [Ansible](ansible/README.md)
