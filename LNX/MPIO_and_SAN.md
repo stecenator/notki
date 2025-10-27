@@ -42,17 +42,18 @@ size=128G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
 1. Odmontuj filesystem
 
 	```
-[root@pandora ~]# umount /pwpw
-[root@pandora ~]# umount /pwpw_orig
-```
+  [root@pandora ~]# umount /pwpw
+  [root@pandora ~]# umount /pwpw_orig
+  ```
 
 1. Deaktywyj grupy woluminów
 
 	```
-[root@pandora ~]# vgchange -an pwpwvg 
-  0 logical volume(s) in volume group "pwpwvg" now active
-[root@pandora ~]# vgchange -an pwpw_origvg 
-  0 logical volume(s) in volume group "pwpw_origvg" now active
-```
+  [root@pandora ~]# vgchange -an pwpwvg 
+    0 logical volume(s) in volume group "pwpwvg" now active
+  [root@pandora ~]# vgchange -an pwpw_origvg 
+    0 logical volume(s) in volume group "pwpw_origvg" now active
+  ```
 
-1. 
+1. Pewnie trzeba je wyeksportować albo usunać.
+1.  
