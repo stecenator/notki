@@ -1,0 +1,11 @@
+site_name: PCSS - dokumentacja poinstalacjna
+nav:
+  - Home: README.md
+  - Ansible: ansible/index.md
+  - Git: git/index.md
+  - GPFS: GPFS/index.md
+  - ISP: ISP/index.md
+  - LNX: LNX/index.md
+  - Power: Power/index.md
+  - WinDOS: WinDOS/index.md
+  - Virt: virt/index.md
