@@ -1,5 +1,3 @@
 # Tricki Ansiblowe
 
-Rożne przydatne funkcje Ansibla:
-
-- [Inventory](inv.md)
+Cała treść jes teraz [tu](index.md).

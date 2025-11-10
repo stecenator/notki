@@ -4,8 +4,8 @@
 
 Leży w `.git/config` i jest automatycznie ustawiane po skolnowaniu zdalengo repo:
 
-```
-❯ cat config
+```shell
+$ cat config
 [core]
 	repositoryformatversion = 0
 	filemode = true
@@ -19,19 +19,24 @@ Leży w `.git/config` i jest automatycznie ustawiane po skolnowaniu zdalengo rep
 	merge = refs/heads/main
 ```
 
-# Tworzenie branch'y
+
+## Branch
+
+Wszelkie aspekty pracy z branchami. 
+
+### Tworzenie branch'y
 
 Branch można tworzyć wraz z "taskiem", który może przyjść z proejktu np z Jiry.
 Fajnie jest nawać zgodnie z jakąś nomentklaturą projektową, np `feature/nazwa_ficzura`.
 
-```
-❯ git checkout -b "feature/users"
+```shell
+$ git checkout -b "feature/users"
 Przełączono na nową gałąź „feature/users”
 ```
 
 
 
-## Branching strategy
+### Branching strategy
 
 Warto rozważyć posiadanie kilku gałęzi, np:
 
@@ -40,23 +45,21 @@ Warto rozważyć posiadanie kilku gałęzi, np:
 - **feature/nazwa_ficzura** - implementacja nowych funkcji
 - **bug/nr_buga** - praca nad problemem.
 
-# Dobre praktyki
+### Dobre praktyki
 
 Czyli jak zabezpieczyć się przed głupimi błędami.
 
-## Sprawdź branch przed commitem
+#### Kontrolny pull
 
-Ja używam `zsh` z pierdylionem pluginów więc widzę to w prompcie:
+Kontrolny `git pull` przed rozpoczęciem pracy, możę zaoszczędzić sporo roboty przy mergowaniu.
 
-```
-░▒▓    ~/pr/chrum-chrum    feature/users 
-```
+#### Sprawdź branch przed commitem
 
-Zawsze można sprawdzić gdzie jestem komendą `git branch`:
+Ja używam `zsh` z pierdylionem pluginów więc widzę to w prompcie, ale zawsze można sprawdzić gdzie jestem komendą `git branch`:
 
-```
+```shell
+$ git branch
 * feature/users
   main
 (END)
 ```
-
