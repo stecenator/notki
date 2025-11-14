@@ -40,8 +40,18 @@ nav:
   - Ansible: ansible/index.md
   - Git: git/index.md
   - GPFS: GPFS/index.md
-  - ISP: ISP/index.md
-  - LNX: LNX/index.md
+  - ISP:
+    - Qury SQLowe: ISP/SQL.md
+    - Klient BA: ISP/ba.md
+    - Setup: ISP/isp_setup.md
+    - TDP4VE: ISP/TDP4VE.md 
+  - LNX: 
+    - MPIO: LNX/MPIO_and_SAN.md
+    - lin_tape: LNX/lin_tape.md
+    - Multipath - User friendly names: LNX/lsvdisk2mpio_friendly_names.md
+    - Sieć:
+      - Bonding: LNX/bond.md
+      - VLAN: LNX/vlan.md
   - Power: Power/index.md
   - Virt: virt/index.md
   - WinDOS: WinDOS/index.md
