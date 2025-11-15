@@ -6,8 +6,8 @@ Rzeczy związane z automatyzacją. Rozkminiam moduły IBMa, ale jest tu też tro
 
 Wyświetlanie zmiennych dostępnych dla hostów zdefiniowanych pliku inventory (tutaj to `hsm-tsma.pcss`):
 
-```sh
-$ ansible-inventory -i hsm-tsma.pcss --list
+```
+ansible-inventory -i hsm-tsma.pcss --list
 ```
 
 To polecenie można także wołać z opcją `-l host-albo-grupa` żeby podglądać wartości tylko wybranych celów.

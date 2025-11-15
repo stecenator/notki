@@ -4,8 +4,7 @@
 
 Leży w `.git/config` i jest automatycznie ustawiane po skolnowaniu zdalengo repo:
 
-```shell
-$ cat config
+```ini
 [core]
 	repositoryformatversion = 0
 	filemode = true
@@ -28,6 +27,14 @@ Wszelkie aspekty pracy z branchami.
 
 Branch można tworzyć wraz z "taskiem", który może przyjść z proejktu np z Jiry.
 Fajnie jest nawać zgodnie z jakąś nomentklaturą projektową, np `feature/nazwa_ficzura`.
+
+Komenda:
+
+```
+git checkout -b "feature/users"
+```
+
+Przykład:
 
 ```shell
 $ git checkout -b "feature/users"

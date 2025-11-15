@@ -52,6 +52,8 @@ nav:
     - Sieć:
       - Bonding: LNX/bond.md
       - VLAN: LNX/vlan.md
-  - Power: Power/index.md
+  - Power:
+    - HMC: Power/HMC.md
+    - VIOS: Power/VIOS.md
   - Virt: virt/index.md
   - WinDOS: WinDOS/index.md
