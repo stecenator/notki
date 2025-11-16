@@ -1,16 +1,18 @@
 # Przygotowanie Linuxa pod pracę z IBM Spectrum Protect
 
-Procedura instalacji ISP na hoscie linuxowym, mądrości zebrane i ciągle zbierane. Jest taki plan, że ubiorę to kiedyś w Ansibla. Ale na razie jest to w formie notatek.
+Procedura instalacji ISP na hoscie linuxowym, mądrości zebrane i ciągle zbierane. MAm to ubrane w Ansibla. Opublikuję jak będzie moało ręce i nogi.
 
 ## Wymagania wstępne
 
 Sprawdź [oficjalne wymagania](https://www.ibm.com/support/pages/overview-ibm-spectrum-protect-supported-operating-systems) na stronie IBM. 
 
-### SELinux
+Jeżeli plaujesz używać taśm IBM, to jedynymi praktycznymi dystrybucjami są SuSE i Red Hat. Wsparcie `lin_tape` na Ubuntu jest koszmarne. Tutaj skupiam się na Red Hat.
+
+## SELinux
 
 `Disabled` albo `Permissive`. Po utworzeniu insancji można właczyć na `Enforcing`.
 
-### Pakiety
+## Pakiety
 
 RHEL może być zainstalowany z profilu *Minimal Server*, ale będzie potrzebować jeszcze:
 
@@ -31,7 +33,7 @@ Jesli maszyna ma chodzić z taśmami IBM to:
 
 ## Multipath
 
-W przypadku uzycie SVC, albo FlashSystem trzeba storzyć takie `multipath.conf`:
+W przypadku uzycia SVC, albo FlashSystem warto storzyć `multipath.conf` zawierający poniższe ustawienia:
 
 ```
 defaults {
@@ -60,6 +62,10 @@ devices {
 blacklist {
 }
 ```
+
+!!! note "Uwaga"
+	W firmłerach 8.5 i wyższych, IBM nie wymaga modyfikacji `multipath.conf`. Ja ją jednak stosuję zwłaszcza ze względu na `friendly_names`. 
+
 ## Regułki `udev` dla dysków (IBM)
 
 Utworzyć plik `/etc/udev/rules.d/99-ibm-2145.rules` z taką treścią:
@@ -67,6 +73,9 @@ Utworzyć plik `/etc/udev/rules.d/99-ibm-2145.rules` z taką treścią:
 ```
 SUBSYSTEM=="block", ACTION=="add", ENV{ID_VENDOR}=="IBM",ENV{ID_MODEL}=="2145", RUN+="/bin/sh -c 'echo 120 >/sys/block/%k/device/timeout'"
 ```
+
+!!! note "Uwaga"
+	W firmłerach 8.5 i wyższych, IBM nie wymaga wydlużania timeoutów na ścieżkach. 
 
 ## Ustawienia FC dla taśm
 

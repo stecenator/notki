@@ -4,8 +4,11 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.inlinehilite
+  - pymdownx.inlinehilite     # Podświetlanie składni
   - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition                # Ramki z Uwagami
+  - pymdownx.details
   - pymdownx.superfences
 theme:
   name: material
@@ -43,7 +46,14 @@ nav:
   - ISP:
     - Qury SQLowe: ISP/SQL.md
     - Klient BA: ISP/ba.md
-    - Setup: ISP/isp_setup.md
+    - Setup: 
+        - OS: ISP/setup_os.md
+        - Instancja: ISP/setup_instance.md
+        - Taśmy: ISP/setup_tapes.md
+        - Maintenance: ISP/setup_maint.md
+        - Kontenery (dir): ISP/setup_dc.md
+        - Kontenery (cloud): ISP/setup_cc.md
+        - LANFree: ISL/setup_STA.md
     - TDP4VE: ISP/TDP4VE.md 
   - LNX: 
     - MPIO: LNX/MPIO_and_SAN.md

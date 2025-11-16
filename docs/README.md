@@ -6,7 +6,7 @@ Pliki `README.md` utrzymuję dla zgodnośći z GitHubem, ale struktura plików i
 
 Rożne tricki ansiblowe, które wyłowiłem z internetów, AI a czasem nawet z mojej głowy.
 
-[Ansible](ansible/README.md)
+[Ansible](ansible/index.md)
 
 ## AIX
 

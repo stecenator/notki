@@ -1,4 +1,13 @@
-# Motivation
+# Konwencje
+
+Rożne konwencje i standardy któ©e sobie wymyśliłem w trakcie moich rozlicznych wdrożeń.
+
+## Struktura katalogów
+
+## Użyszkodnik instancji
+
+## Domeny i nodename
+### Oracle
 Standaryzacja konfiguracji TSM dla srodowisk baz danych Oracle
 
 ## Nazewnictwo hostów w klastrze Power HA
