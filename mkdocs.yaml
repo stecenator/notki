@@ -10,6 +10,10 @@ markdown_extensions:
   - admonition                # Ramki z Uwagami
   - pymdownx.details
   - pymdownx.superfences
+  - attr_list                 # Emoji
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 theme:
   name: material
   features:
@@ -41,12 +45,14 @@ theme:
 nav:
   - Home: README.md
   - Ansible: ansible/index.md
+  - DB2: 
+    - Instalacja: db2/setup.md
+    - Bazy: db2/db.md
   - Git: git/index.md
   - GPFS: GPFS/index.md
   - ISP:
     - Qury SQLowe: ISP/SQL.md
-    - Klient BA: ISP/ba.md
-    - Setup: 
+    - Setup serwera: 
         - OS: ISP/setup_os.md
         - Instancja: ISP/setup_instance.md
         - Taśmy: ISP/setup_tapes.md
@@ -54,7 +60,10 @@ nav:
         - Kontenery (dir): ISP/setup_dc.md
         - Kontenery (cloud): ISP/setup_cc.md
         - LANFree: ISL/setup_STA.md
-    - TDP4VE: ISP/TDP4VE.md 
+    - Klienci:
+      - Klient BA: ISP/ba.md
+      - TDP4VE: ISP/TDP4VE.md 
+      - DB2: ISP/db2.md
   - LNX: 
     - MPIO: LNX/MPIO_and_SAN.md
     - lin_tape: LNX/lin_tape.md
@@ -62,6 +71,7 @@ nav:
     - Sieć:
       - Bonding: LNX/bond.md
       - VLAN: LNX/vlan.md
+    - X11: LNX/x11.md
   - Power:
     - HMC: Power/HMC.md
     - VIOS: Power/VIOS.md
