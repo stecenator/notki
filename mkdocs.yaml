@@ -9,7 +9,9 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition                # Ramki z Uwagami
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences      # ramki i zakładki
+  - pymdownx.tabbed:          # zakładki
+      alternate_style: true
   - attr_list                 # Emoji
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -48,6 +50,7 @@ nav:
   - DB2: 
     - Instalacja: db2/setup.md
     - Bazy: db2/db.md
+    - Tips & tricks: db2/tips.md
   - Git: git/index.md
   - GPFS: GPFS/index.md
   - ISP:
@@ -72,6 +75,7 @@ nav:
       - Bonding: LNX/bond.md
       - VLAN: LNX/vlan.md
     - X11: LNX/x11.md
+  - mkdocs: mkdocs/index.md
   - Power:
     - HMC: Power/HMC.md
     - VIOS: Power/VIOS.md
