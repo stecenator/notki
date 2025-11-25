@@ -1,5 +1,5 @@
 ---
-icon: material/ansible
+icon: simple/ansible
 ---
 
 # Ansible
