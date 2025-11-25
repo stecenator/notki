@@ -23,33 +23,6 @@ Leży w `.git/config` i jest automatycznie ustawiane po skolnowaniu zdalengo rep
 
 Wszelkie aspekty pracy z branchami. 
 
-### Tworzenie branch'y
-
-Branch można tworzyć wraz z "taskiem", który może przyjść z proejktu np z Jiry.
-Fajnie jest nawać zgodnie z jakąś nomentklaturą projektową, np `feature/nazwa_ficzura`.
-
-Komenda:
-
-```
-git checkout -b "feature/users"
-```
-
-Przykład:
-
-```shell
-$ git checkout -b "feature/users"
-Przełączono na nową gałąź „feature/users”
-```
-
-### Sklejanie  branch'y (merge)
-
-Chyba można zrobić to na dwa sposoby. Przez *pull request* albo lokalnie i wypchnąć. 
-
-#### Merge lokalny
-
-Da się zrobić, gdy jestem praktycznie sam w repo i nikt mi z boku nie prosi o merge gałęzi, bo wszystki ficzury i tak developuję sam. 
-
-
 ### Branching strategy
 
 Warto rozważyć posiadanie kilku gałęzi, np:
@@ -76,4 +49,41 @@ $ git branch
 * feature/users
   main
 (END)
+```
+
+### Tworzenie branch'y
+
+Branch można tworzyć wraz z "taskiem", który może przyjść z proejktu np z Jiry.
+Fajnie jest nawać zgodnie z jakąś nomentklaturą projektową, np `feature/nazwa_ficzura`.
+
+Komenda:
+
+```
+git checkout -b "feature/users"
+```
+
+Przykład:
+
+```shell
+$ git checkout -b "feature/users"
+Przełączono na nową gałąź „feature/users”
+```
+
+### Sklejanie  branch'y (merge)
+
+Chyba można zrobić to na dwa sposoby. Przez *pull request* albo lokalnie i wypchnąć. 
+
+#### Merge lokalny
+
+Da się zrobić, gdy jestem praktycznie sam w repo i nikt mi z boku nie prosi o merge gałęzi, bo wszystki ficzury i tak developuję sam. 
+
+#### Sprawdź status
+
+W razie czego zrób ostatni *commit* w gałęzi:
+
+```shell title="Status gałęzi"
+~/Dokumenty/IBM/dox/notki mkdocs ⇡ ❯ git status
+Na gałęzi mkdocs
+Twoja gałąź jest do przodu względem „origin/mkdocs” o 2 zapisy.
+  (użyj „git push”, aby opublikować swoje zapisy)
 ```
