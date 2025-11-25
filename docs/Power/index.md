@@ -2,14 +2,13 @@
 
 ## HMC
 
---8<-- "HMC.md"
 
 ## VIOS
 
 ## AIX
 
-Mój ulubiony szablon pliku `.kshrc`
+Mój ulubiony szablon pliku `.kshrc`. Na VIOSie z resztą też :shrug:.
 
 ```sh title=".kshrc"
---8<-- "template/kshrc_template.sh"
+--8<-- "Power/template/kshrc_template.sh"
 ```

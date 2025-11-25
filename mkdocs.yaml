@@ -5,21 +5,29 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite     # Podświetlanie składni
-  - pymdownx.snippets
+  - pymdownx.snippets:        # Wklejanie zerwnętrznych plików do codeblocków
+      base_path:
+        - docs
+      check_paths: true       # Lepiej raportuje błędy jak nie znajdzie wklejanego pliku
   - pymdownx.superfences
   - admonition                # Ramki z Uwagami
   - pymdownx.details
-  - pymdownx.superfences      # ramki i zakładki
+  - pymdownx.superfences      # ramki, zakładki, annotatacje
   - pymdownx.tabbed:          # zakładki
       alternate_style: true
-  - attr_list                 # Emoji
+  - attr_list                 # Emoji i annotace
+  - md_in_html                # annotacje w gołym md
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 theme:
   name: material
+  logo: assets/ibm-eye-bee-m-white_on_trans_vertical.svg
   features:
-    - content.code.copy
+    - content.code.copy     # kopiwanie kodu po całości
+    - content.code.select   # Koiowanie kodu linijkami
+    - content.code.annotate # Adnotacje w code blockach
+    - navigation.indexes    # Żeby kliknięcie w rozwijane sekcje pokazywało index.md lub README.md
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
@@ -46,14 +54,19 @@ theme:
 
 nav:
   - Home: README.md
-  - Ansible: ansible/index.md
+  - Ansible: 
+    - Tips & tricks: ansible/index.md
+    - Power HMC: ansible/POWER.md
   - DB2: 
+    - db2/index.md
     - Instalacja: db2/setup.md
     - Bazy: db2/db.md
+    - Backup & Restore: db2/back_n_rest.md
     - Tips & tricks: db2/tips.md
   - Git: git/index.md
   - GPFS: GPFS/index.md
   - ISP:
+    - ISP/index.md
     - Qury SQLowe: ISP/SQL.md
     - Setup serwera: 
         - OS: ISP/setup_os.md
@@ -68,6 +81,7 @@ nav:
       - TDP4VE: ISP/TDP4VE.md 
       - DB2: ISP/db2.md
   - LNX: 
+    - LNX/README.md
     - MPIO: LNX/MPIO_and_SAN.md
     - lin_tape: LNX/lin_tape.md
     - Multipath - User friendly names: LNX/lsvdisk2mpio_friendly_names.md
@@ -77,7 +91,10 @@ nav:
     - X11: LNX/x11.md
   - mkdocs: mkdocs/index.md
   - Power:
+    - Power/index.md
     - HMC: Power/HMC.md
     - VIOS: Power/VIOS.md
   - Virt: virt/index.md
-  - WinDOS: WinDOS/index.md
+  - WinDOS: 
+    - WinDOS/index.md
+    - WinDOS/PS.md

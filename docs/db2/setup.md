@@ -34,7 +34,7 @@ Jako obrazów podstawoawych używam profilu instalacji OSa:`Minimal server` co p
 - ksh
 
 !!! Info inline end "Informacja:"
-	Więcej na temat uruchamiania graficznych programów z hosta, który nie ma telewizora piszę [tutaj](/LNX/x11/).
+	Więcej na temat uruchamiania graficznych programów z hosta, który nie ma telewizora piszę [tutaj](../LNX/x11.md).
 
 Dla swojej wygody, żeby działało tunelowanie X11 po ssh i dało się uruchomić narzędzia graficzne np. instalator `db2setup`, dorzucam jeszcze:
 
@@ -136,7 +136,7 @@ DBI1343I  The db2val command completed successfully. For details, see
 
 I zawartość loga:
 
-```
+``` title="/tmp/db2val-251120_155431.log"
 Installation file validation for the DB2 copy installed at "/opt/ibm/db2/V12.1" starts.
 
 Task 1: Validating Installation file sets.

@@ -41,6 +41,13 @@ $ git checkout -b "feature/users"
 Przełączono na nową gałąź „feature/users”
 ```
 
+### Sklejanie  branch'y (merge)
+
+Chyba można zrobić to na dwa sposoby. Przez *pull request* albo lokalnie i wypchnąć. 
+
+#### Merge lokalny
+
+Da się zrobić, gdy jestem praktycznie sam w repo i nikt mi z boku nie prosi o merge gałęzi, bo wszystki ficzury i tak developuję sam. 
 
 
 ### Branching strategy
