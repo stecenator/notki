@@ -1,4 +1,4 @@
-![IBM DB2](/assets/db2.png)
+![IBM DB2](../assets/db2.png)
 
 # DB2
 

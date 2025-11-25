@@ -1,89 +1,14 @@
-# Mądrości-gitości
+# IBM Power/PowerVM/VIOS/AIX
 
-## Konfiguracja
-
-Leży w `.git/config` i jest automatycznie ustawiane po skolnowaniu zdalengo repo:
-
-```ini
-[core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
-[remote "origin"]
-	url = git@github.com:stecenator/chrum-chrum.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
-[branch "main"]
-	remote = origin
-	merge = refs/heads/main
-```
+## HMC
 
 
-## Branch
+## VIOS
 
-Wszelkie aspekty pracy z branchami. 
+## AIX
 
-### Branching strategy
+Mój ulubiony szablon pliku `.kshrc`. Na VIOSie z resztą też :shrug:.
 
-Warto rozważyć posiadanie kilku gałęzi, np:
-
-- **main** - to działa produkcyjnie
-- **devel** - tu wpadają pull-requesty z gałęzi poszczególnych releasów
-- **feature/nazwa_ficzura** - implementacja nowych funkcji
-- **bug/nr_buga** - praca nad problemem.
-
-### Dobre praktyki
-
-Czyli jak zabezpieczyć się przed głupimi błędami.
-
-#### Kontrolny pull
-
-Kontrolny `git pull` przed rozpoczęciem pracy, możę zaoszczędzić sporo roboty przy mergowaniu.
-
-#### Sprawdź branch przed commitem
-
-Ja używam `zsh` z pierdylionem pluginów więc widzę to w prompcie, ale zawsze można sprawdzić gdzie jestem komendą `git branch`:
-
-```shell
-$ git branch
-* feature/users
-  main
-(END)
-```
-
-### Tworzenie branch'y
-
-Branch można tworzyć wraz z "taskiem", który może przyjść z proejktu np z Jiry.
-Fajnie jest nawać zgodnie z jakąś nomentklaturą projektową, np `feature/nazwa_ficzura`.
-
-Komenda:
-
-```
-git checkout -b "feature/users"
-```
-
-Przykład:
-
-```shell
-$ git checkout -b "feature/users"
-Przełączono na nową gałąź „feature/users”
-```
-
-### Sklejanie  branch'y (merge)
-
-Chyba można zrobić to na dwa sposoby. Przez *pull request* albo lokalnie i wypchnąć. 
-
-#### Merge lokalny
-
-Da się zrobić, gdy jestem praktycznie sam w repo i nikt mi z boku nie prosi o merge gałęzi, bo wszystki ficzury i tak developuję sam. 
-
-#### Sprawdź status
-
-W razie czego zrób ostatni *commit* w gałęzi:
-
-```shell title="Status gałęzi"
-~/Dokumenty/IBM/dox/notki mkdocs ⇡ ❯ git status
-Na gałęzi mkdocs
-Twoja gałąź jest do przodu względem „origin/mkdocs” o 2 zapisy.
-  (użyj „git push”, aby opublikować swoje zapisy)
+```sh title=".kshrc"
+--8<-- "Power/template/kshrc_template.sh"
 ```

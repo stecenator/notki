@@ -1,5 +1,7 @@
 # notki
-Rożne mądrości do zachowania na później.
+
+Podczas mojej podnad cwierćwiecznej pracy z technologiami :IBM_logo: czasami wymyślę coś czego nie chę wymyślać drugi raz. Wtedy wrzucam to tutaj. Kiedyś ten projekt leżał wyłąćznie na GitHubie, ale postanowiłem go "ukompatybilnić" z `mkdocs`, stąd umieszczenie wszystkiego w podkatalogu `docs`.
+
 Pliki `README.md` utrzymuję dla zgodnośći z GitHubem, ale struktura plików i katalogów jest dostosowana do serwowania moich mądrośći bezpośrednio z `mkdocs`, które samo robi np spis treśći i nawigację po nagłówkach.
 
 ## Ansible

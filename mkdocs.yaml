@@ -20,9 +20,12 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
 theme:
   name: material
-  logo: assets/ibm-eye-bee-m-white_on_trans_vertical.svg
+  logo: assets/ibm-eye-bee-m-black_on_trans_vertical.svg
   features:
     - content.code.copy     # kopiwanie kodu po całości
     - content.code.select   # Koiowanie kodu linijkami

@@ -1,6 +1,6 @@
 # Spis moich rożnych mąrości
 
-Czasami wymyślę coś czego nie chę wymyślać drugi raz. Wtedy wrzucam to tutaj. Kiedyś ten projekt leżał wyłąćznie na GitHubie, ale postanowiłem go "ukompatybilnić" z `mkdocs`, stąd umiezczenie wszystkiedo w podkatalogu `docs`. 
+Podczas mojej podnad cwierćwiecznej pracy z technologiami :IBM_logo: czasami wymyślę coś czego nie chę wymyślać drugi raz. Wtedy wrzucam to tutaj. Kiedyś ten projekt leżał wyłąćznie na GitHubie, ale postanowiłem go "ukompatybilnić" z `mkdocs`, stąd umiezczenie wszystkiedo w podkatalogu `docs`. 
 
 Linki mogą być zepsute, więć być może najlepiej nawigować do zbudowanego [HTMLa](tu_nic_nie_ma.html)
 
