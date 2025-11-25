@@ -1,3 +1,6 @@
+---
+icon: simple/materialformkdocs
+---
 # mkdocs - brudnopis i co fajniejsze tricki
 
 Wiem, że trochę przepisuję to co jest [tutaj](https://squidfunk.github.io/mkdocs-material/reference/), ale niektóre rzeczy są tam opisane dość skąpo.

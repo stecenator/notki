@@ -1,14 +1,17 @@
+---
+icon: material/home
+---
+
 # notki
 
-Podczas mojej podnad cwierćwiecznej pracy z technologiami :IBM_logo: czasami wymyślę coś czego nie chę wymyślać drugi raz. Wtedy wrzucam to tutaj. Kiedyś ten projekt leżał wyłąćznie na GitHubie, ale postanowiłem go "ukompatybilnić" z `mkdocs`, stąd umieszczenie wszystkiego w podkatalogu `docs`.
+Podczas mojej podnad cwierćwiecznej pracy z [:ibm: niebieskimi](https://ibm.com) technologiami, czy podczas wypasu pingwinów :fontawesome-brands-linux:, lub generalnie :gnu: Open Source, czasami wymyślę coś czego, nie chę wymyślać drugi raz. Wtedy wrzucam to tutaj. Kiedyś ten projekt leżał wyłąćznie na GitHubie, ale postanowiłem go "ukompatybilnić" z `mkdocs`, stąd umieszczenie wszystkiego w podkatalogu `docs`.
 
-Pliki `README.md` utrzymuję dla zgodnośći z GitHubem, ale struktura plików i katalogów jest dostosowana do serwowania moich mądrośći bezpośrednio z `mkdocs`, które samo robi np spis treśći i nawigację po nagłówkach.
+Pliki `README.md` utrzymuję dla zgodnośći z GitHubem, ale struktura plików i katalogów jest dostosowana do serwowania moich mądrośći bezpośrednio z `mkdocs`, które samo robi np spis treśći i nawigację po nagłówkach. Niestety wkradł się tu lekki bałagan i gdzieniegdzie są pliki `index.md`, ale pewnie wrócę to `README.md`. 
+
 
 ## Ansible
 
-Rożne tricki ansiblowe, które wyłowiłem z internetów, AI a czasem nawet z mojej głowy.
-
-[Ansible](ansible/index.md)
+Rożne [tricki ansiblowe](ansible/index.md), które wyłowiłem z internetów, podpowiedział mi AI, a czasem nawet coś z mojej głowy.
 
 ## AIX
 
@@ -16,21 +19,17 @@ Tu jeszcze nic nie ma
 
 ## Git
 
-Najcześciej zpaminane komeny Gita.
-
-[Git](git/index.md)
+Najcześciej zpaminane komeny [Gita](git/index.md) i GitHuba :fontawesome-brands-github:.
 
 ## IBM Storage Scale (GPFS)
 
-Tematy związane z GPFS.
-
-[IBM Storage Scale](GPFS/README.md), Spectrum Scale, GPFS
+Ostatnio sporo dłubię przy [Storage Scale/GPFS](GPFS/README.md). Sukcesywnie będę tu odkładać tę wiedzę.
 
 ## IBM Storage Protect (TSM)
 
-TSM, SPectrum Protect, Storage Protect, a kto wie... Może i Storage Defender. 
+TSM, Spectrum Protect, [Storage Protect](ISP/index.md), a kto wie... Może i Storage Defender. 
+Na ADSM się nie załapałem :wink:. 
 
-[IBM Spectrum Protect](ISP/README.md), Spectrum Protect, TSM, ADSM 
 
 ## Linux
 
@@ -38,7 +37,7 @@ TSM, SPectrum Protect, Storage Protect, a kto wie... Może i Storage Defender.
 
 ## Power
 
-
+Zaczątki dokumentacji dla [IBM Power](Power/index.md)
 
 ## Wirtualizacja PC-XT
 

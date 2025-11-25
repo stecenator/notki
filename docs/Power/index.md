@@ -1,3 +1,7 @@
+---
+icon: octicons/cpu-16
+---
+
 # IBM Power/PowerVM/VIOS/AIX
 
 ## HMC

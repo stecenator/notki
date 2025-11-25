@@ -1,3 +1,7 @@
+---
+icon: material/tape-drive
+---
+
 # Spis mądrości Widmowo Obronych
 
 * [Kury SQLowe](SQL.md) - rożne przydatne zapytania SQLowe.

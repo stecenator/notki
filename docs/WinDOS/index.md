@@ -1,3 +1,7 @@
+---
+icon: material/microsoft-windows-classic
+---
+
 # WinDOS
 
 Choć to toksyczne środowisko, czasem muszę w nim pracować.

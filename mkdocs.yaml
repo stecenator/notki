@@ -1,4 +1,6 @@
 site_name: Marcinkowe mądrości
+plugins:
+  - typeset
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -9,13 +11,12 @@ markdown_extensions:
       base_path:
         - docs
       check_paths: true       # Lepiej raportuje błędy jak nie znajdzie wklejanego pliku
-  - pymdownx.superfences
+  - pymdownx.superfences      # ramki, zakładki, annotatacje
   - admonition                # Ramki z Uwagami
   - pymdownx.details
-  - pymdownx.superfences      # ramki, zakładki, annotatacje
   - pymdownx.tabbed:          # zakładki
       alternate_style: true
-  - attr_list                 # Emoji i annotace
+  - attr_list                 # Emoji i annotace i custom css
   - md_in_html                # annotacje w gołym md
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -69,7 +70,7 @@ nav:
   - Git: git/index.md
   - GPFS: GPFS/index.md
   - ISP:
-    - ISP/index.md
+    - ISP/README.md
     - Qury SQLowe: ISP/SQL.md
     - Setup serwera: 
         - OS: ISP/setup_os.md
@@ -97,7 +98,10 @@ nav:
     - Power/index.md
     - HMC: Power/HMC.md
     - VIOS: Power/VIOS.md
-  - Virt: virt/index.md
+  - Virt: 
+    - virt/README.md
+    - Libvirt: virt/libvirt.md
+    - QCOW2 i inne dyski: virt/qemu-img.md
   - WinDOS: 
     - WinDOS/index.md
     - WinDOS/PS.md

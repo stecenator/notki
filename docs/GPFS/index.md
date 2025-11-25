@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/folder-tree
+---
+
 # Storage Scale / GPFS 
 
 ## Instalacja scoutfree

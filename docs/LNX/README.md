@@ -1,3 +1,9 @@
+---
+icon: fontawesome/brands/linux
+---
+
+Rzeczy :fontawesome-brands-linux:, do których czasem wracam.
+
 # Spis treści
 - [Mpio i SAN](MPIO_and_SAN.md)
 - [User friendly names](lsvdisk2mpio_friendly_names.md)

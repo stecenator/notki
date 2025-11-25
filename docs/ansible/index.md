@@ -1,3 +1,7 @@
+---
+icon: material/ansible
+---
+
 # Ansible
 
 Rzeczy związane z automatyzacją. Rozkminiam moduły IBMa, ale jest tu też trochę generycznych tematów linuxowych.
