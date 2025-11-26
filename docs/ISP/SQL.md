@@ -1,3 +1,7 @@
+---
+icon: material/table-search
+---
+
 # Widmowo-obronne Kury SQLowe 
 
 ## Gmeranie przy taśmach bibliotecznych

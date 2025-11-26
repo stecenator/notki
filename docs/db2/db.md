@@ -146,3 +146,10 @@ Jak chcesz tylko poćwiczyć SQLa, to IBM dostarcza bazę `sample`, którą moż
 ```shell
 $ db2sampl
 ```
+
+## Archiwizacja logów
+
+DB2 po wyjęciu z pudełka działa w trybie logów cyklicznych. To znaczy, że ich jedynym zadaniem jest zapewnienie atomowości transakcji. Żeby baza archiwizowała logi, trzeba podskrobać parametr `ARCHMETH1`. Jeśli masz już [skonfigurowany backup do Protecta](../ISP/db2.md), wystarczy, że ustawisz w parametrach bazy to:
+
+```shell title="Ustawianie ARCHMETH1"
+db2 set db cfg for pilsisko LOGARCHMETH1 tsm

@@ -1,11 +1,35 @@
 # Backup i restore DB2
 
-Z założenia będę tu używać Protecta, ale cał ideologia backupu DB2 jest praktycznie niezależna od nośnika, dlateg ten rozdział leży w kategorii *DB2* a nie *[Storage Protect](../ISP/index.md*.
+Z założenia będę tu używać Protecta, ale cał ideologia backupu DB2 jest praktycznie niezależna od nośnika, dlatego ten rozdział leży w kategorii *DB2* a nie *[Storage Protect](../ISP/index.md*.
+
+## Typy backupu i konsekwencje dla odtwarzania
+
+
+IBM DB2 po wyjęciu z pudełka, działa w trybie bez archiwizacji logów, co dość mocno ogranicza opcje backupu i odtwarzania... właściwie tylko do backupu *offline* i odtworzenia do punktu w czasie, kiedy backup był **rozpoczęty**.
+
+!!! Tip "Jak sprawdzić biezący tryb logów?"
+    Sprawdź wartość atrybutu `ARCHMETH1` dla backupowanej bazy. Jeśli nic tam nie ma, baza nie archiwizuje logów.
+
+    ```shell title="Odczyt ARCHMETH1"
+    [db2inst1@dibitu ~]$ db2 get db cfg for pilsisko | grep ARCHMETH1
+     First log archive method                 (LOGARCHMETH1) = OFF
+    ```
+
+Żeby móc korzystać z innych typów backupu trzeba podać jako `ARCHMETH1` jakąś metodę archiwizacji logów. Najprościej wskazać katalog na dysku... albo TSM. Ja [użyłem](../isp/db2#LOGARCHMETH1) tej drugiej opcji i to ze wskazaniem dedykowanej managment classy dla logów. 
+
+### Offline ackup
+
+### 
+
+## Strategia backupu
+
+Co należy wziąc pod uwagę, projketując strategię backupu:
+
 
 ## Offline backup bez logów
 
 !!! Info inline end
-	Bazy nie można używać podczas tego typu backupu. Plusem jest to, że backup jest aktualzny na czas tworzenia (nie gromadzą się logi).
+    Bazy nie można używać podczas tego typu backupu. Plusem jest to, że backup jest aktualzny na czas tworzenia (nie gromadzą się logi).
 
 Najprostszy. Chyba zbyt prosty, bo offline i na dodatek bez logów.
 Sprowadza się do nastęþujących kroków:
@@ -43,17 +67,17 @@ DB20000I  The DEACTIVATE DATABASE command completed successfully.
 ```
 
 !!! Quote "Skrypt"
-	Zamiast klepać te poleceania, można to wrzucic do pliku np.: `db_prep.txt`:
+    Zamiast klepać te poleceania, można to wrzucic do pliku np.: `db_prep.txt`:
 
-	```
-	CONNECT TO pilsisko
-	QUIESCE DATABASE IMMEDIATE FORCE CONNECTIONS;
-	UNQUIESCE DATABASE;
-	TERMINATE;
-	DEACTIVATE DATABASE database-alias
-	```
+    ```
+    CONNECT TO pilsisko
+    QUIESCE DATABASE IMMEDIATE FORCE CONNECTIONS;
+    UNQUIESCE DATABASE;
+    TERMINATE;
+    DEACTIVATE DATABASE database-alias
+    ```
 
-	I zapuścić komendą `db2 -tf db_prep,txt`
+    I zapuścić komendą `db2 -tf db_prep,txt`
 
 ### Backup *offline*
 
@@ -87,4 +111,4 @@ db2 => activate database pilsisko
 ```
 
 !!! Note "Do rozkminy"
-	Nie wiem dlaczego to działa, ale nie musiałem aktywować bazy po backupie. TRzeba spytać jakiegoś inkwizytora od DB2.
+    Nie wiem dlaczego to działa, ale nie musiałem aktywować bazy po backupie. TRzeba spytać jakiegoś inkwizytora od DB2.

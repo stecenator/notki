@@ -12,9 +12,12 @@ Serwer nie zajmuje się retencją backupów w imieniu DB2. Za to jest odpowiedzi
 - `RETE` = 0
 - `RETO` = 0
 
+!!! Danger "Ważne"
+	O ile TSM za retencję backupu DB2 nie odpowiada, o tyle za expirowanie archiwów już tak. A baza używająć`LOGARCHMETH1` , zwala logi do TSMa właśnie jako obiekty archiwalne.  Dlatego warto uzodnić czas retencji logów z DBA bazy.
+
 ### Domena, policy set, managment classa i copy grupa
 
-Zakładam, że jest już pula `dc01`, która u mnie zwykle jest kontenerowa. Oczywioście można tu użyć dowolnej puli, jak komu pasuje. Przy LAMFRee to będzie pewnie taśma, albo `FILE` na jakimś GPFSie.
+Zakładam, że jest już pula `dc01`, która u mnie zwykle jest kontenerowa. Oczywioście można tu użyć dowolnej puli, jak komu pasuje. Przy LANFree to będzie pewnie taśma, albo `FILE` na jakimś GPFSie.
 
 ``` title="Polityki dla DB2"
 def dom db2 descr="Klienci db2"
@@ -22,13 +25,27 @@ def pol db2 prd desc="Polityka dla DB2"
 def mgmt db2 prd dbb migdest=dc01
 def copyg db2 prd dbb t=b vere=1 verd=0 rete=0 reto=0 dest=dc01
 def copyg db2 prd dbb t=a retver=30 dest=dc01
+def mgmt db2 prd logs migdest=dc01 descr="DB2 archlogs"
+def copyg db2 prd logs t=a retver=30 dest=dc01
 assign defmgmt db2 prd dbb
 val pol db2 prd
 act pol db2 prd
 ```
 
 !!! note "Uwaga:"
-	W powyższej liście komend jest kilka "zbędnych rzeczy": `migdest=dc01`  i copygrupa archiwalna są dla porządku, bo nie lubię mieć ostrzeżeń podczas validacji policysetu. 
+	W powyższej liście jest "zbędna rzecz": `migdest=dc01`. To dla porządku, bo nie lubię mieć ostrzeżeń podczas validacji policysetu. 
+
+
+!!! danger "Ważne:"
+	Jeśli planujesz archiwizację logów (1) potrzebujesz conajmniej copygrupy archiwalnej w domyślnej managment class. A pewnie lepszym pomysłem jest zrobienie dedykowanej managment classy pod logi. 
+	{ .annotate }
+	
+	1. prawdopodobnie planujesz, bo bez tego życie jest smutne :cry:.
+
+	W powyższym przykładzie jest zdefiniowana klasa `LOGS` z copygrupą archiwalną, której planuję użyć do archiwizacji logów. 
+
+	!!! Tip "Ciekawostka"
+		Ponieważ copygrupy backupowa i archiwalna mogą mieć innne `destination` możliwe jest rozdzielenie backupu od logów. Można np skierować backupy na :material-tape-drive: a logi na deduplikowane :material-harddisk:.
 
 ### Klient
 
@@ -261,6 +278,25 @@ drwxr-xr-x. 2 db2inst1 db2inst1 6 Nov 23 12:13 /pils/pilsisko/tsm/logs
 	[db2inst1@dibitu ~]$ db2start
 	11/23/2025 12:36:34     0   0   SQL1063N  DB2START processing was successful.
 	SQL1063N  DB2START processing was successful.
+	```
+
+
+#### LOGARCHMETH1
+
+Ustawienie archiwizacji logów na cokolwiek jest kluczowe. Bez tego możliwe będa tylko backupy offline. Archwizację logów do Protecta ustawaia się komendą:
+
+```shell title="Ustawianie archiwizacji logów"
+db2 update db cfg for <moja_baza> using logarchmeth1 tsm:<klasa_dla_logów>
+```
+
+!!! Example "Przykład"
+	```shell
+	[db2inst1@dibitu ~]$ db2 update db cfg for pilsisko using logarchmeth1 tsm:logs
+	DB20000I  The UPDATE DATABASE CONFIGURATION command completed successfully.
+	SQL1363W  One or more of the parameters submitted for immediate modification 
+	were not changed dynamically. For these configuration parameters, the database 
+	must be shutdown and reactivated before the configuration parameter changes 
+	become effective.
 	```
 
 ### Połączenie DB2 i Storage Protect
