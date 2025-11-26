@@ -1,0 +1,187 @@
+<mxfile host="Electron" modified="2023-06-07T09:56:20.093Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="Df7-Kl7fQPfhojHqDVkZ" version="21.2.8" type="device">
+  <diagram name="Strona-1" id="th6L_x2XxdzAOCZg3g9N">
+    <mxGraphModel dx="1402" dy="2525" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-4" value="Proste środowisko produkcyne" style="shape=mxgraph.ibm.box;prType=classic;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4376BB;strokeWidth=2;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="145" y="-280" width="520" height="710" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-11" value="Fibre&lt;br&gt;Channel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="3UdrHMImbzUITnEJ_4zd-4" source="3UdrHMImbzUITnEJ_4zd-6" target="3UdrHMImbzUITnEJ_4zd-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-6" value="Baza danych" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/databases.svg;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-4">
+          <mxGeometry x="230" y="240" width="50" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-13" value="LANFreee&lt;br&gt;lub&amp;nbsp;&lt;br&gt;LAN + Deduplikacja" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="3UdrHMImbzUITnEJ_4zd-4" source="3UdrHMImbzUITnEJ_4zd-7" target="3UdrHMImbzUITnEJ_4zd-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-7" value="Pamięć masowa" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Discs.svg;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-4">
+          <mxGeometry x="230" y="413" width="50" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-8" value="Backup" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/azure_stack/Infrastructure_Backup.svg;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-4">
+          <mxGeometry x="225" y="570" width="60" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-10" value="API Bazy" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="3UdrHMImbzUITnEJ_4zd-4" source="3UdrHMImbzUITnEJ_4zd-9" target="3UdrHMImbzUITnEJ_4zd-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-9" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=1;align=center;outlineConnect=0;dashed=0;outlineConnect=0;shape=mxgraph.aws3d.application;fillColor=#4286c5;strokeColor=#57A2D8;aspect=fixed;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-4">
+          <mxGeometry x="224" y="60" width="62" height="68.8" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-27" value="Środowisko Dev-Ops" style="shape=mxgraph.ibm.box;prType=classic;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4376BB;strokeWidth=2;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="-827" width="520" height="507" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-28" value="Fibre&lt;br&gt;Channel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="3UdrHMImbzUITnEJ_4zd-27" source="3UdrHMImbzUITnEJ_4zd-29" target="3UdrHMImbzUITnEJ_4zd-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-29" value="Baza danych" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/databases.svg;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-27">
+          <mxGeometry x="230" y="240" width="50" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-31" value="Pamięć masowa" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Discs.svg;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-27">
+          <mxGeometry x="230" y="413" width="50" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-33" value="API Bazy" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="3UdrHMImbzUITnEJ_4zd-27" source="3UdrHMImbzUITnEJ_4zd-34" target="3UdrHMImbzUITnEJ_4zd-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-34" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=1;align=center;outlineConnect=0;dashed=0;outlineConnect=0;shape=mxgraph.aws3d.application;fillColor=#4286c5;strokeColor=#57A2D8;aspect=fixed;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-27">
+          <mxGeometry x="224" y="60" width="62" height="68.8" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-35" value="Legenda" style="shape=table;startSize=33;container=1;collapsible=0;childLayout=tableLayout;" vertex="1" parent="1">
+          <mxGeometry x="695" y="-481" width="330" height="161" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-36" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-35">
+          <mxGeometry y="33" width="330" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-37" value="Opis" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-36">
+          <mxGeometry width="90" height="64" as="geometry">
+            <mxRectangle width="90" height="64" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-38" value="Proste środowisko testowo-deweloperskie bez zabezpieczeńia backupem." style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;verticalAlign=top;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-36">
+          <mxGeometry x="90" width="240" height="64" as="geometry">
+            <mxRectangle width="240" height="64" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-70" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-35">
+          <mxGeometry y="97" width="330" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-71" value="Kluczowe cechy" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-70">
+          <mxGeometry width="90" height="64" as="geometry">
+            <mxRectangle width="90" height="64" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-72" value="&lt;ul&gt;&lt;li&gt;Prostota środowiska&lt;/li&gt;&lt;li&gt;Możliwośc użycia wewnętrznej pamięci masowej&lt;/li&gt;&lt;/ul&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;verticalAlign=top;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-70">
+          <mxGeometry x="90" width="240" height="64" as="geometry">
+            <mxRectangle width="240" height="64" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-39" value="Legenda" style="shape=table;startSize=33;container=1;collapsible=0;childLayout=tableLayout;" vertex="1" parent="1">
+          <mxGeometry x="695" y="269" width="330" height="161" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-40" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-39">
+          <mxGeometry y="33" width="330" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-41" value="Opis" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-40">
+          <mxGeometry width="90" height="64" as="geometry">
+            <mxRectangle width="90" height="64" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-42" value="Proste środowisko podukcyjne, zabezpieczone backupem lokalnym" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;verticalAlign=top;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-40">
+          <mxGeometry x="90" width="240" height="64" as="geometry">
+            <mxRectangle width="240" height="64" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-67" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-39">
+          <mxGeometry y="97" width="330" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-68" value="Kluczowe cechy" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-67">
+          <mxGeometry width="90" height="64" as="geometry">
+            <mxRectangle width="90" height="64" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-69" value="&lt;ul&gt;&lt;li&gt;RTO - godziny, zależna od technologii backupu i ilości danych&lt;/li&gt;&lt;li&gt;RPO - ostatni backup&lt;/li&gt;&lt;/ul&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;verticalAlign=top;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-67">
+          <mxGeometry x="90" width="240" height="64" as="geometry">
+            <mxRectangle width="240" height="64" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-43" value="Klaster aplikacji, jeden ośrodek" style="shape=mxgraph.ibm.box;prType=classic;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4376BB;strokeWidth=2;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="145" y="470" width="520" height="710" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-59" value="Oprogramowanie&amp;nbsp;&lt;br&gt;HA" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="3UdrHMImbzUITnEJ_4zd-43" source="3UdrHMImbzUITnEJ_4zd-45" target="3UdrHMImbzUITnEJ_4zd-56">
+          <mxGeometry x="-0.207" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="255" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-45" value="Baza danych" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/databases.svg;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-43">
+          <mxGeometry x="365" y="79.79999999999995" width="50" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-46" value="LANFreee&lt;br&gt;lub&amp;nbsp;&lt;br&gt;LAN + Deduplikacja" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="3UdrHMImbzUITnEJ_4zd-43" source="3UdrHMImbzUITnEJ_4zd-47" target="3UdrHMImbzUITnEJ_4zd-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-47" value="Pamięć masowa" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Discs.svg;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-43">
+          <mxGeometry x="235" y="370" width="50" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-48" value="Backup" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/azure_stack/Infrastructure_Backup.svg;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-43">
+          <mxGeometry x="230" y="570" width="60" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-49" value="API Bazy" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="3UdrHMImbzUITnEJ_4zd-43" source="3UdrHMImbzUITnEJ_4zd-50" target="3UdrHMImbzUITnEJ_4zd-45">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="255" y="104" />
+              <mxPoint x="255" y="104" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-58" value="Oprogramowanie&lt;br&gt;HA" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="3UdrHMImbzUITnEJ_4zd-43" source="3UdrHMImbzUITnEJ_4zd-50" target="3UdrHMImbzUITnEJ_4zd-56">
+          <mxGeometry x="-0.2831" y="-1" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="126" y="255" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-50" value="Aplikacja" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=1;align=center;outlineConnect=0;dashed=0;outlineConnect=0;shape=mxgraph.aws3d.application;fillColor=#4286c5;strokeColor=#57A2D8;aspect=fixed;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-43">
+          <mxGeometry x="95" y="69.89999999999995" width="62" height="68.8" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.502;entryY=0.139;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="3UdrHMImbzUITnEJ_4zd-43" source="3UdrHMImbzUITnEJ_4zd-56" target="3UdrHMImbzUITnEJ_4zd-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-56" value="Klaster HA" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.cluster;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-43">
+          <mxGeometry x="208.6" y="230" width="102.8" height="49.2" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-51" value="Legenda" style="shape=table;startSize=33;container=1;collapsible=0;childLayout=tableLayout;" vertex="1" parent="1">
+          <mxGeometry x="695" y="962" width="330" height="218" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-52" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-51">
+          <mxGeometry y="33" width="330" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-53" value="Opis" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-52">
+          <mxGeometry width="90" height="42" as="geometry">
+            <mxRectangle width="90" height="42" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-54" value="Aplikacja i baza danych w klastrze HA zabezpieczone lokalnym backupem." style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;verticalAlign=top;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-52">
+          <mxGeometry x="90" width="240" height="42" as="geometry">
+            <mxRectangle width="240" height="42" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-64" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-51">
+          <mxGeometry y="75" width="330" height="143" as="geometry" />
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-65" value="Kluczowe cechy" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-64">
+          <mxGeometry width="90" height="143" as="geometry">
+            <mxRectangle width="90" height="143" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3UdrHMImbzUITnEJ_4zd-66" value="&lt;ul&gt;&lt;li&gt;RPO - ostatni backup&amp;nbsp;&lt;/li&gt;&lt;li&gt;RTO - godziny - zależny od systemu backupu i ilości danych&lt;/li&gt;&lt;li&gt;niedostępność aplikacji przy przłączeniu: minuty&lt;/li&gt;&lt;/ul&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;verticalAlign=top;" vertex="1" parent="3UdrHMImbzUITnEJ_4zd-64">
+          <mxGeometry x="90" width="240" height="143" as="geometry">
+            <mxRectangle width="240" height="143" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
