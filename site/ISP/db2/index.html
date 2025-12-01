@@ -655,6 +655,8 @@
         
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21zm-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54zM19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2"/></svg>
+  
   <span class="md-ellipsis">
     
   
@@ -1294,6 +1296,19 @@
       
         <span class="md-typeset">
           Weryfikacja środowiska
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logarchmeth1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          LOGARCHMETH1
         </span>
       
     </span>
@@ -2306,6 +2321,19 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#logarchmeth1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          LOGARCHMETH1
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2402,20 +2430,38 @@
 <li><code>RETE</code> = 0</li>
 <li><code>RETO</code> = 0</li>
 </ul>
+<div class="admonition danger">
+<p class="admonition-title">Ważne</p>
+<p>O ile TSM za retencję backupu DB2 nie odpowiada, o tyle za expirowanie archiwów już tak. A baza używająć<code>LOGARCHMETH1</code> , zwala logi do TSMa właśnie jako obiekty archiwalne.  Dlatego warto uzodnić czas retencji logów z DBA bazy.</p>
+</div>
 <h3 id="domena-policy-set-managment-classa-i-copy-grupa">Domena, policy set, managment classa i copy grupa</h3>
-<p>Zakładam, że jest już pula <code>dc01</code>, która u mnie zwykle jest kontenerowa. Oczywioście można tu użyć dowolnej puli, jak komu pasuje. Przy LAMFRee to będzie pewnie taśma, albo <code>FILE</code> na jakimś GPFSie.</p>
+<p>Zakładam, że jest już pula <code>dc01</code>, która u mnie zwykle jest kontenerowa. Oczywioście można tu użyć dowolnej puli, jak komu pasuje. Przy LANFree to będzie pewnie taśma, albo <code>FILE</code> na jakimś GPFSie.</p>
 <div class="language-text highlight"><span class="filename">Polityki dla DB2</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>def dom db2 descr=&quot;Klienci db2&quot;
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>def pol db2 prd desc=&quot;Polityka dla DB2&quot;
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>def mgmt db2 prd dbb migdest=dc01
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>def copyg db2 prd dbb t=b vere=1 verd=0 rete=0 reto=0 dest=dc01
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>def copyg db2 prd dbb t=a retver=30 dest=dc01
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>assign defmgmt db2 prd dbb
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>val pol db2 prd
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>act pol db2 prd
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>def mgmt db2 prd logs migdest=dc01 descr=&quot;DB2 archlogs&quot;
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>def copyg db2 prd logs t=a retver=30 dest=dc01
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>assign defmgmt db2 prd dbb
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>val pol db2 prd
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>act pol db2 prd
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Uwaga:</p>
-<p>W powyższej liście komend jest kilka "zbędnych rzeczy": <code>migdest=dc01</code>  i copygrupa archiwalna są dla porządku, bo nie lubię mieć ostrzeżeń podczas validacji policysetu. </p>
+<p>W powyższej liście jest "zbędna rzecz": <code>migdest=dc01</code>. To dla porządku, bo nie lubię mieć ostrzeżeń podczas validacji policysetu. </p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Ważne:</p>
+<p class="annotate">Jeśli planujesz archiwizację logów (1) potrzebujesz conajmniej copygrupy archiwalnej w domyślnej managment class. A pewnie lepszym pomysłem jest zrobienie dedykowanej managment classy pod logi. </p>
+<ol>
+<li>prawdopodobnie planujesz, bo bez tego życie jest smutne <img alt="😢" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f622.svg" title=":cry:" />.</li>
+</ol>
+<p>W powyższym przykładzie jest zdefiniowana klasa <code>LOGS</code> z copygrupą archiwalną, której planuję użyć do archiwizacji logów. </p>
+<div class="admonition tip">
+<p class="admonition-title">Ciekawostka</p>
+<p>Ponieważ copygrupy backupowa i archiwalna mogą mieć innne <code>destination</code> możliwe jest rozdzielenie backupu od logów. Można np skierować backupy na <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10a2 2 0 0 1 2 2c0 1.11-.89 2-2 2a2 2 0 1 1 0-4M5 3h14a2 2 0 0 1 2 2v12h-4.1a6.96 6.96 0 0 0 2.1-5c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7h9c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2"/></svg></span> a logi na deduplikowane <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m6 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6.1 6l-.88-2.23a1.01 1.01 0 0 1 .37-1.37l.86-.5a1.01 1.01 0 0 1 1.37.37l1.92 2.42A5.98 5.98 0 0 0 18 10a6 6 0 0 0-6-6m0 5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-5 9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m5.09-4.73 2.49 6.31 2.59-1.5-4.22-5.31z"/></svg></span>.</p>
+</div>
 </div>
 <h3 id="klient">Klient</h3>
 <p>Klientów będzie tak naprawdę dwóch: dla bazy (API) i dla OSa (BA).</p>
@@ -2604,54 +2650,68 @@ Plik <code>dsm.opt</code> wskazuje na domyślną stanze <code>dsm.sys</code>, ta
 </span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>SQL1063N<span class="w">  </span>DB2START<span class="w"> </span>processing<span class="w"> </span>was<span class="w"> </span>successful.
 </span></code></pre></div>
 </div>
+<h4 id="logarchmeth1">LOGARCHMETH1</h4>
+<p>Ustawienie archiwizacji logów na cokolwiek jest kluczowe. Bez tego możliwe będa tylko backupy offline. Archwizację logów do Protecta ustawaia się komendą:</p>
+<div class="language-shell highlight"><span class="filename">Ustawianie archiwizacji logów</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>db2<span class="w"> </span>update<span class="w"> </span>db<span class="w"> </span>cfg<span class="w"> </span><span class="k">for</span><span class="w"> </span>&lt;moja_baza&gt;<span class="w"> </span>using<span class="w"> </span>logarchmeth1<span class="w"> </span>tsm:&lt;klasa_dla_logów&gt;
+</span></code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Przykład</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>update<span class="w"> </span>db<span class="w"> </span>cfg<span class="w"> </span><span class="k">for</span><span class="w"> </span>pilsisko<span class="w"> </span>using<span class="w"> </span>logarchmeth1<span class="w"> </span>tsm:logs
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>UPDATE<span class="w"> </span>DATABASE<span class="w"> </span>CONFIGURATION<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>SQL1363W<span class="w">  </span>One<span class="w"> </span>or<span class="w"> </span>more<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>parameters<span class="w"> </span>submitted<span class="w"> </span><span class="k">for</span><span class="w"> </span>immediate<span class="w"> </span>modification<span class="w"> </span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>were<span class="w"> </span>not<span class="w"> </span>changed<span class="w"> </span>dynamically.<span class="w"> </span>For<span class="w"> </span>these<span class="w"> </span>configuration<span class="w"> </span>parameters,<span class="w"> </span>the<span class="w"> </span>database<span class="w"> </span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>must<span class="w"> </span>be<span class="w"> </span>shutdown<span class="w"> </span>and<span class="w"> </span>reactivated<span class="w"> </span>before<span class="w"> </span>the<span class="w"> </span>configuration<span class="w"> </span>parameter<span class="w"> </span>changes<span class="w"> </span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>become<span class="w"> </span>effective.
+</span></code></pre></div>
+</div>
 <h3 id="poaczenie-db2-i-storage-protect">Połączenie DB2 i Storage Protect</h3>
 <p>Wywołaj polecenie <code>~/sqllib/adsm/dsmapipw</code>:</p>
-<div class="language-sh highlight"><span class="filename">Zmiana hasła i test komunikacji z TSM dla noda DB2</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>./sqllib/adsm/dsmapipw<span class="w"> </span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>*************************************************************
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>*<span class="w"> </span>Tivoli<span class="w"> </span>Storage<span class="w"> </span>Manager<span class="w">                                    </span>*
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>*<span class="w"> </span>API<span class="w"> </span><span class="nv">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span>.1.27<span class="w">                                       </span>*
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>*************************************************************
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>Enter<span class="w"> </span>your<span class="w"> </span>current<span class="w"> </span>password:
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>Enter<span class="w"> </span>your<span class="w"> </span>new<span class="w"> </span>password:
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>Enter<span class="w"> </span>your<span class="w"> </span>new<span class="w"> </span>password<span class="w"> </span>again:
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>Your<span class="w"> </span>new<span class="w"> </span>password<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>accepted<span class="w"> </span>and<span class="w"> </span>updated.
+<div class="language-sh highlight"><span class="filename">Zmiana hasła i test komunikacji z TSM dla noda DB2</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>./sqllib/adsm/dsmapipw<span class="w"> </span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>*************************************************************
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>*<span class="w"> </span>Tivoli<span class="w"> </span>Storage<span class="w"> </span>Manager<span class="w">                                    </span>*
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>*<span class="w"> </span>API<span class="w"> </span><span class="nv">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span>.1.27<span class="w">                                       </span>*
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>*************************************************************
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>Enter<span class="w"> </span>your<span class="w"> </span>current<span class="w"> </span>password:
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>Enter<span class="w"> </span>your<span class="w"> </span>new<span class="w"> </span>password:
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>Enter<span class="w"> </span>your<span class="w"> </span>new<span class="w"> </span>password<span class="w"> </span>again:
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>Your<span class="w"> </span>new<span class="w"> </span>password<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>accepted<span class="w"> </span>and<span class="w"> </span>updated.
 </span></code></pre></div>
 <p>Jednocześnie w ACTLOGu TSMa powinno być widać coś takiego:</p>
-<div class="language-text highlight"><span class="filename">ACTLOG z nawiązania sesji przez noda DB2</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ANR0839I Session 42075 started for node DIBITU_DB2 (Linux x86-64) (SSL 10.10.3.93:35244) on sp-1:1500.
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>ANR0403I Session 42075 ended for node DIBITU_DB2 (Linux x86-64).
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>ANR8592I Session 42076 connection is using protocol TLSV13, cipher specification TLS_AES_256_GCM_SHA384, certificate TSM Self-Signed 
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>Certificate. 
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>ANR0839I Session 42076 started for node DIBITU_DB2 (Linux x86-64) (SSL 10.10.3.93:35254) on sp-1:1500.
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>ANR0403I Session 42076 ended for node DIBITU_DB2 (Linux x86-64).
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>ANR8592I Session 42077 connection is using protocol TLSV13, cipher specification TLS_AES_256_GCM_SHA384, certificate TSM Self-Signed 
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>Certificate. 
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>ANR0839I Session 42077 started for node DIBITU_DB2 (Linux x86-64) (SSL 10.10.3.93:47422) on sp-1:1500.
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>ANR0403I Session 42077 ended for node DIBITU_DB2 (Linux x86-64).
+<div class="language-text highlight"><span class="filename">ACTLOG z nawiązania sesji przez noda DB2</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ANR0839I Session 42075 started for node DIBITU_DB2 (Linux x86-64) (SSL 10.10.3.93:35244) on sp-1:1500.
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>ANR0403I Session 42075 ended for node DIBITU_DB2 (Linux x86-64).
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>ANR8592I Session 42076 connection is using protocol TLSV13, cipher specification TLS_AES_256_GCM_SHA384, certificate TSM Self-Signed 
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>Certificate. 
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>ANR0839I Session 42076 started for node DIBITU_DB2 (Linux x86-64) (SSL 10.10.3.93:35254) on sp-1:1500.
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>ANR0403I Session 42076 ended for node DIBITU_DB2 (Linux x86-64).
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>ANR8592I Session 42077 connection is using protocol TLSV13, cipher specification TLS_AES_256_GCM_SHA384, certificate TSM Self-Signed 
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>Certificate. 
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>ANR0839I Session 42077 started for node DIBITU_DB2 (Linux x86-64) (SSL 10.10.3.93:47422) on sp-1:1500.
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>ANR0403I Session 42077 ended for node DIBITU_DB2 (Linux x86-64).
 </span></code></pre></div>
 <p>We właściwiościach noda <code>DIBITU_DB2</code> na TSMie będzie też widać zmianę atrybutu <code>Platform</code> przed i po nawiązaniu komunikacji:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Przed</label><label for="__tabbed_2_2">Po</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Protect: SP1&gt;q node dom=db2
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Node Name                     Platform     Policy Domain      Days Sinc-     Days Sinc-     Locked?
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>                                           Name                  e Last      e Passwor-     
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>                                                                  Access          d Set     
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>-------------------------     --------     --------------     ----------     ----------     -------
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>DIBITU_DB2                    (?)          DB2                         1              1       No 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Protect: SP1&gt;q node dom=db2
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Node Name                     Platform     Policy Domain      Days Sinc-     Days Sinc-     Locked?
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>                                           Name                  e Last      e Passwor-     
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>                                                                  Access          d Set     
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>-------------------------     --------     --------------     ----------     ----------     -------
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>DIBITU_DB2                    (?)          DB2                         1              1       No 
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Protect: SP1&gt;q node dom=db2
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Node Name                     Platform     Policy Domain      Days Sinc-     Days Sinc-     Locked?
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>                                           Name                  e Last      e Passwor-     
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>                                                                  Access          d Set     
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>-------------------------     --------     --------------     ----------     ----------     -------
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>DIBITU_DB2                    Linux        DB2                        &lt;1             &lt;1       No   
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>                               x86-64
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Protect: SP1&gt;q node dom=db2
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Node Name                     Platform     Policy Domain      Days Sinc-     Days Sinc-     Locked?
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>                                           Name                  e Last      e Passwor-     
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>                                                                  Access          d Set     
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>-------------------------     --------     --------------     ----------     ----------     -------
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>DIBITU_DB2                    Linux        DB2                        &lt;1             &lt;1       No   
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>                               x86-64
 </span></code></pre></div>
 </div>
 </div>
@@ -2664,49 +2724,49 @@ DB2 o dorosła baza, więc ma pierdyliony możliwości backupu i odtwarzania. Ni
 <ol>
 <li>Albo innego uprawnionego do wykonywania backupów.</li>
 </ol>
-<div class="language-shell highlight"><span class="filename">Wyciszanie bazy do backupu</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>pilsisko
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">   </span>Database<span class="w"> </span>Connection<span class="w"> </span>Information
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w"> </span>Database<span class="w"> </span><span class="nv">server</span><span class="w">        </span><span class="o">=</span><span class="w"> </span>DB2/LINUXX8664<span class="w"> </span><span class="m">12</span>.1.3.0
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w"> </span>SQL<span class="w"> </span>authorization<span class="w"> </span><span class="nv">ID</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>DB2INST1
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w"> </span>Local<span class="w"> </span>database<span class="w"> </span><span class="nb">alias</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>PILSISKO
-</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
-</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>quiesce<span class="w"> </span>database<span class="w"> </span>immediate<span class="w"> </span>force<span class="w"> </span>connections
-</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>QUIESCE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
-</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>unquiesce<span class="w"> </span>database
-</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>UNQUIESCE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
-</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>terminate
-</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>TERMINATE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
-</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>deactivate<span class="w"> </span>database<span class="w"> </span>pilsisko
-</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>DEACTIVATE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
+<div class="language-shell highlight"><span class="filename">Wyciszanie bazy do backupu</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>pilsisko
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">   </span>Database<span class="w"> </span>Connection<span class="w"> </span>Information
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w"> </span>Database<span class="w"> </span><span class="nv">server</span><span class="w">        </span><span class="o">=</span><span class="w"> </span>DB2/LINUXX8664<span class="w"> </span><span class="m">12</span>.1.3.0
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w"> </span>SQL<span class="w"> </span>authorization<span class="w"> </span><span class="nv">ID</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>DB2INST1
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w"> </span>Local<span class="w"> </span>database<span class="w"> </span><span class="nb">alias</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>PILSISKO
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>quiesce<span class="w"> </span>database<span class="w"> </span>immediate<span class="w"> </span>force<span class="w"> </span>connections
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>QUIESCE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>unquiesce<span class="w"> </span>database
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>UNQUIESCE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>terminate
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>TERMINATE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>deactivate<span class="w"> </span>database<span class="w"> </span>pilsisko
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>DEACTIVATE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
 </span></code></pre></div>
 <div class="admonition quote">
 <p class="admonition-title">Skrypt</p>
 <p>Zamiast klepać te poleceania, można to wrzucic do pliku np.: <code>db_prep.txt</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>CONNECT TO pilsisko
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>QUIESCE DATABASE IMMEDIATE FORCE CONNECTIONS;
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>UNQUIESCE DATABASE;
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>TERMINATE;
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>DEACTIVATE DATABASE database-alias
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>CONNECT TO pilsisko
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>QUIESCE DATABASE IMMEDIATE FORCE CONNECTIONS;
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>UNQUIESCE DATABASE;
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>TERMINATE;
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>DEACTIVATE DATABASE database-alias
 </span></code></pre></div>
 <p>I zapuścić komendą <code>db2 -tf db_prep,txt</code></p>
 </div>
 <p>Po deaktywacji bazy można puścić backup:</p>
-<p><div class="language-shell highlight"><span class="filename">Offline backup, bez logów</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>backup<span class="w"> </span>db<span class="w"> </span>pilsisko<span class="w">  </span>use<span class="w"> </span>tsm
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Backup<span class="w"> </span>successful.<span class="w"> </span>The<span class="w"> </span>timestamp<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>backup<span class="w"> </span>image<span class="w"> </span>is<span class="w"> </span>:<span class="w"> </span><span class="m">20251123132004</span>
+<p><div class="language-shell highlight"><span class="filename">Offline backup, bez logów</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>backup<span class="w"> </span>db<span class="w"> </span>pilsisko<span class="w">  </span>use<span class="w"> </span>tsm
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Backup<span class="w"> </span>successful.<span class="w"> </span>The<span class="w"> </span>timestamp<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>backup<span class="w"> </span>image<span class="w"> </span>is<span class="w"> </span>:<span class="w"> </span><span class="m">20251123132004</span>
 </span></code></pre></div>
 Na serwerze Protect pojawi się <code>filespace</code> z nazwą bazy:</p>
-<div class="language-text highlight"><span class="filename">Filespace węzła DIBITU_DB2</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Protect: SP1&gt;q files dibitu_db2
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Node Name           Filespace           FSID     Platform     Filespac-     Is Filesp-        Capacity      Pct 
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>                    Name                                      e Type        ace Unico-                      Util
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>                                                                               de?                         
-</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>---------------     -----------     --------     --------     ---------     ----------     -----------     -----
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>DIBITU_DB2          /PILSISKO              1     DB2/LIN-     API:DB2/-         No              201 MB     100,0
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>                                                  UXX8664      LINUXX8-                                         
-</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>                                                               664  
+<div class="language-text highlight"><span class="filename">Filespace węzła DIBITU_DB2</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Protect: SP1&gt;q files dibitu_db2
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Node Name           Filespace           FSID     Platform     Filespac-     Is Filesp-        Capacity      Pct 
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>                    Name                                      e Type        ace Unico-                      Util
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>                                                                               de?                         
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>---------------     -----------     --------     --------     ---------     ----------     -----------     -----
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>DIBITU_DB2          /PILSISKO              1     DB2/LIN-     API:DB2/-         No              201 MB     100,0
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>                                                  UXX8664      LINUXX8-                                         
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>                                                               664  
 </span></code></pre></div>
 <h2 id="co-dalej">Co dalej?</h2>
 <p><a href="../../db2/back_n_rest/">Dalej</a> jest backup i restore we wszystkich możliwych smakach.</p>
