@@ -520,6 +520,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#typy-backupu-i-konsekwencje-dla-odtwarzania" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Typy backupu i konsekwencje dla odtwarzania
+        </span>
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Typy backupu i konsekwencje dla odtwarzania">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#offline-ackup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Offline ackup
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategia-backupu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Strategia backupu
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#offline-backup-bez-logow" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -759,6 +817,8 @@
       <a href="../../ISP/SQL/" class="md-nav__link">
         
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21zm-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54zM19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2"/></svg>
   
   <span class="md-ellipsis">
     
@@ -1929,6 +1989,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#typy-backupu-i-konsekwencje-dla-odtwarzania" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Typy backupu i konsekwencje dla odtwarzania
+        </span>
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Typy backupu i konsekwencje dla odtwarzania">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#offline-ackup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Offline ackup
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategia-backupu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Strategia backupu
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#offline-backup-bez-logow" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2004,7 +2122,21 @@
 
 
 <h1 id="backup-i-restore-db2">Backup i restore DB2</h1>
-<p>Z założenia będę tu używać Protecta, ale cał ideologia backupu DB2 jest praktycznie niezależna od nośnika, dlateg ten rozdział leży w kategorii <em>DB2</em> a nie <em>[Storage Protect](../ISP/index.md</em>.</p>
+<p>Z założenia będę tu używać Protecta, ale cał ideologia backupu DB2 jest praktycznie niezależna od nośnika, dlatego ten rozdział leży w kategorii <em>DB2</em> a nie <em>[Storage Protect](../ISP/index.md</em>.</p>
+<h2 id="typy-backupu-i-konsekwencje-dla-odtwarzania">Typy backupu i konsekwencje dla odtwarzania</h2>
+<p>IBM DB2 po wyjęciu z pudełka, działa w trybie bez archiwizacji logów, co dość mocno ogranicza opcje backupu i odtwarzania... właściwie tylko do backupu <em>offline</em> i odtworzenia do punktu w czasie, kiedy backup był <strong>rozpoczęty</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Jak sprawdzić biezący tryb logów?</p>
+<p>Sprawdź wartość atrybutu <code>ARCHMETH1</code> dla backupowanej bazy. Jeśli nic tam nie ma, baza nie archiwizuje logów.</p>
+<div class="language-shell highlight"><span class="filename">Odczyt ARCHMETH1</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>get<span class="w"> </span>db<span class="w"> </span>cfg<span class="w"> </span><span class="k">for</span><span class="w"> </span>pilsisko<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ARCHMETH1
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w"> </span>First<span class="w"> </span>log<span class="w"> </span>archive<span class="w"> </span>method<span class="w">                 </span><span class="o">(</span>LOGARCHMETH1<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFF
+</span></code></pre></div>
+</div>
+<p>Żeby móc korzystać z innych typów backupu trzeba podać jako <code>ARCHMETH1</code> jakąś metodę archiwizacji logów. Najprościej wskazać katalog na dysku... albo TSM. Ja <a href="../isp/db2#LOGARCHMETH1">użyłem</a> tej drugiej opcji i to ze wskazaniem dedykowanej managment classy dla logów. </p>
+<h3 id="offline-ackup">Offline ackup</h3>
+<h3 id="_1"></h3>
+<h2 id="strategia-backupu">Strategia backupu</h2>
+<p>Co należy wziąc pod uwagę, projketując strategię backupu:</p>
 <h2 id="offline-backup-bez-logow">Offline backup bez logów</h2>
 <div class="admonition info inline end">
 <p class="admonition-title">Info</p>
@@ -2022,54 +2154,54 @@ Sprowadza się do nastęþujących kroków:</p>
 <ol>
 <li>Albo innego uprawnionego do wykonywania backupów.</li>
 </ol>
-<div class="language-shell highlight"><span class="filename">Wyciszanie bazy do backupu</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>pilsisko
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span>Database<span class="w"> </span>Connection<span class="w"> </span>Information
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w"> </span>Database<span class="w"> </span><span class="nv">server</span><span class="w">        </span><span class="o">=</span><span class="w"> </span>DB2/LINUXX8664<span class="w"> </span><span class="m">12</span>.1.3.0
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w"> </span>SQL<span class="w"> </span>authorization<span class="w"> </span><span class="nv">ID</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>DB2INST1
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w"> </span>Local<span class="w"> </span>database<span class="w"> </span><span class="nb">alias</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>PILSISKO
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>quiesce<span class="w"> </span>database<span class="w"> </span>immediate<span class="w"> </span>force<span class="w"> </span>connections
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>QUIESCE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>unquiesce<span class="w"> </span>database
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>UNQUIESCE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>terminate
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>TERMINATE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>deactivate<span class="w"> </span>database<span class="w"> </span>pilsisko
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>DEACTIVATE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
+<div class="language-shell highlight"><span class="filename">Wyciszanie bazy do backupu</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>pilsisko
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">   </span>Database<span class="w"> </span>Connection<span class="w"> </span>Information
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w"> </span>Database<span class="w"> </span><span class="nv">server</span><span class="w">        </span><span class="o">=</span><span class="w"> </span>DB2/LINUXX8664<span class="w"> </span><span class="m">12</span>.1.3.0
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w"> </span>SQL<span class="w"> </span>authorization<span class="w"> </span><span class="nv">ID</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>DB2INST1
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w"> </span>Local<span class="w"> </span>database<span class="w"> </span><span class="nb">alias</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>PILSISKO
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>quiesce<span class="w"> </span>database<span class="w"> </span>immediate<span class="w"> </span>force<span class="w"> </span>connections
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>QUIESCE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>unquiesce<span class="w"> </span>database
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>UNQUIESCE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>terminate
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>TERMINATE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>deactivate<span class="w"> </span>database<span class="w"> </span>pilsisko
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>DEACTIVATE<span class="w"> </span>DATABASE<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>successfully.
 </span></code></pre></div>
 <div class="admonition quote">
 <p class="admonition-title">Skrypt</p>
 <p>Zamiast klepać te poleceania, można to wrzucic do pliku np.: <code>db_prep.txt</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>CONNECT TO pilsisko
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>QUIESCE DATABASE IMMEDIATE FORCE CONNECTIONS;
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>UNQUIESCE DATABASE;
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>TERMINATE;
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>DEACTIVATE DATABASE database-alias
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>CONNECT TO pilsisko
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>QUIESCE DATABASE IMMEDIATE FORCE CONNECTIONS;
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>UNQUIESCE DATABASE;
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>TERMINATE;
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>DEACTIVATE DATABASE database-alias
 </span></code></pre></div>
 <p>I zapuścić komendą <code>db2 -tf db_prep,txt</code></p>
 </div>
 <h3 id="backup-offline">Backup <em>offline</em></h3>
 <p>Po deaktywacji bazy można puścić backup:</p>
-<p><div class="language-shell highlight"><span class="filename">Offline backup, bez logów</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>backup<span class="w"> </span>db<span class="w"> </span>pilsisko<span class="w">  </span>use<span class="w"> </span>tsm
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Backup<span class="w"> </span>successful.<span class="w"> </span>The<span class="w"> </span>timestamp<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>backup<span class="w"> </span>image<span class="w"> </span>is<span class="w"> </span>:<span class="w"> </span><span class="m">20251123132004</span>
+<p><div class="language-shell highlight"><span class="filename">Offline backup, bez logów</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">[</span>db2inst1@dibitu<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>backup<span class="w"> </span>db<span class="w"> </span>pilsisko<span class="w">  </span>use<span class="w"> </span>tsm
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Backup<span class="w"> </span>successful.<span class="w"> </span>The<span class="w"> </span>timestamp<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>backup<span class="w"> </span>image<span class="w"> </span>is<span class="w"> </span>:<span class="w"> </span><span class="m">20251123132004</span>
 </span></code></pre></div>
 Na serwerze Protect pojawi się <code>filespace</code> z nazwą bazy:</p>
-<div class="language-text highlight"><span class="filename">Filespace węzła DIBITU_DB2</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Protect: SP1&gt;q files dibitu_db2
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Node Name           Filespace           FSID     Platform     Filespac-     Is Filesp-        Capacity      Pct 
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                    Name                                      e Type        ace Unico-                      Util
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                                                                               de?                         
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>---------------     -----------     --------     --------     ---------     ----------     -----------     -----
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>DIBITU_DB2          /PILSISKO              1     DB2/LIN-     API:DB2/-         No              201 MB     100,0
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                                                  UXX8664      LINUXX8-                                         
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>                                                               664  
+<div class="language-text highlight"><span class="filename">Filespace węzła DIBITU_DB2</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Protect: SP1&gt;q files dibitu_db2
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Node Name           Filespace           FSID     Platform     Filespac-     Is Filesp-        Capacity      Pct 
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                    Name                                      e Type        ace Unico-                      Util
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                                                                               de?                         
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>---------------     -----------     --------     --------     ---------     ----------     -----------     -----
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>DIBITU_DB2          /PILSISKO              1     DB2/LIN-     API:DB2/-         No              201 MB     100,0
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>                                                  UXX8664      LINUXX8-                                         
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>                                                               664  
 </span></code></pre></div>
 <h3 id="reaktywacja-bazy">Reaktywacja bazy</h3>
 <p>Reaktywacja bazy odbywa się komendą:</p>
-<div class="language-shell highlight"><span class="filename">Reaktywacja bazy po backupie</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>activate<span class="w"> </span>database<span class="w"> </span>pilsisko
+<div class="language-shell highlight"><span class="filename">Reaktywacja bazy po backupie</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">db2</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>activate<span class="w"> </span>database<span class="w"> </span>pilsisko
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Do rozkminy</p>
