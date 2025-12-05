@@ -1,6 +1,7 @@
 site_name: Marcinkowe mądrości
 plugins:
   - typeset
+#  - to-pdf
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
