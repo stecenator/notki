@@ -92,6 +92,13 @@ Twoja gałąź jest do przodu względem „origin/mkdocs” o 2 zapisy.
   (użyj „git push”, aby opublikować swoje zapisy)
 ```
 
+### Pull-request
+
+Czasem przyjdą zmiany z boku. Wtedy trzeba dołączyć zmiany z jednej gałęzi do drugiej. Tak się dziej np gdy zostanie naprawiony jakiś bug. Albo dodany ficzur. C
+
+1. Wypchnij zmiany z bocznej gałęzi do nowego repo. W razie potrzeby utwórz tę gałąź w `ORIGIN`.
+1. Zaloguj sie na GithHub i zrób pull-request.
+
 
 ## Tricki
 
