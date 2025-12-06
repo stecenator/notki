@@ -104,6 +104,7 @@ nav:
   - mkdocs: 
     - mkdocs/index.md
     - Ikony: mkdocs/icons.md
+    - Obrazki: mkdocs/img.md
   - Power:
     - Power/index.md
     - HMC: Power/HMC.md
