@@ -1,5 +1,5 @@
 ---
-icon: octicons/cpu-16
+icon: IBM-Power
 ---
 
 # IBM Power/PowerVM/VIOS/AIX

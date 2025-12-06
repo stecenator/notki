@@ -25,8 +25,15 @@ markdown_extensions:
       options:
         custom_icons:
           - overrides/.icons
+          - .icons
+  - pymdownx.critic           # Dodatkowe formatowania, np podświetlanie, przekreślanie
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
 theme:
   name: material
+  custom_dir: overrides  # Ważne! Włącza overrides dla seksji `icon:`s
   logo: assets/ibm-eye-bee-m-black_on_trans_vertical.svg
   features:
     - content.code.copy     # kopiwanie kodu po całości
@@ -94,7 +101,9 @@ nav:
       - Bonding: LNX/bond.md
       - VLAN: LNX/vlan.md
     - X11: LNX/x11.md
-  - mkdocs: mkdocs/index.md
+  - mkdocs: 
+    - mkdocs/index.md
+    - Ikony: mkdocs/icons.md
   - Power:
     - Power/index.md
     - HMC: Power/HMC.md
