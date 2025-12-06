@@ -94,10 +94,19 @@ Twoja gałąź jest do przodu względem „origin/mkdocs” o 2 zapisy.
 
 ### Pull-request
 
-Czasem przyjdą zmiany z boku. Wtedy trzeba dołączyć zmiany z jednej gałęzi do drugiej. Tak się dziej np gdy zostanie naprawiony jakiś bug. Albo dodany ficzur. C
+Czasem przyjdą zmiany z boku. Wtedy trzeba dołączyć zmiany z jednej gałęzi do drugiej. Tak się dziej np gdy zostanie naprawiony jakiś bug. Albo dodany ficzur. Wtedy pewnie ktoś utowrzy pull request. Momżńa też samemu. 
 
-1. Wypchnij zmiany z bocznej gałęzi do nowego repo. W razie potrzeby utwórz tę gałąź w `ORIGIN`.
+1. Wypchnij zmiany z bocznej gałęzi do repo. W razie potrzeby utwórz tę gałąź w `ORIGIN`.
 1. Zaloguj sie na GithHub i zrób pull-request.
+1. Rozwiąż ewentualne konflikty edytując kod bezpośrednio w GitHub.
+1. Zatwierdz merge.
+
+!!! Info "Ważne:"
+
+    Gałąź, która została zmerdżowana nie znika. Bezpośrednio po pull requescie, najprawdopodobniej się takie same z gałęzią, do której dołączałem (1). Dlatego można jej używać np. do dalszej pracy nad danym ficzurem.
+
+    1. To zależy od sposobu w jaki rozwiązałem konflikty, jeśli jakieś były.
+
 
 
 ## Tricki
