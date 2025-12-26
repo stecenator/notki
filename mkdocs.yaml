@@ -109,6 +109,8 @@ nav:
     - Power/index.md
     - HMC: Power/HMC.md
     - VIOS: Power/VIOS.md
+  - Unix:
+      - UNX/index.md
   - Virt: 
     - virt/README.md
     - Libvirt: virt/libvirt.md
