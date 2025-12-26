@@ -4,7 +4,7 @@ icon: material/home
 
 # notki
 
-Podczas mojej podnad cwierćwiecznej pracy z [:ibm: niebieskimi](https://ibm.com) technologiami, czy podczas wypasu pingwinów :fontawesome-brands-linux:, lub generalnie :gnu: Open Source, czasami wymyślę coś czego, nie chę wymyślać drugi raz. Wtedy wrzucam to tutaj. Kiedyś ten projekt leżał wyłąćznie na GitHubie, ale postanowiłem go "ukompatybilnić" z `mkdocs`, stąd umieszczenie wszystkiego w podkatalogu `docs`.
+Podczas mojej podnad cwierćwiecznej pracy z [:IBM-bw: niebieskimi](https://ibm.com) technologiami, czy podczas wypasu pingwinów :fontawesome-brands-linux:, lub generalnie :gnu: Open Source, czasami wymyślę coś czego, nie chę wymyślać drugi raz. Wtedy wrzucam to tutaj. Kiedyś ten projekt leżał wyłąćznie na GitHubie, ale postanowiłem go "ukompatybilnić" z `mkdocs`, stąd umieszczenie wszystkiego w podkatalogu `docs`.
 
 Pliki `README.md` utrzymuję dla zgodnośći z GitHubem, ale struktura plików i katalogów jest dostosowana do serwowania moich mądrośći bezpośrednio z `mkdocs`, które samo robi np spis treśći i nawigację po nagłówkach. Niestety wkradł się tu lekki bałagan i gdzieniegdzie są pliki `index.md`, ale pewnie wrócę to `README.md`. 
 
@@ -34,6 +34,12 @@ Na ADSM się nie załapałem :wink:.
 ## Linux
 
 [Linux](LNX/README.md)
+
+## mkdocs
+
+Cała ta dokumentacja jest stworzona przy pomocy pakietu [mkdocs/metrial](https://squidfunk.github.io/mkdocs-material/reference/). System wydaje się prosty, ale jest w nim kilka niebanalnych zadziorów, które staram się opisywać na bieżąco.
+
+[mkdocs](mkdocs/index.md)
 
 ## Power
 

@@ -1,6 +1,7 @@
 /* Makro zbierania informacji o serwerze TSM/Spectrum/Storage */
 /* moje ulubione skrypty */
 run tape_stats
+run drv_info
 run vol_stats
 run stg_stats
 run node_stats
