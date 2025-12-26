@@ -1,4 +1,4 @@
-# Spis moich rożnych mąrości
+# Spis moich rożnych mądrości
 
 Podczas mojej podnad cwierćwiecznej pracy z technologiami :IBM_logo: czasami wymyślę coś czego nie chę wymyślać drugi raz. Wtedy wrzucam to tutaj. Kiedyś ten projekt leżał wyłąćznie na GitHubie, ale postanowiłem go "ukompatybilnić" z `mkdocs`, stąd umiezczenie wszystkiedo w podkatalogu `docs`. 
 
