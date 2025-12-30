@@ -37,26 +37,26 @@ W przypadku uzycia SVC, albo FlashSystem warto storzyć `multipath.conf` zawiera
 
 ```
 defaults {
-	find_multipaths yes
-	user_friendly_names yes
-	polling_interval 	30
+    find_multipaths yes
+    user_friendly_names yes
+    polling_interval    30
 }
 devices {
-	device {
-		vendor "IBM"
-		product "2145"
-		path_grouping_policy "group_by_prio"
-		path_selector "service-time 0" 
-		prio "alua"
-		path_checker "tur"
-		failback "immediate"
-		no_path_retry 5 # or no_path_retry "fail"
-		retain_attached_hw_handler "yes"
-		fast_io_fail_tmo 5
-		rr_min_io 1000
-		rr_min_io_rq 1
-		rr_weight "uniform"
-	}
+    device {
+        vendor "IBM"
+        product "2145"
+        path_grouping_policy "group_by_prio"
+        path_selector "service-time 0" 
+        prio "alua"
+        path_checker "tur"
+        failback "immediate"
+        no_path_retry 5 # or no_path_retry "fail"
+        retain_attached_hw_handler "yes"
+        fast_io_fail_tmo 5
+        rr_min_io 1000
+        rr_min_io_rq 1
+        rr_weight "uniform"
+    }
 }
 
 blacklist {
@@ -64,7 +64,7 @@ blacklist {
 ```
 
 !!! note "Uwaga"
-	W firmłerach 8.5 i wyższych, IBM nie wymaga modyfikacji `multipath.conf`. Ja ją jednak stosuję zwłaszcza ze względu na `friendly_names`. 
+    W firmłerach 8.5 i wyższych, IBM nie wymaga modyfikacji `multipath.conf`. Ja ją jednak stosuję zwłaszcza ze względu na `friendly_names`. 
 
 ## Regułki `udev` dla dysków (IBM)
 
@@ -75,7 +75,7 @@ SUBSYSTEM=="block", ACTION=="add", ENV{ID_VENDOR}=="IBM",ENV{ID_MODEL}=="2145", 
 ```
 
 !!! note "Uwaga"
-	W firmłerach 8.5 i wyższych, IBM nie wymaga wydlużania timeoutów na ścieżkach. 
+    W firmłerach 8.5 i wyższych, IBM nie wymaga wydlużania timeoutów na ścieżkach. 
 
 ## Ustawienia FC dla taśm
 
@@ -93,10 +93,13 @@ Parę rzeczy w AIXie wyjętym z pudełka trzeba zmienić:
 
 ## `ulimit` dla usera instancji
 
+!!! Info inline end "Informacja"
+    To ma tendencę do zmieniania się z wersji na wersję. Szczegółowe informacje o ulimitach i nie tylko są [tutaj](https://www.ibm.com/docs/en/storage-protect/8.2.0?topic=isos-installing-aix-systems)
+
 Do `/etc/security/limits` w sekcji `default` albo dla `spinst1` wpisać:
 
 ```
-nofiles = 8192
+nofiles = 65536
 nproc = 8192
 fsize = -1
 ```
