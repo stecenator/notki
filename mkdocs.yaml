@@ -88,6 +88,7 @@ nav:
         - Kontenery (dir): ISP/setup_dc.md
         - Kontenery (cloud): ISP/setup_cc.md
         - LANFree: ISL/setup_STA.md
+        - Upgrade: ISP/upgrade.md
     - Klienci:
       - Klient BA: ISP/ba.md
       - TDP4VE: ISP/TDP4VE.md 
