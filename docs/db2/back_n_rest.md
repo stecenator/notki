@@ -24,7 +24,11 @@ IBM DB2 po wyjęciu z pudełka, działa w trybie bez archiwizacji logów, co do�
 ## Strategia backupu
 
 Co należy wziąc pod uwagę, projketując strategię backupu:
+Dwa święte parametry backupu:
 
+<br>
+RTO & RPO
+<br>
 
 ## Offline backup bez logów
 
@@ -106,7 +110,7 @@ DIBITU_DB2          /PILSISKO              1     DB2/LIN-     API:DB2/-         
 
 Reaktywacja bazy odbywa się komendą:
 
-```shell title="Reaktywacja bazy po backupie"
+```sh title="Reaktywacja bazy po backupie"
 db2 => activate database pilsisko
 ```
 
