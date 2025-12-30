@@ -153,3 +153,4 @@ DB2 po wyjęciu z pudełka działa w trybie logów cyklicznych. To znaczy, że i
 
 ```shell title="Ustawianie ARCHMETH1"
 db2 set db cfg for pilsisko LOGARCHMETH1 tsm
+```
