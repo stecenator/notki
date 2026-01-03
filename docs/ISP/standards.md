@@ -1,6 +1,6 @@
 # Konwencje
 
-Rożne konwencje i standardy któ©e sobie wymyśliłem w trakcie moich rozlicznych wdrożeń.
+Rożne konwencje i standardy które sobie wymyśliłem w trakcie moich rozlicznych wdrożeń.
 
 ## Struktura katalogów
 
