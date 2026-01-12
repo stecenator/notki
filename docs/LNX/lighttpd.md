@@ -1,5 +1,5 @@
 ---
-icon: material/web
+icon: lighttpd
 ---
 
 # Po(d)ręczny webserwer

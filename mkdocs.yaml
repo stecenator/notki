@@ -104,6 +104,7 @@ nav:
       - VLAN: LNX/vlan.md
     - X11: LNX/x11.md
     - Lighttpd: LNX/lighttpd.md
+    - Repozytorim yum/dnf: LNX/repo.md
   - mkdocs: 
     - mkdocs/index.md
     - Ikony: mkdocs/icons.md
