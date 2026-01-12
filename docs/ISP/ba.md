@@ -40,10 +40,14 @@ Updating / installing...
    6:TIVsm-BAcit-8.1.27-0             ################################# [100%]
 ```
 
+#### Automatyzacja instalacji
+
+W [tym](../LNX/repo.md) rozdziale opisałem jak zrobić sobie lokalne repozytorium z pakietami kllienta BA. Jest to przydatne, gy muszę utrzymać więcej niż jednego klietna i chcę, żeby poprawki na BA wjeżdzały automatycznie wraz z poprawkami na OS. 
+
 ### Konfiguracja klienta BA
 
 Za konfigurację odpowiedzialne są dwa pliki: `dsm.sys` i `dsm.opt`.
-Poniższe przykłady konfigów wrzucam jako szablon jinja2 
+Poniższe przykłady konfigów wrzucam jako szablon jinja2, bo i tak zwykle używam tego w z:simple-ansible:utomatyzowanych środowiskach.
 
 ```jinja title="dsm.sys"
 servername {{ mój_protect }}                                * Mój alias. Mogę mieć takich wiele
