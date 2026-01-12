@@ -89,6 +89,7 @@ nav:
         - Kontenery (cloud): ISP/setup_cc.md
         - LANFree: ISL/setup_STA.md
         - Upgrade: ISP/upgrade.md
+        - Użyteczne opcje: ISP/srv_opts.md
     - Klienci:
       - Klient BA: ISP/ba.md
       - TDP4VE: ISP/TDP4VE.md 
@@ -102,6 +103,8 @@ nav:
       - Bonding: LNX/bond.md
       - VLAN: LNX/vlan.md
     - X11: LNX/x11.md
+    - Lighttpd: LNX/lighttpd.md
+    - Repozytorim yum/dnf: LNX/repo.md
   - mkdocs: 
     - mkdocs/index.md
     - Ikony: mkdocs/icons.md
