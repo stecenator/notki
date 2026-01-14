@@ -58,3 +58,13 @@ Zaczątki dokumentacji dla [IBM Power](Power/index.md)
 [KVM/Qemu/LibVirt](virt/README.md)
 
 ## WinDOS
+
+
+## Pomysły na przyszłość
+
+- :simple-ansible:nsible:
+	- Playbook do zakładania projektu:
+		- standardowe katalogi
+		- inichalizacja repo :simple-git:
+		- tworzenie szkieltu dokumentacji w `mkdocs`
+	- Wiecej playbooków POWER i SVC
