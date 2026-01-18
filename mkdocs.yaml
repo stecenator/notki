@@ -97,6 +97,7 @@ nav:
       - DB2: ISP/db2.md
   - LNX: 
     - LNX/README.md
+    - HA - Pacemaker: LNX/ha.md
     - MPIO: LNX/MPIO_and_SAN.md
     - lin_tape: LNX/lin_tape.md
     - Multipath - User friendly names: LNX/lsvdisk2mpio_friendly_names.md
