@@ -22,9 +22,14 @@ Do tworzenia prostych klonów w architekturze podstawka -> wiele klonów.
 W przykładzie poniżej z dysku roboczej maszyny `RHEL9-srv-07.2025.qcow2` tworzę "mastera", który będzie potem oderwany od oryginału, żeby być niezmienialną podstawką do klonów.
 
 ```
-$ qemu-img create RHEL9-template-07.2025-don_not_run.qcow2 -f qcow2 -b RHEL9-srv-07.2025.qcow2 -F qcow2 
-Formatting 'RHEL9-template-07.2025-don_not_run.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=75161927680 backing_file=RHEL9-srv-07.2025.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+qemu-img create RHEL9-template-07.2025-don_not_run.qcow2 -f qcow2 -b RHEL9-srv-07.2025.qcow2 -F qcow2 
 ```
+
+??? Example "Przykład"
+    ```
+    $ qemu-img create RHEL9-template-07.2025-don_not_run.qcow2 -f qcow2 -b RHEL9-srv-07.2025.qcow2 -F qcow2 
+    Formatting 'RHEL9-template-07.2025-don_not_run.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=75161927680 backing_file=RHEL9-srv-07.2025.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+    ```
 
 ## Konwersja zlinkowanego klona do niezależnej kopii
 
@@ -34,9 +39,9 @@ Ponieważ chcę używać roboczej wersji maszyny, której ma istnieć także kil
 
 Oderwanie klona od oryginału robi się komendą `qemu-img rebase` podając pusty string jako nowa podstawka: `-b ""`:
 
-```
-$ qemu-img rebase -p -b "" RHEL9-template-07.2025-don_not_run.qcow2
-    (100.00/100%)
+```sh
+qemu-img rebase -p -b "" RHEL9-template-07.2025-don_not_run.qcow2
 ```
 
-Prełącznik `-p` jest od pokazywania postępów.
+!!! Tip
+    Prełącznik `-p` jest od pokazywania postępów.
