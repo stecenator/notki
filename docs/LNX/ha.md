@@ -20,7 +20,7 @@ Pacemaker jest standardowym oporgramowaniem HA na Linuxa. Tutaj opisuję procedu
 
     Sklonowany z jednego źródła według [:fontawesome-regular-hand-point-right: tego artykułu](../virt/qemu-img.md#konwersja-zlinkowanego-klona-do-niezaleznej-kopii).
 
--   :material-ip-network:{ .lg .middle } [__Sieć__](#sieć)
+-   :material-ip-network:{ .lg .middle } [__Sieć__](#siec)
 
     ---
 
@@ -44,7 +44,7 @@ Pacemaker jest standardowym oporgramowaniem HA na Linuxa. Tutaj opisuję procedu
 ## OS
 
 Klaster składa się z dwóch węzłów, które są zlinkowanymi klonami maszyny "Golden image". Cały proces tworzenia klonów opisałem [tu](../virt/libvirt.md#klonowanie-maszyny). 
-Każdy z klonów dostał [swoją](#sieć) konfigurację sieci i został też dostosowany do wymogów [aplikacji](../ISP/setup_os.md). 
+Każdy z klonów dostał [swoją](#siec) konfigurację sieci i został też dostosowany do wymogów [aplikacji](../ISP/setup_os.md). 
 
 
 ## Sieć
