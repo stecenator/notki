@@ -43,19 +43,32 @@ Pacemaker jest standardowym oporgramowaniem HA na Linuxa. Tutaj opisuję procedu
 
 ## OS
 
-Klaster składa się z dwóch węzłów, skonfigurowanych sieciowo według  [tego](#sieć) opisu. Każda maszyna jest przygotowana do pracy z ISP według [tego](../ISP/setup_os.md) przepisu. 
+Klaster składa się z dwóch węzłów, które są zlinkowanymi klonami maszyny "Golden image". Cały proces tworzenia klonów opisałem [tu](../virt/libvirt.md#klonowanie-maszyny). 
+Każdy z klonów dostał [swoją](#sieć) konfigurację sieci i został też dostosowany do wymogów [aplikacji](../ISP/setup_os.md). 
+
 
 ## Sieć
 
-| IP         | FQDN               | Opis                |
-| :---       | :---               | :---                |
-| 10.13.0.12 | sp01-n1.host-only  | IP 1 węzła klastra  |
-| 10.13.0.13 | sp01-n2.host-only  | IP 2 węzła klastra  |
-| 10.13.0.14 | sp01.host-only     | VIP usługi          |
+| IP         | FQDN             | Opis                |
+| :---       | :---             | :---                |
+| 10.13.0.12 | sp-n1.host-only  | IP 1 węzła klastra  |
+| 10.13.0.13 | sp-n2.host-only  | IP 2 węzła klastra  |
+| 10.13.0.14 | sp.host-only     | VIP usługi          |
 
 ## Dyski
 
-Każdy OS ma swój systemowy w formacie QCOW2. Libvirt nie pozwala na współdzielenie takich dysów przez dwie maszyny, więc wspólne dyski są w formacie RAW, i jest ich tyle, żeby było poprawnie dla usługi.
+Każdy OS ma swój systemowy w formacie QCOW2. Libvirt nie pozwala na współdzielenie takich dysów przez dwie maszyny, więc wspólne dyski są w formacie RAW, i jest ich tyle, żeby było poprawnie dla usługi. ponieżej znajduej się zestawianie dysków utworzonych dysków wirtualnych. W "dorosłych" instalacjch, to oczywiście bedą LUNy z macierzy. 
+
+| Dysk             | sp-n1            | sp-n2             | Opis |
+| :---             | :---:            | :---:             | :--- |
+| sp-n1-os.qcow2   | :material-check: |                   | Dysk systemowy |
+| sp-n2-os.qcow2   |                  | :material-check:  | Dysk systemowy |
+| pcmk-actlog.raw  | :material-check: | :material-check:  | Active log |
+| pcmk-archlog.raw | :material-check: | :material-check:  | Archive log |
+| pcmk-db01.raw    | :material-check: | :material-check:  | DB01 |
+| pcmk-db02.raw    | :material-check: | :material-check:  | DB02 |
+| pcmk-dbb.raw     | :material-check: | :material-check:  | Backup bazy |
+| pcmk-inst.raw    | :material-check: | :material-check:  | Instancja |
 
 ## Aplikacja
 

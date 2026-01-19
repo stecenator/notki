@@ -11,22 +11,32 @@ Większość rzeczy poniżej można pewnie zrobic ładniej. Pewnie z czasem to u
 - Maszynki docelowe to: `gpfs-1` i `gpfs-2`
 - Obraz źródłowy dysku: `RHEL9-template-07.2025-don_not_run.qcow2`
 
+Procedura:
+
 1. Zwal XMLa maszyny źródłowej do tymczasowego pliku:
 
 	```sh
-	$ sudo virsh dumpxml rhel9-srv > golden-img.xml
+	sudo virsh dumpxml rhel9-srv > golden-img.xml
 	```
 
 1. Utwórz zlinkowane klony dysków dla nowych VMek:
 
 	```sh
-	$ qemu-img create gpfs-1-os.qcow2 -f qcow2 -b RHEL9-template-07.2025-don_not_run.qcow2 -F qcow2
-	Formatting 'gpfs-1-os.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=75161927680 backing_file=RHEL9-template-07.2025-don_not_run.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
-	$ qemu-img create gpfs-2-os.qcow2 -f qcow2 -b RHEL9-template-07.2025-don_not_run.qcow2 -F qcow2
-	Formatting 'gpfs-2-os.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=75161927680 backing_file=RHEL9-template-07.2025-don_not_run.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+	qemu-img create gpfs-1-os.qcow2 -f qcow2 -b RHEL9-template-07.2025-don_not_run.qcow2 -F qcow2
+	qemu-img create gpfs-2-os.qcow2 -f qcow2 -b RHEL9-template-07.2025-don_not_run.qcow2 -F qcow2
 	```
 
-1. Spreparuj XMLa do klonowania: uzuń UUD i adresy MAC z kart sieciowych.
+	??? Example "Przykład"
+
+		```sh
+		$ qemu-img create gpfs-1-os.qcow2 -f qcow2 -b RHEL9-template-07.2025-don_not_run.qcow2 -F qcow2
+		Formatting 'gpfs-1-os.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=75161927680 backing_file=RHEL9-template-07.2025-don_not_run.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+		$ qemu-img create gpfs-2-os.qcow2 -f qcow2 -b RHEL9-template-07.2025-don_not_run.qcow2 -F qcow2
+		Formatting 'gpfs-2-os.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=75161927680 backing_file=RHEL9-template-07.2025-don_not_run.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+		```
+
+
+1. Spreparuj XMLa do klonowania: usuń UUD i adresy MAC z kart sieciowych.
 
 	```sh
 	$ sed  -i '/uuid/d' golden-img.xml
