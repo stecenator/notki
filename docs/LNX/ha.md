@@ -18,7 +18,7 @@ Pacemaker jest standardowym oporgramowaniem HA na Linuxa. Tutaj opisuję procedu
 
     ---
 
-    Sklonowany z jednego źródła według [:fontawesome-regular-hand-point-right: tego artykułu](../virt/qemu-img.md#konwersja-zlinkowanego-klona-do-niezaleznej-kopii).
+    Sklonowany z jednego źródła według [:fontawesome-regular-hand-point-right: tego opisu](../virt/qemu-img.md#konwersja-zlinkowanego-klona-do-niezaleznej-kopii).
 
 -   :material-ip-network:{ .lg .middle } [__Sieć__](#siec)
 
@@ -38,6 +38,12 @@ Pacemaker jest standardowym oporgramowaniem HA na Linuxa. Tutaj opisuję procedu
     ---
 
     W klastrze będzie działać :IBM-bw: Storage Protect.
+
+-   :material-source-commit-start:{ .lg .middle } [__Start__](#aplikacja)
+
+    ---
+
+    Zaczynam od [konfiguracji stand-alone ISP na jednym nodzie](../ISP/setup_instance.md). W ramach procedury przenoszę ISP przenoszę do klastra.
 
 </div>
 
@@ -59,17 +65,17 @@ Każdy z klonów dostał [swoją](#siec) konfigurację sieci i został też dost
 
 Każdy OS ma swój systemowy w formacie QCOW2. Libvirt nie pozwala na współdzielenie takich dysów przez dwie maszyny, więc wspólne dyski są w formacie RAW, i jest ich tyle, żeby było poprawnie dla usługi. ponieżej znajduej się zestawianie dysków utworzonych dysków wirtualnych. W "dorosłych" instalacjch, to oczywiście bedą LUNy z macierzy. 
 
-| Dysk             | sp-n1            | sp-n2             | Opis |
-| :---             | :---:            | :---:             | :--- |
-| sp-n1-os.qcow2   | :material-check: |                   | Dysk systemowy |
-| sp-n2-os.qcow2   |                  | :material-check:  | Dysk systemowy |
-| pcmk-actlog.raw  | :material-check: | :material-check:  | Active log |
-| pcmk-archlog.raw | :material-check: | :material-check:  | Archive log |
-| pcmk-db01.raw    | :material-check: | :material-check:  | DB01 |
-| pcmk-db02.raw    | :material-check: | :material-check:  | DB02 |
-| pcmk-dbb.raw     | :material-check: | :material-check:  | Backup bazy |
-| pcmk-inst.raw    | :material-check: | :material-check:  | Instancja |
+| Dysk             | sp-n1                 | sp-n2                  | Opis |
+| :---             | :---:                 | :---:                  | :--- |
+| sp-n1-os.qcow2   | :material-check:      |                        | Dysk systemowy |
+| sp-n2-os.qcow2   |                       | :material-check:       | Dysk systemowy |
+| pcmk-actlog.raw  | :material-check-bold: | :material-check-bold:  | Active log |
+| pcmk-archlog.raw | :material-check-bold: | :material-check-bold:  | Archive log |
+| pcmk-db01.raw    | :material-check-bold: | :material-check-bold:  | DB01 |
+| pcmk-db02.raw    | :material-check-bold: | :material-check-bold:  | DB02 |
+| pcmk-dbb.raw     | :material-check-bold: | :material-check-bold:  | Backup bazy |
+| pcmk-inst.raw    | :material-check-bold: | :material-check-bold:  | Instancja |
 
 ## Aplikacja
 
-Wysokodostępną aplikacją jest IBM Storage Protect. 
+Wysokodostępną aplikacją jest IBM Storage Protect. Początkowo skonfigurowany na jednym węźle `sp-n1`. Instancja posadowiona na dyskach, które będa uwspólnione w ramach klastra.
