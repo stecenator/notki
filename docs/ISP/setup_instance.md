@@ -20,11 +20,19 @@ Konfiguracja instancji "z palca". Warto to znać, bo nie wszędzie jest grafika.
 
 1. Mam na to playbooka :simple-ansible:nsible. Pewnie kiedyś go tu opiszę.
 
+Z palca można zrobić to tak:
+
+```sh title="Wyłączanie ASLR"
+sudo sysctl -w kernel.randomize_va_space=0
+sudo sysctl -w vm.swappiness=5
+sudo sysctl -w vm.overcommit_memory=0
+```
+
 ## Użyszkodnik instancji :IBM-bw: Storage Protect 
 
 Od wersji 6 w górę, TSM/Protect działa na dedykowanym użytkowniku. Ten użytkownik nie wymaga specjalnych praw. 
 
-!!! Note "Ciekaostka"
+!!! Note "Ciekawostka"
     Użytkownik instancji Protect jest też użytkownikiem instancji DB2. Członkowie primary grupy tego usera są równi bogom w tej instancji (bazy, nie TSM).
 
 | Atrybut            | Wartość | Opis |
@@ -32,6 +40,17 @@ Od wersji 6 w górę, TSM/Protect działa na dedykowanym użytkowniku. Ten użyt
 | Instance user      | `spinst1` | Właściciel instancji SP i DB2. |
 | Home               | `/home/spinst` | Katalog domowy instancji DB2. __Uwaga:__ katalog instancji ISP to zwykle u mnie  `/sp/spinst1`. |
 | DB2 Instance setup | `/home/spinst/sqllib/userprofile` | Srodowisko instancji DB2. Także __backup!__ |
+
+!!! Tip inline end "Wskazówka"
+    Wrzucam usera instancji do grupy `wheel` bo jestem leniem i czasem muszę zrobić coś z nieg przez `sudo`.
+
+```sh title="Zakłądanie usera dla instancji"
+sudo useradd spinst1 -G wheel
+```
+
+## Tworzenie instancji :IBM-bw: DB2
+
+
 
 ### Środowisko
 
@@ -61,6 +80,17 @@ Jak wtytule, zwykle robię _dropin_ z ustawianiemi ulimitów. Zawsze warto je [s
 spinst1 soft nofile 65536
 spinst1 hard nofile 65536
 ```
+
+!!! Tip "`ulimit` na AIXie"
+    Parę rzeczy w AIXie wyjętym z pudełka trzeba zmienić:
+
+    Do `/etc/security/limits` w sekcji `default` albo dla `spinst1` wpisać:
+
+    ```
+    nofiles = 65536
+    nproc = 8192
+    fsize = -1
+    ```
 
 ## Konfiguracja instancji
 
