@@ -1,3 +1,7 @@
+---
+icon: simple/linux
+---
+
 # Przygotowanie Linuxa pod pracę z IBM Spectrum Protect
 
 Procedura instalacji ISP na hoscie linuxowym, mądrości zebrane i ciągle zbierane. MAm to ubrane w Ansibla. Opublikuję jak będzie moało ręce i nogi.
@@ -80,33 +84,7 @@ SUBSYSTEM=="block", ACTION=="add", ENV{ID_VENDOR}=="IBM",ENV{ID_MODEL}=="2145", 
 ## Ustawienia FC dla taśm
 
 Coś o `r-port`.
-
-## Parametry dla DB2
-
-## Instancja
-
-[Ważne do obczjenia](https://www.ibm.com/support/knowledgecenter/SSEQVQ_8.1.10/srv.install/t_srv_config_dbopts-linux.html)
-
-# AIX
-
-Parę rzeczy w AIXie wyjętym z pudełka trzeba zmienić:
-
-## `ulimit` dla usera instancji
-
-!!! Info inline end "Informacja"
-    To ma tendencę do zmieniania się z wersji na wersję. Szczegółowe informacje o ulimitach i nie tylko są [tutaj](https://www.ibm.com/docs/en/storage-protect/8.2.0?topic=isos-installing-aix-systems)
-
-Do `/etc/security/limits` w sekcji `default` albo dla `spinst1` wpisać:
-
-```
-nofiles = 65536
-nproc = 8192
-fsize = -1
-```
-
-## Parametry FC i fscsi 
-
-Dla taśm, AIX wymaga innych ustawiań niż dla dysków, dlatego trzeba dać dedykowane kontrolery (v)fc:
+I `chdev` dla AIXa.
 
 
 
