@@ -12,6 +12,19 @@ Sprawdź [oficjalne wymagania](https://www.ibm.com/support/pages/overview-ibm-sp
 
 Jeżeli plaujesz używać taśm IBM, to jedynymi praktycznymi dystrybucjami są SuSE i Red Hat. Wsparcie `lin_tape` na Ubuntu jest koszmarne. Tutaj skupiam się na Red Hat.
 
+## Hostname i sieć
+
+Host musi umieć rozwiązać swój `hostame` do swojego statycznego adresu. Albo przez DNS, albo przez `/etc/hosts`
+W moim przypadku dopusuję takie wpisy do `/etc/hosts` (robię klaster, dlatego dodaję trzy wpisy):
+
+```sh title="Dodawanie wpisów do /etc/hosts"
+cat >> /etc/hosts << EOF
+10.13.0.12      sp-n1 sp-n1.host-only
+10.13.0.13      sp-n2 sp-n2.host-only
+10.13.0.14      sp sp.host-only
+EOF
+```
+
 ## SELinux
 
 `Disabled` albo `Permissive`. Po utworzeniu insancji można właczyć na `Enforcing`.
