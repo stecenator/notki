@@ -52,7 +52,7 @@ Procedura:
 
 1. W nowych XMLach trzeba zmienić nazwę dysku systemowego na nowoutworzone klony:
 
-	**Uwaga:** to polecenie nie sprawdza, czy jest tam wiele dysków z podobnym prefixem, więc uruchamiać "ze zrozumieniem" ;-).
+	**Uwaga:** to polecenie nie sprawdza, czy jest tam wiele dysków z podobnym prefixem, więc uruchamiać "ze zrozumieniem" ;-).
 
 	```sh
 	$ sed -i 's|\(.*source file.*/\).*\.qcow2|\1gpfs-1-os.qcow2|' gpfs-1.xml
@@ -80,3 +80,87 @@ Procedura:
 	Domain 'gpfs-2' started
 
 	```
+
+## Dołączanie nowego dysku działającej VM
+
+1. Utwórz obraz dysku, który ma być dołączony. Jak nie wiesz, to zajrzyj [tu](qmu-img.md).
+1. Dołącz dysk. 
+
+	!!! Tip "Podpowiedź"
+		Jeśli dysk będzie jednocześnie dostępny dla wiecej niż jednej maszyny, podaj `--targetbus scsi`. Format takiego dyksu **musi** być `raw`.
+
+	=== "QCOW2"
+
+		```sh title="Dołączanie dysku w formacie qcow2"
+		virsh attach-disk VMka /ścieżka/do/pliku.qcow2 nazwa_blokowa --driver qemu --type disk --config --live --subdriver qcow2
+		```
+
+		??? Example "Przykład"
+
+			```sh
+			virsh attach-disk toy /backup/restore/videovg-rest.qcow2 vdc --driver qemu --type disk --config --live --subdriver qcow2
+			```
+
+	=== "RAW"
+
+		```sh title="Dołączanie dysku w formacie RAW"
+		virsh attach-disk VMka /ścieżka/do/pliku.raw nazwa_blokowa --driver qemu --type disk --config --live --subdriver raw
+		```
+
+		??? Example "Przykład"
+
+			```sh
+			virsh attach-disk toy /backup/restore/videovg-rest.img vdc --driver qemu --type disk --config --live --subdriver raw
+			```
+
+	=== "Klaster SCSI"
+
+		```sh title="Dołączanie dysku w formacie RAW do magistrali SCSI"
+		virsh attach-disk VMka /ścieżka/do/pliku.raw nazwa_blokowa_scsi --driver qemu --type disk --config --live --subdriver raw --targetbus scsi
+		```
+
+		??? Example "Przykład"
+
+			```sh
+			sudo virsh attach-disk sp-n1 /home/marcinek/media/Szajsung/vm/pcmk-inst.raw  sdb --driver qemu --type disk --config --live --subdriver raw --targetbus scsi
+			```
+
+	!!! Warning "Ważne"
+		Nie zapomnij o opcji `--subdriver`. Bez tego `virsh` słabo zgaduje rozmiar dysku, np przy podlaczaniu _sparse_ `qcow2.`
+
+## Odłączanie dysku od działającej VMki
+
+1. Upewnij się, że maszyna już go nie używa, to jest: odmontowala filesystemy, deaktywowała grupę VG.
+1. Odłącz dysk komendą:
+
+	```sh title="Odłączanie dysku od VMki"
+	sudo virsh detach-disk VMka /ścieżka/do/pliku.qcow2
+	```
+
+	??? Example "Przykład"
+
+		```sh
+		sudo virsh detach-disk sp-n1 /home/marcinek/media/Szajsung/vm/pcmk-inst.raw
+		```
+
+## Dodawanie adaptera `virtio-scsi`
+
+Jak kleję klaster na moim KVM, to cześto okazuje się, że nie mam adpatera `virtio-scsi`, do któ©ego mogę podpiąć współdzielone dyski. Na żywca dodaje się to tak:
+
+1. Utwórz plik `/tmp/virtio-scsi.xml` z definicją urządzenia:
+
+	```xml title="Definicja adaptera virtio-scsi"
+	<controller type='scsi' model='virtio-scsi'/>
+	```
+
+1. Dodaj je do maszyny:
+
+	```sh title="Hotplug urządzenia do działającej VMki"
+	sudo virsh attach-device VMka /tmp/virtio-scsi.xml --live --config
+	```
+
+	??? Example "Przykład"
+
+		```sh
+		sudo virsh attach-device sp-n1 /tmp/virtio-scsi.xml --live --config
+		```
