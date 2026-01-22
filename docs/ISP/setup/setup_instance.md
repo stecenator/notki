@@ -11,7 +11,34 @@ Konfiguracja instancji "z palca". Warto to znać, bo nie wszędzie jest grafika.
 
 ## Instalacja binarek
 
+Instalacja binariów serwera sprowadza się do:
 
+- Rozpakowania gdzieś _self-extracting_ archiwum.
+- Odpalenia `install.sh`.
+
+Ale jak zwykle diabeł tkwi w szczegółach.
+
+### Instalki
+
+Instalki występują w dwóch smakach:
+
+- Z licencją - dla klientów którzy kupili. Tu zwykle nazwy pliku zacynają się od `SP_*`, np. `SP_8.2_LIN86_SERSTG_AGT_ML.bin`. Te binarki są dostęþne przez [PAO](https://www.ibm.com/software/passportadvantage/pao-customer)
+- Bez licencji, czyli poprawki. Nazwy zwykle zaczynając się od cyferek, np `8.1.27.000-IBM-SPSRV-Linuxx86_64.bin`. Te można sciągać z FixCentral, albo [bezpośrednio](https://www3.software.ibm.com/storage/tivoli-storage-management/).
+
+    !!! Tip 
+        Zarówno patch jak i maintenance dają się zainstalować jako produkt. Nie posiadają licencji więc będą działać przez 30 dni. Po donistalowaniu pakietu z licencją stają się pełnowymiarowymi instalacjami.
+
+    - W katalogu `patches` są poprawki podbijające 4 liczbę w wersji. 
+    - W katalogu `maintenance` są poprawki podbijajace 3 liczbę w wersji
+
+!!! Warning
+    Założenie patcha/maintnenance np 8.2 (1) na instalację 8.1 spowoduje utratę licencji. Trzeba ją będzie zainstalować z legitnej paczki `SP_8.2*`. 
+    { .annotate }
+
+    1. Jak już się jakiś pojawi.
+
+
+### Opcje instalatora
 
 ## Parametry jądra :simple-linux:
 
@@ -22,7 +49,7 @@ Konfiguracja instancji "z palca". Warto to znać, bo nie wszędzie jest grafika.
 
 Z palca można zrobić to tak:
 
-```sh title="Wyłączanie ASLR"
+```sh title="Dopieszczanie DB2"
 sudo sysctl -w kernel.randomize_va_space=0
 sudo sysctl -w vm.swappiness=5
 sudo sysctl -w vm.overcommit_memory=0

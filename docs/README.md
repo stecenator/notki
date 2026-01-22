@@ -62,9 +62,10 @@ Zaczątki dokumentacji dla [IBM Power](Power/index.md)
 
 ## Pomysły na przyszłość
 
-- :simple-ansible:nsible:
-	- Playbook do zakładania projektu:
-		- standardowe katalogi
-		- inichalizacja repo :simple-git:
-		- tworzenie szkieltu dokumentacji w `mkdocs`
-	- Wiecej playbooków POWER i SVC
+Zgłaszać jako _issues_ do [tego projektu](https://https://github.com/stecenator/notki)
+
+# Technikalia
+
+Rzeczy związane z prowadzeniem tego dzienniczka.
+
+- Wszlekie pliki konfiguracyjne staram się trzymać/przenosić do katalogu `templates/` a potem odnosić się do nich w tekscie poprzez `---8<--- "templates/plik"`

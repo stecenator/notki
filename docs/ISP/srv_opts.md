@@ -1,5 +1,5 @@
 ---
-icon: fontawesome/solid/gears
+icon: material/gauge
 ---
 
 # :fontawesome-solid-gears: Opcje serwera
