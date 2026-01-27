@@ -253,7 +253,6 @@ Lista filesystemów i ich punków montowania:
 
 Na tym etapie  maszynka powinna mieć:
 
-- [x] ogarnięte ustawiania `sysctl`,
 - [x] ustawiony hostname i sieć,
 - [x] (tymczasowo) wyłączonego SELinuxa,
 - [x] zainstalowane dodatkowe pakiety,
