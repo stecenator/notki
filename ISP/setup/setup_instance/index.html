@@ -1,0 +1,3277 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../setup_os/">
+      
+      
+        <link rel="next" href="../setup_tapes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Instancja - Marcinkowe mądrości</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#storage-protect" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Marcinkowe mądrości" class="md-header__button md-logo" aria-label="Marcinkowe mądrości" data-md-component="logo">
+      
+  <img src="../../../assets/ibm-eye-bee-m-black_on_trans_vertical.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Marcinkowe mądrości
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Instancja
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Marcinkowe mądrości" class="md-nav__button md-logo" aria-label="Marcinkowe mądrości" data-md-component="logo">
+      
+  <img src="../../../assets/ibm-eye-bee-m-black_on_trans_vertical.svg" alt="logo">
+
+    </a>
+    Marcinkowe mądrości
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ansible/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10.617 11.473 4.686 3.695-3.102-7.662zM12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0m5.797 17.305a.85.85 0 0 1-.875.83c-.236 0-.416-.09-.664-.293l-6.19-5-2.079 5.203H6.191L11.438 5.44a.79.79 0 0 1 .764-.506.76.76 0 0 1 .742.506l4.774 11.494c.045.111.08.234.08.348z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ansible
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ansible/POWER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power HMC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../db2/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    DB2
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DB2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db2/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalacja
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db2/db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bazy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db2/back_n_rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup & Restore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db2/tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tips & tricks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../git/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59 8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2 2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GPFS/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24v368c0 30.9 25.1 56 56 56h184v-48H56c-4.4 0-8-3.6-8-8V160h192v-48H48zm288 200h192c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48h-82.7c-8.5 0-16.6-3.4-22.6-9.4l-8.6-8.6c-9-9-21.2-14.1-33.9-14.1L336 0c-26.5 0-48 21.5-48 48v128c0 26.5 21.5 48 48 48m0 288h192c26.5 0 48-21.5 48-48v-96c0-26.5-21.5-48-48-48h-82.7c-8.5 0-16.6-3.4-22.6-9.4l-8.6-8.6c-9-9-21.2-14.1-33.9-14.1l-44.2.1c-26.5 0-48 21.5-48 48v128c0 26.5 21.5 48 48 48"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    GPFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10a2 2 0 0 1 2 2c0 1.11-.89 2-2 2a2 2 0 1 1 0-4M5 3h14a2 2 0 0 1 2 2v12h-4.1a6.96 6.96 0 0 0 2.1-5c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7h9c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ISP
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ISP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.3 17.89c1.32-2.1.7-4.89-1.41-6.21a4.52 4.52 0 0 0-6.21 1.41C10.36 15.2 11 18 13.09 19.3c1.47.92 3.33.92 4.8 0L21 22.39 22.39 21zm-2-.62c-.98.98-2.56.97-3.54 0-.97-.98-.97-2.56.01-3.54.97-.97 2.55-.97 3.53 0 .96.99.95 2.57-.03 3.54zM19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5.81a6.3 6.3 0 0 1-1.31-2H5v-4h4.18c.16-.71.43-1.39.82-2H5V8h6v2.81a6.3 6.3 0 0 1 2-1.31V8h6v2a6.499 6.499 0 0 1 2 2V6a2 2 0 0 0-2-2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Qury SQLowe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M415.9 210.5c12.2-3.3 25 2.5 30.5 13.8l18.6 37.6c10.3 1.4 20.4 4.2 29.9 8.1l35-23.3c10.5-7 24.4-5.6 33.3 3.3l19.2 19.2c8.9 8.9 10.3 22.9 3.3 33.3l-23.3 34.9c1.9 4.7 3.6 9.6 5 14.7s2.3 10.1 3 15.2l37.7 18.6c11.3 5.6 17.1 18.4 13.8 30.5l-7 26.2c-3.3 12.1-14.6 20.3-27.2 19.5l-42-2.7c-6.3 8.1-13.6 15.6-21.9 22l2.7 41.9c.8 12.6-7.4 24-19.5 27.2l-26.2 7c-12.2 3.3-24.9-2.5-30.5-13.8l-18.6-37.6c-10.3-1.4-20.4-4.2-29.9-8.1l-35 23.3c-10.5 7-24.4 5.6-33.3-3.3l-19.2-19.2c-8.9-8.9-10.3-22.8-3.3-33.3l23.3-35c-1.9-4.7-3.6-9.6-5-14.7s-2.3-10.2-3-15.2L288.6 382c-11.3-5.6-17-18.4-13.8-30.5l7-26.2c3.3-12.1 14.6-20.3 27.2-19.5l41.9 2.7c6.3-8.1 13.6-15.6 21.9-22l-2.7-41.8c-.8-12.6 7.4-24 19.5-27.2l26.2-7zM448.4 340a44 44 0 1 0 .1 88 44 44 0 1 0-.1-88M224.9-45.5l26.2 7c12.1 3.3 20.3 14.7 19.5 27.2l-2.7 41.8c8.3 6.4 15.6 13.8 21.9 22l42-2.7c12.5-.8 23.9 7.4 27.2 19.5l7 26.2c3.2 12.1-2.5 24.9-13.8 30.5l-37.7 18.6c-.7 5.1-1.7 10.2-3 15.2s-3.1 10-5 14.7l23.3 35c7 10.5 5.6 24.4-3.3 33.3L307.3 262c-8.9 8.9-22.8 10.3-33.3 3.3L239 242c-9.5 3.9-19.6 6.7-29.9 8.1l-18.6 37.6c-5.6 11.3-18.4 17-30.5 13.8l-26.2-7c-12.2-3.3-20.3-14.7-19.5-27.2l2.7-41.9c-8.3-6.4-15.6-13.8-21.9-22l-42 2.7c-12.5.8-23.9-7.4-27.2-19.5l-7-26.2c-3.2-12.1 2.5-24.9 13.8-30.5l37.7-18.6c.7-5.1 1.7-10.1 3-15.2 1.4-5.1 3-10 5-14.7L55.1 46.5c-7-10.5-5.6-24.4 3.3-33.3L77.6-6c8.9-8.9 22.8-10.3 33.3-3.3l35 23.3c9.5-3.9 19.6-6.7 29.9-8.1l18.6-37.6c5.6-11.3 18.3-17 30.5-13.8M192.4 84a44 44 0 1 0 0 88 44 44 0 1 0 0-88"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup serwera
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup serwera
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup_os/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.504 0q-.232 0-.48.021c-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.4.4 0 0 0-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071s1.592-.536 2.257-1.306c.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.36.36 0 0 0-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139m.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105l-.004-.021-.004-.024a1.8 1.8 0 0 1-.15.706.95.95 0 0 1-.213.335 1 1 0 0 0-.088-.042c-.104-.045-.198-.064-.284-.133a1.3 1.3 0 0 0-.22-.066c.05-.06.146-.133.183-.198q.08-.193.088-.402v-.02a1.2 1.2 0 0 0-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 0 0-.205.334 1.2 1.2 0 0 0-.09.4v.019q.002.134.02.267c-.193-.067-.438-.135-.607-.202a2 2 0 0 1-.018-.2v-.02a1.8 1.8 0 0 1 .15-.768 1.08 1.08 0 0 1 .43-.533 1 1 0 0 1 .594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2q.018-.136.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.6.6 0 0 0-.166-.267.25.25 0 0 0-.183-.064h-.021c-.071.006-.13.04-.186.132a.55.55 0 0 0-.12.27 1 1 0 0 0-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268q.014.014.034.024c-.07.057-.117.07-.176.136a.3.3 0 0 1-.131.068 2.6 2.6 0 0 1-.275-.402 1.8 1.8 0 0 1-.155-.667 1.8 1.8 0 0 1 .08-.668 1.4 1.4 0 0 1 .283-.535c.128-.133.26-.2.418-.2m1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.57.57 0 0 1 .016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.1 1.1 0 0 1-.448-.067 4 4 0 0 1-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71q-.104-.403.193-.6c.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.7 2.7 0 0 0-.402-.533 1.5 1.5 0 0 0-.275-.333c.182 0 .338-.03.465-.067a.62.62 0 0 0 .314-.334c.108-.267 0-.697-.345-1.163s-.931-.995-1.788-1.521c-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.1 8.1 0 0 1 .647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335q.058.005.11.006c.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01q.08 0 .157.014c.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602q-.553-.1-.723-.4c-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336m7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8 8 0 0 1-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065m-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    OS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Instancja
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Instancja
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instalacja-binarek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Instalacja binarek
+        </span>
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalacja binarek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Instalki
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcje-instalatora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Opcje instalatora
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Instalacja
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametry-jadra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Parametry jądra <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.504 0q-.232 0-.48.021c-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.4.4 0 0 0-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071s1.592-.536 2.257-1.306c.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.36.36 0 0 0-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139m.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105l-.004-.021-.004-.024a1.8 1.8 0 0 1-.15.706.95.95 0 0 1-.213.335 1 1 0 0 0-.088-.042c-.104-.045-.198-.064-.284-.133a1.3 1.3 0 0 0-.22-.066c.05-.06.146-.133.183-.198q.08-.193.088-.402v-.02a1.2 1.2 0 0 0-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 0 0-.205.334 1.2 1.2 0 0 0-.09.4v.019q.002.134.02.267c-.193-.067-.438-.135-.607-.202a2 2 0 0 1-.018-.2v-.02a1.8 1.8 0 0 1 .15-.768 1.08 1.08 0 0 1 .43-.533 1 1 0 0 1 .594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2q.018-.136.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.6.6 0 0 0-.166-.267.25.25 0 0 0-.183-.064h-.021c-.071.006-.13.04-.186.132a.55.55 0 0 0-.12.27 1 1 0 0 0-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268q.014.014.034.024c-.07.057-.117.07-.176.136a.3.3 0 0 1-.131.068 2.6 2.6 0 0 1-.275-.402 1.8 1.8 0 0 1-.155-.667 1.8 1.8 0 0 1 .08-.668 1.4 1.4 0 0 1 .283-.535c.128-.133.26-.2.418-.2m1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.57.57 0 0 1 .016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.1 1.1 0 0 1-.448-.067 4 4 0 0 1-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71q-.104-.403.193-.6c.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.7 2.7 0 0 0-.402-.533 1.5 1.5 0 0 0-.275-.333c.182 0 .338-.03.465-.067a.62.62 0 0 0 .314-.334c.108-.267 0-.697-.345-1.163s-.931-.995-1.788-1.521c-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.1 8.1 0 0 1 .647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335q.058.005.11.006c.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01q.08 0 .157.014c.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602q-.553-.1-.723-.4c-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336m7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8 8 0 0 1-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065m-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"/></svg></span>
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uzyszkodnik-instancji-storage-protect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Użyszkodnik instancji Storage Protect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tworzenie-instancji-storage-protect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tworzenie instancji Storage Protect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tworzenie instancji Storage Protect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tworzenie-instancji-db2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tworzenie instancji DB2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tworzenie-instancji-storage-protect_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tworzenie instancji Storage Protect
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup_tapes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10a2 2 0 0 1 2 2c0 1.11-.89 2-2 2a2 2 0 1 1 0-4M5 3h14a2 2 0 0 1 2 2v12h-4.1a6.96 6.96 0 0 0 2.1-5c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7h9c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Taśmy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup_maint.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup_dc.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kontenery (dir)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup_cc.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kontenery (cloud)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup_STA.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LANFree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 7 5 5h-3v4h-4v-4H7zm9 9.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 5 8.09v7.82l7 3.94 7-3.94V8.09z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../srv_opts/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 2a8 8 0 0 1 8 8c0 2.4-1 4.5-2.7 6-1.4-1.3-3.3-2-5.3-2s-3.8.7-5.3 2C5 16.5 4 14.4 4 12a8 8 0 0 1 8-8m2 1.89c-.38.01-.74.26-.9.65l-1.29 3.23-.1.23c-.71.13-1.3.6-1.57 1.26-.41 1.03.09 2.19 1.12 2.6s2.19-.09 2.6-1.12c.26-.66.14-1.42-.29-1.98l.1-.26 1.29-3.21.01-.03c.2-.51-.05-1.09-.56-1.3-.13-.05-.26-.07-.41-.07M10 6a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1M7 9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m10 0a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Użyteczne opcje
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Klienci
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Klienci
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Klient BA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TDP4VE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TDP4VE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../db2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DB2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../LNX/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M220.9 123.3c1 .5 1.8 1.7 3 1.7 1.1 0 2.8-.4 2.9-1.5.2-1.4-1.9-2.3-3.2-2.9-1.7-.7-3.9-1-5.5-.1-.4.2-.8.7-.6 1.1.3 1.3 2.3 1.1 3.4 1.7M199 125c1.2 0 2-1.2 3-1.7 1.1-.6 3.1-.4 3.5-1.6.2-.4-.2-.9-.6-1.1-1.6-.9-3.8-.6-5.5.1-1.3.6-3.4 1.5-3.2 2.9.1 1 1.8 1.5 2.8 1.4m221 278.8c-3.6-4-5.3-11.6-7.2-19.7-1.8-8.1-3.9-16.8-10.5-22.4-1.3-1.1-2.6-2.1-4-2.9-1.3-.8-2.7-1.5-4.1-2 9.2-27.3 5.6-54.5-3.7-79.1-11.4-30.1-31.3-56.4-46.5-74.4-17.1-21.5-33.7-41.9-33.4-72C311.1 85.4 315.7.1 234.8 0 132.4-.2 158 103.4 156.9 135.2c-1.7 23.4-6.4 41.8-22.5 64.7-18.9 22.5-45.5 58.8-58.1 96.7-6 17.9-8.8 36.1-6.2 53.3-6.5 5.8-11.4 14.7-16.6 20.2-4.2 4.3-10.3 5.9-17 8.3s-14 6-18.5 14.5c-2.1 3.9-2.8 8.1-2.8 12.4 0 3.9.6 7.9 1.2 11.8 1.2 8.1 2.5 15.7.8 20.8-5.2 14.4-5.9 24.4-2.2 31.7 3.8 7.3 11.4 10.5 20.1 12.3 17.3 3.6 40.8 2.7 59.3 12.5 19.8 10.4 39.9 14.1 55.9 10.4 11.6-2.6 21.1-9.6 25.9-20.2 12.5-.1 26.3-5.4 48.3-6.6 14.9-1.2 33.6 5.3 55.1 4.1.6 2.3 1.4 4.6 2.5 6.7v.1c8.3 16.7 23.8 24.3 40.3 23 16.6-1.3 34.1-11 48.3-27.9 13.6-16.4 36-23.2 50.9-32.2 7.4-4.5 13.4-10.1 13.9-18.3.4-8.2-4.4-17.3-15.5-29.7M223.8 87.3c9.8-22.2 34.2-21.8 44-.4 6.5 14.2 3.6 30.9-4.3 40.4-1.6-.8-5.9-2.6-12.6-4.9 1.1-1.2 3.1-2.7 3.9-4.6 4.8-11.8-.2-27-9.1-27.3-7.3-.5-13.9 10.8-11.8 23-4.1-2-9.4-3.5-13-4.4-1-6.9-.3-14.6 2.9-21.8m-40.7-11.5c10.1 0 20.8 14.2 19.1 33.5-3.5 1-7.1 2.5-10.2 4.6 1.2-8.9-3.3-20.1-9.6-19.6-8.4.7-9.8 21.2-1.8 28.1 1 .8 1.9-.2-5.9 5.5-15.6-14.6-10.5-52.1 8.4-52.1m-13.6 60.7c6.2-4.6 13.6-10 14.1-10.5 4.7-4.4 13.5-14.2 27.9-14.2 7.1 0 15.6 2.3 25.9 8.9 6.3 4.1 11.3 4.4 22.6 9.3 8.4 3.5 13.7 9.7 10.5 18.2-2.6 7.1-11 14.4-22.7 18.1-11.1 3.6-19.8 16-38.2 14.9-3.9-.2-7-1-9.6-2.1-8-3.5-12.2-10.4-20-15-8.6-4.8-13.2-10.4-14.7-15.3q-2.1-7.35 4.2-12.3m3.3 334c-2.7 35.1-43.9 34.4-75.3 18-29.9-15.8-68.6-6.5-76.5-21.9-2.4-4.7-2.4-12.7 2.6-26.4v-.2c2.4-7.6.6-16-.6-23.9-1.2-7.8-1.8-15 .9-20 3.5-6.7 8.5-9.1 14.8-11.3 10.3-3.7 11.8-3.4 19.6-9.9 5.5-5.7 9.5-12.9 14.3-18 5.1-5.5 10-8.1 17.7-6.9 8.1 1.2 15.1 6.8 21.9 16l19.6 35.6c9.5 19.9 43.1 48.4 41 68.9m-1.4-25.9c-4.1-6.6-9.6-13.6-14.4-19.6 7.1 0 14.2-2.2 16.7-8.9 2.3-6.2 0-14.9-7.4-24.9-13.5-18.2-38.3-32.5-38.3-32.5-13.5-8.4-21.1-18.7-24.6-29.9s-3-23.3-.3-35.2c5.2-22.9 18.6-45.2 27.2-59.2 2.3-1.7.8 3.2-8.7 20.8-8.5 16.1-24.4 53.3-2.6 82.4.6-20.7 5.5-41.8 13.8-61.5 12-27.4 37.3-74.9 39.3-112.7 1.1.8 4.6 3.2 6.2 4.1 4.6 2.7 8.1 6.7 12.6 10.3 12.4 10 28.5 9.2 42.4 1.2 6.2-3.5 11.2-7.5 15.9-9 9.9-3.1 17.8-8.6 22.3-15 7.7 30.4 25.7 74.3 37.2 95.7 6.1 11.4 18.3 35.5 23.6 64.6 3.3-.1 7 .4 10.9 1.4 13.8-35.7-11.7-74.2-23.3-84.9-4.7-4.6-4.9-6.6-2.6-6.5 12.6 11.2 29.2 33.7 35.2 59 2.8 11.6 3.3 23.7.4 35.7 16.4 6.8 35.9 17.9 30.7 34.8-2.2-.1-3.2 0-4.2 0 3.2-10.1-3.9-17.6-22.8-26.1-19.6-8.6-36-8.6-38.3 12.5-12.1 4.2-18.3 14.7-21.4 27.3-2.8 11.2-3.6 24.7-4.4 39.9-.5 7.7-3.6 18-6.8 29-32.1 22.9-76.7 32.9-114.3 7.2m257.4-11.5c-.9 16.8-41.2 19.9-63.2 46.5-13.2 15.7-29.4 24.4-43.6 25.5s-26.5-4.8-33.7-19.3c-4.7-11.1-2.4-23.1 1.1-36.3 3.7-14.2 9.2-28.8 9.9-40.6.8-15.2 1.7-28.5 4.2-38.7 2.6-10.3 6.6-17.2 13.7-21.1.3-.2.7-.3 1-.5.8 13.2 7.3 26.6 18.8 29.5 12.6 3.3 30.7-7.5 38.4-16.3 9-.3 15.7-.9 22.6 5.1 9.9 8.5 7.1 30.3 17.1 41.6 10.6 11.6 14 19.5 13.7 24.6M173.4 148.7c2 1.9 4.7 4.5 8 7.1 6.6 5.2 15.8 10.6 27.3 10.6 11.6 0 22.5-5.9 31.8-10.8 4.9-2.6 10.9-7 14.8-10.4s5.9-6.3 3.1-6.6-2.6 2.6-6 5.1c-4.4 3.2-9.7 7.4-13.9 9.8-7.4 4.2-19.5 10.2-29.9 10.2s-18.7-4.8-24.9-9.7c-3.1-2.5-5.7-5-7.7-6.9-1.5-1.4-1.9-4.6-4.3-4.9-1.4-.1-1.8 3.7 1.7 6.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    LNX
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LNX
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LNX/ha/" class="md-nav__link">
+        
+  
+  
+    <?xml version="1.0" encoding="UTF-8"?>
+<!-- Do not edit this file with editors other than draw.io -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" style="background: transparent; background-color: transparent; color-scheme: light dark;" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="25px" height="31px" viewBox="0 0 25 31" content="&lt;mxfile host=&quot;Electron&quot; agent=&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36&quot; version=&quot;29.0.3&quot; scale=&quot;1&quot; border=&quot;0&quot;&gt;&#10;  &lt;diagram name=&quot;Strona-1&quot; id=&quot;fuBjB6cr4rMfzG5IW7tc&quot;&gt;&#10;    &lt;mxGraphModel dx=&quot;230&quot; dy=&quot;161&quot; grid=&quot;1&quot; gridSize=&quot;10&quot; guides=&quot;1&quot; tooltips=&quot;1&quot; connect=&quot;1&quot; arrows=&quot;1&quot; fold=&quot;1&quot; page=&quot;1&quot; pageScale=&quot;1&quot; pageWidth=&quot;827&quot; pageHeight=&quot;1169&quot; math=&quot;0&quot; shadow=&quot;0&quot;&gt;&#10;      &lt;root&gt;&#10;        &lt;mxCell id=&quot;0&quot; /&gt;&#10;        &lt;mxCell id=&quot;1&quot; parent=&quot;0&quot; /&gt;&#10;        &lt;mxCell id=&quot;2&quot; value=&quot;&quot; style=&quot;sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.mscae.enterprise.cluster_server;fillColor=default;&quot; vertex=&quot;1&quot; parent=&quot;1&quot;&gt;&#10;          &lt;mxGeometry x=&quot;390&quot; y=&quot;490&quot; width=&quot;24&quot; height=&quot;30&quot; as=&quot;geometry&quot; /&gt;&#10;        &lt;/mxCell&gt;&#10;      &lt;/root&gt;&#10;    &lt;/mxGraphModel&gt;&#10;  &lt;/diagram&gt;&#10;&lt;/mxfile&gt;&#10;"><defs/><g><g data-cell-id="0"><g data-cell-id="1"><g data-cell-id="zp7JnCK0SJr0WUqRHGYb-1"><g><rect x="0" y="0" width="24" height="30" fill="none" stroke="none" pointer-events="all"/><path d="M 0.02 23.64 L 0.02 1.14 C 0 0.86 0.09 0.59 0.27 0.37 C 0.44 0.16 0.7 0.02 0.98 0 L 10.22 0 C 10.86 0 11.38 0.5 11.42 1.14 L 11.42 5.18 L 7.15 5.18 C 6.14 5.35 5.35 6.15 5.18 7.17 L 5.18 17.86 L 1.72 17.86 L 1.72 19.04 L 5.18 19.04 L 5.18 20.21 L 1.72 20.21 L 1.72 21.33 L 5.18 21.33 L 5.18 23.64 Z M 6.32 7.47 C 6.28 6.91 6.69 6.42 7.24 6.36 L 16.49 6.36 C 17.13 6.32 17.69 6.82 17.74 7.47 L 17.74 30 L 6.32 30 Z M 1.72 4.58 L 9.72 4.57 L 9.72 3.46 L 1.72 3.46 Z M 8.05 9.85 L 8.05 10.96 L 15.98 10.96 L 15.98 9.85 Z M 16.04 24.25 L 7.99 24.25 L 7.99 25.39 L 16.04 25.39 Z M 7.99 26.54 L 7.99 27.71 L 16.04 27.71 L 16.04 26.39 Z M 24 23.64 L 18.87 23.64 L 18.87 21.33 L 22.27 21.33 L 22.27 20.21 L 18.87 20.21 L 18.87 19.04 L 22.3 19.04 L 22.3 17.86 L 18.87 17.86 L 18.87 7.17 C 18.67 6 17.66 5.16 16.49 5.18 L 12.61 5.18 L 12.61 1.14 C 12.64 0.54 13.11 0.04 13.71 0 L 22.97 0.09 C 23.54 0.1 24 0.57 24 1.14 Z M 22.27 4.61 L 22.27 3.46 L 14.25 3.46 L 14.25 4.61 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g></g></g></g></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    HA - Pacemaker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LNX/MPIO_and_SAN/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2 8 8h3V2zm3 0v6h3l-2-6zM2 9v1h2v1h2v-1h12l.06 1H20v-1h2V9zm5 2L3.34 22H11V11zm6 0v11h7.66L17 11z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    MPIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LNX/lin_tape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    lin_tape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LNX/lsvdisk2mpio_friendly_names.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multipath - User friendly names
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sieć
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sieć
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LNX/bond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bonding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LNX/vlan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VLAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LNX/x11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    X11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LNX/lighttpd/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="Lighttpd--Streamline-Svg-Logos" height="24" width="24">
+  <desc>
+    Lighttpd Streamline Icon: https://streamlinehq.com
+  </desc>
+  <path fill="#316682" d="m4.480075 20.230625 1.821875 -1.706025 -0.01265 -0.079875 -1.392025 -0.9388 -0.4262 2.546625 0.009 0.178075Z" stroke-width="0.25"></path>
+  <path fill="#8194a6" d="m4.479975 20.230675 0.460375 -2.6186 0.10795 -0.019825 18.3098 -14.833625 0.391775 -0.42815 -0.694075 0.3849 -19.9121 13.517275 -0.01625 0.113275 1.352525 3.88475Z" stroke-width="0.25"></path>
+  <path fill="#d9e2e9" d="M3.12755 16.345925 23.75 2.330475 0.25 13.6985l2.87755 2.647425Z" stroke-width="0.25"></path>
+  <path fill="#d7e0e5" d="M11.01215 21.6695 4.940425 17.612075 23.749975 2.330475 11.01215 21.6695Z" stroke-width="0.25"></path>
+</svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Lighttpd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LNX/repo/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.855 -0.855 24 24" id="Give-Gift--Streamline-Core" height="24" width="24">
+  <desc>
+    Give Gift Streamline Icon: https://streamlinehq.com
+  </desc>
+  <g id="give-gift--reward-social-rating-media-queen-vip-gift">
+    <path id="Vector" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M21.49392857142857 3.9803571428571427h-11.145v7.960714285714285h11.145v-7.960714285714285Z" stroke-width="1.71"></path>
+    <path id="Vector_2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M15.92142857142857 3.9803571428571427v7.960714285714285" stroke-width="1.71"></path>
+    <path id="Vector_3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m13.533214285714285 0.7960714285714285 2.3882142857142856 3.184285714285714 2.3882142857142856 -3.184285714285714" stroke-width="1.71"></path>
+    <path id="Vector 294" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M0.795877187142857 17.512775357142857 4.686647635714285 20.755174285714283c0.5722639071428571 0.4768467857142857 1.29360015 0.7379582142857143 2.03853195 0.7379582142857143l10.2574122 0c0.7328633571428571 0 1.3268918571428572 -0.5940285 1.3268918571428572 -1.3267326428571429 0 -1.4655675 -1.188057 -2.6536245 -2.6536085785714283 -2.6536245H8.52460352142857" stroke-width="1.71"></path>
+    <path id="Vector 295" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m5.572308942857143 15.920648421428572 1.1941071428571428 1.1940912214285715c0.6594814928571429 0.6594655714285714 1.7287168714285712 0.6594655714285714 2.3882142857142856 0 0.6594814928571429 -0.6594655714285714 0.6594814928571429 -1.7287009499999997 0 -2.388198364285714L7.301025814285714 12.872952642857143c-0.5971650214285714 -0.5971809428571428 -1.4071040142857143 -0.9326613642857143 -2.2516243499999997 -0.9326613642857143H0.795877187142857" stroke-width="1.71"></path>
+  </g>
+</svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Repozytorim yum/dnf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mkdocs/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.029 18.772.777 1.166-5.417 2.709L0 16.451V4.063l5.417-2.709 5.298 7.948 7.867-5.24L24 1.354V16.84l-5.417 2.709zm2.023-13.827v13.253l3.949-1.975V2.97zM5.076 2.642 1.458 4.45 12.73 21.358l3.618-1.809z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    mkdocs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    mkdocs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mkdocs/mkdocs/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.029 18.772.777 1.166-5.417 2.709L0 16.451V4.063l5.417-2.709 5.298 7.948 7.867-5.24L24 1.354V16.84l-5.417 2.709zm2.023-13.827v13.253l3.949-1.975V2.97zM5.076 2.642 1.458 4.45 12.73 21.358l3.618-1.809z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Szablon mkdocs.yml
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mkdocs/icons/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M174.9 272c10.7 0 20.7 5.3 26.6 14.2l11.8 17.8H240c26.5 0 48 21.5 48 48v112c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V352c0-26.5 21.5-48 48-48h26.7l11.8-17.8c5.9-8.9 15.9-14.2 26.6-14.2h61.7zm278.6-12c5.6-4.9 13.9-5.3 19.9-.9s8.3 12.4 5.3 19.3L440.3 368H496c6.7 0 12.6 4.1 15 10.4s.6 13.3-4.4 17.7l-128 112c-5.6 4.9-13.9 5.3-19.9.9s-8.3-12.4-5.3-19.3l38.5-89.7h-55.8c-6.7 0-12.6-4.1-15-10.4s-.6-13.3 4.4-17.7l128-112zM144 360a48 48 0 1 0 0 96 48 48 0 1 0 0-96M483.8.4c6.5-1.1 13.1.4 18.5 4.4 6.1 4.5 9.7 11.7 9.7 19.2v152l-.3 4.9c-3.3 24.2-30.5 43.1-63.7 43.1-35.3 0-64-21.5-64-48s28.7-48 64-48c5.5 0 10.9.6 16 1.6V80.3l-112 33.6v110.2l-.3 4.9c-3.3 24.2-30.5 43.1-63.7 43.1-35.3 0-64-21.5-64-48s28.7-48 64-48c5.5 0 10.9.6 16 1.6V72c0-10.6 7-20 17.1-23l160-48zM188.9 0C226 0 256 30 256 67.1v6.1c0 56.1-75.2 112.1-110.3 135.3-10.8 7.1-24.6 7.1-35.4 0C75.2 185.4 0 129.3 0 73.2v-6.1C0 30 30 0 67.1 0c21.1 0 40.9 9.9 53.6 26.8l7.3 9.8 7.3-9.8C148 9.9 167.8 0 188.9 0"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Ikony
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mkdocs/img/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22A10 10 0 0 1 2 12 10 10 0 0 1 12 2c5.5 0 10 4 10 9a6 6 0 0 1-6 6h-1.8c-.3 0-.5.2-.5.5 0 .1.1.2.1.3.4.5.6 1.1.6 1.7.1 1.4-1 2.5-2.4 2.5m0-18a8 8 0 0 0-8 8 8 8 0 0 0 8 8c.3 0 .5-.2.5-.5 0-.2-.1-.3-.1-.4-.4-.5-.6-1-.6-1.6 0-1.4 1.1-2.5 2.5-2.5H16a4 4 0 0 0 4-4c0-3.9-3.6-7-8-7m-5.5 6c.8 0 1.5.7 1.5 1.5S7.3 13 6.5 13 5 12.3 5 11.5 5.7 10 6.5 10m3-4c.8 0 1.5.7 1.5 1.5S10.3 9 9.5 9 8 8.3 8 7.5 8.7 6 9.5 6m5 0c.8 0 1.5.7 1.5 1.5S15.3 9 14.5 9 13 8.3 13 7.5 13.7 6 14.5 6m3 4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Obrazki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Power/" class="md-nav__link ">
+              
+  
+  
+    <svg version="1.1" id="Ibm-Power-Vs--Streamline-Carbon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 16 16" xml:space="preserve" enable-background="new 0 0 32 32" height="16" width="16">
+  <desc>
+    Ibm Power Vs Streamline Icon: https://streamlinehq.com
+  </desc>
+  <path d="M8 12.5c-1 0 -2 -0.35 -2.8 -1l0.65 -0.8c0.65 0.5 1.4 0.75 2.2 0.75 1.95 0 3.5 -1.55 3.5 -3.5 0 -0.15 0 -0.35 -0.05 -0.5l1 -0.15 0 0.7c0 2.5 -2 4.5 -4.5 4.5z" fill="currentColor" stroke-width="0.5"></path>
+  <path d="M3.55 8.65C3.5 8.45 3.5 8.2 3.5 8c0 -2.5 2 -4.5 4.5 -4.5 1 0 2 0.35 2.8 1l-0.65 0.8C9.55 4.75 8.8 4.5 8 4.5c-1.95 0 -3.5 1.55 -3.5 3.5 0 0.15 0 0.35 0.05 0.5l-1 0.15z" fill="currentColor" stroke-width="0.5"></path>
+  <path d="M11 13.5a0.5 0.5 0 1 0 1 0 0.5 0.5 0 1 0 -1 0" fill="currentColor" stroke-width="0.5"></path>
+  <path d="M4 10a0.5 0.5 0 1 0 1 0 0.5 0.5 0 1 0 -1 0" fill="currentColor" stroke-width="0.5"></path>
+  <path d="M11 6a0.5 0.5 0 1 0 1 0 0.5 0.5 0 1 0 -1 0" fill="currentColor" stroke-width="0.5"></path>
+  <path d="M7 8a1 1 0 1 0 2 0 1 1 0 1 0 -2 0" fill="currentColor" stroke-width="0.5"></path>
+  <path d="M4 2.5a0.5 0.5 0 1 0 1 0 0.5 0.5 0 1 0 -1 0" fill="currentColor" stroke-width="0.5"></path>
+  <path d="M8 15C4.15 15 1 11.85 1 8c0 -1.85 0.75 -3.65 2.05 -4.95l0.7 0.7C2.6 4.9 2 6.4 2 8c0 3.3 2.7 6 6 6 0.7 0 1.4 -0.1 2.05 -0.35l0.35 0.95c-0.75 0.25 -1.6 0.4 -2.4 0.4z" fill="currentColor" stroke-width="0.5"></path>
+  <path d="m12.95 12.95 -0.7 -0.7c1.15 -1.15 1.75 -2.65 1.75 -4.25 0 -3.3 -2.7 -6 -6 -6 -0.7 0 -1.4 0.1 -2.05 0.35l-0.35 -0.95c0.75 -0.25 1.6 -0.4 2.4 -0.4 3.85 0 7 3.15 7 7 0 1.85 -0.75 3.65 -2.05 4.95z" fill="currentColor" stroke-width="0.5"></path>
+  <path id="_x3C_Transparent_Rectangle_x3E__589_" d="M0 0h16v16H0Z" fill="none" stroke-width="0.5"></path>
+</svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Power
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Power/HMC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HMC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Power/VIOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VIOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../UNX/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unix
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Unix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../virt/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.003.064C5.376.064 0 5.407 0 12s5.376 11.936 12.003 11.936c2.169 0 4.2-.57 5.955-1.57l.624 1.57h4.841l-1.893-4.679A11.85 11.85 0 0 0 24 12C24 5.407 18.63.064 12.003.064M8.818 2.03c.398.339.324.198.86.134.61-.397.893.942 1.147.195.748.097 1.542.34 2.25.584a3.45 3.45 0 0 1 1.859 1.128l-.014.007.35.463c.045.08.082.164.12.248.142 1.205 1.48 1.19 2.377 1.625.767.272 1.69.686 1.785 1.611-.193-.042-.941-.921-1.53-1.007a4 4 0 0 1-1.094-.255L14.86 6.38v-.007a3 3 0 0 1-.309-.053v.013l-2.927-.362c.048.033.1.077.148.12l3 .585v-.007l.209.053.839.188c.166.016.334.043.47.067.856.236 1.868.194 2.571.792-.184.352-1.21.153-1.719.108-.062-.012-.131-.023-.194-.034l-.034-.007c-.696-.113-1.411-.12-2.081.088h-.007a3.2 3.2 0 0 0-.671.302c-.968.563-2.164.767-2.967 1.577-.787.847-.739 2.012-.604 3.095h.033v.275q.02.143.04.282c.41 2.19 1.5 4.2 1.84 6.412.065.843.203 1.932.309 2.618-.306-.091-.475-1.462-.544-1.007a38 38 0 0 0-3.565-5.25c-.853-1.004-1.697-2.06-2.712-2.894-.685-.528-.468-1.55-.537-2.302-.23-.926-.094-1.848.06-2.773.313-.963.418-1.968.846-2.893.653-.581.669-1.63 1.303-2.135.094.058.157.085.2.1l.068.008h.007c.09-.095-.888-1.116.02-.712.035-.537.854-.128.866-.597m3.847 2.182c-.323.009-.574.13-.645.335-.114.33.273.755.866.96.594.205 1.168.109 1.282-.221s-.272-.762-.866-.967a1.8 1.8 0 0 0-.637-.107"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Virt
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Virt
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../virt/libvirt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Libvirt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../virt/qemu-img/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QCOW2 i inne dyski
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../WinDOS/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.67 5.3v.61l-.71.3V5.6zm0 5.94v.62l-.71.29v-.59zm0 6.03v.62l-.71.29v-.59zM2.6 7.29v.55l-.57.26v-.54zm0 1.99v.54l-.57.26v-.54zm0 4.03v.53l-.57.26v-.54zm0 2.02v.54l-.57.26v-.53zm1.9-9.69v.72l-1 .37V6zm0 6.02v.71l-1 .37v-.71zm0 6.04v.71l-1 .4v-.71zm-.07-9.98v.66l-.79.3V8zm0 2.01v.64l-.78.3V10zm0 4.01v.64l-.78.31v-.66zm0 2.02v.65l-.78.31v-.66zm1.88-9.67v.85l-1.26.49v-.84zm0 6.02v.85l-1.26.49v-.84zm0 5.97v.85l-1.26.5v-.85zm-.06-9.9v.76l-1.06.4v-.73zm0 2v.75l-1.06.42v-.75zm0 4.01v.75l-1.06.43v-.75zm0 1.95v.76l-1.06.42v-.75zm2.04-10.1v1.12l-1.57.62V6.67zm0 6.02v1.13l-1.57.61v-1.12zm0 5.97v1.12l-1.57.62v-1.11zm-.09-9.9v1.03l-1.31.53V8.66zm0 2v1.02l-1.31.53v-1.03zm0 4.02v1.03l-1.31.52v-1.03zm0 1.95v1.02l-1.31.52v-1.01zm2.14-10.25v1.47L8.61 8V6.56zm0 6.02v1.46l-1.73.7v-1.47zm0 5.97v1.46l-1.73.7v-1.46zm-.08-9.79v1.23l-1.48.59V8.64zm0 1.92v1.23l-1.48.58v-1.22zm0 4.09v1.25l-1.48.57v-1.23zm0 1.94v1.25l-1.48.59V16.6zm2.19-10.88v2l-1.86.77V6c.64-.35 1.26-.65 1.86-.88m0 2.21v1.73l-1.86.78V8.1zm0 1.95v1.76l-1.86.78v-1.76zm0 1.97V13l-1.86.77V12zm0 1.96V15l-1.86.78V14zm0 2v1.75l-1.86.8V16zm0 1.96v1.87c-.73.28-1.35.55-1.86.8v-1.88zm9.59-11.99v14.05c-1.19-.79-2.67-1.18-4.45-1.18-1.47 0-3.12.3-4.94.91v-1.9c.97-.37 2.03-.64 3.19-.8v-4.57c-.98.12-2.04.46-3.19 1.02V11.4c.99-.46 2.06-.77 3.19-.94V6c-1.02.18-2.08.53-3.19 1V5.03C14.27 4.34 15.86 4 17.41 4c1.68 0 3.22.39 4.63 1.18m-1.89 1.23c-.76-.41-1.65-.59-2.73-.59-.13 0-.25.01-.37.02v4.54l.41-.01c.91 0 1.81.13 2.69.43zm0 5.69c-.81-.36-1.72-.54-2.71-.54-.13 0-.26.01-.39.02v4.58h.41c.99 0 1.89.12 2.69.37z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    WinDOS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    WinDOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../WinDOS/PS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="md-typeset">
+      Przydatne Powershelle
+    </span>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instalacja-binarek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Instalacja binarek
+        </span>
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalacja binarek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Instalki
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcje-instalatora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Opcje instalatora
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Instalacja
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametry-jadra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Parametry jądra <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.504 0q-.232 0-.48.021c-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.4.4 0 0 0-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071s1.592-.536 2.257-1.306c.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.36.36 0 0 0-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139m.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105l-.004-.021-.004-.024a1.8 1.8 0 0 1-.15.706.95.95 0 0 1-.213.335 1 1 0 0 0-.088-.042c-.104-.045-.198-.064-.284-.133a1.3 1.3 0 0 0-.22-.066c.05-.06.146-.133.183-.198q.08-.193.088-.402v-.02a1.2 1.2 0 0 0-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 0 0-.205.334 1.2 1.2 0 0 0-.09.4v.019q.002.134.02.267c-.193-.067-.438-.135-.607-.202a2 2 0 0 1-.018-.2v-.02a1.8 1.8 0 0 1 .15-.768 1.08 1.08 0 0 1 .43-.533 1 1 0 0 1 .594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2q.018-.136.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.6.6 0 0 0-.166-.267.25.25 0 0 0-.183-.064h-.021c-.071.006-.13.04-.186.132a.55.55 0 0 0-.12.27 1 1 0 0 0-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268q.014.014.034.024c-.07.057-.117.07-.176.136a.3.3 0 0 1-.131.068 2.6 2.6 0 0 1-.275-.402 1.8 1.8 0 0 1-.155-.667 1.8 1.8 0 0 1 .08-.668 1.4 1.4 0 0 1 .283-.535c.128-.133.26-.2.418-.2m1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.57.57 0 0 1 .016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.1 1.1 0 0 1-.448-.067 4 4 0 0 1-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71q-.104-.403.193-.6c.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.7 2.7 0 0 0-.402-.533 1.5 1.5 0 0 0-.275-.333c.182 0 .338-.03.465-.067a.62.62 0 0 0 .314-.334c.108-.267 0-.697-.345-1.163s-.931-.995-1.788-1.521c-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.1 8.1 0 0 1 .647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335q.058.005.11.006c.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01q.08 0 .157.014c.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602q-.553-.1-.723-.4c-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336m7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8 8 0 0 1-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065m-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"/></svg></span>
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uzyszkodnik-instancji-storage-protect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Użyszkodnik instancji Storage Protect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tworzenie-instancji-storage-protect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tworzenie instancji Storage Protect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tworzenie instancji Storage Protect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tworzenie-instancji-db2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tworzenie instancji DB2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tworzenie-instancji-storage-protect_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tworzenie instancji Storage Protect
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="storage-protect"><span class="twemoji"><svg width="1000" height="400" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 0,0 0,27.367 194.64844,27.367 194.64844,0 0,0 z M 222.22657,0 222.22657,27.367 499.60937,27.367 C 499.60936,27.367 471.27625,0 433.75,0 L 222.22657,0 z M 554.02344,0 554.02344,27.367 721.83594,27.367 711.875,0 554.02344,0 z M 842.14844,0 832.1875,27.367 998.47656,27.367 998.47656,0 842.14844,0 z M 0,53.22221 0,80.589202 194.64844,80.589202 194.64844,53.22221 0,53.22221 z M 222.22657,53.260975 222.22657,80.589202 531.79688,80.589202 C 531.79688,80.589214 528.18125,59.526386 521.875,53.260975 L 222.22657,53.260975 z M 554.02344,53.260975 554.02344,80.589202 740.23438,80.589202 731.01562,53.260975 554.02344,53.260975 z M 822.22656,53.260975 813.00781,80.589202 998.47656,80.589202 998.47656,53.260975 822.22656,53.260975 z M 55.937496,106.44442 55.937496,133.85017 140.23437,133.85017 140.23437,106.44442 55.937496,106.44442 z M 278.16407,106.44442 278.16407,133.85017 362.46093,133.85017 362.46093,106.44442 278.16407,106.44442 z M 444.45313,106.44442 444.45313,133.85017 528.75,133.85017 C 528.75001,133.85017 534.10156,119.37715 534.10156,106.44442 L 444.45313,106.44442 z M 609.96094,106.44442 609.96094,133.85017 759.41407,133.85017 749.45313,106.44442 609.96094,106.44442 z M 803.86719,106.44442 793.86719,133.85017 944.0625,133.85017 944.0625,106.44442 803.86719,106.44442 z M 55.937496,159.7054 55.937496,187.07238 140.23437,187.07238 140.23437,159.7054 55.937496,159.7054 z M 278.16407,159.7054 278.16407,187.07238 493.47657,187.07238 C 493.47658,187.07237 511.48781,173.0301 517.22656,159.7054 L 278.16407,159.7054 z M 609.96094,159.7054 609.96094,187.07238 694.25781,187.07238 694.25781,171.83835 699.60937,187.07238 854.02344,187.07238 859.76563,171.83835 859.76563,187.07238 944.0625,187.07238 944.0625,159.7054 785.82031,159.7054 777.42187,182.88593 768.98438,159.7054 609.96094,159.7054 z M 55.937496,212.92761 55.937496,240.29459 140.23437,240.29459 140.23437,212.92761 55.937496,212.92761 z M 278.16407,212.92761 278.16407,240.29459 517.22656,240.29459 C 511.48657,227.01331 493.47657,212.92761 493.47657,212.92761 L 278.16407,212.92761 z M 609.96094,212.92761 609.96094,240.29459 694.25781,240.29459 694.25781,212.92761 609.96094,212.92761 z M 709.57031,212.92761 719.76563,240.29459 835.54688,240.29459 845.23438,212.92761 709.57031,212.92761 z M 859.76563,212.92761 859.76563,240.29459 944.0625,240.29459 944.0625,212.92761 859.76563,212.92761 z M 55.937496,266.14982 55.937496,293.5168 140.23437,293.5168 140.23437,266.14982 55.937496,266.14982 z M 278.16407,266.14982 278.16407,293.5168 362.46093,293.5168 362.46093,266.14982 278.16407,266.14982 z M 444.45313,266.14982 444.45313,293.5168 534.10156,293.5168 C 534.10158,280.60147 528.75,266.14982 528.75,266.14982 L 444.45313,266.14982 z M 609.96094,266.14982 609.96094,293.5168 694.25781,293.5168 694.25781,266.14982 609.96094,266.14982 z M 728.71093,266.14982 738.59375,293.5168 816.21093,293.5168 826.17187,266.14982 728.71093,266.14982 z M 859.76563,266.14982 859.76563,293.5168 944.0625,293.5168 944.0625,266.14982 859.76563,266.14982 z M 1.52343,319.37203 1.52343,346.77778 196.17187,346.77778 196.17187,319.37203 1.52343,319.37203 z M 222.22657,319.37203 222.22657,346.77778 521.875,346.77778 C 528.18125,340.50245 531.79688,319.37203 531.79688,319.37203 L 222.22657,319.37203 z M 555.54687,319.37203 555.54687,346.77778 694.25781,346.77778 694.25781,319.37203 555.54687,319.37203 z M 747.89062,319.37203 758.04687,346.77778 797.53906,346.77778 807.07031,319.37203 747.89062,319.37203 z M 859.76563,319.37203 859.76563,346.77778 1000,346.77778 1000,319.37203 859.76563,319.37203 z M 1.52343,372.633 1.52343,400 196.17187,400 196.17187,372.633 1.52343,372.633 z M 222.22657,372.633 222.22657,399.96124 433.75,399.96124 C 471.27624,399.96122 499.60937,372.633 499.60937,372.633 L 222.22657,372.633 z M 555.54687,372.633 555.54687,400 694.25781,400 694.25781,372.633 555.54687,372.633 z M 767.14844,372.633 776.91407,399.92246 778.59375,399.96124 788.51563,372.633 767.14844,372.633 z M 859.76563,372.633 859.76563,400 1000,400 1000,372.633 859.76563,372.633 z" fill="currentColor"/>
+</svg>
+</span> Storage Protect</h1>
+<div class="admonition tip inline end">
+<p class="admonition-title">Podpowiedź</p>
+<p>Jak masz jakieś <a href="../../../LNX/x11/">X11</a> to można użyć <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 22H3v-2h18zm-2-3H5l6.1-16.4q.3-.6.9-.6l6 3h-4.1zM10 7.5l1.04.47L11.5 9l.47-1.03L13 7.5l-1.03-.47L11.5 6l-.46 1.03zm3 7.5-2.06-.93L10 12l-.93 2.07L7 15l2.07.93L10 18l.94-2.07zm.97-3.03L15 11.5l-1.03-.47L13.5 10l-.46 1.03-1.04.47 1.04.47.46 1.03zm2 4L17 15.5l-1.03-.47L15.5 14l-.46 1.03-1.04.47 1.04.47.46 1.03z"/></svg></span> wizarda: <code>dsmicfgx</code>.</p>
+</div>
+<p>Konfiguracja instancji "z palca". Warto to znać, bo nie wszędzie jest grafika. Ktrok po kroku:</p>
+<h2 id="instalacja-binarek">Instalacja binarek</h2>
+<p>Instalacja binariów serwera sprowadza się do:</p>
+<ul>
+<li>Rozpakowania gdzieś <em>self-extracting</em> archiwum.</li>
+<li>Odpalenia <code>install.sh</code>.</li>
+</ul>
+<p>Ale jak zwykle diabeł tkwi w szczegółach.</p>
+<h3 id="instalki">Instalki</h3>
+<p>Instalki występują w dwóch smakach:</p>
+<ul>
+<li>Z licencją - dla klientów którzy kupili. Tu zwykle nazwy pliku zacynają się od <code>SP_*</code>, np. <code>SP_8.2_LIN86_SERSTG_AGT_ML.bin</code>. Te binarki są dostęþne przez <a href="https://www.ibm.com/software/passportadvantage/pao-customer">PAO</a></li>
+<li>
+<p>Bez licencji, czyli poprawki. Nazwy zwykle zaczynają się od cyferek, np <code>8.1.27.000-IBM-SPSRV-Linuxx86_64.bin</code>. Te można sciągać z FixCentral, albo <a href="https://www3.software.ibm.com/storage/tivoli-storage-management/">bezpośrednio</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Zarówno patch jak i maintenance dają się zainstalować jako produkt. Nie posiadają licencji więc będą działać przez 30 dni. Po donistalowaniu pakietu z licencją stają się pełnowymiarowymi instalacjami.</p>
+</div>
+<ul>
+<li>W katalogu <code>patches</code> są poprawki podbijające 4 liczbę w wersji. </li>
+<li>W katalogu <code>maintenance</code> są poprawki podbijajace 3 liczbę w wersji</li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="annotate">Założenie patcha/maintnenance np 8.2 (1) na instalację 8.1 spowoduje utratę licencji. Trzeba ją będzie zainstalować z legitnej paczki <code>SP_8.2*</code>. </p>
+<ol>
+<li>Jak już się jakiś pojawi.</li>
+</ol>
+</div>
+<h3 id="opcje-instalatora">Opcje instalatora</h3>
+<p>Przydatne przałaćzniki instalatora <code>install.sh</code>. Instalator domyślnie będzie próbował wystartować graficznie, ale dzisiejsze Unixy zwykle grafiki nie mają. Wtedy zostaje konsola lub cicha instalacja.</p>
+<ul>
+<li><code>-s</code> - cicha instalacja z użyciem <em>response file</em>. Plik odpowiedzi można wygenerować podczas interaktywnej instalacji zarówno w trybie graficznym jak i konsolowym.</li>
+<li><code>-c</code> - wymusza instalację w trybie konsolowym.</li>
+<li><code>-vmargs "-DBYPASS_TSM_REQ_CHECKS=true"</code> - Przy instalacji na CentOS/Rocky/Alma/Oracle, albo na zbyt małej ilośći RAMu, ISP może  odmówić instalacji. Ta pozwala ominąć tę blokadę. Przeczytaj po co to <a href="https://www.ibm.com/support/pages/bypass-server-and-storage-agent-prerequisites-during-installation">jest</a> !</li>
+</ul>
+<h3 id="instalacja">Instalacja</h3>
+<ol>
+<li>
+<p>Rozpakuj gdzieś binarki. Przejdź do katalogu docelowego i uruchom śćignięte archiwum:</p>
+<div class="language-sh highlight"><span class="filename">Rozpakowanie binarek</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/toys/srv-8.2.0
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/toys/srv-8.2.0
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>$<span class="w"> </span>/scieżka/do/ściągniętego/pliku/SP_8.2_LIN86_SERSTG_AGT_ML.bin
+</span></code></pre></div>
+</li>
+<li>
+<p>Uruchom instalator jako <code>root</code>:</p>
+<div class="language-sh highlight"><span class="filename">Start instalatora</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./install.sh
+</span></code></pre></div>
+<p>W razie potrzeby dodaj odpowiednie opcje. instalator automatycznie przełacza sie na tryb konsolowy, jesli nie uda mu się odpalić grafiki.</p>
+</li>
+<li>
+<p>Wybierz paczki do instalacji. Na poniższym przykładzie jest minimum jakiego potrzebuję:</p>
+<div class="language-text highlight"><span class="filename">Wybór pakietów</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>=====&gt; IBM Installation Manager&gt; Install
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Select packages to install:
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="hll">     1. [X] IBM® Installation Manager 1.9.2.8
+</span></span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="hll">     2. [X] IBM Storage Protect server 8.2.0.20251121_0614
+</span></span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>     3. [ ] IBM Storage Protect languages 8.2.0.20251121_0609
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="hll">     4. [X] IBM Storage Protect license 8.2.0.20251121_0609
+</span></span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>     5. [ ] IBM Storage Protect storage agent 8.2.0.20251121_0606
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>     6. [ ] IBM Storage Protect device driver  8.2.0.20251121_0610
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>     7. [ ] IBM Storage Protect Operations Center 8.2.0.20251111_1045
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>     8. [ ] Open Snap Store Manager 8.2.0.20251121_0607
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>     O. Check for Other Versions, Fixes, and Extensions
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>     N. Next,      C. Cancel
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>-----&gt; [N] 
+</span></code></pre></div>
+</li>
+<li>
+<p>Instalator sprawdza zależności. Ja mój uruchomiłem z ignorowaniem wymagań, bo mam za mało RAMu, dlatego dostałem tylko <em>Warnning</em>, ale tę brakującą bibliotekę, to trzeba doinstalować.</p>
+<div class="language-text highlight"><span class="filename">Sprawdzenie wymagań</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>=====&gt; IBM Installation Manager&gt; Install&gt; Prerequisites
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Validation results:
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>* [WARNING] IBM Storage Protect server 8.2.0.20251121_0614 contains validation warning.
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="hll">     1. WARNING: The system does not meet the recommended memory requirement of 16 GB.
+</span></span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="hll">     2. WARNING: libnss3.so is required and cannot be found.
+</span></span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Enter the number of the error or warning message above to view more details.
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>Options:
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="hll">     R. Recheck status.
+</span></span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>     B. Back,      N. Next,      C. Cancel
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>-----&gt; [N] 
+</span></code></pre></div>
+<p>Jak zainstalujesz brakującą bibliotekę (w następnym kroku) to naciśnij <code>r</code> żeby ponownie sprawdzić wymagania.</p>
+</li>
+<li>
+<p>Zaloguj się z boku i doinstaluj brakującą bibliotekę </p>
+<p><div class="language-sh highlight"><span class="filename">Instalacja pakietu dostarczającego bibliotekę libnss3.so</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>nss
+</span></code></pre></div>
+1. Ponownie sprawdź wymagania.</p>
+<div class="language-text highlight"><span class="filename">Sprawdzenie wymagań</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>=====&gt; IBM Installation Manager&gt; Install&gt; Prerequisites
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Validation results:
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>* [WARNING] IBM Storage Protect server 8.2.0.20251121_0614 contains validation warning.
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="hll">     1. WARNING: The system does not meet the recommended memory requirement of 16 GB.
+</span></span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Enter the number of the error or warning message above to view more details.
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>Options:
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>     R. Recheck status.
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="hll">     B. Back,      N. Next,      C. Cancel
+</span></span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>-----&gt; [N] 
+</span></code></pre></div>
+<p>Jeśli marudzi tylko na RAM, daj mu <em>next</em>.</p>
+</li>
+<li>
+<p>Zaakceptuj licencję instalatora :faceplam::</p>
+<p><div class="language-text highlight"><span class="filename">Licencja instalatora</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>=====&gt; IBM Installation Manager&gt; Install&gt; Prerequisites&gt; Licenses
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Read the following license agreements carefully.
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>View a license agreement by entering the number:
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>     1. IBM Installation Manager - License Agreement
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Options:
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>     A. [X] I accept the terms in the license agreement
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>     D. [ ] I do not accept the terms in the license agreement
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>     B. Back,      N. Next,      C. Cancel
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>-----&gt; [N] 
+</span></code></pre></div>
+1. Jakieś pierdoły</p>
+<div class="language-text highlight"><span class="filename">Jakaś pierdoła</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>====&gt; IBM Installation Manager&gt; Install&gt; Prerequisites&gt; Licenses&gt; 
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  Shared Directory
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Installation Manager installation location:
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        /opt/IBM/InstallationManager/eclipse
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Shared Resources Directory:
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        /opt/IBM/IBMIMShared
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>Options:
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>     L. Change Installation Manager Installation Location  
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>     M. Change Shared Resources Directory    
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>     B. Back,      N. Next,      C. Cancel
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">Jakaś pierdoła</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>=====&gt; IBM Installation Manager&gt; Install&gt; Prerequisites&gt; Licenses&gt; 
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  Shared Directory&gt; Location
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>New package group:
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>     1. [X] IBM Storage Protect
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>Selected group id: &quot;IBM Storage Protect&quot; 
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>Selected location: &quot;/opt/tivoli/tsm&quot;
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>Selected architecture: 64-bit
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>Options:
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>     M. Change Location
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>     B. Back,      N. Next,      C. Cancel
+</span></code></pre></div>
+</li>
+<li>
+<p>Wybierz licencję. Przy pojemnościowej wybierz <em>Extended</em>:</p>
+<div class="language-text highlight"><span class="filename">Typ licencji</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Select the product that you purchased: 
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>     1. IBM Storage Protect 
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>     2. IBM Storage Protect Extended Edition 
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>     3. IBM Storage Protect for Data Retention 
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="hll">-----&gt; 1
+</span></span></code></pre></div>
+<p>...i zaakceptuj ją:</p>
+<div class="language-text highlight"><span class="filename">Akceptacja licencji</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Read the following license agreements carefully. 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>View a license agreement by entering the number: 
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>     1. IBM Storage Protect - Software License Agreement 
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>     2. IBM Storage Protect - Non-IBM Terms 
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Options: 
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="hll">     A. [ ] I accept the terms in the license agreements.  
+</span></span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>     D. [ ] I do not accept the terms in the license agreements. 
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="hll">-----&gt; A
+</span></span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>Read the following license agreements carefully. 
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>View a license agreement by entering the number: 
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>     1. IBM Storage Protect - Software License Agreement 
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>     2. IBM Storage Protect - Non-IBM Terms 
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>Options: 
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="hll">     A. [X] I accept the terms in the license agreements.  
+</span></span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>     D. [ ] I do not accept the terms in the license agreements. 
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>     B. Back,      N. Next,      C. Cancel
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="hll">-----&gt; [N] 
+</span></span></code></pre></div>
+</li>
+<li>
+<p>Podsumowanie i instalacja:</p>
+<div class="language-text highlight"><span class="filename">Podsumowanie przed instalacją</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>=====&gt; IBM Installation Manager&gt; Install&gt; Prerequisites&gt; Licenses&gt; 
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  Shared Directory&gt; Location&gt; Custom panels&gt; Summary
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Target Location:
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  Package Group Name         :  IBM Installation Manager
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>  Installation Directory     :  /opt/IBM/InstallationManager/eclipse
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  Package Group Name         :  IBM Storage Protect
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  Installation Directory     :  /opt/tivoli/tsm
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>  Shared Resources Directory :  /opt/IBM/IBMIMShared
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>Translations:
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>        English
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>Packages to be installed:
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>        IBM® Installation Manager 1.9.2.8
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>        IBM Storage Protect server 8.2.0.20251121_0614
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>        IBM Storage Protect license 8.2.0.20251121_0609
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>Options:
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>     G. Generate an Installation Response File
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>     B. Back,      I. Install,      C. Cancel
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="hll">-----&gt; [I] 
+</span></span></code></pre></div>
+</li>
+<li>
+<p>Koniec instalacji binariów.</p>
+<div class="language-text highlight"><span class="filename">Podsumowanie</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>                 25%                50%                75%                100%
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>------------------|------------------|------------------|------------------|
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>............................................................................
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>=====&gt; IBM Installation Manager&gt; Install&gt; Prerequisites&gt; Licenses&gt; 
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>  Shared Directory&gt; Location&gt; Custom panels&gt; Summary&gt; Completion
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>There were problems during the installation.
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>WARNING: Multiple warnings occurred.
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>     V. View Message Details
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>Options:
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>     F. Finish
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>-----&gt; [F] 
+</span></code></pre></div>
+</li>
+</ol>
+<h2 id="parametry-jadra">Parametry jądra <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.504 0q-.232 0-.48.021c-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.4.4 0 0 0-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071s1.592-.536 2.257-1.306c.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.36.36 0 0 0-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139m.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105l-.004-.021-.004-.024a1.8 1.8 0 0 1-.15.706.95.95 0 0 1-.213.335 1 1 0 0 0-.088-.042c-.104-.045-.198-.064-.284-.133a1.3 1.3 0 0 0-.22-.066c.05-.06.146-.133.183-.198q.08-.193.088-.402v-.02a1.2 1.2 0 0 0-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 0 0-.205.334 1.2 1.2 0 0 0-.09.4v.019q.002.134.02.267c-.193-.067-.438-.135-.607-.202a2 2 0 0 1-.018-.2v-.02a1.8 1.8 0 0 1 .15-.768 1.08 1.08 0 0 1 .43-.533 1 1 0 0 1 .594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2q.018-.136.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.6.6 0 0 0-.166-.267.25.25 0 0 0-.183-.064h-.021c-.071.006-.13.04-.186.132a.55.55 0 0 0-.12.27 1 1 0 0 0-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268q.014.014.034.024c-.07.057-.117.07-.176.136a.3.3 0 0 1-.131.068 2.6 2.6 0 0 1-.275-.402 1.8 1.8 0 0 1-.155-.667 1.8 1.8 0 0 1 .08-.668 1.4 1.4 0 0 1 .283-.535c.128-.133.26-.2.418-.2m1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.57.57 0 0 1 .016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.1 1.1 0 0 1-.448-.067 4 4 0 0 1-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71q-.104-.403.193-.6c.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.7 2.7 0 0 0-.402-.533 1.5 1.5 0 0 0-.275-.333c.182 0 .338-.03.465-.067a.62.62 0 0 0 .314-.334c.108-.267 0-.697-.345-1.163s-.931-.995-1.788-1.521c-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.1 8.1 0 0 1 .647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335q.058.005.11.006c.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01q.08 0 .157.014c.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602q-.553-.1-.723-.4c-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336m7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8 8 0 0 1-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065m-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"/></svg></span></h2>
+<p class="annotate"><a href="https://www.ibm.com/docs/en/storage-protect/8.2.0?topic=protect-tuning-kernel-parameters-linux-systems">Tu</a> dla wersji 8.2 (1)</p>
+<ol>
+<li>Mam na to playbooka <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10.617 11.473 4.686 3.695-3.102-7.662zM12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0m5.797 17.305a.85.85 0 0 1-.875.83c-.236 0-.416-.09-.664-.293l-6.19-5-2.079 5.203H6.191L11.438 5.44a.79.79 0 0 1 .764-.506.76.76 0 0 1 .742.506l4.774 11.494c.045.111.08.234.08.348z"/></svg></span>nsible. Pewnie kiedyś go tu opiszę.</li>
+</ol>
+<p>Z palca można zrobić to tak:</p>
+<div class="language-sh highlight"><span class="filename">Dopieszczanie DB2</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>kernel.randomize_va_space<span class="o">=</span><span class="m">0</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>vm.swappiness<span class="o">=</span><span class="m">5</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>vm.overcommit_memory<span class="o">=</span><span class="m">0</span>
+</span></code></pre></div>
+<ol>
+<li>Zrób <em>drop-in</em> <code>/etc/sysctl.d/50-ibm-storage-protect.conf</code> z tymi parametrami:</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a># Ulubione ustawienia kenrela dla IBM DB2
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>kernel.randomize_va_space = 0
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>vm.swappiness = 5
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>vm.overcommit_memory = 0
+</span></code></pre></div>
+<h2 id="uzyszkodnik-instancji-storage-protect">Użyszkodnik instancji <span class="twemoji"><svg width="1000" height="400" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 0,0 0,27.367 194.64844,27.367 194.64844,0 0,0 z M 222.22657,0 222.22657,27.367 499.60937,27.367 C 499.60936,27.367 471.27625,0 433.75,0 L 222.22657,0 z M 554.02344,0 554.02344,27.367 721.83594,27.367 711.875,0 554.02344,0 z M 842.14844,0 832.1875,27.367 998.47656,27.367 998.47656,0 842.14844,0 z M 0,53.22221 0,80.589202 194.64844,80.589202 194.64844,53.22221 0,53.22221 z M 222.22657,53.260975 222.22657,80.589202 531.79688,80.589202 C 531.79688,80.589214 528.18125,59.526386 521.875,53.260975 L 222.22657,53.260975 z M 554.02344,53.260975 554.02344,80.589202 740.23438,80.589202 731.01562,53.260975 554.02344,53.260975 z M 822.22656,53.260975 813.00781,80.589202 998.47656,80.589202 998.47656,53.260975 822.22656,53.260975 z M 55.937496,106.44442 55.937496,133.85017 140.23437,133.85017 140.23437,106.44442 55.937496,106.44442 z M 278.16407,106.44442 278.16407,133.85017 362.46093,133.85017 362.46093,106.44442 278.16407,106.44442 z M 444.45313,106.44442 444.45313,133.85017 528.75,133.85017 C 528.75001,133.85017 534.10156,119.37715 534.10156,106.44442 L 444.45313,106.44442 z M 609.96094,106.44442 609.96094,133.85017 759.41407,133.85017 749.45313,106.44442 609.96094,106.44442 z M 803.86719,106.44442 793.86719,133.85017 944.0625,133.85017 944.0625,106.44442 803.86719,106.44442 z M 55.937496,159.7054 55.937496,187.07238 140.23437,187.07238 140.23437,159.7054 55.937496,159.7054 z M 278.16407,159.7054 278.16407,187.07238 493.47657,187.07238 C 493.47658,187.07237 511.48781,173.0301 517.22656,159.7054 L 278.16407,159.7054 z M 609.96094,159.7054 609.96094,187.07238 694.25781,187.07238 694.25781,171.83835 699.60937,187.07238 854.02344,187.07238 859.76563,171.83835 859.76563,187.07238 944.0625,187.07238 944.0625,159.7054 785.82031,159.7054 777.42187,182.88593 768.98438,159.7054 609.96094,159.7054 z M 55.937496,212.92761 55.937496,240.29459 140.23437,240.29459 140.23437,212.92761 55.937496,212.92761 z M 278.16407,212.92761 278.16407,240.29459 517.22656,240.29459 C 511.48657,227.01331 493.47657,212.92761 493.47657,212.92761 L 278.16407,212.92761 z M 609.96094,212.92761 609.96094,240.29459 694.25781,240.29459 694.25781,212.92761 609.96094,212.92761 z M 709.57031,212.92761 719.76563,240.29459 835.54688,240.29459 845.23438,212.92761 709.57031,212.92761 z M 859.76563,212.92761 859.76563,240.29459 944.0625,240.29459 944.0625,212.92761 859.76563,212.92761 z M 55.937496,266.14982 55.937496,293.5168 140.23437,293.5168 140.23437,266.14982 55.937496,266.14982 z M 278.16407,266.14982 278.16407,293.5168 362.46093,293.5168 362.46093,266.14982 278.16407,266.14982 z M 444.45313,266.14982 444.45313,293.5168 534.10156,293.5168 C 534.10158,280.60147 528.75,266.14982 528.75,266.14982 L 444.45313,266.14982 z M 609.96094,266.14982 609.96094,293.5168 694.25781,293.5168 694.25781,266.14982 609.96094,266.14982 z M 728.71093,266.14982 738.59375,293.5168 816.21093,293.5168 826.17187,266.14982 728.71093,266.14982 z M 859.76563,266.14982 859.76563,293.5168 944.0625,293.5168 944.0625,266.14982 859.76563,266.14982 z M 1.52343,319.37203 1.52343,346.77778 196.17187,346.77778 196.17187,319.37203 1.52343,319.37203 z M 222.22657,319.37203 222.22657,346.77778 521.875,346.77778 C 528.18125,340.50245 531.79688,319.37203 531.79688,319.37203 L 222.22657,319.37203 z M 555.54687,319.37203 555.54687,346.77778 694.25781,346.77778 694.25781,319.37203 555.54687,319.37203 z M 747.89062,319.37203 758.04687,346.77778 797.53906,346.77778 807.07031,319.37203 747.89062,319.37203 z M 859.76563,319.37203 859.76563,346.77778 1000,346.77778 1000,319.37203 859.76563,319.37203 z M 1.52343,372.633 1.52343,400 196.17187,400 196.17187,372.633 1.52343,372.633 z M 222.22657,372.633 222.22657,399.96124 433.75,399.96124 C 471.27624,399.96122 499.60937,372.633 499.60937,372.633 L 222.22657,372.633 z M 555.54687,372.633 555.54687,400 694.25781,400 694.25781,372.633 555.54687,372.633 z M 767.14844,372.633 776.91407,399.92246 778.59375,399.96124 788.51563,372.633 767.14844,372.633 z M 859.76563,372.633 859.76563,400 1000,400 1000,372.633 859.76563,372.633 z" fill="currentColor"/>
+</svg>
+</span> Storage Protect</h2>
+<p>Od wersji 6 w górę, TSM/Protect działa na dedykowanym użytkowniku. Ten użytkownik nie wymaga specjalnych praw. </p>
+<div class="admonition note">
+<p class="admonition-title">Ciekawostka</p>
+<p>Użytkownik instancji Protect jest też użytkownikiem instancji DB2. Członkowie primary grupy tego usera są równi bogom w tej instancji (bazy, nie TSM).</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Atrybut</th>
+<th style="text-align: left;">Wartość</th>
+<th style="text-align: left;">Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Instance user</td>
+<td style="text-align: left;"><code>spinst1</code></td>
+<td style="text-align: left;">Właściciel instancji SP i DB2.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Home</td>
+<td style="text-align: left;"><code>/home/spinst</code></td>
+<td style="text-align: left;">Katalog domowy instancji DB2. <strong>Uwaga:</strong> katalog instancji ISP to zwykle u mnie  <code>/sp/spinst1</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;">DB2 Instance setup</td>
+<td style="text-align: left;"><code>/home/spinst/sqllib/userprofile</code></td>
+<td style="text-align: left;">Srodowisko instancji DB2. Także <strong>backup!</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip inline end">
+<p class="admonition-title">Wskazówka</p>
+<p>Wrzucam usera instancji do grupy <code>wheel</code> bo jestem leniem i czasem muszę zrobić coś z nieg przez <code>sudo</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Uwaga na <strong>klastry</strong></p>
+<p>Jeśli instalujesz ISP w klastrze, upwenij się, że: </p>
+<ul>
+<li>UID i GID Twojego usera jest taki sam na każdym węźle klastra.</li>
+<li>Katalog domowy użytkownika jest na lokalnym, a nie współdzielonym filesytemie. Są na to dwie szkoły. Druga zakłada, że <code>home</code> jest na klastrowym filesystemie, ale ja tak nie lubię.</li>
+</ul>
+</div>
+<ol>
+<li>
+<p>Załóź użytkownika w systemie operacyjnym. </p>
+<div class="language-sh highlight"><span class="filename">Zakłądanie usera dla instancji</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo<span class="w"> </span>useradd<span class="w"> </span>spinst1<span class="w"> </span>-G<span class="w"> </span>wheel
+</span></code></pre></div>
+</li>
+<li>
+<p>Ustaw właściciela katalogów instancji na usera <code>spinst1</code>:</p>
+<div class="admonition note inline end">
+<p class="admonition-title">Note</p>
+<p>Upewnij się, że filesystemy są zamontowane!</p>
+</div>
+<div class="language-sh highlight"><span class="filename">Zmiana właściciela</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo<span class="w"> </span>chown<span class="w"> </span>spinst1:spinst1<span class="w"> </span>-R<span class="w"> </span>/sp
+</span></code></pre></div>
+</li>
+<li>
+<p>Zmień (u)limity dla użytkownika instancji. Zrób <em>dropin</em> z ustawianiemi ulimitów. Zawsze warto je <a href="https://www.ibm.com/docs/en/storage-protect/8.2.0?topic=instance-verifying-access-rights-user-limits">sprawdzić w <span class="twemoji"><svg width="1000" height="400" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 0,0 0,27.367 194.64844,27.367 194.64844,0 0,0 z M 222.22657,0 222.22657,27.367 499.60937,27.367 C 499.60936,27.367 471.27625,0 433.75,0 L 222.22657,0 z M 554.02344,0 554.02344,27.367 721.83594,27.367 711.875,0 554.02344,0 z M 842.14844,0 832.1875,27.367 998.47656,27.367 998.47656,0 842.14844,0 z M 0,53.22221 0,80.589202 194.64844,80.589202 194.64844,53.22221 0,53.22221 z M 222.22657,53.260975 222.22657,80.589202 531.79688,80.589202 C 531.79688,80.589214 528.18125,59.526386 521.875,53.260975 L 222.22657,53.260975 z M 554.02344,53.260975 554.02344,80.589202 740.23438,80.589202 731.01562,53.260975 554.02344,53.260975 z M 822.22656,53.260975 813.00781,80.589202 998.47656,80.589202 998.47656,53.260975 822.22656,53.260975 z M 55.937496,106.44442 55.937496,133.85017 140.23437,133.85017 140.23437,106.44442 55.937496,106.44442 z M 278.16407,106.44442 278.16407,133.85017 362.46093,133.85017 362.46093,106.44442 278.16407,106.44442 z M 444.45313,106.44442 444.45313,133.85017 528.75,133.85017 C 528.75001,133.85017 534.10156,119.37715 534.10156,106.44442 L 444.45313,106.44442 z M 609.96094,106.44442 609.96094,133.85017 759.41407,133.85017 749.45313,106.44442 609.96094,106.44442 z M 803.86719,106.44442 793.86719,133.85017 944.0625,133.85017 944.0625,106.44442 803.86719,106.44442 z M 55.937496,159.7054 55.937496,187.07238 140.23437,187.07238 140.23437,159.7054 55.937496,159.7054 z M 278.16407,159.7054 278.16407,187.07238 493.47657,187.07238 C 493.47658,187.07237 511.48781,173.0301 517.22656,159.7054 L 278.16407,159.7054 z M 609.96094,159.7054 609.96094,187.07238 694.25781,187.07238 694.25781,171.83835 699.60937,187.07238 854.02344,187.07238 859.76563,171.83835 859.76563,187.07238 944.0625,187.07238 944.0625,159.7054 785.82031,159.7054 777.42187,182.88593 768.98438,159.7054 609.96094,159.7054 z M 55.937496,212.92761 55.937496,240.29459 140.23437,240.29459 140.23437,212.92761 55.937496,212.92761 z M 278.16407,212.92761 278.16407,240.29459 517.22656,240.29459 C 511.48657,227.01331 493.47657,212.92761 493.47657,212.92761 L 278.16407,212.92761 z M 609.96094,212.92761 609.96094,240.29459 694.25781,240.29459 694.25781,212.92761 609.96094,212.92761 z M 709.57031,212.92761 719.76563,240.29459 835.54688,240.29459 845.23438,212.92761 709.57031,212.92761 z M 859.76563,212.92761 859.76563,240.29459 944.0625,240.29459 944.0625,212.92761 859.76563,212.92761 z M 55.937496,266.14982 55.937496,293.5168 140.23437,293.5168 140.23437,266.14982 55.937496,266.14982 z M 278.16407,266.14982 278.16407,293.5168 362.46093,293.5168 362.46093,266.14982 278.16407,266.14982 z M 444.45313,266.14982 444.45313,293.5168 534.10156,293.5168 C 534.10158,280.60147 528.75,266.14982 528.75,266.14982 L 444.45313,266.14982 z M 609.96094,266.14982 609.96094,293.5168 694.25781,293.5168 694.25781,266.14982 609.96094,266.14982 z M 728.71093,266.14982 738.59375,293.5168 816.21093,293.5168 826.17187,266.14982 728.71093,266.14982 z M 859.76563,266.14982 859.76563,293.5168 944.0625,293.5168 944.0625,266.14982 859.76563,266.14982 z M 1.52343,319.37203 1.52343,346.77778 196.17187,346.77778 196.17187,319.37203 1.52343,319.37203 z M 222.22657,319.37203 222.22657,346.77778 521.875,346.77778 C 528.18125,340.50245 531.79688,319.37203 531.79688,319.37203 L 222.22657,319.37203 z M 555.54687,319.37203 555.54687,346.77778 694.25781,346.77778 694.25781,319.37203 555.54687,319.37203 z M 747.89062,319.37203 758.04687,346.77778 797.53906,346.77778 807.07031,319.37203 747.89062,319.37203 z M 859.76563,319.37203 859.76563,346.77778 1000,346.77778 1000,319.37203 859.76563,319.37203 z M 1.52343,372.633 1.52343,400 196.17187,400 196.17187,372.633 1.52343,372.633 z M 222.22657,372.633 222.22657,399.96124 433.75,399.96124 C 471.27624,399.96122 499.60937,372.633 499.60937,372.633 L 222.22657,372.633 z M 555.54687,372.633 555.54687,400 694.25781,400 694.25781,372.633 555.54687,372.633 z M 767.14844,372.633 776.91407,399.92246 778.59375,399.96124 788.51563,372.633 767.14844,372.633 z M 859.76563,372.633 859.76563,400 1000,400 1000,372.633 859.76563,372.633 z" fill="currentColor"/>
+</svg>
+</span></a> dla aktualnej wersji. Tu dla 8.2.</p>
+<div class="language-text highlight"><span class="filename">/etc/security/limits.d/spinst1.conf</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>spinst1 soft nofile 65536
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>spinst1 hard nofile 65536
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title"><code>ulimit</code> na AIXie</p>
+<p>Parę rzeczy w AIXie wyjętym z pudełka trzeba zmienić:</p>
+<p>Do <code>/etc/security/limits</code> w sekcji <code>default</code> albo dla <code>spinst1</code> wpisać:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>nofiles = 65536
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>nproc = 8192
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>fsize = -1
+</span></code></pre></div>
+</div>
+</li>
+</ol>
+<h2 id="tworzenie-instancji-storage-protect">Tworzenie instancji <span class="twemoji"><svg width="1000" height="400" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 0,0 0,27.367 194.64844,27.367 194.64844,0 0,0 z M 222.22657,0 222.22657,27.367 499.60937,27.367 C 499.60936,27.367 471.27625,0 433.75,0 L 222.22657,0 z M 554.02344,0 554.02344,27.367 721.83594,27.367 711.875,0 554.02344,0 z M 842.14844,0 832.1875,27.367 998.47656,27.367 998.47656,0 842.14844,0 z M 0,53.22221 0,80.589202 194.64844,80.589202 194.64844,53.22221 0,53.22221 z M 222.22657,53.260975 222.22657,80.589202 531.79688,80.589202 C 531.79688,80.589214 528.18125,59.526386 521.875,53.260975 L 222.22657,53.260975 z M 554.02344,53.260975 554.02344,80.589202 740.23438,80.589202 731.01562,53.260975 554.02344,53.260975 z M 822.22656,53.260975 813.00781,80.589202 998.47656,80.589202 998.47656,53.260975 822.22656,53.260975 z M 55.937496,106.44442 55.937496,133.85017 140.23437,133.85017 140.23437,106.44442 55.937496,106.44442 z M 278.16407,106.44442 278.16407,133.85017 362.46093,133.85017 362.46093,106.44442 278.16407,106.44442 z M 444.45313,106.44442 444.45313,133.85017 528.75,133.85017 C 528.75001,133.85017 534.10156,119.37715 534.10156,106.44442 L 444.45313,106.44442 z M 609.96094,106.44442 609.96094,133.85017 759.41407,133.85017 749.45313,106.44442 609.96094,106.44442 z M 803.86719,106.44442 793.86719,133.85017 944.0625,133.85017 944.0625,106.44442 803.86719,106.44442 z M 55.937496,159.7054 55.937496,187.07238 140.23437,187.07238 140.23437,159.7054 55.937496,159.7054 z M 278.16407,159.7054 278.16407,187.07238 493.47657,187.07238 C 493.47658,187.07237 511.48781,173.0301 517.22656,159.7054 L 278.16407,159.7054 z M 609.96094,159.7054 609.96094,187.07238 694.25781,187.07238 694.25781,171.83835 699.60937,187.07238 854.02344,187.07238 859.76563,171.83835 859.76563,187.07238 944.0625,187.07238 944.0625,159.7054 785.82031,159.7054 777.42187,182.88593 768.98438,159.7054 609.96094,159.7054 z M 55.937496,212.92761 55.937496,240.29459 140.23437,240.29459 140.23437,212.92761 55.937496,212.92761 z M 278.16407,212.92761 278.16407,240.29459 517.22656,240.29459 C 511.48657,227.01331 493.47657,212.92761 493.47657,212.92761 L 278.16407,212.92761 z M 609.96094,212.92761 609.96094,240.29459 694.25781,240.29459 694.25781,212.92761 609.96094,212.92761 z M 709.57031,212.92761 719.76563,240.29459 835.54688,240.29459 845.23438,212.92761 709.57031,212.92761 z M 859.76563,212.92761 859.76563,240.29459 944.0625,240.29459 944.0625,212.92761 859.76563,212.92761 z M 55.937496,266.14982 55.937496,293.5168 140.23437,293.5168 140.23437,266.14982 55.937496,266.14982 z M 278.16407,266.14982 278.16407,293.5168 362.46093,293.5168 362.46093,266.14982 278.16407,266.14982 z M 444.45313,266.14982 444.45313,293.5168 534.10156,293.5168 C 534.10158,280.60147 528.75,266.14982 528.75,266.14982 L 444.45313,266.14982 z M 609.96094,266.14982 609.96094,293.5168 694.25781,293.5168 694.25781,266.14982 609.96094,266.14982 z M 728.71093,266.14982 738.59375,293.5168 816.21093,293.5168 826.17187,266.14982 728.71093,266.14982 z M 859.76563,266.14982 859.76563,293.5168 944.0625,293.5168 944.0625,266.14982 859.76563,266.14982 z M 1.52343,319.37203 1.52343,346.77778 196.17187,346.77778 196.17187,319.37203 1.52343,319.37203 z M 222.22657,319.37203 222.22657,346.77778 521.875,346.77778 C 528.18125,340.50245 531.79688,319.37203 531.79688,319.37203 L 222.22657,319.37203 z M 555.54687,319.37203 555.54687,346.77778 694.25781,346.77778 694.25781,319.37203 555.54687,319.37203 z M 747.89062,319.37203 758.04687,346.77778 797.53906,346.77778 807.07031,319.37203 747.89062,319.37203 z M 859.76563,319.37203 859.76563,346.77778 1000,346.77778 1000,319.37203 859.76563,319.37203 z M 1.52343,372.633 1.52343,400 196.17187,400 196.17187,372.633 1.52343,372.633 z M 222.22657,372.633 222.22657,399.96124 433.75,399.96124 C 471.27624,399.96122 499.60937,372.633 499.60937,372.633 L 222.22657,372.633 z M 555.54687,372.633 555.54687,400 694.25781,400 694.25781,372.633 555.54687,372.633 z M 767.14844,372.633 776.91407,399.92246 778.59375,399.96124 788.51563,372.633 767.14844,372.633 z M 859.76563,372.633 859.76563,400 1000,400 1000,372.633 859.76563,372.633 z" fill="currentColor"/>
+</svg>
+</span> Storage Protect</h2>
+<p>Jak spelnione są te warunki:</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled checked/> Host ma statyczny IP,</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Host umie rozwiązać swo=ój <code>hostname</code> do swojego IP,</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Zainstalowane binarki,</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Wyłączony (tymczasowo) SELinux,</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Podstrojon jądro pod DB2,</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Założony user,</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> Ustawione ulimity,</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> <code>spinst1</code> jest właścicielem katalogów <code>/sp/*</code>,</li>
+</ul>
+<p>można przejść do tworzenia instancji ISP. Zaczyna się od instancji... DB2</p>
+<h3 id="tworzenie-instancji-db2">Tworzenie instancji <span class="twemoji"><svg width="1000" height="400" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 0,0 0,27.367 194.64844,27.367 194.64844,0 0,0 z M 222.22657,0 222.22657,27.367 499.60937,27.367 C 499.60936,27.367 471.27625,0 433.75,0 L 222.22657,0 z M 554.02344,0 554.02344,27.367 721.83594,27.367 711.875,0 554.02344,0 z M 842.14844,0 832.1875,27.367 998.47656,27.367 998.47656,0 842.14844,0 z M 0,53.22221 0,80.589202 194.64844,80.589202 194.64844,53.22221 0,53.22221 z M 222.22657,53.260975 222.22657,80.589202 531.79688,80.589202 C 531.79688,80.589214 528.18125,59.526386 521.875,53.260975 L 222.22657,53.260975 z M 554.02344,53.260975 554.02344,80.589202 740.23438,80.589202 731.01562,53.260975 554.02344,53.260975 z M 822.22656,53.260975 813.00781,80.589202 998.47656,80.589202 998.47656,53.260975 822.22656,53.260975 z M 55.937496,106.44442 55.937496,133.85017 140.23437,133.85017 140.23437,106.44442 55.937496,106.44442 z M 278.16407,106.44442 278.16407,133.85017 362.46093,133.85017 362.46093,106.44442 278.16407,106.44442 z M 444.45313,106.44442 444.45313,133.85017 528.75,133.85017 C 528.75001,133.85017 534.10156,119.37715 534.10156,106.44442 L 444.45313,106.44442 z M 609.96094,106.44442 609.96094,133.85017 759.41407,133.85017 749.45313,106.44442 609.96094,106.44442 z M 803.86719,106.44442 793.86719,133.85017 944.0625,133.85017 944.0625,106.44442 803.86719,106.44442 z M 55.937496,159.7054 55.937496,187.07238 140.23437,187.07238 140.23437,159.7054 55.937496,159.7054 z M 278.16407,159.7054 278.16407,187.07238 493.47657,187.07238 C 493.47658,187.07237 511.48781,173.0301 517.22656,159.7054 L 278.16407,159.7054 z M 609.96094,159.7054 609.96094,187.07238 694.25781,187.07238 694.25781,171.83835 699.60937,187.07238 854.02344,187.07238 859.76563,171.83835 859.76563,187.07238 944.0625,187.07238 944.0625,159.7054 785.82031,159.7054 777.42187,182.88593 768.98438,159.7054 609.96094,159.7054 z M 55.937496,212.92761 55.937496,240.29459 140.23437,240.29459 140.23437,212.92761 55.937496,212.92761 z M 278.16407,212.92761 278.16407,240.29459 517.22656,240.29459 C 511.48657,227.01331 493.47657,212.92761 493.47657,212.92761 L 278.16407,212.92761 z M 609.96094,212.92761 609.96094,240.29459 694.25781,240.29459 694.25781,212.92761 609.96094,212.92761 z M 709.57031,212.92761 719.76563,240.29459 835.54688,240.29459 845.23438,212.92761 709.57031,212.92761 z M 859.76563,212.92761 859.76563,240.29459 944.0625,240.29459 944.0625,212.92761 859.76563,212.92761 z M 55.937496,266.14982 55.937496,293.5168 140.23437,293.5168 140.23437,266.14982 55.937496,266.14982 z M 278.16407,266.14982 278.16407,293.5168 362.46093,293.5168 362.46093,266.14982 278.16407,266.14982 z M 444.45313,266.14982 444.45313,293.5168 534.10156,293.5168 C 534.10158,280.60147 528.75,266.14982 528.75,266.14982 L 444.45313,266.14982 z M 609.96094,266.14982 609.96094,293.5168 694.25781,293.5168 694.25781,266.14982 609.96094,266.14982 z M 728.71093,266.14982 738.59375,293.5168 816.21093,293.5168 826.17187,266.14982 728.71093,266.14982 z M 859.76563,266.14982 859.76563,293.5168 944.0625,293.5168 944.0625,266.14982 859.76563,266.14982 z M 1.52343,319.37203 1.52343,346.77778 196.17187,346.77778 196.17187,319.37203 1.52343,319.37203 z M 222.22657,319.37203 222.22657,346.77778 521.875,346.77778 C 528.18125,340.50245 531.79688,319.37203 531.79688,319.37203 L 222.22657,319.37203 z M 555.54687,319.37203 555.54687,346.77778 694.25781,346.77778 694.25781,319.37203 555.54687,319.37203 z M 747.89062,319.37203 758.04687,346.77778 797.53906,346.77778 807.07031,319.37203 747.89062,319.37203 z M 859.76563,319.37203 859.76563,346.77778 1000,346.77778 1000,319.37203 859.76563,319.37203 z M 1.52343,372.633 1.52343,400 196.17187,400 196.17187,372.633 1.52343,372.633 z M 222.22657,372.633 222.22657,399.96124 433.75,399.96124 C 471.27624,399.96122 499.60937,372.633 499.60937,372.633 L 222.22657,372.633 z M 555.54687,372.633 555.54687,400 694.25781,400 694.25781,372.633 555.54687,372.633 z M 767.14844,372.633 776.91407,399.92246 778.59375,399.96124 788.51563,372.633 767.14844,372.633 z M 859.76563,372.633 859.76563,400 1000,400 1000,372.633 859.76563,372.633 z" fill="currentColor"/>
+</svg>
+</span> DB2</h3>
+<ol>
+<li>
+<p>Jako <code>root</code> utwórz instancję DB2:</p>
+<div class="language-text highlight"><span class="filename">Tworzenie instancji DB2</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>/opt/tivoli/tsm/db2/instance/db2icrt -a server -u spinst1 spinst1
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Ważne</p>
+<p>Od tego miejsca resztę kroków trzeba robić jako <code>spinst1</code>.</p>
+</div>
+</li>
+<li>
+<p>Ustaw domyślny katalog baz na katalog instancji <code>/sp/spinst1</code>:</p>
+<div class="language-text highlight"><span class="filename">Ustawianie DFTDBPATH</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>db2 update dbm cfg using dftdbpath /sp/inst1
+</span></code></pre></div>
+</li>
+<li>
+<p>I jeszcze <code>DB2NOEXITLIST=ON</code></p>
+<div class="language-sh highlight"><span class="filename">DB2NOEXITLIST=ON</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>db2set<span class="w"> </span>-i<span class="w"> </span>tsminst1<span class="w"> </span><span class="nv">DB2NOEXITLIST</span><span class="o">=</span>ON<span class="w"> </span>
+</span></code></pre></div>
+</li>
+<li>
+<p>Ustaw <code>LD_LIBRARY_PPATH</code> i od razu inne zmienne, któ©e przydadzą się póżniej do potrzeb backupu bazy ISP. Środowisko usera instancji bazy jest w pliku <code>/home/tsminst/sqllib/userprofile</code>:</p>
+<div class="language-sh highlight"><span class="filename">Zmodyfikowane środowisko ~/sqllib/userprofile:</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DSMI_CONFIG</span><span class="o">=</span>/sp/spinst1/tsmdbmgr.opt
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DSMI_DIR</span><span class="o">=</span>/opt/tivoli/tsm/server/bin/dbbkapi
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DSMI_LOG</span><span class="o">=</span>/sp/spinst1
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/opt/tivoli/tsm/server/bin/dbbkapi:/usr/local/ibm/gsk8_64/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
+</span></code></pre></div>
+<p>Plik <code>userprofile</code> jest wciągany przez <code>.profile</code> właściciela instancji:</p>
+<div class="language-sh highlight"><span class="filename">Instance ~/.profile</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># The following three lines have been added by IBM DB2 instance utilities.</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>/home/spinst1/sqllib/db2profile<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span>.<span class="w"> </span>/home/spinst1/sqllib/db2profile
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="k">fi</span>
+</span></code></pre></div>
+</li>
+</ol>
+<h2 id="tworzenie-instancji-storage-protect_1">Tworzenie instancji <span class="twemoji"><svg width="1000" height="400" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 0,0 0,27.367 194.64844,27.367 194.64844,0 0,0 z M 222.22657,0 222.22657,27.367 499.60937,27.367 C 499.60936,27.367 471.27625,0 433.75,0 L 222.22657,0 z M 554.02344,0 554.02344,27.367 721.83594,27.367 711.875,0 554.02344,0 z M 842.14844,0 832.1875,27.367 998.47656,27.367 998.47656,0 842.14844,0 z M 0,53.22221 0,80.589202 194.64844,80.589202 194.64844,53.22221 0,53.22221 z M 222.22657,53.260975 222.22657,80.589202 531.79688,80.589202 C 531.79688,80.589214 528.18125,59.526386 521.875,53.260975 L 222.22657,53.260975 z M 554.02344,53.260975 554.02344,80.589202 740.23438,80.589202 731.01562,53.260975 554.02344,53.260975 z M 822.22656,53.260975 813.00781,80.589202 998.47656,80.589202 998.47656,53.260975 822.22656,53.260975 z M 55.937496,106.44442 55.937496,133.85017 140.23437,133.85017 140.23437,106.44442 55.937496,106.44442 z M 278.16407,106.44442 278.16407,133.85017 362.46093,133.85017 362.46093,106.44442 278.16407,106.44442 z M 444.45313,106.44442 444.45313,133.85017 528.75,133.85017 C 528.75001,133.85017 534.10156,119.37715 534.10156,106.44442 L 444.45313,106.44442 z M 609.96094,106.44442 609.96094,133.85017 759.41407,133.85017 749.45313,106.44442 609.96094,106.44442 z M 803.86719,106.44442 793.86719,133.85017 944.0625,133.85017 944.0625,106.44442 803.86719,106.44442 z M 55.937496,159.7054 55.937496,187.07238 140.23437,187.07238 140.23437,159.7054 55.937496,159.7054 z M 278.16407,159.7054 278.16407,187.07238 493.47657,187.07238 C 493.47658,187.07237 511.48781,173.0301 517.22656,159.7054 L 278.16407,159.7054 z M 609.96094,159.7054 609.96094,187.07238 694.25781,187.07238 694.25781,171.83835 699.60937,187.07238 854.02344,187.07238 859.76563,171.83835 859.76563,187.07238 944.0625,187.07238 944.0625,159.7054 785.82031,159.7054 777.42187,182.88593 768.98438,159.7054 609.96094,159.7054 z M 55.937496,212.92761 55.937496,240.29459 140.23437,240.29459 140.23437,212.92761 55.937496,212.92761 z M 278.16407,212.92761 278.16407,240.29459 517.22656,240.29459 C 511.48657,227.01331 493.47657,212.92761 493.47657,212.92761 L 278.16407,212.92761 z M 609.96094,212.92761 609.96094,240.29459 694.25781,240.29459 694.25781,212.92761 609.96094,212.92761 z M 709.57031,212.92761 719.76563,240.29459 835.54688,240.29459 845.23438,212.92761 709.57031,212.92761 z M 859.76563,212.92761 859.76563,240.29459 944.0625,240.29459 944.0625,212.92761 859.76563,212.92761 z M 55.937496,266.14982 55.937496,293.5168 140.23437,293.5168 140.23437,266.14982 55.937496,266.14982 z M 278.16407,266.14982 278.16407,293.5168 362.46093,293.5168 362.46093,266.14982 278.16407,266.14982 z M 444.45313,266.14982 444.45313,293.5168 534.10156,293.5168 C 534.10158,280.60147 528.75,266.14982 528.75,266.14982 L 444.45313,266.14982 z M 609.96094,266.14982 609.96094,293.5168 694.25781,293.5168 694.25781,266.14982 609.96094,266.14982 z M 728.71093,266.14982 738.59375,293.5168 816.21093,293.5168 826.17187,266.14982 728.71093,266.14982 z M 859.76563,266.14982 859.76563,293.5168 944.0625,293.5168 944.0625,266.14982 859.76563,266.14982 z M 1.52343,319.37203 1.52343,346.77778 196.17187,346.77778 196.17187,319.37203 1.52343,319.37203 z M 222.22657,319.37203 222.22657,346.77778 521.875,346.77778 C 528.18125,340.50245 531.79688,319.37203 531.79688,319.37203 L 222.22657,319.37203 z M 555.54687,319.37203 555.54687,346.77778 694.25781,346.77778 694.25781,319.37203 555.54687,319.37203 z M 747.89062,319.37203 758.04687,346.77778 797.53906,346.77778 807.07031,319.37203 747.89062,319.37203 z M 859.76563,319.37203 859.76563,346.77778 1000,346.77778 1000,319.37203 859.76563,319.37203 z M 1.52343,372.633 1.52343,400 196.17187,400 196.17187,372.633 1.52343,372.633 z M 222.22657,372.633 222.22657,399.96124 433.75,399.96124 C 471.27624,399.96122 499.60937,372.633 499.60937,372.633 L 222.22657,372.633 z M 555.54687,372.633 555.54687,400 694.25781,400 694.25781,372.633 555.54687,372.633 z M 767.14844,372.633 776.91407,399.92246 778.59375,399.96124 788.51563,372.633 767.14844,372.633 z M 859.76563,372.633 859.76563,400 1000,400 1000,372.633 859.76563,372.633 z" fill="currentColor"/>
+</svg>
+</span> Storage Protect</h2>
+<div class="admonition important">
+<p class="admonition-title">Ważne</p>
+<p>Poniższe kroki trzeba robić jako użytkownik <code>spinst1</code>.</p>
+</div>
+<ol>
+<li>
+<p>Utwórz plik konfiguracji instancji w <em>katalogu_instancji</em> <code>/sp/inst1</code> przed formatowaniem, wystarczy żeby zawierał tylko <code>commmethod</code>. Po formatowaniu będzie miał resztę bajerów. Ja od siebie dodaję jeszcze rochę:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Przed formatowaniem</label><label for="__tabbed_1_2">Po formatowaniu</label><label for="__tabbed_1_3">Po moich ulepszeniach</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-text highlight"><span class="filename">/sp/spinst1/dsmserv.opt</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>COMMmethod TCPIP
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>TCPPort 1500
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-text highlight"><span class="filename">/sp/spinst1/dsmserv.opt</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>COMMmethod TCPIP
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>TCPPort 1500
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>DEVCONFIG     devconf.dat
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>VOLUMEHISTORY volhist.dat
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>ACTIVELOGSize               32768
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>ACTIVELOGDirectory          /sp/actlog
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>ARCHLOGDirectory            /sp/archlog
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-text highlight"><span class="filename">/sp/spinst1/dsmserv.opt</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>COMMmethod TCPIP
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>TCPPort 1500
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>DEVCONFIG     devconf.dat
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>VOLUMEHISTORY volhist.dat
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>ACTIVELOGSize               32768
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>ACTIVELOGDirectory          /sp/actlog
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>ARCHLOGDirectory            /sp/archlog
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="hll">REORGDURATION 6 
+</span></span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="hll">REORGBEGINTIME 04:00 
+</span></span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="hll">PREALLOCREDUCTIONRATE 12
+</span></span></code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Przejdź do <code>/sp/inst1</code>.</p>
+</li>
+<li>
+<p>Sformatuj instancję.</p>
+<div class="language-sh highlight"><span class="filename">Formatoanie instancji ISP</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>dsmserv<span class="w"> </span>format<span class="w"> </span><span class="nv">dbdir</span><span class="o">=</span>/sp/db/01,/sp/db/02<span class="w"> </span><span class="nv">activelogsize</span><span class="o">=</span><span class="m">16384</span><span class="w"> </span><span class="nv">activelogdirectory</span><span class="o">=</span>/sp/actlog<span class="w"> </span><span class="nv">archlogdirectory</span><span class="o">=</span>/sp/archlog
+</span></code></pre></div>
+</li>
+<li>
+<p>Jako użytkownik <strong>instancji</strong>, przygotuj plik <code>/sp/inst1/tsmdbmgr.opt</code> o następującej treści:</p>
+<div class="language-text highlight"><span class="filename">tsmdbmgr.opt</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>SERVERNAME   TSMDBMGR_spinst1
+</span></code></pre></div>
+</li>
+<li>
+<p>Jako _root__, utwórz plik <code>/opt/tivoli/tsm/server/bin/dbbkapi/dsm.sys</code> i dodaj tam stanzę:</p>
+<div class="language-text highlight"><span class="filename">/opt/tivoli/tsm/server/bin/dbbkapi/dsm.sys</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>SERVERNAME       TSMDBMGR_spinst1
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>  COMMMETHOD       TCPIP
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>  TCPPORT          1500
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>  TCPSERVERADDRESS 127.0.0.1
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>  NODENAME         $$_TSMDBMGR_$$
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>  ERRORLOGNAME     /sp/inst1/tsmdbmgr.log
+</span></code></pre></div>
+</li>
+<li>
+<p>Utwórz definicję usługi <code>systemd</code> do startowania Twojej instancji:</p>
+<div class="language-ini highlight"><span class="filename">/etc/systemd/system/spinst1.service</span><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="k">[Unit]</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="na">Description</span><span class="o">=</span><span class="s">IBM Spectrum Protect Server instance spinst1</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="k">[Service]</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="na">TasksMax</span><span class="o">=</span><span class="s">infinity</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span><span class="w"> </span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="na">RemainAfterExit</span><span class="o">=</span><span class="s">true</span><span class="w"> </span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="hll"><span class="na">ExecStart</span><span class="o">=</span><span class="s">/opt/tivoli/tsm/server/bin/spinst1 start</span><span class="w"> </span>
+</span></span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="hll"><span class="na">ExecStop</span><span class="o">=</span><span class="s">/opt/tivoli/tsm/server/bin/spinst1 stop</span><span class="w"> </span>
+</span></span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="hll"><span class="na">ExecReload</span><span class="o">=</span><span class="s">/opt/tivoli/tsm/server/bin/spinst1 restart</span><span class="w"> </span>
+</span></span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="k">[Install]</span><span class="w"> </span>
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span><span class="w"> </span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Ważne</p>
+<p>Zwróć uwagę, że <code>Exec{Start,Stop,Reload}</code> odnosze się do póki co, niistniejącegp skryptu <code>/opt/tivoli/tsm/server/bin/spinst1</code>. Trzeba go utworzyć.</p>
+</div>
+</li>
+<li>
+<p>Skopiuj szablon skrytpu startowego na plik o nazwię takiej samej jak użytkownik instancji:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sudo<span class="w"> </span>cp<span class="w"> </span>/opt/tivoli/tsm/server/bin/dsmserv.rc<span class="w"> </span>/opt/tivoli/tsm/server/bin/spinst1
+</span></code></pre></div>
+</li>
+<li>
+<p>Zmień te zmienne:</p>
+<ul>
+<li><code>instance_dir</code></li>
+<li><code>pidfile</code></li>
+</ul>
+<div class="language-sh highlight"><span class="filename">podmiana instance_dir</span><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sudo<span class="w">  </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|^instance_dir=.*|instance_dir=&quot;/sp/inst1&quot;|&#39;</span><span class="w"> </span>/opt/tivoli/tsm/server/bin/spinst1
+</span></code></pre></div>
+<div class="language-sh highlight"><span class="filename">podmiana pidfile</span><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>sudo<span class="w">  </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|^# pidfile:.*|# pidfile: /var/run/dsmserv_spinst1_su.pid|&#39;</span><span class="w"> </span>/opt/tivoli/tsm/server/bin/spinst1
+</span></code></pre></div>
+</li>
+<li>
+<p>Startowanie instancji przez <code>systemd</code>:</p>
+<div class="language-sh highlight"><span class="filename">Dodanie zależności</span><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/etc/systemd/system/spinst1.service<span class="w">  </span>/etc/systemd/system/multi-user.target.wants/spinst1.service
+</span></code></pre></div>
+<div class="language-sh highlight"><span class="filename">Przeładowanie demona</span><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</span></code></pre></div>
+<details class="note">
+<summary><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.47.22A.75.75 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.75.75 0 0 1-.22.53l-4.25 4.25A.75.75 0 0 1 11 16H5a.75.75 0 0 1-.53-.22L.22 11.53A.75.75 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4m0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/></svg></span> Start instancji <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.47.22A.75.75 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.75.75 0 0 1-.22.53l-4.25 4.25A.75.75 0 0 1 11 16H5a.75.75 0 0 1-.53-.22L.22 11.53A.75.75 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4m0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/></svg></span></summary>
+<p>Trzymam tę komendę tutaj z kronikarskiego oboawiązku. <strong>Nie uruchamiaj jej jeszcze</strong>, bo jest jeszcze jedno makro do puszczenia.</p>
+<div class="language-sh highlight"><span class="filename">Start instancji</span><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>spinst1
+</span></code></pre></div>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Klaster!</p>
+<p>Jeśli planujesz uruchamiać Protecta w klastrze to nie włączaj startu usługi wraz systemem. Zrobi to Pacemaker.</p>
+</div>
+<div class="language-sh highlight"><span class="filename">Automatyczny start instancji wraz systemem</span><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>spinst1
+</span></code></pre></div>
+</li>
+<li>
+<p>Pierwsze kroki: tworznie makr. 
+    Ponieważ na tym etapie instancja Protect jest kompletnie goła, warto ją uruchomić z makrem, któte ją skonfiguruje do pracy. Tutaj moje ulubione makro z ulubionnymi <code>set/setopt</code>, definicją <code>DBB</code>, adminem <code>ibm</code> i podstawowym maintenance.</p>
+<p>Najpierw stwórz plik <code>maint.dsm</code> z podstawowym skryptem utrzymaniowym:</p>
+<div class="language-text highlight"><span class="filename">/tmp/maint.dsm</span><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>serial
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>expire inventory wait=yes
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>serial
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>backup db devclass=dbb wait=yes
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>if(rc_OK) goto del_volh
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>exit
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>del_volh:
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>del volhist todate=today-1 type=dbbackup
+</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>backup volhist
+</span><span id="__span-38-10"><a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>backup devconf
+</span></code></pre></div>
+<details class="tip">
+<summary>Komenda zakładająca <code>/tmp/maint.dsm</code></summary>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>/tmp/maint.dsm<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="s">serial</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="s">expire inventory wait=yes</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="s">serial</span>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="s">backup db devclass=dbb wait=yes</span>
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="s">if(rc_OK) goto del_volh</span>
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="s">exit</span>
+</span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a><span class="s">del_volh:</span>
+</span><span id="__span-39-9"><a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="s">del volhist todate=today-1 type=dbbackup</span>
+</span><span id="__span-39-10"><a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a><span class="s">backup volhist</span>
+</span><span id="__span-39-11"><a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a><span class="s">backup devconf</span>
+</span><span id="__span-39-12"><a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a><span class="s">EOF</span>
+</span></code></pre></div>
+</details>
+<p>Potem utwórz makro <code>first_steps.dsm</code>:</p>
+<div class="language-text highlight"><span class="filename">/tmp/first_steps.dsm</span><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>set MINPWLENGTH 8
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>set PWREUSELIMIT 3
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>setopt PREALLOCREDUCTIONRATE 3
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>setopt REORGDURATION 6
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>setopt REORGBEGINTIME 12:00
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>setopt VolumeHistory /sp/inst1/volhist.dat
+</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>setopt DevConfig /sp/inst1/devconf.dat
+</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>reg admin ibm ibm12345 sessionsec=trans
+</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>grant auth ibm class=system
+</span><span id="__span-40-10"><a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>def devc dbb devtype=file directory=/sp/dbb maxcap=20G mountl=5
+</span><span id="__span-40-11"><a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a>set dbrecovery dbb numstr=2 compress=yes protectkeys=yes password=Sm4ni1t.
+</span><span id="__span-40-12"><a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a><span class="hll">def script maint file=/tmp/maint.dsm
+</span></span><span id="__span-40-13"><a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a>def sched maint t=a cmd=&quot;run maint&quot; startt=06:00 active=yes
+</span></code></pre></div>
+<details class="tip">
+<summary>Komenda zakładająca <code>/tmp/first_steps.dsm</code></summary>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>/tmp/first_steps.dsm<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="s">set MINPWLENGTH 8</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="s">set PWREUSELIMIT 3</span>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="s">setopt PREALLOCREDUCTIONRATE 3</span>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="s">setopt REORGDURATION 6</span>
+</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="s">setopt REORGBEGINTIME 12:00</span>
+</span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="s">setopt VolumeHistory /sp/inst1/volhist.dat</span>
+</span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="s">setopt DevConfig /sp/inst1/devconf.dat</span>
+</span><span id="__span-41-9"><a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="s">reg admin ibm ibm12345 sessionsec=trans</span>
+</span><span id="__span-41-10"><a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="s">grant auth ibm class=system</span>
+</span><span id="__span-41-11"><a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a><span class="s">def devc dbb devtype=file directory=/sp/dbb maxcap=20G mountl=5</span>
+</span><span id="__span-41-12"><a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a><span class="s">set dbrecovery dbb numstr=2 compress=yes protectkeys=yes password=Sm4ni1t.</span>
+</span><span id="__span-41-13"><a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a><span class="s">def script maint file=/tmp/maint.dsm</span>
+</span><span id="__span-41-14"><a id="__codelineno-41-14" name="__codelineno-41-14" href="#__codelineno-41-14"></a><span class="s">def sched maint t=a cmd=&quot;run maint&quot; startt=06:00 active=yes</span>
+</span><span id="__span-41-15"><a id="__codelineno-41-15" name="__codelineno-41-15" href="#__codelineno-41-15"></a><span class="s">EOF</span>
+</span></code></pre></div>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Uwaga</p>
+<p>Drugie makro się wywali na podświetlonej linijce, jeśli nie bedzie pliku <code>/tmp/maint.dsm</code>.</p>
+</div>
+</li>
+<li>
+<p>Uruchomienie makra <code>firs_steps.dsm</code> przy pierwszym uruchomieniu serwera. Jako <strong>użytkownik instancji</strong> urichom serwer po raz pierwszy:</p>
+<div class="language-sh highlight"><span class="filename">Start insancji z makrem firs_steps</span><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>dsmserv<span class="w"> </span>-i<span class="w"> </span>/sp/inst1<span class="w"> </span>runfile<span class="w"> </span>/tmp/first_steps.dsm
+</span></code></pre></div>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/stecenator/notki" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
