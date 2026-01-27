@@ -1,6 +1,7 @@
 site_name: Marcinkowe mądrości
 plugins:
   - typeset
+  - search
 #  - to-pdf
 markdown_extensions:
   - pymdownx.highlight:
@@ -33,6 +34,7 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.tasklist
+  - footnotes
 theme:
   name: material
   custom_dir: overrides  # Ważne! Włącza overrides dla seksji `icon:`s
@@ -65,6 +67,11 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
       primary: orange
+
+extra:
+  social: 
+    - icon: material/github
+      link: https://github.com/stecenator/notki
 
 nav:
   - Home: README.md
