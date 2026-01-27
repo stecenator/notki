@@ -277,22 +277,22 @@ Przydatne przałaćzniki instalatora `install.sh`. Instalator domyślnie będzie
 
 1. Mam na to playbooka :simple-ansible:nsible. Pewnie kiedyś go tu opiszę.
 
-Z palca można zrobić to tak:
+    Z palca można zrobić to tak:
 
-```sh title="Dopieszczanie DB2"
-sudo sysctl -w kernel.randomize_va_space=0
-sudo sysctl -w vm.swappiness=5
-sudo sysctl -w vm.overcommit_memory=0
-```
+    ```sh title="Dopieszczanie DB2"
+    sudo sysctl -w kernel.randomize_va_space=0
+    sudo sysctl -w vm.swappiness=5
+    sudo sysctl -w vm.overcommit_memory=0
+    ```
 
-1. Zrób _drop-in_ `/etc/sysctl.d/50-ibm-storage-protect.conf` z tymi parametrami:
+1. Lepiej zrób _drop-in_ `/etc/sysctl.d/50-ibm-storage-protect.conf` z tymi parametrami:
 
-```
-# Ulubione ustawienia kenrela dla IBM DB2
-kernel.randomize_va_space = 0
-vm.swappiness = 5
-vm.overcommit_memory = 0
-```
+    ```
+    # Ulubione ustawienia kenrela dla IBM DB2
+    kernel.randomize_va_space = 0
+    vm.swappiness = 5
+    vm.overcommit_memory = 0
+    ```
 
 ## Użyszkodnik instancji :IBM-bw: Storage Protect 
 
