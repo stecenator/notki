@@ -105,6 +105,9 @@ Lista filesystemów i ich punków montowania:
      sdg      /home/marcinek/media/Szajsung/vm/pcmk-dbb.raw
     ```
 
+    !!! Warning "Uwaga"
+        `virsh` i :simple-qemu: trochę kłamią. Dyski od strony hosta podłączą się od `sda` a nie od `sdb` - to, co na powyższym wydrukujest podane jako `sda` to CDROM widziany przez hosta jako `sr0`. 
+
 1. Utwórz PVki na podłaczonych dyskach. Dla każdego dysku wykonaj:
 
     ```sh title="Zakładanie PV na dysku"
@@ -245,3 +248,24 @@ Lista filesystemów i ich punków montowania:
         /dev/mapper/spvg-db02lv   64G  489M   64G   1% /sp/db/01
         /dev/mapper/spvg-dbblv    64G  489M   64G   1% /sp/dbb
         ```
+
+## Podsumowanie
+
+Na tym etapie  maszynka powinna mieć:
+
+- [x] ogarnięte ustawiania `sysctl`,
+- [x] ustawiony hostname i sieć,
+- [x] (tymczasowo) wyłączonego SELinuxa,
+- [x] zainstalowane dodatkowe pakiety,
+- [x] założone filesystemy pod instancję,
+
+    ```
+    /sp
+    ├── actlog
+    ├── archlog
+    ├── db
+    │    ├── 01
+    │    └── 02
+    ├── dbb
+    └── inst1
+    ```

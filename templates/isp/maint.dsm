@@ -1,0 +1,10 @@
+serial
+expire inventory wait=yes
+serial
+backup db devclass=dbb wait=yes
+if(rc_OK) goto del_volh
+exit
+del_volh:
+del volhist todate=today-1 type=dbbackup
+backup volhist
+backup devconf
