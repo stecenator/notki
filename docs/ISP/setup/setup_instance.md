@@ -5,7 +5,7 @@ icon: material/shield
 # :IBM-bw: Storage Protect 
 
 !!! Tip inline end "Podpowiedź"
-    Jak masz jakieś [X11](../LNX/x11.md) to można użyć :material-wizard-hat: wizarda: `dsmicfgx`.
+    Jak masz jakieś [X11](../../LNX/x11.md) to można użyć :material-wizard-hat: wizarda: `dsmicfgx`.
 
 Konfiguracja instancji "z palca". Warto to znać, bo nie wszędzie jest grafika. Ktrok po kroku:
 
@@ -285,6 +285,15 @@ sudo sysctl -w vm.swappiness=5
 sudo sysctl -w vm.overcommit_memory=0
 ```
 
+1. Zrób _drop-in_ `/etc/sysctl.d/50-ibm-storage-protect.conf` z tymi parametrami:
+
+```
+# Ulubione ustawienia kenrela dla IBM DB2
+kernel.randomize_va_space = 0
+vm.swappiness = 5
+vm.overcommit_memory = 0
+```
+
 ## Użyszkodnik instancji :IBM-bw: Storage Protect 
 
 Od wersji 6 w górę, TSM/Protect działa na dedykowanym użytkowniku. Ten użytkownik nie wymaga specjalnych praw. 
@@ -443,68 +452,124 @@ można przejść do tworzenia instancji ISP. Zaczyna się od instancji... DB2
     dsmserv format dbdir=/sp/db/01,/sp/db/02 activelogsize=16384 activelogdirectory=/sp/actlog archlogdirectory=/sp/archlog
     ```
 
-1. `tsmdbmgr.opt`
-1. usługa systemd
-1. Makro z ulubionnymi `set/setopt` i definicją `DBB`
+1. Jako użytkownik __instancji__, przygotuj plik `/sp/inst1/tsmdbmgr.opt` o następującej treści:
+
+    ``` title="tsmdbmgr.opt"
+    SERVERNAME   TSMDBMGR_spinst1
+    ```
+
+1. Jako _root__, utwórz plik `/opt/tivoli/tsm/server/bin/dbbkapi/dsm.sys` i dodaj tam stanzę:
+
+    ``` title="/opt/tivoli/tsm/server/bin/dbbkapi/dsm.sys"
+    SERVERNAME       TSMDBMGR_spinst1
+      COMMMETHOD       TCPIP
+      TCPPORT          1500
+      TCPSERVERADDRESS 127.0.0.1
+      NODENAME         $$_TSMDBMGR_$$
+      ERRORLOGNAME     /sp/inst1/tsmdbmgr.log
+    ```
+
+1. Utwórz definicję usługi `systemd` do startowania Twojej instancji:
+
+    ```ini hl_lines="8-10" title="/etc/systemd/system/spinst1.service" 
+    [Unit]
+    Description=IBM Spectrum Protect Server instance spinst1
+
+    [Service]
+    TasksMax=infinity
+    Type=oneshot 
+    RemainAfterExit=true 
+    ExecStart=/opt/tivoli/tsm/server/bin/spinst1 start 
+    ExecStop=/opt/tivoli/tsm/server/bin/spinst1 stop 
+    ExecReload=/opt/tivoli/tsm/server/bin/spinst1 restart 
+
+    [Install] 
+    WantedBy=multi-user.target 
+    ```
+
+    !!! Note "Ważne"
+        Zwróć uwagę, że `Exec{Start,Stop,Reload}` odnosze się do póki co, niistniejącegp skryptu `/opt/tivoli/tsm/server/bin/spinst1`. Trzeba go utworzyć.
+
+1. Skopiuj szablon skrytpu startowego na plik o nazwię takiej samej jak użytkownik instancji:
+
+    ```sh
+    sudo cp /opt/tivoli/tsm/server/bin/dsmserv.rc /opt/tivoli/tsm/server/bin/spinst1
+    ```
+
+1. Zmień te zmienne:
+
+    - `instance_dir`
+    - `pidfile`
 
 
-    Additional Instance settings
+    ```sh title="podmiana instance_dir"
+    sudo  sed -i 's|^instance_dir=.*|instance_dir="/sp/inst1"|' /opt/tivoli/tsm/server/bin/spinst1
+    ```
 
-    Some settings had to be changed to reflect best practices or local conditions. 
+    ```sh title="podmiana pidfile"
+    sudo  sed -i 's|^# pidfile:.*|# pidfile: /var/run/dsmserv_spinst1_su.pid|' /opt/tivoli/tsm/server/bin/spinst1
+    ```
 
-    | Setting | Value | Comment |
-    | :--- |  :--- | :--- |
-    | `MINPWLENGTH` | 8 | To adhere with BG-TIVOLI instance |
-    | `PWREUSELIMIT` | 12 | Left untouched since BG-TIVOLI does not have it yet |
-    | `PREALLOCREDUCTIONRATE` | 12 | To adhere with BG-TIVOLI instance. Should improve replication performance |
-    | `REORGDURATION` | 6 | To adhere with BG-TIVOLI instance. Helps minimizing possible overlap with replication windows |
-    | `REORGBEGINTIME` | 04:00 | To adhere with BG-TIVOLI instance. Helps minimizing possible overlap with replication windows |
-    | `VolumeHistory` | `/tsm/tsminst1/volhist.dat`| Default volume history backup location |
-    | `DevConfig` | `/tsm/tsminst1/devconf.dat`| Default device configuration backup location |
+1. Startowanie instancji przez `systemd`:
 
+    ```sh title="Dodanie zależności"
+    sudo ln -s /etc/systemd/system/spinst1.service  /etc/systemd/system/multi-user.target.wants/spinst1.service
+    ```
 
-### Filesystem locations
+    ```sh title="Przeładowanie demona"
+    sudo systemctl daemon-reload
+    ```
 
-All leaf dirs on the following tree are mountpoints for dedicated filesystems. All filesystems are on LVM so can be on-line extended and migrated.
+    ??? Note ":octicons-stop-16: Start instancji :octicons-stop-16:"
+        Trzymam tę komendę tutaj z kronikarskiego oboawiązku. __Nie uruchamiaj jej jeszcze__, bo jest jeszcze jedno makro do puszczenia.
 
-```sh
-[root@spbg01 /]# tree -d /tsm
-/tsm
-├── actlog
-├── archlog
-├── db
-│	 ├── 01
-│	 └── 02
-├── dbb
-├── dc01
-│	 ├── 01
-│	 └── 02
-└── tsminst1
-```
+        ```sh title="Start instancji"
+        sudo systemctl start spinst1
+        ```
 
-### Service definition
+    !!! Warning "Klaster!"
+        Jeśli planujesz uruchamiać Protecta w klastrze to nie włączaj startu usługi wraz systemem. Zrobi to Pacemaker.
 
-IBM Storage Protect instance is started automatically upon OS startup. The service defined is `tsminst1.service`:
+    ```sh title="Automatyczny start instancji wraz systemem"
+    sudo systemctl enable spinst1
+    ```
 
-``` ini title="Systemd service unit tsminst1.service definition"
-[Unit]
-Description=IBM Storage Protect Server instance tsminst1
+1. Pierwsze kroki: tworznie makr. 
+    Ponieważ na tym etapie instancja Protect jest kompletnie goła, warto ją uruchomić z makrem, któte ją skonfiguruje do pracy. Tutaj moje ulubione makro z ulubionnymi `set/setopt`, definicją `DBB`, adminem `ibm` i podstawowym maintenance.
 
-[Service]
-TasksMax=infinity
-Type=oneshot
-RemainAfterExit=true
-ExecStart=/opt/tivoli/tsm/server/bin/tsminst1 start
-ExecStop=/opt/tivoli/tsm/server/bin/tsminst1 stop
-ExecReload=/opt/tivoli/tsm/server/bin/tsminst1 restart
+    Najpierw stwórz plik `maint.dsm` z podstawowym skryptem utrzymaniowym:
 
-[Install]
-WantedBy=multi-user.target
-```
+    ``` title="/tmp/maint.dsm"
+    ---8<--- "templates/isp/maint.dsm"
+    ```
 
-A customized version of instance specific startup script is launched from: `/opt/tivoli/tsm/server/bin/tsminst1`. Template customizations:
+    ??? Tip "Komenda zakładająca `/tmp/maint.dsm`"
 
-- `instance_dir=/tsm/tsminst1`
-- `instance_user=tsminst1`
+        ```sh
+        cat > /tmp/maint.dsm << EOF
+        ---8<--- "templates/isp/maint.dsm"
+        EOF
+        ```
 
-Template scritpt used: `/opt/tivoli/tsm/server/bin/rc.dsmserv`
+    Potem utwórz makro `first_steps.dsm`:
+
+    ``` hl_lines="12" title="/tmp/first_steps.dsm"
+    ---8<--- "templates/isp/first_steps.dsm"
+    ```
+
+    ??? Tip "Komenda zakładająca `/tmp/first_steps.dsm`"
+
+        ```sh
+        cat > /tmp/first_steps.dsm << EOF
+        ---8<--- "templates/isp/first_steps.dsm"
+        EOF
+        ```
+
+    !!! Warning "Uwaga"
+        Drugie makro się wywali na podświetlonej linijce, jeśli nie bedzie pliku `/tmp/maint.dsm`.
+
+1. Uruchomienie makra `firs_steps.dsm` przy pierwszym uruchomieniu serwera. Jako __użytkownik instancji__ urichom serwer po raz pierwszy:
+
+    ```sh title="Start insancji z makrem firs_steps"
+    dsmserv -i /sp/inst1 runfile /tmp/first_steps.dsm
+    ```
