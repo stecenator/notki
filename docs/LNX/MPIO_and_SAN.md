@@ -1,59 +1,109 @@
-# Usuwanie LUNu z Linuxa
+---
+icon: material/highway
+---
 
-## Wstęp
+# SAN w :simple-linux:
 
-Zamontowane dwa filesytemy:
+## MPIO
 
-```
-/dev/mapper/pwpwvg-pwpwlv               10G  104M  9.9G   2% /pwpw
-/dev/mapper/pwpw_origvg-pwpwlv          10G  104M  9.9G   2% /pwpw_orig
-```
+MPIO jest w linuxie obsługiwane natywnie na poziomie _device mappera_ i demona _multipathd_. Zawsze warto sprawdźić co tam :IBM-bw: pisze na ten tamet na swoich [stronach](https://www.ibm.com/support/pages/overview-ibm-spectrum-protect-supported-operating-systems). Poniżej przedstawiam wycinki, które stosuję na dystrybucjach :simple-redhat: :
 
-W takich grupach:
+### Plik `/etc/multipath.conf`
 
-```
-  pwpw_origvg           1   1   0 wz--n-  <128.00g <118.00g
-  pwpwvg                1   1   0 wz--n-  <128.00g <118.00g
+``` title="Szablon multipath.conf"
+---8<--- "templates/multipath.conf"
 ```
 
-## Procedura
+Tutaj warto podskrobać `wwid` i `alias` w sekcji `multipaths`.
 
-Na przykładzie:
+### Plik `/etc/udev/rules.d/99-ibm-2145.rules`
 
-- grupy `pwpwvg`
-- LV `pwpw-lv`
-- urządzenia 
+``` title="Plik 99-ibm-2145.rules"
+---8<--- "templates/99-ibm-2145.rules"
+```
 
- ```
-mpathd (36005076300808505d000000000000070) dm-17 IBM,2145
-size=128G features='1 queue_if_no_path' hwhandler='1 alua' wp=rw
-|-+- policy='service-time 0' prio=50 status=active
-| |- 2:0:3:2 sdw  65:96  active ready running
-| |- 2:0:4:2 sdx  65:112 active ready running
-| |- 4:0:4:2 sdz  65:144 active ready running
-| `- 4:0:6:2 sdaa 65:160 active ready running
-`-+- policy='service-time 0' prio=10 status=enabled
-  |- 2:0:0:2 sdu  65:64  active ready running
-  |- 2:0:1:2 sdv  65:80  active ready running
-  |- 4:0:0:2 sdy  65:128 active ready running
-  `- 4:0:7:2 sdab 65:176 active ready running
- ```
+Ten plik można wkopiować bezpośrednio do systemu
 
-1. Odmontuj filesystem
+### User friendly names na :IBM-bw: 2145
 
-	```
-  [root@pandora ~]# umount /pwpw
-  [root@pandora ~]# umount /pwpw_orig
+Oczywiście nikt nie pisze sekcji `multipaths` sam. Najlepiej ją wygenerować z odpowiednego listingu z macierzy
+
+1. Zbackupuj sobie plik `/etc/multipath.conf`.
+1. Upewnij się, że plik na końcu `/etc/multipath.conf` masz otwartą sekcję `multipaths {`:
+
+    ``` hl_lines="11" title="Otwarta sekcja multipaths"
+    defaults {
+      polling_interval  30
+      user_friendly_names yes
+    }
+    devices {
+      device {
+        vendor "IBM"
+        product "2145"
+      [ ... ]
+    }
+    multipaths {
+    ```
+    Prawdopodobnie nie masz sekcji `multipaths { ... }`. Jeśli nie to dopisz ją na końcu tak jak na powyższym przykładzie. Na razie nie zamykaj jej `}`.
+
+1. Zapisz gdzieś, gdzie masz `sed'a` output z macierzowego polecenia `lsvdisk`.
+
+    ``` title="Lista vdisków"
+    ssh superuser@twoja.macierz 'lsvdisk -delim :' > lsvdisk.csv
+    ```
+  ... i usuń z pliku `lsvdisk.csv` pierwszą linijkę (tę z naglówkiem).
+
+1.  Zmień plik `sed'em` i `tr'em`:
+
+    ```bash
+    cat lsvdisk.csv | cut -f 2,14 -d ':' | sed 's/\(.*\):\(.*\)/\tmultipath {\n\t\twwid\t\t"3\2"\n\t\talias\t"\1"\n\t}/' | tr '[:upper:]' '[:lower:]' > multipaths.txt
+    ```
+
+1. Jeśli źródło wygląda tak:
+
+    ```
+    cat lsvdisk.csv
+
+    0:sp-db00:0:io_grp0:online:0:Pool0:32.00GB:striped:::::60050768108101FB4000000000000002:0:1:not_empty:0:no:0:0:Pool0:::no:no:0:sp-db00::scsi
+
+    [...]
+    ```
+
+    to output powinien wyglądać tak:
+
+    ```
+     cat multipaths.txt
+        
+        multipath {
+            wwid:       "360050768108101fb4000000000000002"
+            alias   "sp-db00"
+        }
+
+    [...]
+    ```
+
+1. Dodaj plik `multipaths.txt` do pliku `/etc/multipath.conf`. Upewnij się, że jego zawartość trafi do sekcji `multipaths { ... }` (zwórć uwagę na ostatnią linijkę wydruku z punku 1.)
+
+    ```bash
+    cat mutlipaths.txt >> /etc/multipath.conf
+    ```
+
+    i zamknij nawias sekcji `multipaths`:
+
+    ```bash
+    echo "}" >> etc/multipath.conf
+    ```
+
+1. Przeładuj `multipathd`:
+
   ```
+    systemctl reload multipathd
+    ```
 
-1. Deaktywyj grupy woluminów
+1. Sprawdź czy wszystko gra:
 
-	```
-  [root@pandora ~]# vgchange -an pwpwvg 
-    0 logical volume(s) in volume group "pwpwvg" now active
-  [root@pandora ~]# vgchange -an pwpw_origvg 
-    0 logical volume(s) in volume group "pwpw_origvg" now active
-  ```
-
-1. Pewnie trzeba je wyeksportować albo usunać.
-1.  
+    ```bash
+    [root@tsm-waw5-sds01 srv-8.1.18]# multipath -ll  | grep IBM
+    sp-inst1 (360050768108101fb400000000000001d) dm-29 IBM,2145
+    sp-dc12 (360050768108101fb4000000000000019) dm-11 IBM,2145
+    ```
