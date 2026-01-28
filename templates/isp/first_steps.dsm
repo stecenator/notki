@@ -1,0 +1,13 @@
+set MINPWLENGTH 8
+set PWREUSELIMIT 3
+setopt PREALLOCREDUCTIONRATE 3
+setopt REORGDURATION 6
+setopt REORGBEGINTIME 12:00
+setopt VolumeHistory /sp/inst1/volhist.dat
+setopt DevConfig /sp/inst1/devconf.dat
+reg admin ibm ibm12345 sessionsec=trans
+grant auth ibm class=system
+def devc dbb devtype=file directory=/sp/dbb maxcap=20G mountl=5
+set dbrecovery dbb numstr=2 compress=yes protectkeys=yes password=Sm4ni1t.
+def script maint file=/tmp/maint.dsm
+def sched maint t=a cmd="run maint" startt=06:00 active=yes

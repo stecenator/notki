@@ -1,0 +1,2 @@
+# Set SCSI command timeout to 120s (default == 30 or 60) for IBM 2145 devices
+SUBSYSTEM=="block", ACTION=="add", ENV{ID_VENDOR}=="IBM",ENV{ID_MODEL}=="2145", RUN+="/bin/sh -c 'echo 120 >/sys/block/%k/device/timeout'"

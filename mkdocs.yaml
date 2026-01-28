@@ -1,6 +1,7 @@
-site_name: Marcinkowe mądrości
+site_name: marCinkopedia
 plugins:
   - typeset
+  - search
 #  - to-pdf
 markdown_extensions:
   - pymdownx.highlight:
@@ -33,6 +34,7 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.tasklist
+  - footnotes
 theme:
   name: material
   custom_dir: overrides  # Ważne! Włącza overrides dla seksji `icon:`s
@@ -66,6 +68,11 @@ theme:
         name: Switch to system preference
       primary: orange
 
+extra:
+  social: 
+    - icon: material/github
+      link: https://github.com/stecenator/notki
+
 nav:
   - Home: README.md
   - Ansible: 
@@ -83,15 +90,16 @@ nav:
     - ISP/README.md
     - Qury SQLowe: ISP/SQL.md
     - Setup serwera: 
-        - OS: ISP/setup_os.md
-        - Instancja: ISP/setup_instance.md
-        - Taśmy: ISP/setup_tapes.md
-        - Maintenance: ISP/setup_maint.md
-        - Kontenery (dir): ISP/setup_dc.md
-        - Kontenery (cloud): ISP/setup_cc.md
-        - LANFree: ISL/setup_STA.md
-        - Upgrade: ISP/upgrade.md
-        - Użyteczne opcje: ISP/srv_opts.md
+      - ISP/setup/index.md
+      - OS: ISP/setup/setup_os.md
+      - Instancja: ISP/setup/setup_instance.md
+      - Taśmy: ISP/setup/setup_tapes.md
+      - Maintenance: ISP/setup/setup_maint.md
+      - Kontenery (dir): ISP/setup/setup_dc.md
+      - Kontenery (cloud): ISP/setup/setup_cc.md
+      - LANFree: ISP/setup/setup_STA.md
+      - Upgrade: ISP/setup/upgrade.md
+    - Użyteczne opcje: ISP/srv_opts.md
     - Klienci:
       - Klient BA: ISP/ba.md
       - TDP4VE: ISP/TDP4VE.md 
