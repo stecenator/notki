@@ -272,8 +272,7 @@ Przydatne przałaćzniki instalatora `install.sh`. Instalator domyślnie będzie
 
 ## Parametry jądra :simple-linux:
 
-[Tu](https://www.ibm.com/docs/en/storage-protect/8.2.0?topic=protect-tuning-kernel-parameters-linux-systems) dla wersji 8.2 (1)
-{ .annotate }
+[Tu](https://www.ibm.com/docs/en/storage-protect/8.2.0?topic=protect-tuning-kernel-parameters-linux-systems) dla wersji 8.2.0.
 
 1. Mam na to playbooka :simple-ansible:nsible. Pewnie kiedyś go tu opiszę.
 
@@ -288,11 +287,16 @@ Przydatne przałaćzniki instalatora `install.sh`. Instalator domyślnie będzie
 1. Lepiej zrób _drop-in_ `/etc/sysctl.d/50-ibm-storage-protect.conf` z tymi parametrami:
 
     ```
-    # Ulubione ustawienia kenrela dla IBM DB2
-    kernel.randomize_va_space = 0
-    vm.swappiness = 5
-    vm.overcommit_memory = 0
+    ---8<--- "templates/isp/50-ibm-storage-protect.conf"
     ```
+
+    ??? Tip "Komenda zakładająca `/etc/sysctl.d/50-ibm-storage-protect.conf`"
+
+        ```sh 
+        cat > /etc/sysctl.d/50-ibm-storage-protect.conf << EOF
+        ---8<--- "templates/isp/50-ibm-storage-protect.conf"
+        EOF
+        ```
 
 ## Użyszkodnik instancji :IBM-bw: Storage Protect 
 
