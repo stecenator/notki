@@ -101,12 +101,17 @@ nav:
       - Upgrade: ISP/setup/upgrade.md
     - Użyteczne opcje: ISP/srv_opts.md
     - Klienci:
-      - Klient BA: ISP/ba.md
-      - TDP4VE: ISP/TDP4VE.md 
-      - DB2: ISP/db2.md
+      - ISP/clients/index.md
+      - Klient BA: ISP/clients/ba.md
+      - DB2: ISP/clients/db2.md
+      - TDP4VE: ISP/clients/TDP4VE.md 
   - LNX: 
     - LNX/README.md
-    - HA - Pacemaker: LNX/ha.md
+    - HA - Pacemaker: 
+      - LNX/ha/index.md
+      - Instalacja: LNX/ha/inst.md
+      - Konfiguracja OS pod HA: LNX/ha/os-setup.md
+      - Topografia klastra: LNX/ha/ha-top.md
     - MPIO: LNX/MPIO_and_SAN.md
     - lin_tape: LNX/lin_tape.md
     - Multipath - User friendly names: LNX/lsvdisk2mpio_friendly_names.md
