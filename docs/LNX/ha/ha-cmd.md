@@ -14,3 +14,10 @@ sudo pcs cluster status
 
 ## Status zasobu
 
+## Start/stop klastra
+
+### Start na wszystkich węzłach
+
+```sh title="Start klastra na wszystkich węzłach"
+sudo pcs cluster start --all
+```
