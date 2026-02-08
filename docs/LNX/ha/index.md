@@ -47,6 +47,32 @@ Pacemaker jest standardowym oporgramowaniem HA na Linuxa. Tutaj opisuję procedu
 
 </div>
 
+## Architektura klastra
+
+``` mermaid
+flowchart LR
+    %% Węzły klastra
+    subgraph sp-cluster [Pacemaker cluster]
+        direction LR
+
+        subgraph sp-n1 [sp-n1]
+            spinst1[(spinst1)]
+        end
+
+        subgraph sp-n2 [sp-n2]
+            oc[(oc)]
+        end
+    end
+
+    %% Aktywne przypisanie (linią ciągłą)
+    spinst1 --> sp-n1
+    oc --> sp-n2
+
+    %% Możliwość przełączenia (linie przerywane)
+    spinst1 -. failover .- sp-n2
+    oc -. failover .- sp-n1
+```
+
 ## OS
 
 Klaster składa się z dwóch węzłów, które są zlinkowanymi klonami maszyny "Golden image". Cały proces tworzenia klonów opisałem [tu](../virt/libvirt.md#klonowanie-maszyny). 
