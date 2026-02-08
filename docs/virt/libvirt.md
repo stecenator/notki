@@ -1,3 +1,9 @@
+---
+icon: simple/qemu
+---
+
+![LibVirt](../assets/Libvirt_logo.svg)
+
 # Zaklęcia związane z `libvirt` i `virsh`
 
 Większość rzeczy poniżej można pewnie zrobic ładniej. Pewnie z czasem to upiększę.
@@ -116,7 +122,7 @@ Procedura:
 	=== "Klaster SCSI"
 
 		```sh title="Dołączanie dysku w formacie RAW do magistrali SCSI"
-		virsh attach-disk VMka /ścieżka/do/pliku.raw nazwa_blokowa_scsi --driver qemu --type disk --config --live --subdriver raw --targetbus scsi
+		virsh attach-disk VMka /ścieżka/do/pliku.raw nazwa_blokowa_scsi --driver qemu --type disk --config --live --subdriver raw --targetbus scsi --shareable
 		```
 
 		??? Example "Przykład"

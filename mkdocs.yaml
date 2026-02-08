@@ -14,7 +14,11 @@ markdown_extensions:
         - docs
         - "."                 # Możliwość includowania plików z głównego katalogu projektu, a nie względem docs/
       check_paths: true       # Lepiej raportuje błędy jak nie znajdzie wklejanego pliku
-  - pymdownx.superfences      # ramki, zakładki, annotatacje
+  - pymdownx.superfences:     # ramki, zakładki, annotatacje i diagramy
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - admonition                # Ramki z Uwagami
   - pymdownx.details
   - pymdownx.tabbed:          # zakładki
@@ -112,6 +116,8 @@ nav:
       - Instalacja: LNX/ha/inst.md
       - Konfiguracja OS pod HA: LNX/ha/os-setup.md
       - Topografia klastra: LNX/ha/ha-top.md
+      - Grupy zasobów: LNX/ha/ha-res.md
+      - Komendy klastra: LNX/ha/ha-cmd.md
     - MPIO: LNX/MPIO_and_SAN.md
     - lin_tape: LNX/lin_tape.md
     - Multipath - User friendly names: LNX/lsvdisk2mpio_friendly_names.md
