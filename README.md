@@ -57,3 +57,9 @@ Link: [Virt](doc/virt/index.md)
 O najpopularniejszej nakładce na DOSa. Czasem muszę coś na Łindołs zrobić.
 
 Link: [ISP](doc/WinDOS/index.md)
+
+# Technikalia
+
+Rzeczy związane z prowadzeniem tego dzienniczka.
+
+- Wszlekie pliki konfiguracyjne staram się trzymać/przenosić do katalogu `templates/` a potem odnosić się do nich w tekscie poprzez `---8<--- "templates/plik"`
