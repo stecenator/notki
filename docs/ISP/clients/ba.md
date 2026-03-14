@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/user
+---
+
 # Instalacja klienta BA
 
 Na rożnych platformach.

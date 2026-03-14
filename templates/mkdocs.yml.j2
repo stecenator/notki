@@ -1,0 +1,69 @@
+site_name: {{ project_name }}
+plugins:
+  - typeset
+#  - to-pdf
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite     # Podświetlanie składni
+  - pymdownx.snippets:        # Wklejanie zerwnętrznych plików do codeblocków
+      base_path:
+        - docs
+        - "."                 # Możliwość includowania plików z głównego katalogu projektu, a nie względem docs/
+      check_paths: true       # Lepiej raportuje błędy jak nie znajdzie wklejanego pliku
+  - pymdownx.superfences      # ramki, zakładki, annotatacje
+  - admonition                # Ramki z Uwagami
+  - pymdownx.details
+  - pymdownx.tabbed:          # zakładki
+      alternate_style: true
+  - attr_list                 # Emoji i annotace i custom css
+  - md_in_html                # annotacje w gołym md
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+          - .icons
+  - pymdownx.critic           # Dodatkowe formatowania, np podświetlanie, przekreślanie
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+theme:
+  name: material
+  custom_dir: overrides  # Ważne! Włącza overrides dla seksji `icon:`s
+  logo: assets/ibm-eye-bee-m-black_on_trans_vertical.svg
+  features:
+    - content.code.copy     # kopiwanie kodu po całości
+    - content.code.select   # Koiowanie kodu linijkami
+    - content.code.annotate # Adnotacje w code blockach
+    - navigation.indexes    # Żeby kliknięcie w rozwijane sekcje pokazywało index.md lub README.md
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+      primary: orange
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: orange
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+      primary: orange
+
+nav:
+  - Home: index.md

@@ -33,3 +33,6 @@ ens9f1        0f8142d2-f3a9-4a3c-aebd-cd6983eb09e4  ethernet  --
 ens9f2        3c4c317d-92a8-42a0-b609-ef212bb16cce  ethernet  --        
 ens9f3        6767b662-923c-4477-a086-b52c7013420f  ethernet  -- 
 ```
+
+!!! Warning "Ważne"
+	Przy konfiguracji bondingu pod ISP, warto zmienić algorytm hashowania  **na przełączniku sieciowym** na _source_. Bo domyślnie _destination_ to zwykle jeden IP serwera TSM z jednym portem 1500 :facepalm:, co zwykle kończy się używaniem jednej karty na ruch wchodzący.

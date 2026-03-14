@@ -58,3 +58,14 @@ Zaczątki dokumentacji dla [IBM Power](Power/index.md)
 [KVM/Qemu/LibVirt](virt/README.md)
 
 ## WinDOS
+
+
+## Pomysły na przyszłość
+
+Zgłaszać jako _issues_ do [tego projektu](https://https://github.com/stecenator/notki)
+
+# Technikalia
+
+Rzeczy związane z prowadzeniem tego dzienniczka.
+
+- Wszlekie pliki konfiguracyjne staram się trzymać/przenosić do katalogu `templates/` a potem odnosić się do nich w tekscie poprzez `---8<--- "templates/plik"`
