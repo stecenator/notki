@@ -45,9 +45,11 @@ Włącz repozytoria _Pacemaker_ w RedHat.
     - fence-agents-ipmilan  # Jeśli stralam do fizycznych pudeł
     - psmisc
     - python3-policycoreutils
+    - lvm2-lockd
+    - sanlock
 
     ```sh title="Instalacja pakietów klastrowych"
-    sudo dnf install pacemaker pcs fence-virt fence-agents-ipmilan psmisc python3-policycoreutils
+    sudo dnf install pacemaker pcs fence-virt fence-agents-ipmilan psmisc python3-policycoreutils lvm2-lockd sanlock
     ```
 
     OS oczywiście szarpnie sobie pół internetu z zależności :wink:.
