@@ -40,6 +40,22 @@ icon: simple/linux
 	sudo sed -i '/^[[:space:]]# system_id_source = "none"/a\        system_id_source = "uname"' /etc/lvm/lvm.conf
 	```
 
+	!!! Attention "Uwaga"
+		Ej-Aj, także ten ze strony RedHata twierdzi, że poniższe opcje nie są potrzebne jeśli, tak jak ja. Ale dla "dorosłych" klastrów to się możę przydać. 
+
+
+	Używaj `lvm2-lockd`
+
+	```sh title="Zamiana system_id_source w /etc/lvm/lvm.conf"
+	sudo sed -i '/^[[:space:]]# use_lvmlockd = 0/a\        use_lvmlockd = 1' /etc/lvm/lvm.conf
+	```
+
+	A konkretnie `sanlock` (też na dyskach SCSI):
+
+	```sh title="Zamiana system_id_source w /etc/lvm/lvm.conf"
+	sudo sed -i '/^[[:space:]]# use_lvmlockd = 0/a\        use_lvmlockd = 1' /etc/lvm/lvm.conf
+	```
+
 1. Upewnij się, że plik startujący instancję ISP jest na obu nodach. Instancja __nie może strtować automatycznie!!__
 1. Upewnij się, że grupy woluminów zawierające klastrowe filesystemy nie są automatycznie montowane.
 
@@ -88,6 +104,8 @@ icon: simple/linux
 		  rhel   1   3   0 wz--n-  <69.00g    0           
 		  spvg   6   6   0 wz--n- <307.98g    0  sp-n1  
 		```
+
+1. Na wszelki wypadek zreboouj oba nody. 
 
 ## Dodawanie grupy woluminów do drugiego węzła klastra
 
