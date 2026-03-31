@@ -6,6 +6,12 @@ icon: material/graph
 
 Na tym etapie tworzę pusty klaster, bez zasobów. Żródłem mojej mądrości jest [ten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/assembly_getting-started-with-pacemaker-configuring-and-managing-high-availability-clusters#proc_learning-to-configure-failover-getting-started-with-pacemaker) kawałek dokumentacji :simple-redhat:.
 
+1. Po zainstalowaniu `pcsd` zostanie utowrzony użyszkodnik klastra: `hacluster`. Nadaj mu hasło:
+
+    ```sh title="Zmiana hasła dla hacluster"
+    passwd hacluster
+    ```
+
 1. Uwierzytelnianie węzłów. Trzeba to zrobić przynajmniej z jednego węzła, ale lepiej z obu. Wtedy będzie można uruchamiać komendy `pcs cośtam` z obydwu nodów.
 
     ```sh title="Uwierzytlenianie węzłów"
@@ -62,5 +68,113 @@ Na tym etapie tworzę pusty klaster, bez zasobów. Żródłem mojej mądrości j
     ```
 
     !!! Danger "Uwaga"
-        To jest tylko do czasu, kiedy skonfiguruję zasób typu STONITH. Ja mam ty prosty klaster na KVM. Dla Prawdziwych klastrów trzeba będzie dodak kilka mechnizmów, najprawdopodobniej bazujących na `IPMI`.
-        
+        To jest tylko do czasu, kiedy skonfiguruję zasób typu STONITH. Ja mam ty prosty klaster na KVM. Dla Prawdziwych klastrów trzeba będzie dodak kilka mechnizmów, najprawdopodobniej bazujących na `IPMI` lub `SBD`.
+
+---
+To jest dobry moment, żeby wziąc się za konfigurowanie zasobów. Wróć tu jak skonfigurujesz IP i filesystemy klastrowe.
+---
+      
+## Konfiguracja mechanizmu STONITH
+
+### Storage Based Death (SBD)
+
+W sytuacji, gdy węzły nie mogą komunikować się np z modułami IMM albo virt, warto jest udostępnić moduł SBD - przesyła on komunikaty poprzez współdzielnoe urządzenie. Ma to też dodatni plus w postaci dodatkowej ścieżki po SAN do komunikacji w klastrze.
+
+1. Zainstaluj pakied `sbd`:
+
+    ```sh title="instalacja SBD"
+    sudo dnf install sbd fence-agents-sbd
+    ```
+
+1. Określ jakie urządzenie blokowe będzie odpowiedzialne za SBD. W tym przykładzie to LUN z macierzy, tóry dzieki dobrodziejstwu _friendly names_ w `multipath.conf` nazywa się `pcmk-sbd`
+
+    !!! Note 
+        Tę czynniość rób na jednym węźle.
+
+    ```sh title="Tworzenie SBD"
+    sudo sbd -d /dev/mapper/pcmk-sbd create
+    ```
+
+1. Na drugim węźle sprawdź czy widzisz zainicjalizowane SBD:
+
+    ```sh title="Weryfikacja SBD"
+    sudo sbd -d /dev/mapper/pcmk-sbd dump
+    ```
+
+    ??? Example "Przykład"
+        ```sh
+        [root@sp01-n1 ~]# sbd -d /dev/mapper/pcmk-sbd dump
+        ==Dumping header on disk /dev/mapper/pcmk-sbd
+        Header version     : 2.1
+        UUID               : 33b85d88-b4ed-4e3d-9a60-ba56d9f99a6f
+        Number of slots    : 255
+        Sector size        : 512
+        Timeout (watchdog) : 5
+        Timeout (allocate) : 2
+        Timeout (loop)     : 1
+        Timeout (msgwait)  : 10
+        ==Header on disk /dev/mapper/pcmk-sbd is dumped
+        ```
+
+1. __Na obu  węzłach__ dopisz do `/etc/sysconfig/sbd` sekcję `SBD_DEVICE`. Plik po modysikacji powinien zawirać takie sekcje (pomijając komentarze):
+
+    ``` title="/etc/sysconfig/sbd"
+    SBD_DEVICE="/dev/mapper/pcmk-sbd"
+    SBD_PACEMAKER=yes
+    SBD_STARTMODE=always
+    SBD_DELAY_START=no
+    SBD_WATCHDOG_DEV=/dev/watchdog
+    SBD_WATCHDOG_TIMEOUT=5
+    SBD_TIMEOUT_ACTION=flush,reboot
+    SBD_MOVE_TO_ROOT_CGROUP=auto
+    SBD_SYNC_RESOURCE_STARTUP=yes
+    SBD_OPTS=
+    ```
+
+1. Skonfguruj _watchdog_. __Na obu pudłach__. Moduł `softdog` pewnie będzie załadowany przez _Pacemakera_ ale lepiej go dopisać do atutomatycznego logowania:
+
+    ```sh
+    echo softdog > /etc/modules-load.d/softdog.conf
+    ```
+
+    Jeśli `lsmod` nie pokazał tego modułu, to go załaduj. Weryfikacja:
+
+    ```sh
+    [root@sp01-n1 ~]# ls -l /dev/watchdog
+    crw------- 1 root root 10, 130 Mar 25 12:51 /dev/watchdog
+    ```
+
+1. __Na obu pudłach__ włącz usługę _SBD_.
+
+    ```sh title="Włączanie SBD"
+    systemctl enable sbd
+    ```
+
+    !!! Note 
+        Nie uruchamiaj jej. Zrobi to _Pacemaker_.
+
+1. Dodaj zasób _STONITH_ do klastra:
+
+    ```sh title="Tworzenie zasobu STONITH SBD"
+    pcs stonith create sbd-fencing fence_sbd devices=/dev/mapper/pcmk-sbd op monitor interval=30s
+    ```
+
+1. Włącz _STONITH_ w klastrze:
+
+    ```sh title="Włączanie STONITH w klastrze"
+    pcs property set stonith-enabled=true
+    ```
+
+1. Sprawdź status _STONITH_:
+
+    ```sh title="Status STONITH"
+    pcs stonith status
+    ```
+
+    ??? Example "Przykład"
+        ```sh
+        [root@sp01-n2 ~]# pcs stonith status 
+        * sbd-fencing (stonith:fence_sbd):     Started sp01-n1
+        ```
+
+1. 

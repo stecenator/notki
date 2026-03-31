@@ -80,6 +80,46 @@ servername {{ mój_protect }}            * alias stanzy z dsm.sys
 
 Umieść te pliki w `/opt/tivoli/tsm/client/ba/bin/` odpowiednio podstawiając wartości w miejsce `{{ zmiennych }}`.
 
+## Agent `dsmcad` 
+
+Czasem przydaje się dodatkowy agent `dsmcad`. Ty przykłąd utworzenie agenta `dsmcad-local` któ©y będzie używał innego pliku `dsm.opt` niż domyślny.
+
+1. Skopiuj istniejący plik usługi `dsmcad.service` na `dsmcad-local.servie`.
+1. Dodaj zaznaczoną linijkę do tej usługi:
+
+    ```ini hl_lines="12" title="Zmodyfikowany serive unit"
+    [Unit]
+    Description="Agent SP"
+    After=local-fs.target network-online.target
+
+    [Service]
+    Type=forking
+    GuessMainPID=no
+    Environment="DSM_LOG=/opt/tivoli/tsm/client/ba/bin"
+    Environment="JAVA_HOME=/opt/tivoli/tsm/tdpvmware/common/jre/jre"
+    Environment="LD_LIBRARY_PATH=/opt/tivoli/tsm/client/ba/bin:/opt/tivoli/tsm/tdpvmware/common/jre/jre/bin/classic"
+    Environment="PATH=/opt/tivoli/tsm/tdpvmware/common/jre/jre/bin:/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin"
+    Environment="DSM_CONFIG=/opt/tivoli/tsm/client/ba/bin/dsm-local.opt"
+    EnvironmentFile=/opt/tivoli/tsm/client/ba/bin/dsmcad.lang
+    ExecStart=/usr/bin/dsmcad
+    ExecStopPost=/bin/bash -c 'let i=0; while [[ (-n "$(ps -eo comm | grep dsmcad)") && ($i -le 10) ]]; do let i++; sleep 1; done'
+    Restart=on-failure
+
+    [Install]
+    WantedBy=multi-user.target 
+    ```
+
+    !!! Warning "Uwaga"
+
+        Zadbaj o to, żeby klient używający stanzy wskazanej w nowym pliku konfiguracyjnym nie pogryzł się o porty i logi z innymi
+
+1. Przeładuj `systemd`:
+
+    ```sh title="Restat systemd"
+    sudo systemctl daemonr-reload
+    ```
+
+1. Włącz nowego CAD'a.
 
 
 ## Łindołs

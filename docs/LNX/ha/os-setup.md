@@ -50,10 +50,13 @@ icon: simple/linux
 	sudo sed -i '/^[[:space:]]# use_lvmlockd = 0/a\        use_lvmlockd = 1' /etc/lvm/lvm.conf
 	```
 
-	A konkretnie `sanlock` (też na dyskach SCSI):
+1. Włącz i wystartuj `lvmlockd` i `sanlock`:
 
-	```sh title="Zamiana system_id_source w /etc/lvm/lvm.conf"
-	sudo sed -i '/^[[:space:]]# use_lvmlockd = 0/a\        use_lvmlockd = 1' /etc/lvm/lvm.conf
+	```sh title="Lock w LVM"
+	systemctl enable lvmlockd
+	systemctl enable sanlock
+	systemctl start lvmlockd
+	systemctl start sanlock
 	```
 
 1. Upewnij się, że plik startujący instancję ISP jest na obu nodach. Instancja __nie może strtować automatycznie!!__
@@ -106,7 +109,3 @@ icon: simple/linux
 		```
 
 1. Na wszelki wypadek zreboouj oba nody. 
-
-## Dodawanie grupy woluminów do drugiego węzła klastra
-
-Do 
