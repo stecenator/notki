@@ -975,9 +975,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ISP/setup/setup_STA.md" class="md-nav__link">
+      <a href="../../../ISP/setup/setup_sta/" class="md-nav__link">
         
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 6v12l8.5-6M4 18l8.5-6L4 6z"/></svg>
   
   <span class="md-ellipsis">
     
@@ -1248,6 +1250,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -1588,6 +1594,38 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dodawanie-aplikacji-do-klastra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Dodawanie aplikacji do klastra.
+        </span>
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dodawanie aplikacji do klastra.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#przywrocenie-dziaania-na-pierwszym-weze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Przywrócenie działania na pierwszym weźłe
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1873,6 +1911,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../../rdp/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v2H8v2h8v-2h-2v-2h7a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2M3 4h18v12H3M15 5l-3.5 3.5L15 12l1.4-1.4-2.1-2.1 2.1-2.1M9 8 7.6 9.4l2.1 2.1-2.1 2.1L9 15l3.5-3.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    RDP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../lighttpd/" class="md-nav__link">
         
   
@@ -1932,6 +2000,36 @@
     
   
     Repozytorim yum/dnf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../upd_8_to_9/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.009 13.386c1.577 0 3.86-.326 3.86-2.202a1.8 1.8 0 0 0-.04-.431l-.94-4.08c-.216-.898-.406-1.305-1.982-2.093-1.223-.625-3.888-1.658-4.676-1.658-.733 0-.947.946-1.822.946-.842 0-1.467-.706-2.255-.706-.757 0-1.25.515-1.63 1.576 0 0-1.06 2.99-1.197 3.424a.8.8 0 0 0-.028.245c0 1.162 4.577 4.974 10.71 4.974m4.101-1.435c.218 1.032.218 1.14.218 1.277 0 1.765-1.984 2.745-4.593 2.745-5.895.004-11.06-3.451-11.06-5.734a2.3 2.3 0 0 1 .19-.925C2.746 9.415 0 9.794 0 12.217c0 3.969 9.405 8.861 16.851 8.861 5.71 0 7.149-2.582 7.149-4.62 0-1.605-1.387-3.425-3.887-4.512"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Aktualizacja (leapp) RHEL
   
 
     
@@ -2616,6 +2714,38 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dodawanie-aplikacji-do-klastra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Dodawanie aplikacji do klastra.
+        </span>
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dodawanie aplikacji do klastra.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#przywrocenie-dziaania-na-pierwszym-weze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Przywrócenie działania na pierwszym weźłe
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2660,6 +2790,13 @@
 </li>
 </ul>
 <h2 id="dodawanie-ip">Dodawanie IP</h2>
+<ol>
+<li>
+<p>Dodaj IP klastra do grupy zasobów <code>spinst1-rg</code>:</p>
+<div class="language-sh highlight"><span class="filename">dodawanie IP do spinst1-rg</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pcs<span class="w"> </span>resource<span class="w"> </span>create<span class="w"> </span>VIP_SAN<span class="w"> </span>ocf:heartbeat:IPaddr2<span class="w"> </span><span class="nv">ip</span><span class="o">=</span><span class="m">192</span>.168.1.31<span class="w"> </span>--group<span class="w"> </span>sp01
+</span></code></pre></div>
+</li>
+</ol>
 <h2 id="dodawanie-istniejacej-grupy-woluminow">Dodawanie istniejącej grupy woluminów</h2>
 <div class="admonition danger">
 <p class="admonition-title">Uwaga</p>
@@ -2669,27 +2806,27 @@ Proces deaktywacji jest opisany <a href="../os-setup/">tutaj</a>.</p>
 <ol>
 <li>
 <p>Upewnij się, że oba węzły klastra widzą wpólne dyski. Ogólna metoda dodawania dysków do maszyn KVM jest opisana <a href="/virt/libvirt.md#odaczanie-dysku-od-dziaajacej-vmki">tutaj</a>. W moim przykładzie jest tak, że dyski u grupa woluminów są na maszynie <code>sp-n1</code> i dodaję je do węzła <code>sp-n1</code>. Poniższe komendy wykonuj na hoście KVM:</p>
-<div class="language-sh highlight"><span class="filename">Przejżyj podpięte do źsódłowego noda dyski</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="hll">$<span class="w"> </span>sudo<span class="w"> </span>virsh<span class="w"> </span>domblklist<span class="w"> </span>sp-n1
-</span></span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w"> </span>Target<span class="w">   </span>Source
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>-------------------------------------------------------------
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w"> </span>vda<span class="w">      </span>/home/marcinek/media/Szajsung/vm/sp-n1-os.qcow2
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w"> </span>sda<span class="w">      </span>-
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w"> </span>sdb<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-inst.raw
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w"> </span>sdc<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-actlog.raw
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w"> </span>sdd<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-archlog.raw
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w"> </span>sde<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-db01.raw
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w"> </span>sdf<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-db02.raw
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w"> </span>sdg<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-dbb.raw
+<div class="language-sh highlight"><span class="filename">Przejżyj podpięte do źsódłowego noda dyski</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="hll">$<span class="w"> </span>sudo<span class="w"> </span>virsh<span class="w"> </span>domblklist<span class="w"> </span>sp-n1
+</span></span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w"> </span>Target<span class="w">   </span>Source
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>-------------------------------------------------------------
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w"> </span>vda<span class="w">      </span>/home/marcinek/media/Szajsung/vm/sp-n1-os.qcow2
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w"> </span>sda<span class="w">      </span>-
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w"> </span>sdb<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-inst.raw
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w"> </span>sdc<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-actlog.raw
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w"> </span>sdd<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-archlog.raw
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w"> </span>sde<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-db01.raw
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w"> </span>sdf<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-db02.raw
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w"> </span>sdg<span class="w">      </span>/home/marcinek/media/Szajsung/vm/pcmk-dbb.raw
 </span></code></pre></div>
 </li>
 <li>
 <p>Podpnij je w tej samej kolejnonści do noda <code>sp-n2</code>:</p>
-<div class="language-sh highlight"><span class="filename">Dodwanie dysków do drugiego węzła klastra</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-inst.raw<span class="w"> </span>sdb<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-actlog.raw<span class="w"> </span>sdc<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-archlog.raw<span class="w"> </span>sdd<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-db01.raw<span class="w"> </span>sde<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-db02.raw<span class="w"> </span>sdf<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-dbb.raw<span class="w"> </span>sdg<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
+<div class="language-sh highlight"><span class="filename">Dodwanie dysków do drugiego węzła klastra</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-inst.raw<span class="w"> </span>sdb<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-actlog.raw<span class="w"> </span>sdc<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-archlog.raw<span class="w"> </span>sdd<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-db01.raw<span class="w"> </span>sde<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-db02.raw<span class="w"> </span>sdf<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>attach-disk<span class="w"> </span>sp-n2<span class="w"> </span>/home/marcinek/media/Szajsung/vm/pcmk-dbb.raw<span class="w"> </span>sdg<span class="w"> </span>--driver<span class="w"> </span>qemu<span class="w"> </span>--type<span class="w"> </span>disk<span class="w"> </span>--config<span class="w"> </span>--live<span class="w"> </span>--subdriver<span class="w"> </span>raw<span class="w"> </span>--targetbus<span class="w"> </span>scsi<span class="w"> </span>--shareable
 </span></code></pre></div>
 </li>
 <li>
@@ -2698,19 +2835,277 @@ Proces deaktywacji jest opisany <a href="../os-setup/">tutaj</a>.</p>
 <p class="admonition-title">Note</p>
 <p>Pewnie jest na to ładniejszy sposób, ale po dodaniu tych urządzeń do LVM po prostu restatuję, a LVM sobie wykrywa tę grupę.</p>
 </div>
-<div class="language-sh highlight"><span class="filename">Dodawanie nowych dysków do LVM</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>lvmdevices<span class="w"> </span>--adddev<span class="w"> </span>/dev/sdb
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>lvmdevices<span class="w"> </span>--adddev<span class="w"> </span>/dev/sdc
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>lvmdevices<span class="w"> </span>--adddev<span class="w"> </span>/dev/sdd
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sudo<span class="w"> </span>lvmdevices<span class="w"> </span>--adddev<span class="w"> </span>/dev/sde
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>lvmdevices<span class="w"> </span>--adddev<span class="w"> </span>/dev/sdf<span class="w"> </span>
+<div class="language-sh highlight"><span class="filename">Dodawanie nowych dysków do LVM</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>lvmdevices<span class="w"> </span>--adddev<span class="w"> </span>/dev/sdb
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>lvmdevices<span class="w"> </span>--adddev<span class="w"> </span>/dev/sdc
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sudo<span class="w"> </span>lvmdevices<span class="w"> </span>--adddev<span class="w"> </span>/dev/sdd
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>sudo<span class="w"> </span>lvmdevices<span class="w"> </span>--adddev<span class="w"> </span>/dev/sde
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>sudo<span class="w"> </span>lvmdevices<span class="w"> </span>--adddev<span class="w"> </span>/dev/sdf<span class="w"> </span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Dodaj grupę <code>spvg</code></p>
-<div class="language-sh highlight"><span class="filename">Towrzenie zasobu spvg w grupie spinst1-rg</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>pcs<span class="w"> </span>resource<span class="w"> </span>create<span class="w"> </span>spvg_lvm<span class="w"> </span>ocf:heartbeat:LVM-activate<span class="w"> </span><span class="nv">vgname</span><span class="o">=</span>spvg<span class="w"> </span><span class="nv">vg_access_mode</span><span class="o">=</span>system_id<span class="w"> </span>--group<span class="w"> </span>spinst1-rg
+<p><div class="language-sh highlight"><span class="filename">Towrzenie zasobu spvg w grupie spinst1-rg</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>pcs<span class="w"> </span>resource<span class="w"> </span>create<span class="w"> </span>spvg_lvm<span class="w"> </span>ocf:heartbeat:LVM-activate<span class="w"> </span><span class="nv">vgname</span><span class="o">=</span>spvg<span class="w"> </span><span class="nv">vg_access_mode</span><span class="o">=</span>system_id<span class="w"> </span>--group<span class="w"> </span>spinst1-rg
 </span></code></pre></div>
+1. Dodaj filesystemy do grupy <code>spinst-rg</code>:</p>
+<div class="language-sh highlight"><span class="filename">Dodawanie filesystemu do grupy zasobów</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pcs<span class="w"> </span>resource<span class="w"> </span>create<span class="w"> </span>fs_sp_db_db01<span class="w"> </span>ocf:heartbeat:Filesystem<span class="w"> </span><span class="nv">device</span><span class="o">=</span>/dev/spvg/db01lv<span class="w"> </span><span class="nv">directory</span><span class="o">=</span>/sp/db/db01<span class="w"> </span><span class="nv">fstype</span><span class="o">=</span>xfs<span class="w"> </span>--group<span class="w"> </span>spinst1-rg
+</span></code></pre></div>
+<p>Zrób to dla wszytkich filesystemów grupy <code>spvg</code>, a jeśli masz też grupę pod storage pulę, to jej fileststemy też dodaj.</p>
 </li>
 </ol>
+<h2 id="dodawanie-aplikacji-do-klastra">Dodawanie aplikacji do klastra.</h2>
+<p>Ponieważ dodawanie IBM Storage Protect do klastra wiąże się z <strong>katalogowaniem instancji</strong> na drugim węźle, przeczytaj <a href="https://www.ibm.com/docs/en/storage-protect/8.2.0?topic=components-configuring-secondary-node">tę dokumentację</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Uwaga!</p>
+<p>Isntancja SP powinna już być skonfigurowana na pierwszym węźle klastra, np przy pomocy <a href="https://www.ibm.com/docs/en/storage-protect/8.2.0?topic=is-taking-first-steps-after-you-install-storage-protect">tych</a> kroków.</p>
+</div>
+<ol>
+<li>
+<p>Upewnij się, że grupa zasobów jest przerzucona na konfigurowany węzeł:</p>
+<div class="admonition tip">
+<p class="admonition-title">Wskazówka</p>
+<p>Najprościej przerzucić grupę zasobów poprzez postawienie pierwszego węzł klastra w tryb <strong>standby</strong>.</p>
+<div class="language-sh highlight"><span class="filename">sp01-n1 do standby</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pcs<span class="w"> </span>node<span class="w"> </span>standby<span class="w"> </span>sp01-n1
+</span></code></pre></div>
+</div>
+<div class="language-sh highlight"><span class="filename">Status grupy zasobów</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pcs<span class="w"> </span>status
+</span></code></pre></div>
+<details class="example">
+<summary>Przykład</summary>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pcs<span class="w"> </span>status<span class="w"> </span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Cluster<span class="w"> </span>name:<span class="w"> </span>sp01
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Cluster<span class="w"> </span>Summary:
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span>*<span class="w"> </span>Stack:<span class="w"> </span>corosync<span class="w"> </span><span class="o">(</span>Pacemaker<span class="w"> </span>is<span class="w"> </span>running<span class="o">)</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span>*<span class="w"> </span>Current<span class="w"> </span>DC:<span class="w"> </span>sp01-n1<span class="w"> </span><span class="o">(</span>version<span class="w"> </span><span class="m">2</span>.1.10-1.1.el9_7-5693eaeee<span class="o">)</span><span class="w"> </span>-<span class="w"> </span>partition<span class="w"> </span>with<span class="w"> </span>quorum
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span>*<span class="w"> </span>Last<span class="w"> </span>updated:<span class="w"> </span>Wed<span class="w"> </span>Mar<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">11</span>:24:51<span class="w"> </span><span class="m">2026</span><span class="w"> </span>on<span class="w"> </span>sp01-n2
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span>*<span class="w"> </span>Last<span class="w"> </span>change:<span class="w">  </span>Tue<span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">16</span>:09:05<span class="w"> </span><span class="m">2026</span><span class="w"> </span>by<span class="w"> </span>root<span class="w"> </span>via<span class="w"> </span>root<span class="w"> </span>on<span class="w"> </span>sp01-n1
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span>*<span class="w"> </span><span class="m">2</span><span class="w"> </span>nodes<span class="w"> </span>configured
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span>*<span class="w"> </span><span class="m">16</span><span class="w"> </span>resource<span class="w"> </span>instances<span class="w"> </span>configured
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>Node<span class="w"> </span>List:
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">  </span>*<span class="w"> </span>Node<span class="w"> </span>sp01-n1:<span class="w"> </span>standby
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">  </span>*<span class="w"> </span>Online:<span class="w"> </span><span class="o">[</span><span class="w"> </span>sp01-n2<span class="w"> </span><span class="o">]</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>Full<span class="w"> </span>List<span class="w"> </span>of<span class="w"> </span>Resources:
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span>*<span class="w"> </span>Resource<span class="w"> </span>Group:<span class="w"> </span>sp01:
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span>*<span class="w"> </span>VIP_SAN<span class="w">   </span><span class="o">(</span>ocf:heartbeat:IPaddr2<span class="o">)</span>:<span class="w">         </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span>*<span class="w"> </span>VIP_GPFS<span class="w">  </span><span class="o">(</span>ocf:heartbeat:IPaddr2<span class="o">)</span>:<span class="w">         </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span>*<span class="w"> </span>vg_spvg<span class="w">   </span><span class="o">(</span>ocf:heartbeat:LVM-activate<span class="o">)</span>:<span class="w">    </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span>*<span class="w"> </span>vg_hddvg<span class="w">  </span><span class="o">(</span>ocf:heartbeat:LVM-activate<span class="o">)</span>:<span class="w">    </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_spinst1<span class="w">     </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_db_db01<span class="w">     </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_db_db02<span class="w">     </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_db_db03<span class="w">     </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_db_db04<span class="w">     </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_actlog<span class="w">      </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_archlog<span class="w">     </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_dbb<span class="w"> </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_bkpdp_01<span class="w">    </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_bkpdp_02<span class="w">    </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_hsmdp_02<span class="w">    </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">    </span>*<span class="w"> </span>fs_sp_hsmdp_01<span class="w">    </span><span class="o">(</span>ocf:heartbeat:Filesystem<span class="o">)</span>:<span class="w">      </span>Started<span class="w"> </span>sp01-n2
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>Daemon<span class="w"> </span>Status:
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="w">  </span>corosync:<span class="w"> </span>active/disabled
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="w">  </span>pacemaker:<span class="w"> </span>active/disabled
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="w">  </span>pcsd:<span class="w"> </span>active/enabled
+</span></code></pre></div>
+<p>Dla pewności, sortwadź też czy OS widzi filesystemy:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># df -h
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Filesystem                   Size  Used Avail Use% Mounted on
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>devtmpfs                     4.0M     0  4.0M   0% /dev
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>tmpfs                         63G   33M   63G   1% /dev/shm
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>tmpfs                         26G  9.8M   26G   1% /run
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>efivarfs                     512K  116K  392K  23% /sys/firmware/efi/efivars
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>/dev/mapper/rhel97e-root     122G   12G  111G  10% /
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>/dev/mapper/tsmb2            960M  107M  854M  12% /boot
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>/dev/mapper/tsmb1           1022M  7.4M 1015M   1% /boot/efi
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>tmpfs                         13G     0   13G   0% /run/user/0
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>/dev/mapper/rhel-root         70G   19G   52G  27% /mnt/oldroot
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>/dev/mapper/spvg-spinst1lv    20G  271M   20G   2% /sp/spinst1
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>/dev/mapper/spvg-db01lv       64G  1.8G   63G   3% /sp/db/db01
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>/dev/mapper/spvg-db02lv       64G  1.8G   63G   3% /sp/db/db02
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>/dev/mapper/spvg-db03lv       64G  1.8G   63G   3% /sp/db/db03
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>/dev/mapper/spvg-db04lv       64G  1.8G   63G   3% /sp/db/db04
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>/dev/mapper/spvg-actloglv    148G  129G   20G  88% /sp/actlog
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>/dev/mapper/hddvg-archloglv  640G  5.8G  634G   1% /sp/archlog
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>/dev/mapper/hddvg-dbblv      640G  4.5G  636G   1% /sp/dbb
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>/dev/mapper/hddvg-bkpdp01lv  100G   47G   54G  47% /sp/bkpdp/01
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>/dev/mapper/hddvg-bkpdp02lv  100G   55G   46G  55% /sp/bkpdp/02
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>/dev/mapper/hddvg-hsmdp02lv  1.5T   11G  1.5T   1% /sp/hsmdp/02
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>/dev/mapper/hddvg-hsmdp01lv  1.5T   11G  1.5T   1% /sp/hsmdp/01
+</span></code></pre></div>
+</details>
+</li>
+<li>
+<p>Upewnij się, że użytkownik instancji ma ten sam UID na obu maszynach.</p>
+</li>
+<li>
+<p>Sprawdź i ewentualnie popre=raw uprawnienia do plików w katalogu <code>/sp</code>. Po zamontowaniu filesystemów, włascicleme punktów montowania możę być <code>root</code>, a ma być <code>spinst</code>.</p>
+<div class="language-sh highlight"><span class="filename">Uprawnienia do punktów montowania</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># ls -la /sp/</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>total<span class="w"> </span><span class="m">4</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>drwxr-xr-x<span class="w">   </span><span class="m">9</span><span class="w"> </span>root<span class="w">    </span>root<span class="w">      </span><span class="m">97</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">11</span>:38<span class="w"> </span>.
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>dr-xr-xr-x.<span class="w"> </span><span class="m">19</span><span class="w"> </span>root<span class="w">    </span>root<span class="w">     </span><span class="m">265</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">11</span>:38<span class="w"> </span>..
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>drwxr-xr-x<span class="w">   </span><span class="m">3</span><span class="w"> </span>spinst1<span class="w"> </span>spinst1<span class="w">   </span><span class="m">22</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">14</span><span class="w">  </span><span class="m">2023</span><span class="w"> </span>actlog
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>drwxr-xr-x<span class="w">   </span><span class="m">3</span><span class="w"> </span>spinst1<span class="w"> </span>spinst1<span class="w">   </span><span class="m">21</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">14</span><span class="w">  </span><span class="m">2023</span><span class="w"> </span>archlog
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>drwxr-xr-x<span class="w">   </span><span class="m">4</span><span class="w"> </span>root<span class="w">    </span>root<span class="w">      </span><span class="m">26</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">11</span>:38<span class="w"> </span>bkpdp
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>drwxr-xr-x<span class="w">   </span><span class="m">6</span><span class="w"> </span>root<span class="w">    </span>root<span class="w">      </span><span class="m">54</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">11</span>:38<span class="w"> </span>db
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>drwxr-xr-x<span class="w">   </span><span class="m">2</span><span class="w"> </span>spinst1<span class="w"> </span>spinst1<span class="w">    </span><span class="m">6</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">17</span><span class="w">  </span><span class="m">2024</span><span class="w"> </span>dbb
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>drwxr-xr-x<span class="w">   </span><span class="m">4</span><span class="w"> </span>root<span class="w">    </span>root<span class="w">      </span><span class="m">26</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">11</span>:38<span class="w"> </span>hsmdp
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>drwxr-xr-x<span class="w">   </span><span class="m">5</span><span class="w"> </span>spinst1<span class="w"> </span>spinst1<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:17<span class="w"> </span>spinst1
+</span></code></pre></div>
+<p>Jest źle. Popraw to:</p>
+<p><div class="language-sh highlight"><span class="filename">Leperowanie uprawnień</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="hll"><span class="o">[</span>root@sp01-n2<span class="w"> </span>~<span class="o">]</span><span class="c1"># chown -R spinst1:spinst1 /sp/*</span>
+</span></span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="hll"><span class="o">[</span>root@sp01-n2<span class="w"> </span>~<span class="o">]</span><span class="c1"># ls -la /sp/</span>
+</span></span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>total<span class="w"> </span><span class="m">4</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>drwxr-xr-x<span class="w">   </span><span class="m">9</span><span class="w"> </span>root<span class="w">    </span>root<span class="w">      </span><span class="m">97</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">11</span>:38<span class="w"> </span>.
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>dr-xr-xr-x.<span class="w"> </span><span class="m">19</span><span class="w"> </span>root<span class="w">    </span>root<span class="w">     </span><span class="m">265</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">11</span>:38<span class="w"> </span>..
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>drwxr-xr-x<span class="w">   </span><span class="m">3</span><span class="w"> </span>spinst1<span class="w"> </span>spinst1<span class="w">   </span><span class="m">22</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">14</span><span class="w">  </span><span class="m">2023</span><span class="w"> </span>actlog
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>drwxr-xr-x<span class="w">   </span><span class="m">3</span><span class="w"> </span>spinst1<span class="w"> </span>spinst1<span class="w">   </span><span class="m">21</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">14</span><span class="w">  </span><span class="m">2023</span><span class="w"> </span>archlog
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>drwxr-xr-x<span class="w">   </span><span class="m">4</span><span class="w"> </span>spinst1<span class="w"> </span>spinst1<span class="w">   </span><span class="m">26</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">11</span>:38<span class="w"> </span>bkpdp
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>drwxr-xr-x<span class="w">   </span><span class="m">6</span><span class="w"> </span>spinst1<span class="w"> </span>spinst1<span class="w">   </span><span class="m">54</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">11</span>:38<span class="w"> </span>db
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>drwxr-xr-x<span class="w">   </span><span class="m">2</span><span class="w"> </span>spinst1<span class="w"> </span>spinst1<span class="w">    </span><span class="m">6</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">17</span><span class="w">  </span><span class="m">2024</span><span class="w"> </span>dbb
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>drwxr-xr-x<span class="w">   </span><span class="m">4</span><span class="w"> </span>spinst1<span class="w"> </span>spinst1<span class="w">   </span><span class="m">26</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">11</span>:38<span class="w"> </span>hsmdp
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>drwxr-xr-x<span class="w">   </span><span class="m">5</span><span class="w"> </span>spinst1<span class="w"> </span>spinst1<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">12</span>:17<span class="w"> </span>spinst1
+</span></code></pre></div>
+1. Utwórz instancję DB2 na drugim węźle klastra:</p>
+<div class="language-sh highlight"><span class="filename">Tworzenie instancji DB2</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>/opt/tivoli/tsm/db2/instance/db2icrt<span class="w"> </span>-a<span class="w"> </span>server<span class="w"> </span>-u<span class="w"> </span>spinst1<span class="w"> </span>spinst1
+</span></code></pre></div>
+<details class="example">
+<summary>Przykład</summary>
+<div class="language-sh highlight"><span class="filename">Tworznie instancji DB2</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">[</span>root@sp01-n2<span class="w"> </span>~<span class="o">]</span><span class="c1"># /opt/tivoli/tsm/db2/instance/db2icrt -a server -u spinst1 spinst1</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>DBI1446I<span class="w">  </span>The<span class="w"> </span>db2icrt<span class="w"> </span><span class="nb">command</span><span class="w"> </span>is<span class="w"> </span>running.
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>DB2<span class="w"> </span>installation<span class="w"> </span>is<span class="w"> </span>being<span class="w"> </span>initialized.
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w"> </span>Total<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>tasks<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>performed:<span class="w"> </span><span class="m">4</span><span class="w"> </span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>Total<span class="w"> </span>estimated<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>all<span class="w"> </span>tasks<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>performed:<span class="w"> </span><span class="m">309</span><span class="w"> </span>second<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>Task<span class="w"> </span><span class="c1">#1 start</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>Description:<span class="w"> </span>Setting<span class="w"> </span>default<span class="w"> </span>global<span class="w"> </span>profile<span class="w"> </span>registry<span class="w"> </span>variables<span class="w"> </span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>Estimated<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>second<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>Task<span class="w"> </span><span class="c1">#1 end </span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>Task<span class="w"> </span><span class="c1">#2 start</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>Description:<span class="w"> </span>Initializing<span class="w"> </span>instance<span class="w"> </span>list<span class="w"> </span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>Estimated<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>second<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>Task<span class="w"> </span><span class="c1">#2 end </span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>Task<span class="w"> </span><span class="c1">#3 start</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>Description:<span class="w"> </span>Configuring<span class="w"> </span>DB2<span class="w"> </span>instances<span class="w"> </span>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>Estimated<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="m">300</span><span class="w"> </span>second<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>Task<span class="w"> </span><span class="c1">#3 end </span>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>Task<span class="w"> </span><span class="c1">#4 start</span>
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>Description:<span class="w"> </span>Updating<span class="w"> </span>global<span class="w"> </span>profile<span class="w"> </span>registry<span class="w"> </span>
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>Estimated<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>second<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>Task<span class="w"> </span><span class="c1">#4 end </span>
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>The<span class="w"> </span>execution<span class="w"> </span>completed<span class="w"> </span>successfully.
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a>For<span class="w"> </span>more<span class="w"> </span>information<span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span>DB2<span class="w"> </span>installation<span class="w"> </span>log<span class="w"> </span>at
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="s2">&quot;/tmp/db2icrt.log.1572819&quot;</span>.
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>DBI1070I<span class="w">  </span>Program<span class="w"> </span>db2icrt<span class="w"> </span>completed<span class="w"> </span>successfully.
+</span></code></pre></div>
+</details>
+</li>
+<li>
+<p>Zaktualizuj domyslną scieżkę baz danych:</p>
+<div class="admonition warning">
+<p class="admonition-title">Uwaga</p>
+<p>Wszystkie operacje na database managerze i bazie trzeba zrobić jako właściciel instancji, czylu <code>spinst1</code>.</p>
+</div>
+<div class="language-sh highlight"><span class="filename">Aktualizacja DBMGRa</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>db2<span class="w"> </span>update<span class="w"> </span>dbm<span class="w"> </span>cfg<span class="w"> </span>using<span class="w"> </span>dftdbpath<span class="w"> </span>/sp/spinst1
+</span></code></pre></div>
+<details class="example">
+<summary>Przykład</summary>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="hll"><span class="o">[</span>root@sp01-n2<span class="w"> </span>~<span class="o">]</span><span class="c1"># su - spinst1 </span>
+</span></span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Last<span class="w"> </span>login:<span class="w"> </span>Wed<span class="w"> </span>Mar<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">11</span>:47:30<span class="w"> </span>CET<span class="w"> </span><span class="m">2026</span><span class="w"> </span>on<span class="w"> </span>pts/2
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="hll"><span class="o">[</span>spinst1@sp01-n2<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>update<span class="w"> </span>dbm<span class="w"> </span>cfg<span class="w"> </span>using<span class="w"> </span>dftdbpath<span class="w"> </span>/sp/spinst1
+</span></span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>DB20000I<span class="w">  </span>The<span class="w"> </span>UPDATE<span class="w"> </span>DATABASE<span class="w"> </span>MANAGER<span class="w"> </span>CONFIGURATION<span class="w"> </span><span class="nb">command</span><span class="w"> </span>completed<span class="w"> </span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>successfully.
+</span></code></pre></div>
+</details>
+</li>
+<li>
+<p>Skataloguj bazę <code>TSMDB1</code>:</p>
+<div class="language-sh highlight"><span class="filename">Katalogowanie bazy TSMDB1</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>db2<span class="w"> </span>catalog<span class="w"> </span>db<span class="w"> </span>tsmdb1<span class="w"> </span>
+</span></code></pre></div>
+<details class="example">
+<summary>Przykład</summary>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="o">[</span>spinst1@sp01-n2<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>db2<span class="w"> </span>list<span class="w"> </span>db<span class="w"> </span>directory
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w"> </span>System<span class="w"> </span>Database<span class="w"> </span>Directory
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w"> </span>Number<span class="w"> </span>of<span class="w"> </span>entries<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span><span class="nv">directory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>Database<span class="w"> </span><span class="m">1</span><span class="w"> </span>entry:
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w"> </span>Database<span class="w"> </span><span class="nb">alias</span><span class="w">                       </span><span class="o">=</span><span class="w"> </span>TSMDB1
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w"> </span>Database<span class="w"> </span><span class="nv">name</span><span class="w">                        </span><span class="o">=</span><span class="w"> </span>TSMDB1
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w"> </span>Local<span class="w"> </span>database<span class="w"> </span><span class="nv">directory</span><span class="w">             </span><span class="o">=</span><span class="w"> </span>/sp/spinst1
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w"> </span>Database<span class="w"> </span>release<span class="w"> </span><span class="nv">level</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="m">15</span>.00
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w"> </span><span class="nv">Comment</span><span class="w">                              </span><span class="o">=</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w"> </span>Directory<span class="w"> </span>entry<span class="w"> </span><span class="nb">type</span><span class="w">                 </span><span class="o">=</span><span class="w"> </span>Indirect
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w"> </span>Catalog<span class="w"> </span>database<span class="w"> </span>partition<span class="w"> </span><span class="nv">number</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w"> </span>Alternate<span class="w"> </span>server<span class="w"> </span><span class="nv">hostname</span><span class="w">            </span><span class="o">=</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w"> </span>Alternate<span class="w"> </span>server<span class="w"> </span>port<span class="w"> </span><span class="nv">number</span><span class="w">         </span><span class="o">=</span>
+</span></code></pre></div>
+</details>
+<ol>
+<li>
+<p>Sprawdź, czy wszystkie pliki potrzebne do startu są na miejscu. W razie potrzeby skopiuj je z pierwszego węzła</p>
+</li>
+<li>
+<p><code>/etc/systemd/system/spinst1.service</code></p>
+</li>
+<li><code>/opt/tivoli/tsm/server/bin/spinst1</code></li>
+<li><code>/opt/tivoli/tsm/server/bin/dbbkapi/dsm.sys</code></li>
+</ol>
+<p>Jeżeli kopiowałeś <code>spinst1.service</code>, to przeładuj systemd:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>systemctl<span class="w"> </span>daemon-reload
+</span></code></pre></div>
+</li>
+<li>
+<p>Dodaj do klastra usługę <code>spinst1.servce</code>:</p>
+<div class="admonition warning">
+<p class="admonition-title">Uwaga</p>
+<p>Po dodaniu zasobu do klastra, Pacemaker natychiast go wystartuje!</p>
+</div>
+<div class="language-sh highlight"><span class="filename">Dodawanie spinst1 do klastra</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>pcs<span class="w"> </span>resource<span class="w"> </span>create<span class="w"> </span>inst_spinst1<span class="w"> </span>systemd:spinst1<span class="w"> </span>--group<span class="w"> </span>sp01
+</span></code></pre></div>
+<details class="example">
+<summary>Przykład</summary>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="hll"><span class="o">[</span>root@sp01-n2<span class="w"> </span>~<span class="o">]</span><span class="c1"># pcs resource create inst_spinst1 systemd:spinst1 --group sp01</span>
+</span></span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>Deprecation<span class="w"> </span>Warning:<span class="w"> </span>Using<span class="w"> </span><span class="s1">&#39;--group&#39;</span><span class="w"> </span>is<span class="w"> </span>deprecated<span class="w"> </span>and<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>replaced<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;group&#39;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>future<span class="w"> </span>release.<span class="w"> </span>Specify<span class="w"> </span>--future<span class="w"> </span>to<span class="w"> </span>switch<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>future<span class="w"> </span>behavior.
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="hll"><span class="o">[</span>root@sp01-n2<span class="w"> </span>~<span class="o">]</span><span class="c1"># systemctl status spinst1 </span>
+</span></span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>●<span class="w"> </span>spinst1.service<span class="w"> </span>-<span class="w"> </span>Cluster<span class="w"> </span>Controlled<span class="w"> </span>spinst1.service
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">     </span>Loaded:<span class="w"> </span>loaded<span class="w"> </span><span class="o">(</span>/etc/systemd/system/spinst1.service<span class="p">;</span><span class="w"> </span>disabled<span class="p">;</span><span class="w"> </span>preset:<span class="w"> </span>disabled<span class="o">)</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span>Drop-In:<span class="w"> </span>/run/systemd/system/spinst1.service.d
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">             </span>└─50-pacemaker.conf
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="hll"><span class="w">     </span>Active:<span class="w"> </span>active<span class="w"> </span><span class="o">(</span>exited<span class="o">)</span><span class="w"> </span>since<span class="w"> </span>Wed<span class="w"> </span><span class="m">2026</span>-03-25<span class="w"> </span><span class="m">12</span>:20:39<span class="w"> </span>CET<span class="p">;</span><span class="w"> </span>5s<span class="w"> </span>ago
+</span></span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">    </span>Process:<span class="w"> </span><span class="m">1749375</span><span class="w"> </span><span class="nv">ExecStart</span><span class="o">=</span>/opt/tivoli/tsm/server/bin/spinst1<span class="w"> </span>start<span class="w"> </span><span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited,<span class="w"> </span><span class="nv">status</span><span class="o">=</span><span class="m">0</span>/SUCCESS<span class="o">)</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">   </span>Main<span class="w"> </span>PID:<span class="w"> </span><span class="m">1749375</span><span class="w"> </span><span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited,<span class="w"> </span><span class="nv">status</span><span class="o">=</span><span class="m">0</span>/SUCCESS<span class="o">)</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">        </span>CPU:<span class="w"> </span>78ms
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>Mar<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">12</span>:20:34<span class="w"> </span>sp01-n2<span class="w"> </span>systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Starting<span class="w"> </span>Cluster<span class="w"> </span>Controlled<span class="w"> </span>spinst1.service...
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>Mar<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">12</span>:20:34<span class="w"> </span>sp01-n2<span class="w"> </span>su<span class="o">[</span><span class="m">1749378</span><span class="o">]</span>:<span class="w"> </span><span class="o">(</span>to<span class="w"> </span>spinst1<span class="o">)</span><span class="w"> </span>root<span class="w"> </span>on<span class="w"> </span>none
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>Mar<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">12</span>:20:34<span class="w"> </span>sp01-n2<span class="w"> </span>su<span class="o">[</span><span class="m">1749378</span><span class="o">]</span>:<span class="w"> </span>pam_unix<span class="o">(</span>su-l:session<span class="o">)</span>:<span class="w"> </span>session<span class="w"> </span>opened<span class="w"> </span><span class="k">for</span><span class="w"> </span>user<span class="w"> </span>spinst1<span class="o">(</span><span class="nv">uid</span><span class="o">=</span><span class="m">1001</span><span class="o">)</span><span class="w"> </span>by<span class="w"> </span><span class="o">(</span><span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">)</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>Mar<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">12</span>:20:39<span class="w"> </span>sp01-n2<span class="w"> </span>spinst1<span class="o">[</span><span class="m">1749375</span><span class="o">]</span>:<span class="w"> </span>Starting<span class="w"> </span>dsmserv<span class="w"> </span>instance<span class="w"> </span>spinst1<span class="w"> </span>...<span class="w"> </span>Succeeded
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>Mar<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">12</span>:20:39<span class="w"> </span>sp01-n2<span class="w"> </span>systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Finished<span class="w"> </span>Cluster<span class="w"> </span>Controlled<span class="w"> </span>spinst1.service.
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="hll"><span class="o">[</span>root@sp01-n2<span class="w"> </span>~<span class="o">]</span><span class="c1"># ps -ef | grep dsmserv </span>
+</span></span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>root<span class="w">     </span><span class="m">1749378</span><span class="w">       </span><span class="m">1</span><span class="w">  </span><span class="m">0</span><span class="w"> </span><span class="m">12</span>:20<span class="w"> </span>?<span class="w">        </span><span class="m">00</span>:00:00<span class="w"> </span>su<span class="w"> </span>-<span class="w"> </span>spinst1<span class="w"> </span>-c<span class="w"> </span>nohup<span class="w"> </span>/opt/tivoli/tsm/server/bin/dsmserv<span class="w">  </span>-i<span class="w"> </span>/sp/spinst1<span class="w"> </span>-q
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="hll">spinst1<span class="w">  </span><span class="m">1749463</span><span class="w"> </span><span class="m">1749378</span><span class="w">  </span><span class="m">0</span><span class="w"> </span><span class="m">12</span>:20<span class="w"> </span>?<span class="w">        </span><span class="m">00</span>:00:00<span class="w"> </span>/opt/tivoli/tsm/server/bin/dsmserv<span class="w"> </span>-i<span class="w"> </span>/sp/spinst1<span class="w"> </span>-q
+</span></span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>spinst1<span class="w">  </span><span class="m">1749753</span><span class="w"> </span><span class="m">1749463</span><span class="w">  </span><span class="m">0</span><span class="w"> </span><span class="m">12</span>:20<span class="w"> </span>?<span class="w">        </span><span class="m">00</span>:00:00<span class="w"> </span>/opt/tivoli/tsm/server/bin/servermon/servermon<span class="w"> </span>-path<span class="o">=</span>/sp/spinst1/<span class="w"> </span>-dbalias<span class="o">=</span>TSMDB1<span class="w"> </span>-schema<span class="o">=</span>TSMDB1<span class="w"> </span>-instance<span class="o">=</span>spinst1<span class="w"> </span>-optFile<span class="o">=</span>/sp/spinst1/dsmserv.opt<span class="w"> </span>-installdir<span class="o">=</span>/opt/tivoli/tsm/server/bin/servermon<span class="w"> </span>-dsmservId<span class="o">=</span><span class="m">1749463</span>
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>root<span class="w">     </span><span class="m">1751455</span><span class="w"> </span><span class="m">1407985</span><span class="w">  </span><span class="m">0</span><span class="w"> </span><span class="m">12</span>:20<span class="w"> </span>pts/2<span class="w">    </span><span class="m">00</span>:00:00<span class="w"> </span>grep<span class="w"> </span>--color<span class="o">=</span>tty<span class="w"> </span>-d<span class="w"> </span>skip<span class="w"> </span>dsmserv
+</span></code></pre></div>
+</details>
+</li>
+</ol>
+<h3 id="przywrocenie-dziaania-na-pierwszym-weze">Przywrócenie działania na pierwszym weźłe</h3>
+<p>Jeśli wymuszano przenieszieni zasobów na drugi węzeł przypomocyy <code>pcas stanby node</code> to można go teraz odstendbajowć <img alt="😉" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f609.svg" title=":wink:" />.</p>
+<div class="language-sh highlight"><span class="filename">Przywrócenie pierwszego noda do klastra</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>pcs<span class="w"> </span>node<span class="w"> </span>unstandby<span class="w"> </span>sp01-n1
+</span></code></pre></div>
 
 
 

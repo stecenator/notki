@@ -977,9 +977,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/setup_STA.md" class="md-nav__link">
+      <a href="../../setup/setup_sta/" class="md-nav__link">
         
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 6v12l8.5-6M4 18l8.5-6L4 6z"/></svg>
   
   <span class="md-ellipsis">
     
@@ -1286,6 +1288,19 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#agent-dsmcad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Agent <code>dsmcad</code>
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#indos" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1408,6 +1423,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -1953,6 +1972,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../LNX/rdp/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v2H8v2h8v-2h-2v-2h7a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2M3 4h18v12H3M15 5l-3.5 3.5L15 12l1.4-1.4-2.1-2.1 2.1-2.1M9 8 7.6 9.4l2.1 2.1-2.1 2.1L9 15l3.5-3.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    RDP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../LNX/lighttpd/" class="md-nav__link">
         
   
@@ -2012,6 +2061,36 @@
     
   
     Repozytorim yum/dnf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LNX/upd_8_to_9/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.009 13.386c1.577 0 3.86-.326 3.86-2.202a1.8 1.8 0 0 0-.04-.431l-.94-4.08c-.216-.898-.406-1.305-1.982-2.093-1.223-.625-3.888-1.658-4.676-1.658-.733 0-.947.946-1.822.946-.842 0-1.467-.706-2.255-.706-.757 0-1.25.515-1.63 1.576 0 0-1.06 2.99-1.197 3.424a.8.8 0 0 0-.028.245c0 1.162 4.577 4.974 10.71 4.974m4.101-1.435c.218 1.032.218 1.14.218 1.277 0 1.765-1.984 2.745-4.593 2.745-5.895.004-11.06-3.451-11.06-5.734a2.3 2.3 0 0 1 .19-.925C2.746 9.415 0 9.794 0 12.217c0 3.969 9.405 8.861 16.851 8.861 5.71 0 7.149-2.582 7.149-4.62 0-1.605-1.387-3.425-3.887-4.512"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Aktualizacja (leapp) RHEL
   
 
     
@@ -2748,6 +2827,19 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#agent-dsmcad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Agent <code>dsmcad</code>
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#indos" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2861,13 +2953,53 @@ Poniższe przykłady konfigów wrzucam jako szablon jinja2, bo i tak zwykle uży
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>* tu jeszcze bywa kilka innych opcji
 </span></code></pre></div>
 <p>Umieść te pliki w <code>/opt/tivoli/tsm/client/ba/bin/</code> odpowiednio podstawiając wartości w miejsce <code>{{ zmiennych }}</code>.</p>
+<h2 id="agent-dsmcad">Agent <code>dsmcad</code></h2>
+<p>Czasem przydaje się dodatkowy agent <code>dsmcad</code>. Ty przykłąd utworzenie agenta <code>dsmcad-local</code> któ©y będzie używał innego pliku <code>dsm.opt</code> niż domyślny.</p>
+<ol>
+<li>Skopiuj istniejący plik usługi <code>dsmcad.service</code> na <code>dsmcad-local.servie</code>.</li>
+<li>
+<p>Dodaj zaznaczoną linijkę do tej usługi:</p>
+<div class="language-ini highlight"><span class="filename">Zmodyfikowany serive unit</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[Unit]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">Description</span><span class="o">=</span><span class="s">&quot;Agent SP&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">After</span><span class="o">=</span><span class="s">local-fs.target network-online.target</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">[Service]</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="na">Type</span><span class="o">=</span><span class="s">forking</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="na">GuessMainPID</span><span class="o">=</span><span class="s">no</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="na">Environment</span><span class="o">=</span><span class="s">&quot;DSM_LOG=/opt/tivoli/tsm/client/ba/bin&quot;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="na">Environment</span><span class="o">=</span><span class="s">&quot;JAVA_HOME=/opt/tivoli/tsm/tdpvmware/common/jre/jre&quot;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="na">Environment</span><span class="o">=</span><span class="s">&quot;LD_LIBRARY_PATH=/opt/tivoli/tsm/client/ba/bin:/opt/tivoli/tsm/tdpvmware/common/jre/jre/bin/classic&quot;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="na">Environment</span><span class="o">=</span><span class="s">&quot;PATH=/opt/tivoli/tsm/tdpvmware/common/jre/jre/bin:/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin&quot;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="hll"><span class="na">Environment</span><span class="o">=</span><span class="s">&quot;DSM_CONFIG=/opt/tivoli/tsm/client/ba/bin/dsm-local.opt&quot;</span>
+</span></span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="na">EnvironmentFile</span><span class="o">=</span><span class="s">/opt/tivoli/tsm/client/ba/bin/dsmcad.lang</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/dsmcad</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="na">ExecStopPost</span><span class="o">=</span><span class="s">/bin/bash -c &#39;let i=0</span><span class="c1">; while [[ (-n &quot;$(ps -eo comm | grep dsmcad)&quot;) &amp;&amp; ($i -le 10) ]]; do let i++; sleep 1; done&#39;</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="na">Restart</span><span class="o">=</span><span class="s">on-failure</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="k">[Install]</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span><span class="w"> </span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Uwaga</p>
+<p>Zadbaj o to, żeby klient używający stanzy wskazanej w nowym pliku konfiguracyjnym nie pogryzł się o porty i logi z innymi</p>
+</div>
+</li>
+<li>
+<p>Przeładuj <code>systemd</code>:</p>
+<div class="language-sh highlight"><span class="filename">Restat systemd</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemonr-reload
+</span></code></pre></div>
+</li>
+<li>
+<p>Włącz nowego CAD'a.</p>
+</li>
+</ol>
 <h2 id="indos">Łindołs</h2>
 <p>Winda jaka jest, kazdy widzi. Tu piszę tricki które się przydają w chodzeniu na skróty ;-)</p>
 <h3 id="instalacja-cad-i-schedule-przy-pomocy-dsmcutilexe">Instalacja <code>CAD</code> i <code>schedule</code>  przy pomocy <code>dsmcutil.exe</code></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dsmcutil install scheduler /name:&quot;tsmscheduler&quot; /node:dwhb /password:ibm12345 /startnow:no 
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>dsmcutil install cad /node:dwhb /password:ibm12345 /autostart:yes /startnow:no 
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>dsmcutil update cad /name:&quot;tsm client acceptor&quot; /cadschedname:&quot;tsmscheduler&quot; 
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>dsmcutil start /name:&quot;tsm client acceptor&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dsmcutil install scheduler /name:&quot;tsmscheduler&quot; /node:dwhb /password:ibm12345 /startnow:no 
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>dsmcutil install cad /node:dwhb /password:ibm12345 /autostart:yes /startnow:no 
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>dsmcutil update cad /name:&quot;tsm client acceptor&quot; /cadschedname:&quot;tsmscheduler&quot; 
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>dsmcutil start /name:&quot;tsm client acceptor&quot;
 </span></code></pre></div>
 
 
