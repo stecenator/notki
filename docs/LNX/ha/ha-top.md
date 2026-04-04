@@ -74,7 +74,12 @@ Na tym etapie tworzę pusty klaster, bez zasobów. Żródłem mojej mądrości j
 To jest dobry moment, żeby wziąc się za konfigurowanie zasobów. Wróć tu jak skonfigurujesz IP i filesystemy klastrowe.
 ---
       
-## Konfiguracja mechanizmu STONITH
+## Konfiguracja mechanizmów STONITH
+
+Tezeba mieć minimim jeden mechanizm STONITH. Warto dwa. Ja użyję takiech:
+
+- [SBD](#storage-based-death-sbd)
+- [IPMI](#ipmi)
 
 ### Storage Based Death (SBD)
 
@@ -177,4 +182,18 @@ W sytuacji, gdy węzły nie mogą komunikować się np z modułami IMM albo virt
         * sbd-fencing (stonith:fence_sbd):     Started sp01-n1
         ```
 
+    !!! Tip "Wskazówka"
+
+        Jeżeli `pcs status` pokaże, że zasób stonith jest `inactive`, przestartuj klaster komendami:
+
+        ```sh title="Ostrzegawczy strzał w tył głowy"
+        sudo pcs cluster stop --all
+        sudoo pcs cluster start --all
+        ```
+
+### IPMI
+
+Strzelanie przez IPMI jest przydatne gdy klaster ma fizycznie inną sieć do administracji i kontaktu z IPMI niż do produkcji. 
+
+1. Upewnij się, że na węzłach klastra jest zainstalowana paczka `fence-agents-ipmilan`.
 1. 
