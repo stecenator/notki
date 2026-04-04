@@ -135,3 +135,38 @@ icon: simple/redhat
     ```sh title="Upgrade!"
     leapp upgrade
     ```
+
+!!! Danger "Ważne"
+    Jeśli na upgradowanej maszynie był zainstalowany IBM Storage Protect, to jego wewnętrzne DB2 może po aktualizacji się nie podnieść. Zwykle robi to z niewiele mówiącym komunikatem:
+
+    ```sh hl_lines="22 23" title="Wyjebka TSM"
+    [tsminst1@tsm-b2 ~]$ dsmserv  -i /tsm/tsminst1 maintenance                                                                                                                                                           
+    ANR7800I DSMSERV generated at 19:53:21 on Oct 15 2025.                                                                                                                                                               
+                                                                                                                                                                                                                         
+    IBM Storage Protect for Linux/x86_64                                                                                                                                                                                 
+    Version 8, Release 1, Level 27.100                                                                                                                                                                                   
+                                                                                                                                                                                                                         
+    Licensed Materials - Property of IBM                                                                                                                                                                                 
+                                                                                                                                                                                                                         
+    (C) Copyright IBM Corporation 1990, 2025.                                                                                                                                                                            
+    All rights reserved.                                                                                                                                                                                                 
+    U.S. Government Users Restricted Rights - Use, duplication or disclosure                                                                                                                                             
+    restricted by GSA ADP Schedule Contract with IBM Corporation.                                                                                                                                                        
+                                                                                                                                                                                                                         
+    ANR7801I Subsystem process ID is 787152.                                                                                                                                                                             
+    ANR0900I Processing options file /tsm/tsminst1/dsmserv.opt.                                                                                                                                                          
+    ANR0010W Unable to open message catalog for language en_US.UTF-8. The default language message catalog will be used.                                                                                                 
+    ANR7814I Using instance directory /tsm/tsminst1.                                                                                                                                                                     
+    ANR3339I Default Label in key data base is TSM Server SelfSigned SHA Key.                                                                                                                                            
+    ANR4726I The ICC support module has been loaded.                                                                                                                                                                     
+    ANR0990I Server restart-recovery in progress.                                                                                                                                                                        
+    ANR0302W Server monitoring has been disabled by option.                                                                                                                                                              
+    ANR0236E Fail to start the database manager due to an I/0 error. Check for filesystem full conditions, file permissions, and operating system errors.                                                                
+    ANR0162W Supplemental database diagnostic information:  -1:08001:-1032 ([IBM][CLI Driver] SQL1032N  No start database manager command was issued.  SQLSTATE=57019 
+    ```
+
+    W takiej sytuacji sprawdź czy nie zgubiła się biblioteka `compat-openssl11`
+
+    ```sh title="Instalacja brakującej biblioteki"
+    dnf install compat-openssl11
+    ```
