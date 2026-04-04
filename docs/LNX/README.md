@@ -19,3 +19,4 @@ Rzeczy :fontawesome-brands-linux:, do których czasem wracam.
 - sysctl dla SP
 - [Bonding](bond.md)
 - [VLAN](vlan.md)
+- [Ugrade :simple-redhat: 8 -> 9](upd_8_to_9.md)
