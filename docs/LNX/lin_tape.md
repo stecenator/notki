@@ -1,18 +1,30 @@
 # Konfiguracja `lin_tape`  i persistent names
 
-Ta notka dotyczy TS4500. `TS4500CLI.jar` jest do pobrani z fix central. 
+Ta notka dotyczy TS4500. Ale będzie działać też dla TS4300. Tyle, że TS4300 nie ma CLI. :material-emoticon-sad:.  `TS4500CLI.jar` jest do pobrania z fix central. 
 
-## Założenia
+## Plan i założenia
 
-TS4500 oszukuje na element numbers, dlatego jedynym sensownym identyfiaktrem napędu w bibliotece jest jego fizyczna lokalizacja określona przez `<FRAME><COLUMN><ROW>`, dlatego np dla napędu: 
+- [x] Fajnie jest mieć konfigurację _persistent names_ i dodatkowych opcji modułu przed jego zbudowaniem i uruchomieniem.
+- [x] TS4500 oszukuje na element numbers, dlatego jedynym sensownym identyfiaktrem napędu w tej bibliotece jest jego fizyczna lokalizacja określona przez `<FRAME><COLUMN><ROW>`, dlatego np dla napędu: 
 
 	```
 	F2, C4, R1,            CLEANING,        3592-60F,           Empty,       598D ,   00000786ED2A,  500507604422f50c,             257,   TSM_C
 	```
 
-Będzie użyta nazwa: `/dev/lin_tape/drv_F2C4R2`
+	Będzie użyta nazwa: `/dev/lin_tape/drv_F2C4R2`
 
-## Instalacja w OSie
+!!! Tip "Wskazówka"
+	Jestem fanem jednolitego nazewnictwa napędów: od biblioteki, poprzez zoning, OSa, aż do TSMa. Np.:
+
+	- Naped w bibliotece `X` jest w Frame 1, Column 2, Row 3: `F1C2R3`
+	- Alias w zoningu będzie `lib_x_drvF1C2R3`
+	- w OSie nazwę to: `/dev/lin_tape/drv_F1C2R3`
+	- W Protekcie: `def drive lib_x drv_F1C2R3`
+
+	Dzięki temu. przy jakichkolwiek kłopotach na którejś z tych warstw, wiem co monitorować w sąsiednich.
+
+
+## Konfiguracja `lin_tape` w OSie
 
 1. Pobierz informacje o interesujących Cię napędach z biblioteki
 
@@ -32,7 +44,7 @@ Będzie użyta nazwa: `/dev/lin_tape/drv_F2C4R2`
 	F7,C4,R3,00000786E8EA
 	```
 
-1. Wygeneruj wpisy do regiłek `udev`: 
+1. Wygeneruj wpisy do regułek `udev`: 
 
 	```shell
 	$ cat ts4500_drives.csv |sed 's/F\(.\),C\(.\),R\(.\),\(.*\)/KERNEL=="IBMtape\*\", ATTR{serial_num}=="\4", OWNER="spinst1", SYMLINK="lin_tape\/drv-f\1c\2r\3"/' > 98-ibm-lin_tape.rules
@@ -73,8 +85,69 @@ Będzie użyta nazwa: `/dev/lin_tape/drv_F2C4R2`
 	options lin_tape alternate_pathing=1
 	```
 
-1. Zainstaluj/skompulij/przeładuj driver `lin_tape`
+## Instalacja i budowanie drivera
 
+_Lin_tape_ przychodzi w dwóch paczkach: lin_tape (src RPM) do przebudowania za każdym razem gdy zmienisz kernel :man_facepalming:. (1)
+{ .annotate }
+
+1. Może kiedyś pokuszę się o zrobienie adkmoda :shrug: ?
+
+Instalacja i kompilacja drivera:
+
+1. Sciągnij najświeższy driver z [IBM Fix Central](https://ibm.com/support/fixcentral).
+
+1. Zainstaluj paczki potrzebne do budowania kernela:
+
+	!!! Warning inline end "Uwaga"
+		`dnf` instaluje paczkę `kernel-devel` najnowszą jaką znajdzie, więc jesłi jesteś do tyłu z aktualizacjami, to zainstalowany _devel_ będzie nowszy niż działające jądro i budowa `lin_tape` się nie powiedzie. 
+
+		Zaktualizuj jądro, albo ściągnij `kernel-devel` w wersji pasującej do Twojego jajka.
+
+	- kernel-devel
+	- make
+	- gcc
+	- rpm-build 
+
+	```sh title="Instalacja pakietów do budowania modułów jądra"
+	sudo dnf install  rpm-build kernel-devel make gcc
+	```
+
+1. Przebuduj pakiet `lin_tape-*src.rpm`:
+
+	```sh title="Budowanie modułu lin_tape"
+	rpmbuild --rebuild lin_tape-3.0.72-1.src.rpm
+	```
+
+	!!! Note "Zwróć uwagę"
+		Komenda `rpmbuild` umieszcza zbudowane pakiety w `$HOME/rpmbuild/RPMS/$ARCH/`.
+
+		Dla porządku, możesz przenieść tam też pakiet `lin_taped-*.rpm`
+
+
+1. Zainstaluj obie paczki.
+
+	```sh title="Instalacja modułu lin_tape"
+	sudo dnf install lin_tape-3.0.72-1.x86_64.rpm lin_taped-3.0.72-rhel9.x86_64.rpm
+	```
+
+1. Zweryfikuj, czy moduł się zładował i czy regółki _udev_ połapały się w napędach:
+
+	```sh hl_lines="1" title="Weryfikacja instalacji lin_tape"
+	$ ls -l /dev/lin_tape/
+	total 0
+	drwxr-xr-x. 2 root root 740 Mar 31 21:26 by-id
+	lrwxrwxrwx. 1 root root  13 Mar 31 21:26 drv-F2C1R2 -> ../IBMtape25n
+	lrwxrwxrwx. 1 root root  12 Mar 31 21:26 drv-F2C3R1 -> ../IBMtape2n
+	lrwxrwxrwx. 1 root root  13 Mar 31 21:26 drv-F2C3R2 -> ../IBMtape28n
+	lrwxrwxrwx. 1 root root  12 Mar 31 21:26 drv-F2C3R3 -> ../IBMtape3n
+	lrwxrwxrwx. 1 root root  13 Mar 31 21:26 drv-F2C3R4 -> ../IBMtape27n
+	lrwxrwxrwx. 1 root root  12 Mar 31 21:26 drv-F7C1R1 -> ../IBMtape4n
+	lrwxrwxrwx. 1 root root  12 Mar 31 21:26 drv-F7C3R1 -> ../IBMtape1n
+	lrwxrwxrwx. 1 root root  13 Mar 31 21:26 drv-F7C3R2 -> ../IBMtape26n
+	lrwxrwxrwx. 1 root root  12 Mar 31 21:26 drv-F7C3R3 -> ../IBMtape0n
+	lrwxrwxrwx. 1 root root  13 Mar 31 21:26 drv-F7C3R4 -> ../IBMtape24n
+	lrwxrwxrwx. 1 root root  14 Mar 31 21:26 TSM_B-0000078AC0060402 -> ../IBMchanger6
+	```
 
 ## Instalacja w Storage Protect
 
