@@ -6,7 +6,7 @@ icon: material/tape-drive
 
 Poniżej znajdują się wstawione rozdziały o konfiguracji driverów w poszczegółnych OSach.
 
----8<--- "LNX/lin_tape.md"
+---8<--- "LNX/san/lin_tape.md"
 
 
 !!! Bug "AIX"
