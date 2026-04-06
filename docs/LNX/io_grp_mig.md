@@ -1,3 +1,7 @@
+---
+icon: material/directions-fork
+---
+
 # Wymagania
 - Host ma dostęp do obydwu io_grup
 - Host ma skonfigurowane MPIO
