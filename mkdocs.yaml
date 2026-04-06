@@ -119,9 +119,10 @@ nav:
       - Grupy zasobów: LNX/ha/ha-res.md
       - Komendy klastra: LNX/ha/ha-cmd.md
     - SAN: 
-        - MPIO: LNX/MPIO_and_SAN.md
-        - Migracja LUNu między IOgrupami: LNX/io_grp_mig.md
-        - lin_tape: LNX/lin_tape.md
+        - LNX/san/index.md
+        - MPIO: LNX/san/MPIO_and_SAN.md
+        - Migracja LUNu między IOgrupami: LNX/san/io_grp_mig.md
+        - lin_tape: LNX/san/lin_tape.md
     - Sieć:
       - Bonding: LNX/bond.md
       - VLAN: LNX/vlan.md
