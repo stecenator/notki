@@ -123,9 +123,7 @@ nav:
         - MPIO: LNX/san/MPIO_and_SAN.md
         - Migracja LUNu między IOgrupami: LNX/san/io_grp_mig.md
         - lin_tape: LNX/san/lin_tape.md
-    - Sieć:
-      - Bonding: LNX/bond.md
-      - VLAN: LNX/vlan.md
+    - Sieć: LNX/net.md
     - X11: LNX/x11.md
     - RDP: LNX/rdp.md
     - Lighttpd: LNX/lighttpd.md
