@@ -33,9 +33,25 @@ Na tym etapie tworzę pusty klaster, bez zasobów. Żródłem mojej mądrości j
 
 1. Utwórz klaster o nazwie `sp`:
 
-    ```sh title="Tworzenie i start klastra sp"
-    pcs cluster setup sp --start sp-n1 sp-n2
-    ```
+    !!! Tip "Wskazówka"
+        Lepiej jest od razu skonfigurować więcej niż jedną sieć
+
+    === "1 sieć, sprawdzone polecenie"
+    
+        ```sh title="Tworzenie i start klastra sp"
+        pcs cluster setup sp --start sp-n1 sp-n2
+        ```
+
+    === "2 sieci, halucynowane"
+
+        Halucynowane, ale wygląda sensownie.
+
+        ```sh title="Tworzenie klastra z dwoma sieciami"
+        sudo pcs cluster setup nazwa_klastra \
+          wezel1 addr=192.168.1.101 addr=10.0.0.101 \
+          wezel2 addr=192.168.1.102 addr=10.0.0.102
+        ```
+
 
     ??? Example "Przykład"
 
@@ -73,7 +89,93 @@ Na tym etapie tworzę pusty klaster, bez zasobów. Żródłem mojej mądrości j
 ---
 To jest dobry moment, żeby wziąc się za konfigurowanie zasobów. Wróć tu jak skonfigurujesz IP i filesystemy klastrowe.
 ---
-      
+
+## Dodawanie sieci do klastra
+
+_Corosync_ odpowiedzialny za topografię klastra, komunikuje się po sieciach skonfigurowanych podczas budowania klastra. Jeśli jest tylko jedna sieć, a klaster ma dwa węzły i nie ma quorum, to wyłączenie sieci na jednym z węzłów jest intrpretowane jako __split brain__ i np SBD inicjuje awaryjny odstrzał... obu węzłow. Dlatego warto dodać drugą sieć, najlepiej korzystającą z niezależnych od piwrwszej przełaczników i kart.
+
+1. Lista __ringów__ klastra:
+
+    ```sh title="Ringi klastra"
+    corosync-cfgtool -s
+    ```
+
+    ??? Example "Klaster z 1 ringiem"
+
+        ```sh
+        # corosync-cfgtool -s
+        Local node ID 2, transport knet
+        LINK ID 0 udp
+                addr    = 10.20.27.202
+                status:
+                        nodeid:          1:     connected
+                        nodeid:          2:     localhost
+        ```
+
+1. Można to robić komendami `pcs link ...`, ale prościej jest wyedytować __na wszystkich węzłach__ plik `/etc/corosync/corosync.conf` i po prostu dopisać tam dodatkową sieć:
+
+    ``` hl_lines="12 19"
+    totem {
+        version: 2
+        cluster_name: tsm-b
+        transport: knet
+        crypto_cipher: aes256
+        crypto_hash: sha256
+        cluster_uuid: 0e885cb67f1640a1b127e3e162941419
+    }
+
+    nodelist {
+        node {
+            ring0_addr: tsm-b1.storage.psnc
+            ring1_addr: tsm-b1.hb
+            name: tsm-b1.storage.psnc
+            nodeid: 1
+        }
+
+        node {
+            ring0_addr: tsm-b2.storage.psnc
+            ring1_addr: tsm-b2.hb
+            name: tsm-b2.storage.psnc
+            nodeid: 2
+        }
+    }
+
+    quorum {
+        provider: corosync_votequorum
+        two_node: 1
+    }
+
+    logging {
+        to_logfile: yes
+        logfile: /var/log/cluster/corosync.log
+        to_syslog: yes
+        timestamp: on
+    }
+    ```
+
+1. Przeładuj `corosync`.
+
+    ```sh title="Przeładowanie corosync"
+    sudo corosync-cfgtool -R
+    ```
+
+1. Sprawdź czy nowy ring działa 
+
+    ```sh hl_lines="1 8-12"
+    # corosync-cfgtool -s
+    Local node ID 2, transport knet
+    LINK ID 0 udp
+            addr    = 10.20.27.202
+            status:
+                    nodeid:          1:     connected
+                    nodeid:          2:     localhost
+    LINK ID 1 udp
+            addr    = 10.20.54.2
+            status:
+                    nodeid:          1:     connected
+                    nodeid:          2:     localhost
+    ```
+
 ## Konfiguracja mechanizmów STONITH
 
 Tezeba mieć minimim jeden mechanizm STONITH. Warto dwa. Ja użyję takiech:
@@ -193,7 +295,16 @@ W sytuacji, gdy węzły nie mogą komunikować się np z modułami IMM albo virt
 
 ### IPMI
 
+!!! Bug
+    Dopiszę ten fragment, jak będe miał dostęp do klastra gdzie OS ma dostęp do IPMI sąsiada :smile:.
+
+
 Strzelanie przez IPMI jest przydatne gdy klaster ma fizycznie inną sieć do administracji i kontaktu z IPMI niż do produkcji. 
 
 1. Upewnij się, że na węzłach klastra jest zainstalowana paczka `fence-agents-ipmilan`.
 1. 
+
+## Quorum
+
+!!! Bug 
+    Muszę to rozkminić. :simple-redhat: ładnie to [opisuje](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_configuring-quorum-devices-configuring-and-managing-high-availability-clusters).

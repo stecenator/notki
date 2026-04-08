@@ -26,6 +26,9 @@ Pacemaker jest standardowym oporgramowaniem HA na Linuxa. Tutaj opisuję procedu
 
     Składa się z 3 adresów: 2 na węzły i 1 na VIP usługi.
 
+    !!! Danger "Uwaga"
+        Jedna sieć na dwuwęzłowym klastrze to za mało. Jej wyłączenie może utuchomić STONITH!.
+
 
 -   :material-harddisk:{ .lg .middle } [__Dyski__](#dyski)
 
