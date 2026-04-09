@@ -75,7 +75,7 @@ icon: simple/redhat
         Total download size: 1.7 M
         Installed size: 13 M
         Is this ok [y/N]: y
-      noarch          0.20.0-1.el8_10          rhel-8-for-x86_64-appstream-rpms          202 k
+        noarch          0.20.0-1.el8_10          rhel-8-for-x86_64-appstream-rpms          202 k
 
         Transaction Summary
         ===============================================================================================================================
@@ -85,6 +85,7 @@ icon: simple/redhat
         Installed size: 13 M
         Is this ok [y/N]: y
         ```
+
 1. Sprawdź czy są jakieś pliki `.rpmnew` i `rpmsave`. I jakoś się ich pozbądź. Jeśli nie są istotne to je por prostu wywal.
     
     ```sh hl_lines="1 3" title="Pliki rpmsave i rpmnew"
@@ -97,12 +98,12 @@ icon: simple/redhat
 1. Uruchom raport weryfikujący czy można się podnieść:
 
     ```sh title="Preupgrade"
-    leapp preupgrade --target <_target_os_version_>
+    sudo leapp preupgrade --target 9.7
     ```
 
 1. Przejrzyj raport i rozwiąż ewentualne problemy:
 
-    ```sh title="PRzegląd raportu"
+    ```sh title="Przegląd raportu"
     sudo less /var/log/leapp/leapp-report.txt
     ```
 
