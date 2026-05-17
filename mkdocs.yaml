@@ -129,6 +129,7 @@ nav:
     - Lighttpd: LNX/lighttpd.md
     - Repozytorim yum/dnf: LNX/repo.md
     - Aktualizacja (leapp) RHEL: LNX/upd_8_to_9.md
+    - Kickstart: LNX/rh-inst.md
   - mkdocs: 
     - mkdocs/index.md
     - Szablon mkdocs.yml: mkdocs/mkdocs.md
