@@ -22,4 +22,12 @@ icon: fontawesome/solid/user-group
 
     Tu zajmuję się zagadnieniami konfiguracji DB2 jako klienta do ISP. Instalację znajdziesz [tutaj](../../db2/index.md)
 
+-   :simple-vmware:{ .lg .middle } [__TDP dla VMware__](TDP4VE.md)
+
+    ---
+
+    ![VMware](/assets/vmware.png)
+
+    Klient do backupu VMware. 
+
 </div>

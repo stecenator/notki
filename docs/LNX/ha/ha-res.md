@@ -40,7 +40,7 @@ Zasoby zostaną zgrupowane do jednej do dwóch grup zasobów:
     Upewnij się, że podłaćzana do pozostałych węzłów klastra grupa jest zdeaktywowana na węźle, który ją utworzył!
     Proces deaktywacji jest opisany [tutaj](os-setup.md).
 
-1. Upewnij się, że oba węzły klastra widzą wpólne dyski. Ogólna metoda dodawania dysków do maszyn KVM jest opisana [tutaj](/virt/libvirt.md#odaczanie-dysku-od-dziaajacej-vmki). W moim przykładzie jest tak, że dyski u grupa woluminów są na maszynie `sp-n1` i dodaję je do węzła `sp-n1`. Poniższe komendy wykonuj na hoście KVM:
+1. Upewnij się, że oba węzły klastra widzą wpólne dyski. Ogólna metoda dodawania dysków do maszyn KVM jest opisana [tutaj](../../virt/libvirt.md#odaczanie-dysku-od-dziaajacej-vmki). W moim przykładzie jest tak, że dyski u grupa woluminów są na maszynie `sp-n1` i dodaję je do węzła `sp-n1`. Poniższe komendy wykonuj na hoście KVM:
 
     ```sh hl_lines="1" title="Przejżyj podpięte do źsódłowego noda dyski"
     $ sudo virsh domblklist sp-n1

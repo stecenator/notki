@@ -336,6 +336,6 @@ Gotowe!
         Complete!
         ```
 
-Skoro klient BA jest już zainstalowany to może warto poczytać o jego [konfigurowaniu](../ISP/ba.md#konfiguracja-klienta-ba)?
+Skoro klient BA jest już zainstalowany to może warto poczytać o jego [konfigurowaniu](../ISP/clients/ba.md#konfiguracja-klienta-ba)?
 
 :wink:

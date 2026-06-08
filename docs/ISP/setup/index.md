@@ -15,30 +15,30 @@ Z grubsza pasują do tego co :IBM-bw: opisał w [blueprintach](https://www.ibm.c
 
 <div class="grid cards" markdown>
 
--   :simple-redhat:{ .lg .middle } [__OS: Red Hat 9__](#os)
+-   :simple-redhat:{ .lg .middle } __OS: Red Hat 9__
 
     ---
 
     W tych przykładach, sklonowany według [tego artykułu](../virt/qemu-img.md#konwersja-zlinkowanego-klona-do-niezaleznej-kopii). Oczywiście w dużych instalacjach, na LPARze lub gołym żelazie. 
 
--   :material-ip-network:{ .lg .middle } [__Sieć__](#siec)
+-   :material-ip-network:{ .lg .middle } __Sieć__
 
     ---
 
     Na statycznych adresach. Warto zainstersować się [bondingiem](../../LNX/bond.md).
 
 
--   :material-harddisk:{ .lg .middle } [__Dyski__](#dyski)
+-   :material-harddisk:{ .lg .middle } __Dyski__
 
     ---
 
     Zasada: 1 LUN, 1 filesystem. Nawet w LVM. Protect sam sobie dobrze stripuje.
 
--   :fontawesome-solid-hands-holding-circle:{ .lg .middle } [__Aplikacja__](#aplikacja)
+-   :fontawesome-solid-hands-holding-circle:{ .lg .middle } __Serwer :IBM-bw: Storage Protect__
 
     ---
 
-    :IBM-bw: Storage Protect na oddzielnej grupie woluminów, na dedykowanym użyszkodniku. 
+    :IBM-bw: Storage Protect na oddzielnej grupie woluminów, na dedykowanym użyszkodniku. Takie zapakowanie pozwala na łatwe zapakowanie całości do klastra, albo przenoszenie pomiędzy maszynami.
 
 </div>
 
@@ -48,4 +48,4 @@ Z grubsza pasują do tego co :IBM-bw: opisał w [blueprintach](https://www.ibm.c
 1. [Kartalogi i filesystemy](setup_os.md#filesystemy)
 1. [Instalacja binarek i tworzenie instancji ISP](setup_instance.md)
 1. [Aktualizacja](upgrade.md)
-1. [Maintenance](setup/maint.md)
+1. [Maintenance](maint.md)
