@@ -8,7 +8,7 @@ Pacemaker jest standardowym oporgramowaniem HA na Linuxa. Tutaj opisuję procedu
 
 <div class="grid cards" markdown>
 
--   :simple-qemu:{ .lg .middle } [__QEMU/KVM/Libvirt__](../virt/libvirt.md)
+-   :simple-qemu:{ .lg .middle } [__QEMU/KVM/Libvirt__](../../virt/libvirt.md)
 
     ---
 
@@ -78,8 +78,8 @@ flowchart LR
 
 ## OS
 
-Klaster składa się z dwóch węzłów, które są zlinkowanymi klonami maszyny "Golden image". Cały proces tworzenia klonów opisałem [tu](../virt/libvirt.md#klonowanie-maszyny). 
-Każdy z klonów dostał [swoją](#siec) konfigurację sieci i został też dostosowany do wymogów [aplikacji](../ISP/setup_os.md). 
+Klaster składa się z dwóch węzłów, które są zlinkowanymi klonami maszyny "Golden image". Cały proces tworzenia klonów opisałem [tu](../../virt/libvirt.md#klonowanie-maszyny). 
+Każdy z klonów dostał [swoją](#siec) konfigurację sieci i został też dostosowany do wymogów [aplikacji](../../ISP/setup/setup_os.md). 
 
 
 ## Sieć

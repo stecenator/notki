@@ -31,11 +31,11 @@ Najcześciej zpaminane komeny [Gita](git/index.md) i GitHuba :fontawesome-brands
 
 ## IBM Storage Scale (GPFS)
 
-Ostatnio sporo dłubię przy [Storage Scale/GPFS](GPFS/README.md). Sukcesywnie będę tu odkładać tę wiedzę.
+Ostatnio sporo dłubię przy [Storage Scale/GPFS](GPFS/index.md). Sukcesywnie będę tu odkładać tę wiedzę.
 
 ## IBM Storage Protect (TSM)
 
-TSM, Spectrum Protect, [Storage Protect](ISP/index.md), a kto wie... Może i Storage Defender. 
+TSM, Spectrum Protect, [Storage Protect](ISP/README.md), a kto wie... Może i Storage Defender. 
 Na ADSM się nie załapałem :wink:. 
 
 

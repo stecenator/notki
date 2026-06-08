@@ -46,7 +46,7 @@ Updating / installing...
 
 #### Automatyzacja instalacji
 
-W [tym](../LNX/repo.md) rozdziale opisałem jak zrobić sobie lokalne repozytorium z pakietami kllienta BA. Jest to przydatne, gy muszę utrzymać więcej niż jednego klietna i chcę, żeby poprawki na BA wjeżdzały automatycznie wraz z poprawkami na OS. 
+W [tym](../../LNX/repo.md) rozdziale opisałem jak zrobić sobie lokalne repozytorium z pakietami kllienta BA. Jest to przydatne, gy muszę utrzymać więcej niż jednego klietna i chcę, żeby poprawki na BA wjeżdzały automatycznie wraz z poprawkami na OS. 
 
 ### Konfiguracja klienta BA
 

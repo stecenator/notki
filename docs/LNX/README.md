@@ -6,12 +6,11 @@ Rzeczy :fontawesome-brands-linux:, do których czasem wracam.
 
 # Spis treści
 
-- [Pacemaker](ha.md)
+- [Pacemaker](ha/index.md)
 - SAN - 
-	- [Mpio i SAN](MPIO_and_SAN.md)
-	- [Migracja LUNu między IOgrupami](io_grp_mig.md)
-	- [lin_tape](lin_tape.md)
-- [Migracja LUNu między IO_Grupami](Migracja LUNu między io_grupami.md)
-- [Bonding](bond.md)
-- [VLAN](vlan.md)
+	- [Mpio i SAN](san/MPIO_and_SAN.md)
+	- [Migracja LUNu między IOgrupami](san/io_grp_mig.md)
+	- [lin_tape](san/lin_tape.md)
+- [Bonding](net.md#bonding-na-linuxie)
+- [VLAN](net.md#vlan-w-rh-nmcli)
 - [Ugrade :simple-redhat: 8 -> 9](upd_8_to_9.md)

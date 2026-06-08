@@ -4,8 +4,11 @@ icon: simple/linux
 
 # Konfiguracja OSów pod klaster
 
+
 !!! Attention "Uwaga"
 	Zakładam, ze na razie dyski grupy klastrowej są podłaczone jedynie do węzła __sp-n1__. Większość poniższych komend trzeba wykonać na obu węzłach, ale dopóki nie przejdziesz do sekcji [Dodawanie grupy woluminów do drugiego węzła klastra](#dodawanie-grupy-woluminow-do-drugiego-weza-klastra) polecenia związane z LVM wykonuj tylko na pierwszym węźle!
+
+## Przygotowanie pierwszego węzła
 
 1. Ustaw hasło na użtkownika `hacluster`. Najlpiej na coś dobrze zarządzanego, albo znanego jak :elephant: ;-). 
 1. Dodaj usługi klastrowe i Protecta do firewalla i przeładuj regułki.
@@ -109,3 +112,5 @@ icon: simple/linux
 		```
 
 1. Na wszelki wypadek zreboouj oba nody. 
+
+## Dodawanie grupy-woluminow do drugiego węzła klastra

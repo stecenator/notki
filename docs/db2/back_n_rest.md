@@ -1,6 +1,6 @@
 # Backup i restore DB2
 
-Z założenia będę tu używać Protecta, ale cał ideologia backupu DB2 jest praktycznie niezależna od nośnika, dlatego ten rozdział leży w kategorii *DB2* a nie *[Storage Protect](../ISP/index.md*.
+Z założenia będę tu używać Protecta, ale cał ideologia backupu DB2 jest praktycznie niezależna od nośnika, dlatego ten rozdział leży w kategorii *DB2* a nie *[Storage Protect](../ISP/README.md)*.
 
 ## Typy backupu i konsekwencje dla odtwarzania
 

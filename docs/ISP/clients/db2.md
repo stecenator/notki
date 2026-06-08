@@ -427,4 +427,4 @@ DIBITU_DB2          /PILSISKO              1     DB2/LIN-     API:DB2/-         
 
 ## Co dalej?
 
-[Dalej](../db2/back_n_rest.md) jest backup i restore we wszystkich możliwych smakach.
+[Dalej](../../db2/back_n_rest.md) jest backup i restore we wszystkich możliwych smakach.

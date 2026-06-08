@@ -89,7 +89,7 @@ Procedura:
 
 ## Dołączanie nowego dysku działającej VM
 
-1. Utwórz obraz dysku, który ma być dołączony. Jak nie wiesz, to zajrzyj [tu](qmu-img.md).
+1. Utwórz obraz dysku, który ma być dołączony. Jak nie wiesz, to zajrzyj [tu](qemu-img.md).
 1. Dołącz dysk. 
 
 	!!! Tip "Podpowiedź"
