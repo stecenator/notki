@@ -18,7 +18,7 @@ Pacemaker jest standardowym oporgramowaniem HA na Linuxa. Tutaj opisuję procedu
 
     ---
 
-    Sklonowany z jednego źródła według [:fontawesome-regular-hand-point-right: tego opisu](../virt/qemu-img.md#konwersja-zlinkowanego-klona-do-niezaleznej-kopii).
+    Sklonowany z jednego źródła według [:fontawesome-regular-hand-point-right: tego opisu](../../virt/qemu-img.md#konwersja-zlinkowanego-klona-do-niezaleznej-kopii).
 
 -   :material-ip-network:{ .lg .middle } [__Sieć__](#siec)
 
@@ -46,7 +46,7 @@ Pacemaker jest standardowym oporgramowaniem HA na Linuxa. Tutaj opisuję procedu
 
     ---
 
-    Zaczynam od [konfiguracji stand-alone ISP na jednym nodzie](../ISP/setup_instance.md). W ramach procedury przenoszę ISP przenoszę do klastra.
+    Zaczynam od [konfiguracji stand-alone ISP na jednym nodzie](../../ISP/setup/setup_instance.md). W ramach procedury przenoszę ISP przenoszę do klastra.
 
 </div>
 
