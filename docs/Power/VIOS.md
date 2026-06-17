@@ -7,6 +7,11 @@
 --8<-- "Power/template/kshrc_template.sh"
 ```
 
+A ponieważ VIOS 4.2+ ma wmurowanego basha to jeszcze prościej:
+
+``` sh title="Mój ulubiony profil `.bashrc` dla VIOSów i AIXóœ"
+--8<-- "Power/template/bashrc_aix_vios_template.sh"
+```
 
 ## Mapowania w formacie CSV
 
@@ -264,7 +269,7 @@ Jest możliwa tylko, gdy  bridgowany jest wiecej niż jeden adapter wirtualny, c
 
 ### TCPIP w VIOS
 
-1. Dodaj IP do wirtualnej karty Ethernet z tego samego VLANu co domyślny VLAN dla SEA, ale nie oznaczone jako _bridge_ w progilu partycji. W typ przypadku to będzie karta `en4` ze slotu `V11`:
+1. Dodaj IP do wirtualnej karty Ethernet z tego samego VLANu co domyślny VLAN dla SEA, ale nie oznaczone jako _bridge_ w profilu partycji. W tym przypadku to będzie karta `en4` ze slotu `V11`:
 
     ```sh title="Konfigurowanie ip w VIOS"
     $ mktcpip -hostname di-vios1 -inetaddr 10.0.12.83 -netmask 255.255.255.0 -interface en4 -start -gateway 10.0.12.254

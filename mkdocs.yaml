@@ -98,7 +98,7 @@ nav:
       - OS: ISP/setup/setup_os.md
       - Instancja: ISP/setup/setup_instance.md
       - Taśmy: ISP/setup/setup_tapes.md
-      - Maintenance: ISP/setup/setup_maint.md
+      - Maintenance: ISP/setup/maint.md
       - Kontenery (dir): ISP/setup/setup_dc.md
       - Kontenery (cloud): ISP/setup/setup_cc.md
       - LANFree: ISP/setup/setup_sta.md
