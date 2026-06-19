@@ -1,0 +1,3 @@
+# marcin_stec@pl.ibm.com
+# Wkładka do /etc/sudoers.d umożliwiająca bezhasłowe sudo dla członków grupy wheel
+%wheel	ALL=(ALL)	NOPASSWD: ALL

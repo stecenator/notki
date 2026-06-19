@@ -1,0 +1,74 @@
+---
+# Zmienne dla hostów GPFS
+
+ansible_user: "cinek"
+target_kernel: "6.12.0-124.8.1.el10_1"    # Spisać wartość podawaną przez IBM tu: https://www.ibm.com/docs/en/storage-scale?topic=STXKQY/gpfsclustersfaq.html#fsi   !!! UWaga, na Intelu jest inna wersja! 
+target_kernel_9: "5.14.0-570.112.1.el9_6"    # Spisać wartość podawaną przez IBM tu: https://www.ibm.com/docs/en/storage-scale?topic=STXKQY/gpfsclustersfaq.html#fsi   !!! UWaga, na Intelu jest inna wersja! 
+
+pkg_locks_10:
+  - "kernel-{{ target_kernel }}"
+  - "kernel-devel-{{ target_kernel }}"
+  - "kernel-headers-{{ target_kernel }}"
+  - "kernel-core-{{ target_kernel }}"
+  - "kernel-modules-{{ target_kernel }}"
+  - "kernel-modules-core-{{ target_kernel }}"
+  - "kernel-modules-extra-{{ target_kernel }}"
+  - "kernel-tools-{{ target_kernel }}"
+  - "kernel-tools-libs-{{ target_kernel }}"
+  - "kernel-modules-extra-matched-{{ target_kernel }}"
+
+pkg_locks:
+  - "kernel-{{ target_kernel_9 }}"
+  - "kernel-devel-{{ target_kernel_9 }}"
+  - "kernel-headers-{{ target_kernel_9 }}"
+  - "kernel-core-{{ target_kernel_9 }}"
+  - "kernel-modules-{{ target_kernel_9 }}"
+  - "kernel-modules-core-{{ target_kernel_9 }}"
+  - "kernel-modules-extra-{{ target_kernel_9 }}"
+  - "kernel-tools-{{ target_kernel_9 }}"
+  - "kernel-tools-libs-{{ target_kernel_9 }}"
+  - "kernel-modules-extra-matched-{{ target_kernel_9 }}"
+
+os_pkgs:
+  - python3-dnf-plugin-versionlock
+  - ksh
+  - tmux
+  # - kernel-{{ target_kernel }}
+  - nfs-utils
+  - bash-completion
+  - vim-enhanced
+  - git
+  - wget
+  - bind-utils
+  - createrepo_c
+
+etc_hosts:
+  - "10.10.13.31  cinek-gpfs01.iic cinek-gpfs01"
+  - "10.10.13.32  cinek-gpfs02.iic cinek-gpfs02"
+  - "10.10.13.33  cinek-gpfs03.iic cinek-gpfs03"
+  - "10.10.13.34  cinek-gpfs04.iic cinek-gpfs04"
+  - "10.10.120.40  repo.iic repo"
+  - "10.10.13.14  sputnik.iic sputnik"
+
+fw_ports:
+  - "1191/tcp"
+  - "4739/tcp"
+  - "4739/udp"
+  - "8123/tcp"
+  - "8124/tcp"
+  - "8125/tcp"
+  - "8126/tcp"
+  - "8127/tcp"
+  - "9085/tcp"
+  - "9980/tcp"
+  - "9981/tcp"
+  - "10080/tcp"
+
+
+fw_svcs:
+  - "ssh"
+  - "http"
+  - "https"
+  - "nfs"
+  - "nfs3"
+  - "rpc-bind"

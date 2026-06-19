@@ -1,0 +1,27 @@
+---
+# Dodawanie adapterów vSCSI do LPARów GPFS
+
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Dodanie adaptera vSCSI z VIOS1 (client_id=3)
+      ibm.power_hmc.powervm_dlpar:
+        hmc_host: '{{ hmc }}'
+        hmc_auth:
+          username: '{{ hmc_user }}'
+          password: '{{ hmc_pass }}'
+        system_name: "{{ item.value.system_name }}"
+        vm_name: "{{ item.key }}"
+        vod_settings:
+        - vios_name: '{{ my_power.vios1 }}'
+          client_adapter_id:
+          device_name: "{{ item.key | regex_replace('^cinek-', '') }}-cd0"
+          media_name: 'RH10.1'
+        - vios_name: '{{ my_power.vios2 }}'
+          client_adapter_id:
+          device_name: "{{ item.key | regex_replace('^cinek-', '') }}-cd1"
+        action: update_vod
+      loop: "{{ gpfs_lpars | dict2items }}"
+      loop_control:
+        label: "{{ item.key }}"
