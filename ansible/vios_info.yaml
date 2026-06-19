@@ -1,0 +1,17 @@
+---
+# Przykładowy playbook zbierający informacje o VIOS
+
+- hosts: viosy    
+  remote_user: ansible
+  gather_facts: True 
+
+  tasks:
+    - name: Odpytywanie VIOSa o mapowania
+      ibm.power_vios.mapping_facts:
+        component: vscsi
+        types: 
+          - file_opt      # Żeby był mniejszy output
+      
+    - name: Wyświetlenie informacji o mapowaniach
+      debug:
+        var:  ansible_facts.mappings

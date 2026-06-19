@@ -20,7 +20,7 @@ echo "=============================="  >> $working_dir/$logfile ;
 bkpstate=$(grep "Backup successful" $working_dir/$logfile | tail -1 | awk '{print $2}');
 if ! [[ "$bkpstate" == "successful." ]]
 then
-mail -s "db2 backup error" branislav.komnenovic@nsz.gov.rs <<EOF
+mail -s "db2 backup error" wilie.e@acme.com <<EOF
 An error has occured during the backup of database $i !!!
 Check the log file $working_dir/$logfile for details.
 EOF

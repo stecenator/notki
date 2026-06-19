@@ -10,7 +10,7 @@
 A ponieważ VIOS 4.2+ ma wmurowanego basha to jeszcze prościej:
 
 ``` sh title="Mój ulubiony profil `.bashrc` dla VIOSów i AIXóœ"
---8<-- "Power/template/bashrc_aix_vios_template.sh"
+--8<-- "Power/template/bashrc_aix_vios.sh"
 ```
 
 ## Mapowania w formacie CSV

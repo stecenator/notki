@@ -1,0 +1,75 @@
+# Adresy WWPN z virtual_fc_adapters
+# Wygenerowano: 2026-05-16T13:54:44Z
+
+## LPAR: cinek-gpfs01
+System: POWER11-Showroom
+Profile: default_profile
+Partition ID: 7
+Virtual FC Adapters (WWPN):
+  - Client Slot: 5
+    WWPNs: c050760ccfdb0024 c050760ccfdb0025
+    VIOS: VIOS1-p11
+    Server Slot: 18
+    Port Name: fcs0
+    Location Code: U78DB.ND0.WZS0B6Z-P0-C1-T0
+  - Client Slot: 6
+    WWPNs: c050760ccfdb0026 c050760ccfdb0027
+    VIOS: VIOS2-p11
+    Server Slot: 3
+    Port Name: fcs0
+    Location Code: U78DB.ND0.WZS0B6Z-P0-C7-T0
+
+## LPAR: cinek-gpfs02
+System: POWER11-Showroom
+Profile: default_profile
+Partition ID: 14
+Virtual FC Adapters (WWPN):
+  - Client Slot: 5
+    WWPNs: c050760ccfdb0028 c050760ccfdb0029
+    VIOS: VIOS1-p11
+    Server Slot: 19
+    Port Name: fcs0
+    Location Code: U78DB.ND0.WZS0B6Z-P0-C1-T0
+  - Client Slot: 6
+    WWPNs: c050760ccfdb002a c050760ccfdb002b
+    VIOS: VIOS2-p11
+    Server Slot: 4
+    Port Name: fcs0
+    Location Code: U78DB.ND0.WZS0B6Z-P0-C7-T0
+
+## LPAR: cinek-gpfs03
+System: POWER11-Showroom
+Profile: default_profile
+Partition ID: 15
+Virtual FC Adapters (WWPN):
+  - Client Slot: 5
+    WWPNs: c050760ccfdb002c c050760ccfdb002d
+    VIOS: VIOS1-p11
+    Server Slot: 30
+    Port Name: fcs0
+    Location Code: U78DB.ND0.WZS0B6Z-P0-C1-T0
+  - Client Slot: 6
+    WWPNs: c050760ccfdb002e c050760ccfdb002f
+    VIOS: VIOS2-p11
+    Server Slot: 5
+    Port Name: fcs0
+    Location Code: U78DB.ND0.WZS0B6Z-P0-C7-T0
+
+## LPAR: cinek-gpfs04
+System: POWER11-Showroom
+Profile: default_profile
+Partition ID: 16
+Virtual FC Adapters (WWPN):
+  - Client Slot: 5
+    WWPNs: c050760ccfdb0030 c050760ccfdb0031
+    VIOS: VIOS1-p11
+    Server Slot: 32
+    Port Name: fcs0
+    Location Code: U78DB.ND0.WZS0B6Z-P0-C1-T0
+  - Client Slot: 6
+    WWPNs: c050760ccfdb0032 c050760ccfdb0033
+    VIOS: VIOS2-p11
+    Server Slot: 6
+    Port Name: fcs0
+    Location Code: U78DB.ND0.WZS0B6Z-P0-C7-T0
+

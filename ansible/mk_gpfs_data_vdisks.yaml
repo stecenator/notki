@@ -1,0 +1,80 @@
+---
+# Tworzenie dysków GPFS Data na macierzy IBM FlashSystem 5200
+# 8 dysków po 384GB dla Erasure Coding 6+2P
+
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Tworzenie dysku GPFS Data {{ item }}
+      ibm.storage_virtualize.ibm_svc_manage_volume:
+        clustername: "{{ fs_cluster }}"
+        username: "{{ fs_user }}"
+        password: "{{ fs_pass }}"
+        log_path: "{{ fs_log }}"
+        name: "cinek-gpfs-nsd{{ '%02d' | format(item) }}"
+        state: present
+        pool: PoolStd1
+        size: 384
+        unit: gb
+        thin: true
+        validate_certs: false
+      loop: "{{ range(1, 9) | list }}"
+      loop_control:
+        label: "cinek-gpfs-nsd{{ '%02d' | format(item) }}"
+
+    - name: Tworzenie hostclustera cinek_gpfs
+      ibm.storage_virtualize.ibm_svc_hostcluster:
+        clustername: "{{ fs_cluster }}"
+        username: "{{ fs_user }}"
+        password: "{{ fs_pass }}"
+        log_path: "{{ fs_log }}"
+        name: "cinek_gpfs"
+        state: present
+        validate_certs: false
+      tags:
+        - "CLUSTER"
+
+    # - name: Pobieranie WWPN dla lparów GPFS
+    #   set_fact:
+    #     gpfs_wwpns: "{{ lookup('file', 'wwpn_addresses.txt').split('\n') | select('match', '^(cinek-gpfs0[1-4]):\\s+([0-9a-fA-F]{16})$') | list }}"
+
+    - name: Dodawanie lparów do hostclustera cinek_gpfs
+      ibm.storage_virtualize.ibm_svc_host:
+        clustername: "{{ fs_cluster }}"
+        username: "{{ fs_user }}"
+        password: "{{ fs_pass }}"
+        log_path: "{{ fs_log }}"
+        name: "{{ item.key }}"
+        state: present
+        hostcluster: "cinek_gpfs"
+        validate_certs: false
+      loop: "{{ gpfs_lpars | dict2items }}"
+      loop_control:
+        label: "{{ item.key }}"
+      tags:
+        - "CLUSTER"
+
+    - name: Mapowanie dysków GPFS Data do hostclustera cinek_gpfs
+      ibm.storage_virtualize.ibm_svc_vol_map:
+        clustername: "{{ fs_cluster }}"
+        username: "{{ fs_user }}"
+        password: "{{ fs_pass }}"
+        log_path: "{{ fs_log }}"
+        volname: "cinek-gpfs-nsd{{ '%02d' | format(item) }}"
+        hostcluster: "cinek_gpfs"
+        state: present
+        validate_certs: false
+      loop: "{{ range(1, 9) | list }}"
+      loop_control:
+        label: "cinek-gpfs-nsd{{ '%02d' | format(item) }}"
+      tags:
+        - "CLUSTER_MAP"
+
+    # - name: Podsumowanie utworzonych dysków i konfiguracji
+    #   debug:
+    #     msg:
+    #       - "Utworzono 8 dysków GPFS Data po 384GB (łącznie 3 TiB raw)"
+    #       - "Utworzono hostcluster: cinek_gpfs"
+    #       - "Dodano {{ gpfs_lpars | length }} lparów do hostclustera"
+    #       - "Zmapowano dyski do hostclustera cinek_gpfs"
