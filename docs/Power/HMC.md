@@ -31,3 +31,14 @@ chhwres -r virtualio -m CG-9080-M9S-SN7853F48 --id 10 -o a -s 10 --rsubtype fc -
 chhwres -r virtualio -m CG-9080-M9S-SN7853F48 --id 10 -o a -s 11 --rsubtype fc -a "adapter_type=client,remote_lpar_id=13,remote_slot_num=720"
 chhwres -r virtualio -m CG-9080-M9S-SN7853F48 --id 10 -o a -s 12 --rsubtype fc -a "adapter_type=client,remote_lpar_id=12,remote_slot_num=721"
 chhwres -r virtualio -m CG-9080-M9S-SN7853F48 --id 10 -o a -s 13 --rsubtype fc -a "adapter_type=client,remote_lpar_id=13,remote_slot_num=721"
+```
+
+## Lista wirtualnych sieci
+
+Wyświetlenie listy wirtualnych sieci na wskzanym pudle. Potrzebne np do paramteryzowania modułów Anasible:
+
+```bash
+marcinek@5817vhmc-iic:~> lshwres -r virtualio --rsubtype vnetwork  -m POWER10-JEZDZI
+vnetwork=IIC,is_tagged=0,vswitch=ETHERNET0,vlan_id=74
+vnetwork=VPN,is_tagged=1,vswitch=ETHERNET0,vlan_id=100
+```

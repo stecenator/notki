@@ -1,0 +1,27 @@
+---
+# Usuwanie LPARów application serwerów
+
+- hosts: localhost    # Za wykonanie modułów ibm.power_hmc odpowiada stacja kontrolna
+  gather_facts: false # bo nie obchodzi mnie co wiem o localhost
+
+  tasks:
+    - name: Usuwanie LPARu
+      ibm.power_hmc.powervm_lpar_instance:
+        hmc_host: '{{ hmc }}'
+        hmc_auth:
+          username: '{{ hmc_user }}'
+          password: '{{ hmc_pass }}'
+        system_name: "{{ item.value.system_name }}"
+        vm_name: "{{ item.key }}"
+        state: absent
+      loop: "{{ gpfs_lpars | dict2items }}"
+      loop_control:
+        index_var: my_idx
+      register: lpar_deletion_result
+
+    - name: Wyświetlenie wyników usuwania
+      debug:
+        msg: "LPAR {{ item.item.key }} został usunięty z systemu {{ item.item.value.system_name }}"
+      loop: "{{ lpar_deletion_result.results }}"
+      when: item.changed
+

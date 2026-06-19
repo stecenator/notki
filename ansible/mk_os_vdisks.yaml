@@ -1,0 +1,24 @@
+---
+# Tworzenie dysków OS na macierzy dla LPARów GPFS
+
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Tworzenie dysku OS na macierzy dla {{ item.key }}
+      ibm.storage_virtualize.ibm_svc_manage_volume:
+        clustername: "{{ fs_cluster }}"
+        username: "{{ fs_user }}"
+        password: "{{ fs_pass }}"
+        log_path: "{{ fs_log }}"
+        name: "{{ item.key | regex_replace('^cinek-', 'cinek-os-') }}"
+        state: present
+        pool: PoolStd1
+        size: 100
+        unit: gb
+        thin: true
+        validate_certs: false
+      loop: "{{ gpfs_lpars | dict2items }}"
+      loop_control:
+        label: "{{ item.key }}"
+

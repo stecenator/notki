@@ -1,0 +1,40 @@
+---
+# Tworzenie LPARów application serwerów
+
+- hosts: localhost    # Za wykonanie modułów ibm.storage_virtualize odpowiada stacja kontrolna
+  gather_facts: false # bo nie obchodzi mnie co wiem o localhost
+
+  tasks:
+    - name: Tworzenie LPARu
+      ibm.power_hmc.powervm_lpar_instance:
+        hmc_host: '{{ hmc }}'
+        hmc_auth:
+          username: '{{ hmc_user }}'
+          password: '{{ hmc_pass }}'
+        system_name: "{{ item.value.system_name }}"
+        vm_name: "{{ item.key }}"
+        shared_proc_pool: "{{ item.value.shared_proc_pool }}"
+        min_proc_unit: "{{ item.value.min_proc_unit }}"
+        min_proc: "{{ item.value.min_proc }}"
+        proc: "{{ item.value.proc }}"
+        max_proc: "{{ item.value.max_proc }}"
+        proc_unit: "{{ item.value.proc_unit }}"
+        max_proc_unit: "{{ item.value.max_proc_unit }}"
+        min_mem: "{{ item.value.min_mem }}"
+        mem: "{{ item.value.mem }}"
+        max_mem: "{{ item.value.max_mem }}"
+        os_type: aix_linux
+        npiv_config:
+          - vios_name: "{{ my_power.vios1 }}"
+            fc_port: "fcs0"
+            client_adapter_id: 5
+          - vios_name: "{{ my_power.vios2 }}"
+            fc_port: "fcs0"
+            client_adapter_id: 6
+        virt_network_config:
+          - network_name: "{{ my_power.virt_net }}"
+            slot_number: 2
+        state: present    
+      loop: "{{ gpfs_lpars | dict2items }}"
+      loop_control:
+        index_var: my_idx

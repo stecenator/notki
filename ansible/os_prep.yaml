@@ -1,0 +1,188 @@
+---
+# Przygotowanie OS do pracy z GPFS
+- hosts: gpfs
+  become: yes
+  gather_facts: true
+  
+  tasks:
+
+  - name: Kolarze do sudo
+    copy:
+      src: wheel
+      dest: /etc/sudoers.d/
+      owner: root
+      group: root
+      mode: 0644
+    when: ansible_os_family == 'RedHat'
+    tags:
+      - "USER"
+  - name: Przydatne paczki
+    dnf:
+      name: "{{ item }}"
+      state: present
+    with_items: "{{ os_pkgs }}"
+    when: ansible_facts['pkg_mgr'] == 'dnf'
+    tags:
+      - "PKGS"
+
+  - name: Zablokowanie aktualizacji kernela
+    community.general.dnf_versionlock:
+      name: "{{ item }}"
+      state: present
+    with_items: "{{ pkg_locks }}"
+    when: ansible_facts['pkg_mgr'] == 'dnf'
+    tags:
+      - "PKGS"
+      - "KERNEL"
+
+  # - name: Aktualizacja redhat-release - nowe klucze GPG
+  #   dnf:
+  #     name: "redhat-release"
+  #     state: latest
+  #     update_cache: yes
+  #   when: ansible_facts['pkg_mgr'] == 'dnf'
+  #   tags:
+  #     - "UPDATE"
+
+  # - name: Aktualizacja systemu
+  #   dnf:
+  #     name: "*"
+  #     state: latest
+  #     update_cache: yes
+  #   when: ansible_facts['pkg_mgr'] == 'dnf'
+  #   tags:
+  #     - "UPDATE"
+
+  - name: Wyłączanie SElinuxa
+    ansible.builtin.lineinfile:
+      path: /etc/selinux/config
+      regexp: '^SELINUX='
+      line: SELINUX=permissive
+    tags:
+      - "SELINUX"
+  - name: Leperowanie /etc/hosts
+    ansible.builtin.lineinfile:
+      path: /etc/hosts
+      regexp: "{{ item }}"
+      state: present
+      line: "{{ item }}"
+    with_items: "{{ etc_hosts }}"
+    tags:
+      - "ETC_HOSTS"
+
+  - name: Utworzenie katalogu /repo
+    ansible.builtin.file:
+      path: /repo
+      state: directory
+      mode: '0755'
+    tags:
+      - "NFS"
+      - "REPO"
+
+  - name: Montowanie NFS repo:/repos na /repo
+    ansible.posix.mount:
+      path: /repo
+      src: repo:/repos/spectrum
+      fstype: nfs
+      opts: ro,hard,sync,noauto
+      state: mounted
+    tags:
+      - "NFS"
+      - "REPO"
+  
+  - name: Utworzenie katalogu /install
+    ansible.builtin.file:
+      path: /install
+      state: directory
+      mode: '0755'
+    tags:
+      - "INSTALL"
+      
+  - name: Ustawienie PermitRootLogin na yes w sshd_config
+    ansible.builtin.lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: '^#?PermitRootLogin'
+      line: 'PermitRootLogin yes'
+      state: present
+      backup: yes
+    tags:
+      - "SSH"
+      - "ROOT_LOGIN"
+
+  - name: Restart demona sshd
+    ansible.builtin.service:
+      name: sshd
+      state: restarted
+    tags:
+      - "SSH"
+      - "ROOT_LOGIN"
+
+  - name: Generowanie klucza SSH ed25519 dla roota
+    community.crypto.openssh_keypair:
+      path: /root/.ssh/id_ed25519
+      type: ed25519
+      state: present
+      force: no
+    tags:
+      - "SSH"
+      - "SSH_KEYS"
+
+  - name: Pobranie kluczy publicznych ze wszystkich hostów
+    ansible.builtin.slurp:
+      src: /root/.ssh/id_ed25519.pub
+    register: ssh_public_keys
+    tags:
+      - "SSH"
+      - "SSH_KEYS"
+
+  - name: Dodanie wszystkich kluczy publicznych do authorized_keys na wszystkich hostach
+    ansible.posix.authorized_key:
+      user: root
+      state: present
+      key: "{{ hostvars[item]['ssh_public_keys']['content'] | b64decode }}"
+    loop: "{{ groups['gpfs'] }}"
+    tags:
+      - "SSH"
+      - "SSH_KEYS"
+
+  - name: Ustawienie LC_ALL w .bash_profile roota
+    ansible.builtin.lineinfile:
+      path: /root/.bash_profile
+      regexp: '^export LC_ALL='
+      line: 'export LC_ALL=en_US.UTF-8'
+      state: present
+      create: yes
+    tags:
+      - "LOCALE"
+
+  - name: Dodanie komend mm* do .bash_profile roota
+    ansible.builtin.lineinfile:
+      path: /root/.bash_profile
+      regexp: '^export PATH='
+      line: 'export PATH=$PATH:/usr/lpp/mmfs/bin'
+      state: present
+      create: yes
+    tags:
+      - "PATH"
+
+  - name: Otwarcie portów na firewallu
+    ansible.posix.firewalld:
+      port: "{{ item }}"
+      permanent: yes
+      state: enabled
+      immediate: yes
+    with_items: "{{ fw_ports }}"
+    when: ansible_facts['os_family'] == 'RedHat'
+    tags:
+      - "FIREWALL"
+
+  - name: Otwarcie usług na firewallu
+    ansible.posix.firewalld:
+      service: "{{ item }}"
+      permanent: yes
+      state: enabled
+      immediate: yes
+    with_items: "{{ fw_svcs }}"
+    when: ansible_facts['os_family'] == 'RedHat'
+    tags:
+      - "FIREWALL"

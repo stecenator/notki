@@ -1,0 +1,45 @@
+---
+# Dystrybucja pliku nsddevices do węzłów GPFS
+- hosts: gpfs
+  become: yes
+  gather_facts: false
+  
+  tasks:
+  
+  - name: Utworzenie katalogu /var/mmfs/etc jeśli nie istnieje
+    ansible.builtin.file:
+      path: /var/mmfs/etc
+      state: directory
+      mode: '0755'
+      owner: root
+      group: root
+    tags:
+      - "NSDDEVICES"
+  
+  - name: Kopiowanie pliku nsddevices do /var/mmfs/etc/
+    ansible.builtin.copy:
+      src: files/nsddevices
+      dest: /var/mmfs/etc/nsddevices
+      owner: root
+      group: root
+      mode: '0755'
+    tags:
+      - "NSDDEVICES"
+  
+  - name: Weryfikacja pliku nsddevices
+    ansible.builtin.stat:
+      path: /var/mmfs/etc/nsddevices
+    register: nsddevices_stat
+    tags:
+      - "NSDDEVICES"
+      - "VERIFY"
+  
+  - name: Wyświetlenie informacji o pliku
+    ansible.builtin.debug:
+      msg: "Plik nsddevices został zainstalowany: {{ nsddevices_stat.stat.exists }}, uprawnienia: {{ nsddevices_stat.stat.mode }}"
+    when: nsddevices_stat.stat.exists
+    tags:
+      - "NSDDEVICES"
+      - "VERIFY"
+
+# Made with Bob

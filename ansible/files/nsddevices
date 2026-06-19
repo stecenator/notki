@@ -1,0 +1,89 @@
+#!/bin/ksh
+# %Z%%M%        %I%  %W% %G% %U% 
+##############################################################################
+#
+# When properly installed, this script is invoked by the 
+# /usr/lpp/mmfs/bin/mmdevdiscover script.  
+#
+# INSTALLATION GUIDELINES FOR THIS SCRIPT:
+#
+#   a) edit this script using the configuration guidelines below
+#   b) copy this script to /var/mmfs/etc/nsddevices
+#   c) ensure this script is executable (chmod +x /var/mmfs/etc/nsddevices)
+#
+# DESCRIPTION OF NSD DEVICE DISCOVERY:
+#
+#   The mmdevdiscover script and conversely this script are invoked by 
+#   the mmfsd daemon when it tries to discover or verify physical 
+#   devices previously defined to GPFS with the mmcrnsd command.  These
+#   scripts identify devices found in the /dev file system on the local 
+#   machine that may correlate to NSDs defined to GPFS.  
+#
+#   GPFS uses the list of devices output by these scripts in mapping 
+#   the NSD name listed in the configuration database to a local device 
+#   in the /dev file system.  When an NSD is created via the mmcrnsd 
+#   command it is marked with a unique identifier written to sector
+#   two of the device.  This unique identifier is recorded in the 
+#   configuration database along with the user recognizable NSD name.
+#
+#   During GPFS disk discovery each device name output by mmdevdiscover
+#   and nsddevices is opened in turn and sector two of each device is 
+#   read.   If a match between an NSD identifier on the device and an
+#   identifier recorded in the configuration database is found, then
+#   this machine has local access to the NSD device.  I/O is thus 
+#   subsequently performed via this local /dev interface.
+#
+# CONFIGURATION AND EDITING GUIDELINES:
+#
+#   If this script is not installed then disk discovery is done 
+#   only via the commands listed in mmdevdiscover.
+#
+#   If this script is installed and returns a NON ZERO return code
+#   then the disk discovery commands listed in mmdevdiscover will ALSO
+#   be run.
+#
+#   If this script is installed and returns a ZERO return code
+#   then the disk discovery commands listed in mmdevdiscover will NOT
+#   be run.
+#
+#   The output from both this script and nsddevices is a number 
+#   of lines in the following format:
+#
+#     deviceName deviceType
+#
+#   where (deviceName) is a device name such as (hdisk1)
+#   and (deviceType) is a set of known disk types.  Consult
+# 
+#     /usr/lpp/mmfs/bin/mmdevdiscover
+#
+#   for a list of currently known deviceTypes
+#
+#   Example output:
+#
+#     hdisk1  hdisk
+#     hdisk2  hdisk
+#
+##############################################################################
+CONTROLLER_REGEX='cinek-'
+for dev in $( /bin/ls /dev/mapper | egrep $CONTROLLER_REGEX )
+do
+   # 
+   # dmm vs. generic is used by GPFS to prioritize internal order of
+   # searching through available disks, then later GPFS discards other
+   # disk device names that it finds that match as the same NSD device
+   # by a different path.  For this reason, dmm vs. generic is an
+   # important distinction if you are not explicitly producing the
+   # entire and exclusive set of disks that GPFS should use, as output
+   # from this script (nsddevices) _and_ exiting this script with a
+   # "return 0". -Brian Finley
+   #
+   #echo mapper/$dev dmm
+   echo mapper/$dev generic
+done
+
+# To bypass the GPFS disk discovery (/usr/lpp/mmfs/bin/mmdevdiscover),
+return 1
+
+# To continue with the GPFS disk discovery steps,
+# return 1
+

@@ -1,0 +1,77 @@
+---
+# Pobieranie adresów WWPN z profilu default_profile dla LPARów zdefiniowanych w gpfs_lpars
+
+- hosts: localhost
+  gather_facts: true
+  
+  tasks:
+    - name: Pobieranie informacji o profilu default_profile dla każdego LPAR
+      ibm.power_hmc.powervm_lpar_instance:
+        hmc_host: '{{ hmc }}'
+        hmc_auth:
+          username: '{{ hmc_user }}'
+          password: '{{ hmc_pass }}'
+        system_name: "{{ item.value.system_name }}"
+        vm_name: "{{ item.key }}"
+        advanced_info: true     # Bez tego w faktach nie będzie npiv i vscsi
+        state: facts
+      loop: "{{ gpfs_lpars | dict2items }}"
+      register: lpar_facts
+      
+    - name: Kotrola faktów
+      debug:
+       var: lpar_facts
+
+    - name: Wyświetlenie adresów WWPN z virtual_fc_adapters dla każdego LPAR
+      debug:
+        msg: |
+          LPAR: {{ item.item.key }}
+          System: {{ item.item.value.system_name }}
+          Profile: {{ item.partition_info.LastActivatedProfile | default('default_profile') }}
+          Virtual FC Adapters (WWPN):
+          {% if item.partition_info is defined and item.partition_info.VirtualFiberChannelAdapters is defined %}
+          {% for adapter in item.partition_info.VirtualFiberChannelAdapters %}
+            - Client Slot: {{ adapter.ClientVirtualSlotNumber | default('N/A') }}
+              WWPNs: {{ adapter.WWPNs | default('N/A') }}
+              VIOS: {{ adapter.vios | default('N/A') }}
+              Server Slot: {{ adapter.ServerVirtualSlotNumber | default('N/A') }}
+              Port Name: {{ adapter.PortName | default('N/A') }}
+          {% endfor %}
+          {% else %}
+          Brak informacji o virtual_fc_adapters
+          {% endif %}
+      loop: "{{ lpar_facts.results }}"
+      when: item.partition_info is defined
+      
+    - name: Zapisanie adresów WWPN do pliku wwpn_addresses.txt
+      copy:
+        content: |
+          # Adresy WWPN z virtual_fc_adapters
+          # Wygenerowano: {{ ansible_date_time.iso8601 }}
+          
+          {% for result in lpar_facts.results %}
+          {% if result.partition_info is defined %}
+          ## LPAR: {{ result.item.key }}
+          System: {{ result.item.value.system_name }}
+          Profile: {{ result.partition_info.LastActivatedProfile | default('default_profile') }}
+          Partition ID: {{ result.partition_info.PartitionID | default('N/A') }}
+          {% if result.partition_info.VirtualFiberChannelAdapters is defined and result.partition_info.VirtualFiberChannelAdapters | length > 0 %}
+          Virtual FC Adapters (WWPN):
+          {% for adapter in result.partition_info.VirtualFiberChannelAdapters %}
+            - Client Slot: {{ adapter.ClientVirtualSlotNumber | default('N/A') }}
+              WWPNs: {{ adapter.WWPNs | default('N/A') }}
+              VIOS: {{ adapter.vios | default('N/A') }}
+              Server Slot: {{ adapter.ServerVirtualSlotNumber | default('N/A') }}
+              Port Name: {{ adapter.PortName | default('N/A') }}
+              Location Code: {{ adapter.LocationCode | default('N/A') }}
+          {% endfor %}
+          {% else %}
+          Brak virtual_fc_adapters
+          {% endif %}
+          
+          {% endif %}
+          {% endfor %}
+        dest: "{{ playbook_dir }}/wwpn_addresses.txt"
+      delegate_to: localhost
+
+# Made with Bob

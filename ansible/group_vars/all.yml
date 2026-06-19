@@ -1,0 +1,71 @@
+---
+# Sprawy ogolne
+
+hmc: "hmc10.iic"
+my_power: 
+  sys_name: "POWER11-Showroom"
+  vios1: "VIOS1-p11"
+  vios2: "VIOS2-p11"
+  virt_net: "VLAN74-ETHERNET0"
+
+fs_cluster: "fs5200.iic"
+fs_log: "/tmp/log_fs5200.log"
+
+
+gpfs_lpars:
+  cinek-gpfs01:
+    min_mem: 2048
+    mem: 8192
+    max_mem: 16384
+    shared_proc_pool: "DefaultPool"
+    min_proc: 1
+    proc: 2
+    max_proc: 4
+    min_proc_unit: 0.5
+    proc_unit: 2.0
+    max_proc_unit: 4.0
+    proc_mode: uncapped
+    system_name: "{{ my_power.sys_name }}"
+    network: "{{ my_power.virt_net }}"
+  cinek-gpfs02:
+    min_mem: 2048
+    mem: 8192
+    max_mem: 16384
+    shared_proc_pool: "DefaultPool"
+    min_proc: 1
+    proc: 2
+    max_proc: 4
+    min_proc_unit: 0.5
+    proc_unit: 2.0
+    max_proc_unit: 4.0
+    proc_mode: uncapped
+    system_name: "{{ my_power.sys_name }}"
+    network: "{{ my_power.virt_net }}"
+  cinek-gpfs03:
+    min_mem: 2048
+    mem: 8192
+    max_mem: 16384
+    shared_proc_pool: "DefaultPool"
+    min_proc: 1
+    proc: 2
+    max_proc: 4
+    min_proc_unit: 0.5
+    proc_unit: 2.0
+    max_proc_unit: 4.0
+    proc_mode: uncapped
+    system_name: "{{ my_power.sys_name }}"
+    network: "{{ my_power.virt_net }}"
+  cinek-gpfs04:
+    min_mem: 2048
+    mem: 8192
+    max_mem: 16384
+    shared_proc_pool: "DefaultPool"
+    min_proc: 1
+    proc: 2
+    max_proc: 4
+    min_proc_unit: 0.5
+    proc_unit: 2.0
+    max_proc_unit: 4.0
+    proc_mode: uncapped
+    system_name: "{{ my_power.sys_name }}"
+    network: "{{ my_power.virt_net }}"
