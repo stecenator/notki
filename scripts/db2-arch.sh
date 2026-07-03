@@ -2,7 +2,7 @@
  
 . /home/db2inst1/sqllib/db2profile
 working_dir=/home/db2inst1/bkplogs
-logfile="BACKUP_DAILY_`date +%d%m%Y`.log"
+logfile="BACKUP_ARCH_`date +%d%m%Y`.log"
 bkpdblist=/home/db2inst1/bkpdblist
 touch $working_dir/$logfile > $working_dir/$logfile
 echo "Current working directory $working_dir" >> $working_dir/$logfile
@@ -13,9 +13,13 @@ do
     echo "=============================="  >> $working_dir/$logfile ;
     echo "Beginning backup to TSM for database $i at `date`"  >> $working_dir/$logfile ;
     echo "=============================="  >> $working_dir/$logfile ;
+    echo "Setting TSM_MGMTCLASS=ARCH1Y for database $i"  >> $working_dir/$logfile ;
+    db2 update db cfg for $i using TSM_MGMTCLASS ARCH1Y  >> $working_dir/$logfile ;
     echo "command : db2 backup db $i online use TSM open 6 sessions dedup_device with 6 buffers buffer 8192 parallelism 6 include logs without prompting"  >> $working_dir/$logfile ;
     db2 backup db $i online use TSM open 6 sessions dedup_device with 6 buffers buffer 8192 parallelism 6 include logs without prompting  >> $working_dir/$logfile ;
     echo "Backup to TSM for database $i has finished at `date`"  >> $working_dir/$logfile ;
+    echo "Resetting TSM_MGMTCLASS to default for database $i"  >> $working_dir/$logfile ;
+    db2 update db cfg for $i using TSM_MGMTCLASS NULL  >> $working_dir/$logfile ;
     echo "=============================="  >> $working_dir/$logfile ;
     bkpstate=$(grep "Backup successful" $working_dir/$logfile | tail -1 | awk '{print $2}');
     if ! [[ "$bkpstate" == "successful." ]]
