@@ -1,8 +1,15 @@
 ---
-icon: 
+icon: AIX-old
 ---
 
+![Live free or die, UNIX](../assets/unixplate.gif){ align=center }(1)
+{ .annotate }
+
+1. Grafika podprowadzona [stąd](https://www.cs.earlham.edu/~skylar/humor/Unix/index1.html)
+
 # Tricki ogólnounixowe
+
+Właściwie jedymym żyjącym dziś komercyjnym Unixem jest :AIX-old:, ale ponieważ jestem wystarczająco stary, żeby pamiętać świętej pamięci :material-grave-stone: OSy takie jak Solaris, Ultrix, HP-UX czy Irix, to trzymam ten rozdział pod nazwą ogólną :wink:.
 
 ## OpenSSH :material-ssh:
 
