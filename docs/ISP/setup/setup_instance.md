@@ -393,12 +393,29 @@ można przejść do tworzenia instancji ISP. Zaczyna się od instancji... DB2
 
 1. Ustaw `LD_LIBRARY_PPATH` i od razu inne zmienne, któ©e przydadzą się póżniej do potrzeb backupu bazy ISP. Środowisko usera instancji bazy jest w pliku `/home/tsminst/sqllib/userprofile`:
 
-    ``` sh title="Zmodyfikowane środowisko ~/sqllib/userprofile:"
-    export DSMI_CONFIG=/sp/spinst1/tsmdbmgr.opt
-    export DSMI_DIR=/opt/tivoli/tsm/server/bin/dbbkapi
-    export DSMI_LOG=/sp/spinst1
-    export LD_LIBRARY_PATH=/opt/tivoli/tsm/server/bin/dbbkapi:/usr/local/ibm/gsk8_64/lib64:$LD_LIBRARY_PATH
-    ```
+    === "Linux"
+
+        ``` sh title="Zmodyfikowane środowisko ~/sqllib/userprofile:"
+        export DSMI_CONFIG=/sp/spinst1/tsmdbmgr.opt
+        export DSMI_DIR=/opt/tivoli/tsm/server/bin/dbbkapi
+        export DSMI_LOG=/sp/spinst1
+        export LD_LIBRARY_PATH=/opt/tivoli/tsm/server/bin/dbbkapi:/usr/local/ibm/gsk8_64/lib64:$LD_LIBRARY_PATH
+        ```
+
+    === "AIX"
+
+        !!! Note
+
+            ![AIX](/assets/AIX-old.svg){ width="50" }
+
+            Na AIXie scieżkę wyszukiwania bibliotek określa zmienna  `LIBPATH`.
+
+        ``` sh title="Zmodyfikowane środowisko ~/sqllib/userprofile:"
+        export DSMI_CONFIG=/sp/spinst1/tsmdbmgr.opt
+        export DSMI_DIR=/opt/tivoli/tsm/server/bin/dbbkapi
+        export DSMI_LOG=/sp/spinst1
+        export LIBPATH=/opt/tivoli/tsm/server/bin/dbbkapi:/usr/opt/ibm/gsk8_64/lib64:$LIBPATH
+        ```
 
     Plik `userprofile` jest wciągany przez `.profile` właściciela instancji:
 
@@ -409,7 +426,7 @@ można przejść do tworzenia instancji ISP. Zaczyna się od instancji... DB2
     fi
     ```
 
-## Tworzenie instancji :IBM-bw: Storage Protect
+### Tworzenie instancji :IBM-bw: Storage Protect
 
 !!! Important "Ważne"
     Poniższe kroki trzeba robić jako użytkownik `spinst1`.
