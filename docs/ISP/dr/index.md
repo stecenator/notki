@@ -43,7 +43,7 @@ Tak jak wspomniałem, nie mam pomysłu jak dobrać się do bazy rozłożonej w t
 
 Żeby odtwozyć bazę, potrzebna jest nowa instancja. Można ją zrobić tekstowo, pry pomocy [tej procedury](../setup/setup_instance.md), albo pójś na łatwiznę i jesli masz X11, to odpalić :material-wizard-hat: wizarda `/opt/tivoli/tsm/server/bin/dsmicfgx` jako `root`.
 
-
+1. Upewnij się, że katalogi bazu i logów są puste. W razie czego, wyrżnij. 
 
 ## Import istniejącej instancji 
 
