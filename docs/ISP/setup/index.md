@@ -49,6 +49,7 @@ Z grubsza pasują do tego co :IBM-bw: opisał w [blueprintach](https://www.ibm.c
 1. [Instalacja binarek i tworzenie instancji ISP](setup_instance.md)
 1. [Aktualizacja](upgrade.md)
 1. [Maintenance](maint.md)
+1. [Komunikacja server to server](setup_s2s.md)
 
 
 ## Szczegóły założeń

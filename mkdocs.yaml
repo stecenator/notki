@@ -71,6 +71,7 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
       primary: orange
+  language: pl
 
 extra:
   social: 
@@ -103,12 +104,19 @@ nav:
       - Kontenery (cloud): ISP/setup/setup_cc.md
       - LANFree: ISP/setup/setup_sta.md
       - Upgrade: ISP/setup/upgrade.md
+      - Server to server: ISP/setup/setup_s2s.md
+    - Administracja: 
+      - ISP/adm/index.md
+      - Pule kontenerowe: ISP/adm/dcp.md
+      - Replikacja: ISP/adm/repl.md
     - Użyteczne opcje: ISP/srv_opts.md
     - Klienci:
       - ISP/clients/index.md
       - Klient BA: ISP/clients/ba.md
       - DB2: ISP/clients/db2.md
       - TDP4VE: ISP/clients/TDP4VE.md 
+    - Disaster recovery:
+      - ISP/dr/index.md
   - LNX: 
     - LNX/README.md
     - HA - Pacemaker: 
@@ -148,3 +156,7 @@ nav:
   - WinDOS: 
     - WinDOS/index.md
     - WinDOS/PS.md
+  - TS4500:
+    - ts4500/index.md
+    - Command line: ts4500/tscli.md
+    - Biblioteki logiczne: ts4500/logical_lib.md

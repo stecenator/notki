@@ -56,7 +56,7 @@ select cast(source_name as char(15)) src, -
 	order by src, lib, drv
 ```
 
-1. Generator komendy `del vol` dla pustych taśm w puli:
+### Generator komendy `del vol` dla pustych taśm w puli:
 
 	```sql
 	select 'del vol ' as qra, cast(volume_name as char(8)) VN, ' w=y' WAIT from volumes where volume_name  in ( select volume_name from libvolumes where library_name='TS4500KON' and volume_name like '%L5' and status='Private') and status='EMPTY' and stgpool_name='ORACLECOPY'
@@ -230,44 +230,66 @@ Tu są skrypty, które przydają się w porannej kawie i ogólnej ocenie stanu z
 
 ## Nody i filespace
 
-1. Ogólny raport o klinetach. Wersje, IP, sortowany według ostatniego dostępu (najstarsi, czyli trupy z szafy, na górze):
 
-	```sql
-	select cast(node_name as char(15)) Node,cast(DOMAIN_NAME as char(20)) Domain, -
-	 cast(CLIENT_VERSION || '.' || CLIENT_RELEASE || '.' || CLIENT_LEVEL || '.' || CLIENT_SUBLEVEL as char(12)) as ver, -
-	 cast(APPLICATION_VERSION || '.' || APPLICATION_RELEASE || '.' || APPLICATION_LEVEL || '.' || APPLICATION_SUBLEVEL as char(15)) as app, -
-	 PLATFORM_NAME, -
-	 cast(CLIENT_OS_LEVEL as char(15)) as os_ver, -
-	 cast(TCP_NAME as char(25)) as hostname, -
-	 cast(TCP_ADDRESS as char(16)) as ip, -
-	 days(current date) - days(LASTACC_TIME) as LAST_ACC -
-	from nodes -
-	order by LAST_ACC desc, NODE_NAME asc
-	```
+### Trupy w szafie 
 
-	Definicja skryptu:
+
+#### Raport ogólny 
+
+Ogólny raport o klinetach. Wersje, IP, sortowany według ostatniego dostępu (najstarsi, czyli trupy z szafy, na górze):
+
+```sql title="Kura do wklejania"
+select cast(node_name as char(15)) Node,cast(DOMAIN_NAME as char(20)) Domain, -
+ cast(CLIENT_VERSION || '.' || CLIENT_RELEASE || '.' || CLIENT_LEVEL || '.' || CLIENT_SUBLEVEL as char(12)) as ver, -
+ cast(APPLICATION_VERSION || '.' || APPLICATION_RELEASE || '.' || APPLICATION_LEVEL || '.' || APPLICATION_SUBLEVEL as char(15)) as app, -
+ PLATFORM_NAME, -
+ cast(CLIENT_OS_LEVEL as char(15)) as os_ver, -
+ cast(TCP_NAME as char(25)) as hostname, -
+ cast(TCP_ADDRESS as char(16)) as ip, -
+ days(current date) - days(LASTACC_TIME) as LAST_ACC -
+from nodes -
+order by LAST_ACC desc, NODE_NAME asc
+```
+
+Definicja skryptu:
   
-	```
-	define script node_stats -
-	"select cast(node_name as char(15)) Node,cast(DOMAIN_NAME as char(20)) Domain, cast(CLIENT_VERSION || '.' || CLIENT_RELEASE || '.' || CLIENT_LEVEL || '.' || CLIENT_SUBLEVEL as char(12)) as ver, cast(APPLICATION_VERSION || '.' || APPLICATION_RELEASE || '.' || APPLICATION_LEVEL || '.' || APPLICATION_SUBLEVEL as char(15)) as app, PLATFORM_NAME, cast(CLIENT_OS_LEVEL as char(15)) as os_ver, cast(TCP_NAME as char(25)) as hostname, cast(TCP_ADDRESS as char(16)) as ip, days(current date) - days(LASTACC_TIME) as LAST_ACC from nodes order by LAST_ACC desc, NODE_NAME asc" -
-	desc="Trupy w szafie"
+``` title="Definicja skryptu node_stats"
+define script node_stats -
+"select cast(node_name as char(15)) Node,cast(DOMAIN_NAME as char(20)) Domain, cast(CLIENT_VERSION || '.' || CLIENT_RELEASE || '.' || CLIENT_LEVEL || '.' || CLIENT_SUBLEVEL as char(12)) as ver, cast(APPLICATION_VERSION || '.' || APPLICATION_RELEASE || '.' || APPLICATION_LEVEL || '.' || APPLICATION_SUBLEVEL as char(15)) as app, PLATFORM_NAME, cast(CLIENT_OS_LEVEL as char(15)) as os_ver, cast(TCP_NAME as char(25)) as hostname, cast(TCP_ADDRESS as char(16)) as ip, days(current date) - days(LASTACC_TIME) as LAST_ACC from nodes order by LAST_ACC desc, NODE_NAME asc" -
+desc="Trupy w szafie"
 
-	```
+```
 
-1. Węzły, które się nie kontaktowały od 30 dni:
+#### Węzły, które się nie kontaktowały od 30 dni:
 
-	```sql
-	select cast(node_name as char(25)) NN, cast(domain_name as char(12)) DN, (days(current date) - days(LASTACC_TIME))  days_ina 
-	from nodes 
-	where  (days(current date) - days(LASTACC_TIME))>30 
-	order by domain_name,  days_ina
-	```
+```sql title="Leniuchy"
+select cast(node_name as char(25)) NN, -
+	cast(domain_name as char(12)) DN, -
+	(days(current date) - days(LASTACC_TIME))  days_ina -
+from nodes -
+where  (days(current date) - days(LASTACC_TIME))>30 -
+order by domain_name,  days_ina
+```
 
-	Jednolinijkowiec: 
+```sql title="Leniuchy, Jednolinijkowiec"
+select cast(node_name as char(25)) NN, cast(domain_name as char(12)) DN, (days(current date) - days(LASTACC_TIME))  days_ina from nodes where  (days(current date) - days(LASTACC_TIME))>30 order by domain_name,  days_ina
+```
 
-	```sql
-	select cast(node_name as char(25)) NN, cast(domain_name as char(12)) DN, (days(current date) - days(LASTACC_TIME))  days_ina from nodes where  (days(current date) - days(LASTACC_TIME))>30 order by domain_name,  days_ina
-	```
+#### Węzły, które są aktywne (kontakt w ciągu ostatnich 30 dni):
+
+```sql title="Aktywiści"
+select cast(node_name as char(25)) NN, -
+	cast(domain_name as char(12)) DN, -
+	(days(current date) - days(LASTACC_TIME))  days_ina -
+from nodes -
+where  (days(current date) - days(LASTACC_TIME))<30 -
+order by domain_name,  days_ina
+```
+
+```sql title="AKtywiści, Jednolinijkowiec"
+select cast(node_name as char(25)) NN, cast(domain_name as char(12)) DN, (days(current date) - days(LASTACC_TIME))  days_ina from nodes where  (days(current date) - days(LASTACC_TIME))<30 order by domain_name,  days_ina
+```
+
 
 1. Filespacee z zakończonym backupem wcześniej niż 30 fdni temu:
 

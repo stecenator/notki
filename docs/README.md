@@ -5,12 +5,15 @@ icon: material/home
 # notki
 
 !!! Warning ":fontawesome-solid-person-digging: Uwaga! :fontawesome-solid-person-digging:"
-	Ta strona jest praktycznie zwasze "Under construction" :wink:
-	<br><br>
-	![Under construction](assets/under-construction.svg) (1)
-	{ .annotate }
-
+	
+	![Under construction](assets/under-construction.svg){ width="150" align=left } (1)
+	{ .annotate } 
+	
 	1. Tę grafikę ściągnąłem [stąd](https://freesvg.org/under-construction-road-sign)
+
+	Ta strona jest praktycznie zwasze "Under construction" :wink:
+
+	
 
 Podczas mojej podnad cwierćwiecznej pracy w :IBM-bw: z [niebieskimi](https://ibm.com) technologiami, czy podczas wypasu pingwinów :fontawesome-brands-linux:, lub antylop GNU :gnu:, czasami wymyślę coś czego, nie chę wymyślać drugi raz. Wtedy wrzucam to tutaj. Kiedyś ten projekt leżał wyłącznie na GitHubie, ale postanowiłem go "ukompatybilnić" z `mkdocs`, stąd umieszczenie wszystkiego w podkatalogu `docs`.
 
@@ -43,9 +46,11 @@ Na ADSM się nie załapałem :wink:.
 
 [Linux](LNX/README.md)
 
-## mkdocs
+## ~~mkdocs~~ Zensical
 
 Cała ta dokumentacja jest stworzona przy pomocy pakietu [mkdocs/metrial](https://squidfunk.github.io/mkdocs-material/reference/). System wydaje się prosty, ale jest w nim kilka niebanalnych zadziorów, które staram się opisywać na bieżąco.
+
+Np., jednym z nich jest przesiadka na [Zensical](https://zensical.org), który wydaje się fajniej rozwijać.
 
 [mkdocs](mkdocs/index.md)
 

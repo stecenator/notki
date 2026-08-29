@@ -39,6 +39,8 @@ sudo sed 's/^SELINUX=enforcing/SELINUX=permissive/' -i.bak /etc/sysconfig/selinu
 RHEL może być zainstalowany z profilu *Minimal Server*, ale będzie potrzebować jeszcze:
 
 * `ksh`
+* `libnsl` - na RHEL8 może tego nie byc w minimalnej instalacji.
+* `libxcrypt-compat` - to jest biblioteka, która jest potrafi zniknąć po `leapp upgrade` z 8 na 9 i w ogóle nie jest instalowana przez 9 (minimal server). DB2 jej potrzebuje i wypierdala się bez niej na etapie instalacji na RH9.
 
 Opcjonalne, ułatwiające życie:
 
@@ -46,7 +48,8 @@ Opcjonalne, ułatwiające życie:
 * `xterm`
 * `tigervnc-server` - choć w tej procedurze instaluję "na piechotę" ale jak by ktoś chciał tworzyć instancję przez przez `dsmicfgx`
 * `tmux` - bo jest lepszy niż screen 
-* `libnsl` - na RHEL8 może tego nie byc w minimalnej instalacji.
+* `xorg-x11-xauth` - jak chcesz forwardwać X11, np `dsmicfgx`.
+
 
 Jesli maszyna ma chodzić z taśmami IBM to:
 
