@@ -71,6 +71,7 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
       primary: orange
+  language: pl
 
 extra:
   social: 
@@ -155,3 +156,7 @@ nav:
   - WinDOS: 
     - WinDOS/index.md
     - WinDOS/PS.md
+  - TS4500:
+    - ts4500/index.md
+    - Command line: ts4500/tscli.md
+    - Biblioteki logiczne: ts4500/logical_lib.md
