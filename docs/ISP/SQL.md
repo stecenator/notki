@@ -28,9 +28,9 @@ select cast(source_name as char(15)) src, cast(pt.LIBRARY_NAME as char(15)) lib,
 select cast(source_name as char(15)) src, -
 		cast(pt.LIBRARY_NAME as char(15)) lib, -
 		cast(dr.DRIVE_NAME as char(15)) drv, -
-		cast(pt.device as char(20)) dev, -
-		cast(dr.drive_serial as char(20)) serial, -
-		cast(pt.online as char(8)) online -
+		cast(pt.device as char(38)) dev, -
+		cast(dr.drive_serial as char(13)) serial, -
+		cast(pt.online as char(7)) online -
 	from drives dr, paths pt -
 	where dr.drive_name = pt.destination_name -
 	order by src, lib, drv
@@ -39,7 +39,7 @@ select cast(source_name as char(15)) src, -
 Lista napędów **innych** niż `FILE`, jednolinijkowiec:
 
 ```sql 
-select cast(source_name as char(15)) src, cast(pt.LIBRARY_NAME as char(15)) lib, cast(dr.DRIVE_NAME as char(15)) drv, cast(pt.device as char(20)) dev,  cast(dr.drive_serial as char(20)) serial, cast(pt.online as char(8)) online from drives dr, paths pt  where pt.device <> 'FILE' and dr.drive_name = pt.destination_name order by src, lib, drv
+select cast(source_name as char(15)) src, cast(pt.LIBRARY_NAME as char(15)) lib, cast(dr.DRIVE_NAME as char(15)) drv, cast(pt.device as char(38)) dev,  cast(dr.drive_serial as char(13)) serial, cast(pt.online as char(7)) online from drives dr, paths pt  where pt.device <> 'FILE' and dr.drive_name = pt.destination_name order by src, lib, drv
 ```
 
 Ładnie:
