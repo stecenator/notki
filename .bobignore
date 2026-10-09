@@ -1,0 +1,4 @@
+# Katalogi z danymi wrażliwymi — wyłączone z indeksowania
+priv/
+secrets/
+secure/

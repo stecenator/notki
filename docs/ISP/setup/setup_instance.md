@@ -335,14 +335,28 @@ Od wersji 6 w górę, TSM/Protect działa na dedykowanym użytkowniku. Ten użyt
     sudo chown spinst1:spinst1 -R /sp
     ```
 
-1. Zmień (u)limity dla użytkownika instancji. Zrób _dropin_ z ustawianiemi ulimitów. Zawsze warto je [sprawdzić w :IBM-bw:](https://www.ibm.com/docs/en/storage-protect/8.2.0?topic=instance-verifying-access-rights-user-limits) dla aktualnej wersji. Tu dla 8.2.
+1. Zmień (u)limity dla użytkownika instancji.  Zawsze warto je [sprawdzić w :IBM-bw:](https://www.ibm.com/docs/en/storage-protect/8.2.0?topic=instance-verifying-access-rights-user-limits) dla aktualnej wersji. Tu dla 8.2.
 
-    ``` title="/etc/security/limits.d/spinst1.conf"
-    spinst1 soft nofile 65536
-    spinst1 hard nofile 65536
-    ```
+    === ":simple-linux: Linux"
 
-    !!! Tip "`ulimit` na AIXie"
+        Na Linuxie najlepiej zrób _dropin_ z ustawianiemi ulimitów:
+
+        ``` title="/etc/security/limits.d/spinst1.conf"
+        spinst1 soft nofile 65536
+        spinst1 hard nofile 65536
+        ```
+
+        Wklejka dla leniuchów:
+
+        ```bash
+        cat > /etc/security/limits.d/spinst1.conf << EOF
+        spinst1 soft nofile 65536
+        spinst1 hard nofile 65536
+        EOF
+        ```
+
+    === ":AIX-old: AIX"
+
         Parę rzeczy w AIXie wyjętym z pudełka trzeba zmienić:
 
         Do `/etc/security/limits` w sekcji `default` albo dla `spinst1` wpisać:
@@ -353,9 +367,13 @@ Od wersji 6 w górę, TSM/Protect działa na dedykowanym użytkowniku. Ten użyt
         fsize = -1
         ```
 
+        Dla leniuchów:
+
+        _Kiedyś wpiszę odpowiednie komendy `chuser`._ :wink:
+
 ## Tworzenie instancji :IBM-bw: Storage Protect
 
-Jak spelnione są te warunki:
+Jak spełnione są te warunki:
 
 - [x] Host ma statyczny IP,
 - [x] Host umie rozwiązać swo=ój `hostname` do swojego IP,
@@ -382,7 +400,7 @@ można przejść do tworzenia instancji ISP. Zaczyna się od instancji... DB2
 1. Ustaw domyślny katalog baz na katalog instancji `/sp/spinst1`:
 
     ``` title="Ustawianie DFTDBPATH"
-    db2 update dbm cfg using dftdbpath /sp/inst1
+    db2 update dbm cfg using dftdbpath /sp/spinst1
     ```
 
 1. I jeszcze `DB2NOEXITLIST=ON`
@@ -466,14 +484,14 @@ można przejść do tworzenia instancji ISP. Zaczyna się od instancji... DB2
         PREALLOCREDUCTIONRATE 12
         ```
 
-1. Przejdź do `/sp/inst1`.
+1. Przejdź do `/sp/spinst1`.
 1. Sformatuj instancję.
 
     ```sh title="Formatoanie instancji ISP"
     dsmserv format dbdir=/sp/db/01,/sp/db/02 activelogsize=16384 activelogdirectory=/sp/actlog archlogdirectory=/sp/archlog
     ```
 
-1. Jako użytkownik __instancji__, przygotuj plik `/sp/inst1/tsmdbmgr.opt` o następującej treści:
+1. Jako użytkownik __instancji__, przygotuj plik `/sp/spinst1/tsmdbmgr.opt` o następującej treści:
 
     ``` title="tsmdbmgr.opt"
     SERVERNAME   TSMDBMGR_spinst1
@@ -487,7 +505,7 @@ można przejść do tworzenia instancji ISP. Zaczyna się od instancji... DB2
       TCPPORT          1500
       TCPSERVERADDRESS 127.0.0.1
       NODENAME         $$_TSMDBMGR_$$
-      ERRORLOGNAME     /sp/inst1/tsmdbmgr.log
+      ERRORLOGNAME     /sp/spinst1/tsmdbmgr.log
     ```
 
 1. Utwórz definicję usługi `systemd` do startowania Twojej instancji:
@@ -509,7 +527,7 @@ można przejść do tworzenia instancji ISP. Zaczyna się od instancji... DB2
     ```
 
     !!! Note "Ważne"
-        Zwróć uwagę, że `Exec{Start,Stop,Reload}` odnosze się do póki co, niistniejącegp skryptu `/opt/tivoli/tsm/server/bin/spinst1`. Trzeba go utworzyć.
+        Zwróć uwagę, że `Exec{Start,Stop,Reload}` odnosze się do póki co, nieistniejącegp skryptu `/opt/tivoli/tsm/server/bin/spinst1`. Trzeba go utworzyć.
 
 1. Skopiuj szablon skrytpu startowego na plik o nazwię takiej samej jak użytkownik instancji:
 
@@ -524,7 +542,7 @@ można przejść do tworzenia instancji ISP. Zaczyna się od instancji... DB2
 
 
     ```sh title="podmiana instance_dir"
-    sudo  sed -i 's|^instance_dir=.*|instance_dir="/sp/inst1"|' /opt/tivoli/tsm/server/bin/spinst1
+    sudo  sed -i 's|^instance_dir=.*|instance_dir="/sp/spinst1"|' /opt/tivoli/tsm/server/bin/spinst1
     ```
 
     ```sh title="podmiana pidfile"

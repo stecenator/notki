@@ -117,6 +117,7 @@ nav:
       - TDP4VE: ISP/clients/TDP4VE.md 
     - Disaster recovery:
       - ISP/dr/index.md
+      - ISP/dr/full_logs.md
   - LNX: 
     - LNX/README.md
     - HA - Pacemaker: 
