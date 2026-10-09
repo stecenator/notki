@@ -31,11 +31,3 @@ export node dom=<domena>
 ```
 
 Oczywiście istnieje mnustwo opcji eksportu od pojedynczych nodów po nody z domeny jak na :arrow_up: przykładzie.
-
-
-### Unikanie zapełnienia logów
-
-Czasami, przeważnie przy dużych replikacjachm albo masowym kasowaniu z puli kontenerowej, Protect generuje bardzo dużo, dużych transakcji. Tego nie widać jako proces, 
-ale pod spodem, DB2 piotrafi się dosłownie zabić o własne logi: natrzepie tyle transakcji, że automatyczny backup nie zdąży ociąć logów. dlatego jako pampers, warto zrobić zapychacze miejsca w filesytemach logów, zarówno ACTLOG jak i ARCHLOG.
-
-To się szczególnie przydaje, jeśli nie ma już możliwośći powiększenia tych filesystemów. 
