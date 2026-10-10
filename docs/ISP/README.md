@@ -30,4 +30,4 @@ To nie kopiuje definicji nodów, dlatego warto to zrobć tak:
 export node dom=<domena>
 ```
 
-Oczywiście istnieje mnustwo opcji eksportu od pojedynczych nodów po nody z domeny jak na :arrow_up: przykładzie.
+Oczywiście istnieje mnóstwo opcji eksportu od pojedynczych nodów po nody z domeny jak na :arrow_up: przykładzie.
