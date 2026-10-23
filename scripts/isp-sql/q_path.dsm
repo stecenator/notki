@@ -1,0 +1,2 @@
+define script q_path "select cast(SOURCE_NAME as char(15)) src, cast(DESTINATION_NAME as char(15)) dst, cast(p.LIBRARY_NAME as char(15)) libr, cast(DEVICE as char(40)) as dev, cast(drive_serial as char(15)) as serial, WWN from paths p, drives d where p.online<>'YES' and d.drive_name=p.destination_name" -
+descr="Offilne paths with devices and WWNs"

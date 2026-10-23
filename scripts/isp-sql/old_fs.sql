@@ -1,0 +1,6 @@
+select cast(node_name as char(15)) node, -
+        cast(FILESPACE_NAME as char(35)) FS, -
+        (days(current date) - days(BACKUP_END)) LAST_FS_BKP -
+    from filespaces -
+    where  (days(current date) - days(BACKUP_END))>30 -
+    order by LAST_FS_BKP desc

@@ -1,0 +1,6 @@
+select cast(node_name as char(25)) NN, -
+	cast(domain_name as char(12)) DN, -
+	(days(current date) - days(LASTACC_TIME))  days_ina -
+from nodes -
+where  (days(current date) - days(LASTACC_TIME))<30 -
+order by domain_name,  days_ina
