@@ -1,0 +1,10 @@
+select cast(stgpool_name as char(20)) as STG, -
+	PCT_UTILIZED, -
+	RECLAIM, -
+	RECLAIMPROCESS, -
+	MIGPROCESS, -
+	lpad((NUMSCRATCHUSED || '/' || MAXSCRATCH),10,' ') as Scr,  -
+	dec(dec(NUMSCRATCHUSED,6,2)/dec(MAXSCRATCH,6,2)*100, 5,1) as ScrPct  -
+from stgpools -
+where maxscratch>0 -
+order by ScrPct

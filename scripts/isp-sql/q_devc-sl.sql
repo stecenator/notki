@@ -1,0 +1,1 @@
+select DEVCLASS_NAME, cast(ACCESS_STRATEGY as char(15)) Access, DEVTYPE, cast(FORMAT as char(15)) FMT, cast(CAPACITY/1024 as decimal(7,1)) as GIB, MOUNTLIMIT, cast(DIRECTORY as char(50)) dir from devclasses

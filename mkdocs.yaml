@@ -93,7 +93,11 @@ nav:
   - GPFS: GPFS/index.md
   - ISP:
     - ISP/README.md
-    - Qury SQLowe: ISP/SQL.md
+    - SQL & makra: 
+      - ISP/sql_mac/index.md
+      - SQLe informacyjne: ISP/sql_mac/get_info.md
+      - Makra i skrypty robocze: ISP/sql_mac/macros.md
+      - Brudnopis: ISP/sql_mac/scratch.md
     - Setup serwera: 
       - ISP/setup/index.md
       - OS: ISP/setup/setup_os.md

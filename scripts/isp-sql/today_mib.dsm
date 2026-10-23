@@ -1,0 +1,3 @@
+define script today_mib -
+"select cast(entity as char(20)) kto , sum(seconds_between(end_time, start_time))as sekundy, sum(bytes)/1024/1024 MiB from summary where activity='BACKUP' and  date(current date) = date(start_time)group by entity" -
+descr="Todays MiBs"

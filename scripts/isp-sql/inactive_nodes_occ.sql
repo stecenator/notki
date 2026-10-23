@@ -1,0 +1,8 @@
+select cast(a.node_name as char(20)) Node, -
+        dec(sum(LOGICAL_MB)/1024, 8,1) GiB -
+    from occupancy a -
+    where a.node_name in -
+        ( select node_name -
+            from  nodes -
+            where  (days(current date) - days(LASTACC_TIME))>30 ) -
+    group by a.node_name
