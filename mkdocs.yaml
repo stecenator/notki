@@ -122,6 +122,11 @@ nav:
     - Disaster recovery:
       - ISP/dr/index.md
       - ISP/dr/full_logs.md
+  - Defender:
+    - def/index.md
+    - IDP:
+      - def/idp/index.md
+      - Setup: def/idp/setup.md
   - LNX: 
     - LNX/README.md
     - HA - Pacemaker: 

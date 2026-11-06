@@ -1,0 +1,10 @@
+select cast(DOMAIN_NAME as char(10)) dom, -
+        cast(SCHEDULE_NAME as char(15)) sched, -
+        cast(DESCRIPTION as char(30)) descr, -
+        cast(ACTION as char(3)) act, -
+        cast(SUBACTION as char(7)) SubA, -
+        cast(OPTIONS as char(18)) Opt, -
+        cast(OBJECTS as char(75)) obj, -
+        dec(MAXRUNTIME, 4,0) "max rt" -
+    from CLIENT_SCHEDULES
+

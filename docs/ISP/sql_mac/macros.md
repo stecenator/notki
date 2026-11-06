@@ -337,6 +337,85 @@ Takie trochę lepsze `q node`.
     --8<-- "scripts/isp-sql/q_arch_pol.dsm"
     ```
 
+## Harmonogramy
+
+### Klienckie
+
+Akurat oryginalna komenda `query schedule` jest całkiem fajna, ale poniżej wrzucam SQLam który wyciąga pawne detale.
+
+#### Wywoływane operacje
+
+=== "SQL"
+
+    ```sql
+    --8<-- "scripts/isp-sql/q_cli_sched.sql"
+    ```
+
+=== "Skrypt `q_cli_sched.dsm`"
+
+    ```
+    --8<-- "scripts/isp-sql/q_cli_sched.dsm"
+    ```
+
+### Administracyjne 
+
+Oryginalna komenda `q sched t=a` jest fajna,
+
+``` title="query schedule type=administrative"
+q schedule t=a
+```
+Ale nie pokazuje czy jest katywny czy nie i co tak naprawdę robi, dlatego przydaje się ten SQL:
+
+=== "SQL"
+
+    ```sql
+    --8<-- "scripts/isp-sql/q_adm_sched.sql"
+    ```
+
+=== "Skrypt `q_adm_sched`"
+
+    ```
+    --8<-- "scripts/isp-sql/q_adm_sched.dsm"
+    ```
+
+
+## Replikacja
+
+Wszytko co chcę wiedzieć na temat replikacji.
+
+#### Regułki replikacyjne
+
+=== "SQL"
+
+    Regułki replikacyjne:
+
+    ```sql
+    --8<-- "scripts/isp-sql/q_repl_rules.sql"
+    ```
+
+    ---
+
+    I wyjątki od tychże:
+
+    ```sql
+    --8<-- "scripts/isp-sql/q_repl_subrules.sql"
+    ```
+
+=== "Skrypt `q_repl_rules`"
+
+    Definicja skryptu od regułek: 
+
+    ```
+    --8<-- "scripts/isp-sql/q_repl_rules.dsm"
+    ```
+
+    I od wyjątków:
+
+    ```
+    --8<-- "scripts/isp-sql/q_repl_subrules.dsm"
+    ```
+
+
 ## Jak to odpalić?
 
 Przed zbieraniem danych trzeba puścić [makro](#makro-definujace-skrypty-operacyjne) definujące te skrypty. Zakładam, że zostało skopiowane do pliku `def-scripts.mac`
@@ -414,4 +493,15 @@ Definicja wszystkich przydatnych skryptów w jednym makrze. Skopiuj tę treść
 /* Script: q_arch_pol */
 --8<-- "scripts/isp-sql/q_arch_pol.dsm"
 /* ------------------------------------------------- */
+/* Script: q_cli_sched */
+--8<-- "scripts/isp-sql/q_cli_sched.dsm"
+/* ------------------------------------------------- */
+/* Script: q_adm_sched */ 
+--8<-- "scripts/isp-sql/q_adm_sched.dsm"
+/* ------------------------------------------------- */
+/* Script: q_repl_rules */ 
+--8<-- "scripts/isp-sql/q_repl_rules.dsm"
+/* ------------------------------------------------- */
+/* Script: q_repl_subrules */ 
+--8<-- "scripts/isp-sql/q_repl_subrules.dsm"
 ```

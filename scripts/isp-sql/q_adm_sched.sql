@@ -1,0 +1,6 @@
+select cast(SCHEDULE_NAME as char(20)) Name, -
+        cast(DESCRIPTION as char(35)) Descr, -
+        cast(COMMAND as char(55)) Cmd, -
+        dec(MAXRUNTIME, 4,0) Max_rt, -
+        cast(ACTIVE as char(3)) Act -
+    from admin_schedules
