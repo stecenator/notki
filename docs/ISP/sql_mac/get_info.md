@@ -6,6 +6,8 @@ icon: material/table-search
 
 Zbiór użytecznych zapytań SQL, definicji skryptów serwera i makr, których używam do zbierania danych do dokumentacji wdrożeniowej i podczas pracy z TSM/ISP. SQLe pomagąjące w codziennnym życiu, oraz odpowiednie definicje skryptów, znajduję się w [tym](macros.md) rozdziale.
 
+W tym rozdziale trzymam też zwykłe komendy typu `query cośtam`, bo często podają dokładnie to czego mi potrzeba, żeby się rozejrzeć w danej instancji.
+
 !!! Tip "Wskazówka"
     Nie musisz kopiwać skryptów pojedynczo. Wszystkie skrypty z tej strony można zdefiniować makrem, które jest [tutaj](macros.md#makro-definujace-skrypty-operacyjne).
 
@@ -332,7 +334,131 @@ Takie trochę lepsze `q node`.
     --8<-- "scripts/isp-sql/q_arch_pol.dsm"
     ```
 
+---
+
 ## Harmonogramy
+
+### Klienckie
+
+#### Ogólne
+
+Akurat oryginalna komenda Protecta jest całkiem fajna wieć ją zostawiam.
+
+``` title="q schedule"
+query sched
+```
+
+#### Wywoływane operacje
+
+=== "SQL"
+
+    ```sql
+    --8<-- "scripts/isp-sql/q_cli_sched.sql"
+    ```
+
+=== "Skrypt `q_cli_sched.dsm`"
+
+    ```
+    --8<-- "scripts/isp-sql/q_cli_sched.dsm"
+    ```
+
+#### Kto co robi
+
+``` title="Pzypisanie klientów do harmonogramów"
+query assoc
+```
+
+### Administracyjne 
+
+Oryginalna komenda `q sched t=a` jest fajna,
+
+``` title="query schedule type=administrative"
+q schedule t=a
+```
+Ale nie pokazuje czy jest katywny czy nie i co tak naprawdę robi, dlatego przydaje się ten SQL:
+
+=== "SQL"
+
+    ```sql
+    --8<-- "scripts/isp-sql/q_adm_sched.sql"
+    ```
+
+=== "Skrypt `q_adm_sched`"
+
+    ```
+    --8<-- "scripts/isp-sql/q_adm_sched.dsm"
+    ```
+
+### Skrypty serwerowe
+
+Oryginalna komenda Protecta jest świetna.
+
+``` title="query script format=line"
+query script format=line
+```
+
+### Replikacja
+
+Wszytko co chcę wiedzieć na temat replikacji.
+
+#### Regułki replikacyjne
+
+=== "SQL"
+
+    Regułki replikacyjne:
+
+    ```sql
+    --8<-- "scripts/isp-sql/q_repl_rules.sql"
+    ```
+
+    ---
+
+    I wyjątki od tychże:
+
+    ```sql
+    --8<-- "scripts/isp-sql/q_repl_subrules.sql"
+    ```
+
+=== "Skrypt `q_repl_rules`"
+
+    Definicja skryptu od regułek: 
+
+    ```
+    --8<-- "scripts/isp-sql/q_repl_rules.dsm"
+    ```
+
+    I od wyjątków:
+
+    ```
+    --8<-- "scripts/isp-sql/q_repl_subrules.dsm"
+    ```
+
+
+``` title="query stgrule f=d"
+q stgrule f=d
+```
+
+#### Partnerzy replikacyjni
+
+``` title="query replserver"
+query replserver
+```
+
+#### Kto gdzie się replikuje
+
+``` title="query replnode *"
+query replnode *
+```
+
+#### Stan ostatniej replikacji
+
+``` title="query replication *"
+query replication *
+```
+
+!!! Note 
+    Tu oczywiśćie można poszaleć np filtrując po kokretnym node, filespace czy statusie.
+
 ## Raport ogólny
 
 Czasem, zwłaszcza do celów dokumentacyjnych, potrzebuję wykonać to wszystko razem. Tu są wszystkie zapytania z tego rozdziału, zebrane jako jedno makro:
@@ -386,4 +512,33 @@ Czasem, zwłaszcza do celów dokumentacyjnych, potrzebuję wykonać to wszystko
 /* ------------------------------------------------- */
 /* Archive copy groups with destination */
 --8<-- "scripts/isp-sql/q_arch_pol.sql"
+/* ------------------------------------------------- */
+/* Client schedules */
+q sched
+--8<-- "scripts/isp-sql/q_cli_sched.sql"
+q assoc
+/* ------------------------------------------------- */
+/* Admin schedules summary */
+q sched t=a
+--8<-- "scripts/isp-sql/q_adm_sched.sql"
+/* ------------------------------------------------- */
+/* Server sctipts details */
+q script f=l
+/* ------------------------------------------------- */
+/* Replication storage rules                         */
+--8<-- "scripts/isp-sql/q_repl_rules.sql"
+/* ------------------------------------------------- */
+/* Replication storage subrules                      */
+--8<-- "scripts/isp-sql/q_repl_subrules.sql"
+/* ------------------------------------------------- */
+/* Replication information                           */
+q replserver
+q replnode *
+q replication *
+/* ------------------------------------------------- */
+/* General Status information */
+q status
+/* ------------------------------------------------- */
+/* Client option sets                                */
+q clopt
 ```
